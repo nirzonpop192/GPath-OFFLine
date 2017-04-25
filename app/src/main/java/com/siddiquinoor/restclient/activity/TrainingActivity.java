@@ -44,6 +44,17 @@ public class TrainingActivity extends BaseActivity {
             }
             adapter = new TrainingNActivityIndexAdapter((Activity) mContext, dataArray);                  //Assign the Adapter in list
         }
+
+//
+//               for tes purpose
+//        if (adapter != null && adapter.getCount() > 0) {
+//            if (adapter.getCount() != 0) {
+//                adapter.notifyDataSetChanged();
+//                listView.setAdapter(adapter);
+//            } else {
+//                new ADNotificationManager().showInfromDialog(mContext, "NO Data", "No data Found");
+//            }
+//        }
     }
 
     private void hideProgressBar() {
@@ -153,6 +164,9 @@ public class TrainingActivity extends BaseActivity {
         setListener();
         LoadListView loadListView= new LoadListView(idCountry,"");
         loadListView.execute();
+
+        // for test purpose
+//        loadTrainingActivityEventIndex(idCountry,"");
     }
 
 }

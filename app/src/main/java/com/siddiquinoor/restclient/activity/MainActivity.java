@@ -138,7 +138,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
          * todo : file e save kori
          */
 //        String imeiNo = getIMEINumber();
-        String macAddress = getMacAddress();
+        String macAddress = UtilClass.getMacAddress(mContext);
 
         tvDeviceId.setText(macAddress);
 
@@ -221,7 +221,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 String currentDBPath = "/data/data/" + getPackageName() + "/databases/" + SQLiteHandler.EXTERNAL_DATABASE_NAME;
                 String backupdbName = null;
                 try {
-                    backupdbName = "EXPORT_" + getMacAddress() + "_" + getStaffID() + "_" + getDateTime() + ".db";
+                    backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_" + getStaffID() + "_" + getDateTime() + ".db";
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -243,22 +243,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         });
     }
 
-    /**
-     * this method get the IMEI no
-     *
-     * @return IMEI no odf device
-     */
-
-    private String getIMEINumber() {
-        TelephonyManager teMg = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        return teMg.getDeviceId();
-    }
-
-    private String getMacAddress() {
-        WifiManager m_wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-        return m_wm.getConnectionInfo().getMacAddress();
-
-    }
+//    /**
+//     * this method get the IMEI no
+//     *
+//     * @return IMEI no odf device
+//     */
+//
+//    private String getIMEINumber() {
+//        TelephonyManager teMg = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+//        return teMg.getDeviceId();
+//    }
+//
+//    private String getMacAddress() {
+//        WifiManager m_wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+//        return m_wm.getConnectionInfo().getMacAddress();
+//
+//    }
 
     private void dataBaseCopy(final String sourcePath, final String destinationPath, String msg) {
         try {

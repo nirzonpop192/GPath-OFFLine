@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.siddiquinoor.restclient.R;
 import com.siddiquinoor.restclient.activity.sub_activity.training.IdTypeSelection;
+import com.siddiquinoor.restclient.activity.sub_activity.training.TaSummaryPage;
 import com.siddiquinoor.restclient.data_model.adapters.TrainingNActivityIndexDataModel;
 import com.siddiquinoor.restclient.utils.KEY;
 
@@ -107,9 +108,9 @@ public class TrainingNActivityIndexAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
 
-//                Intent intent = new Intent(activity.getApplicationContext(), DT_ReportActivity.class);
-//                intent.putExtra(KEY.DYNAMIC_INDEX_DATA_OBJECT_KEY, data);
-//                activity.startActivity(intent);
+                Intent intent = new Intent(activity.getApplicationContext(), TaSummaryPage.class);
+                intent.putExtra(KEY.EVENT_INDEX_DATA_OBJECT_KEY, data);
+                activity.startActivity(intent);
 
             }
         });

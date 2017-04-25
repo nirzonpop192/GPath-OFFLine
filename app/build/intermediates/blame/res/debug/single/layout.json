@@ -420,12 +420,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\src\\main\\res\\layout\\activity_summary_assign_criteria.xml"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_training_activity_event_index.xml",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\src\\main\\res\\layout\\list_row_training_activity_event_index.xml"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_all_summary.xml",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\src\\main\\res\\layout\\activity_all_summary.xml"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\layout\\list_row_training_activity_event_index.xml",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\src\\main\\res\\layout\\list_row_training_activity_event_index.xml"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\layout\\zxing_capture.xml",

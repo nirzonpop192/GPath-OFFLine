@@ -175,14 +175,14 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
 
             //  use below code to debug
 
-//            if (adapter.getCount() > 0) {
-//                if (adapter.getCount() != 0) {
-//                    adapter.notifyDataSetChanged();
-//                    listView.setAdapter(adapter);
-//                } else {
-//                    new ADNotificationManager().showInfromDialog(mContext, "NO Data", "No data Found");
-//                }
-//            }
+            if (adapter.getCount() > 0) {
+                if (adapter.getCount() != 0) {
+                    adapter.notifyDataSetChanged();
+                    listView.setAdapter(adapter);
+                } else {
+                    new ADNotificationManager().showInfromDialog(mContext, "NO Data", "No data Found");
+                }
+            }
 
         }
     }
@@ -247,8 +247,8 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
         setListener();
 
         // to debug the below code
-//        loadEligibleTrainingAcitMemList(mTAMasterData.getcCode(), "");
-        LoadListView loadList = new LoadListView(mTAMasterData.getcCode(), "");
-        loadList.execute();
+        loadEligibleTrainingAcitMemList(mTAMasterData.getcCode(), "");
+//        LoadListView loadList = new LoadListView(mTAMasterData.getcCode(), "");
+//        loadList.execute();
     }
 }

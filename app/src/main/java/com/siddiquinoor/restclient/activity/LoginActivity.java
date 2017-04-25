@@ -18,6 +18,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -49,6 +50,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.channels.FileChannel;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -159,15 +164,11 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         barPDialogHandler = new Handler();
-
+        viewReference();
         /**
          * Initialize Button and Input Boxes
          */
-        inputUsername = (EditText) findViewById(R.id.user_name);
-        inputPassword = (EditText) findViewById(R.id.password);
-        btnLogin = (Button) findViewById(R.id.btnLogin);
-        btnExit = (Button) findViewById(R.id.btnExit);
-        btnClean = (Button) findViewById(R.id.btnClean);
+
 
         settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE); //1
         editor = settings.edit(); //2
@@ -185,7 +186,48 @@ public class LoginActivity extends BaseActivity {
 
 
         setListener();
+        createDeviceIDFile();
 
+    }
+
+    private void viewReference() {
+        inputUsername = (EditText) findViewById(R.id.user_name);
+        inputPassword = (EditText) findViewById(R.id.password);
+        btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnExit = (Button) findViewById(R.id.btnExit);
+        btnClean = (Button) findViewById(R.id.btnClean);
+
+    }
+
+    private void createDeviceIDFile() {
+        String macAddress = "";
+        macAddress = UtilClass.getMacAddress(LoginActivity.this);
+        try {
+
+            FileOutputStream fOut = openFileOutput("EMI.txt", MODE_WORLD_READABLE);
+            fOut.write(macAddress.getBytes());
+            fOut.close();
+
+
+            File sd = Environment.getExternalStorageDirectory();                                    // get the internal root directories
+
+            if (sd.canWrite()) {
+                File currentDB = new File("/data/data/" + getPackageName() + "/files/EMI.txt");
+                File backupDB = new File(sd, "EMI.txt");
+
+                if (currentDB.exists()) {
+                    FileChannel src = new FileInputStream(currentDB).getChannel();
+                    FileChannel dst = new FileOutputStream(backupDB).getChannel();
+                    dst.transferFrom(src, 0, src.size());
+                    src.close();
+                    dst.close();
+
+                }
+            }
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
 
     }
 
@@ -369,12 +411,15 @@ public class LoginActivity extends BaseActivity {
                         if (operationModeStringArray[mode_index].equals(strOperationMode)) {
 
                             // remove shred preference dependence from app
+                            String entryTime = "";
 
                             try {
-                                db.insertIntoDeviceOperationMode((mode_index + 1), strOperationMode, user_name, getDateTime());
+                                entryTime = getDateTime();
                             } catch (ParseException e) {
                                 e.printStackTrace();
                             }
+
+                            db.insertIntoDeviceOperationMode((mode_index + 1), strOperationMode, user_name,entryTime );
                             pDialog = new ProgressDialog(mContext);
                             pDialog.setCancelable(false);
                             pDialog.setMessage("Downloading  data .");
@@ -445,12 +490,12 @@ public class LoginActivity extends BaseActivity {
 
         // Getting local User information
         HashMap<String, String> user = db.getUserDetails();
-        setUserName(user.get("name"));  // Setting Username into session
-        setStaffID(user.get("code"));   // Setting StaffCode into session
+        setUserName(user.get("name"));                                                              // Setting Username into session
+        setStaffID(user.get("code"));                                                               // Setting StaffCode into session
         setUserID(user.get("username"));
         setUserPassword(user.get("password"));
 
-        setUserCountryCode(user.get("c_code")); // Setting Country Code into session
+        setUserCountryCode(user.get("c_code"));                                                     // Setting Country Code into session
 
         /**
          *  Launch main activity

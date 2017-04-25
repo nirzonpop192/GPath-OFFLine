@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.wifi.WifiManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -335,5 +337,21 @@ public class UtilClass {
         return surveyNumber;
     }
 
+    public static String getIMEINumber(Context context) {
+        TelephonyManager teMg = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        return teMg.getDeviceId();
+    }
+
+
+    /**
+     *
+     * @param context invoking context class
+     * @return mac address of device
+     */
+    public static String getMacAddress(Context context) {
+        WifiManager m_wm = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        return m_wm.getConnectionInfo().getMacAddress();
+
+    }
 
 }

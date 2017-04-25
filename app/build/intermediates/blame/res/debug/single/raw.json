@@ -44,12 +44,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_lome"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_moscow",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_moscow"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_africa_bamako",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_africa_bamako"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_moscow",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_europe_moscow"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_europe_helsinki",
@@ -1760,12 +1760,12 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_jamaica"
     },
     {
-        "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_oral",
-        "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_oral"
-    },
-    {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_cuiaba",
         "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_america_cuiaba"
+    },
+    {
+        "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_asia_oral",
+        "source": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\raw\\joda_asia_oral"
     },
     {
         "merged": "D:\\WorkSpace\\AndroidStudioProject\\April-2017\\GPath-2017-03\\app\\build\\intermediates\\res\\merged\\debug\\raw\\joda_america_pangnirtung",

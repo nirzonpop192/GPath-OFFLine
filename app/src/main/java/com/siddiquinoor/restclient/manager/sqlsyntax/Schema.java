@@ -121,46 +121,46 @@ public class Schema {
                 + " , " + RELATION_COL + " VARCHAR(50) "
                 + " , " + ENTRY_BY + " VARCHAR(10) "
                 + " , " + ENTRY_DATE + " VARCHAR(20) "
-                + " , " + SQLiteHandler.LMP_DATE + " DATE "
-                + " , " + SQLiteHandler.CHILD_DOB + " DATE "
-                + " , " + SQLiteHandler.ELDERLY + " VARCHAR(1) "
-                + " , " + SQLiteHandler.DISABLE + " VARCHAR(1) "
-                + " , " + SQLiteHandler.MEM_AGE + " VARCHAR(5) "
-                + " , " + SQLiteHandler.REG_DATE_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.BIRTH_YEAR_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.MARITAL_STATUS_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.CONTACT_NO_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.MEMBER_OTHER_ID_COL + " VARCHAR(100) "
-                + " , " + SQLiteHandler.MEM_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.MEM_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.MEM_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PHOTO_COL + " BLOB "
-                + " , " + SQLiteHandler.TYPE_ID_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.ID_NO_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_1_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_1_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_1_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_1_TITLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_2_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_2_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_2_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.V_BSC_MEM_2_TITLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_DESIGNATION_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BIRTH_YEAR_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.PROXY_PHOTO_COL + " BLOB "
-                + " , " + SQLiteHandler.PROXY_TYPE_ID_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_ID_NO_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_1_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_1_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_1_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_1_TITLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_2_NAME_FIRST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_2_NAME_MIDDLE_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_2_NAME_LAST_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.PROXY_BSC_MEM_2_TITLE_COL + " VARCHAR(50) "
+                + " , " + LMP_DATE + " DATE "
+                + " , " + CHILD_DOB + " DATE "
+                + " , " + ELDERLY + " VARCHAR(1) "
+                + " , " + DISABLE + " VARCHAR(1) "
+                + " , " + MEM_AGE + " VARCHAR(5) "
+                + " , " + REG_DATE_COL + " VARCHAR(20) "
+                + " , " + BIRTH_YEAR_COL + " VARCHAR(20) "
+                + " , " + MARITAL_STATUS_COL + " VARCHAR(20) "
+                + " , " + CONTACT_NO_COL + " VARCHAR(50) "
+                + " , " + MEMBER_OTHER_ID_COL + " VARCHAR(100) "
+                + " , " + MEM_NAME_FIRST_COL + " VARCHAR(50) "
+                + " , " + MEM_NAME_MIDDLE_COL + " VARCHAR(50) "
+                + " , " + MEM_NAME_LAST_COL + " VARCHAR(50) "
+                + " , " + PHOTO_COL + " BLOB "
+                + " , " + TYPE_ID_COL + " VARCHAR(50) "
+                + " , " + ID_NO_COL + " VARCHAR(50) "
+                + " , " + V_BSC_MEM_1_NAME_FIRST_COL + " VARCHAR(50) "
+                + " , " + V_BSC_MEM_1_NAME_MIDDLE_COL + " VARCHAR(50) "
+                + " , " + V_BSC_MEM_1_NAME_LAST_COL + " VARCHAR(50) "
+                + " , " + V_BSC_MEM_1_TITLE_COL + " VARCHAR(50) "
+                + " , " + V_BSC_MEM_2_NAME_FIRST_COL + " VARCHAR(50) "
+                + " , " + V_BSC_MEM_2_NAME_MIDDLE_COL + " VARCHAR(50) "
+                + " , " + V_BSC_MEM_2_NAME_LAST_COL + " VARCHAR(50) "
+                + " , " + V_BSC_MEM_2_TITLE_COL + " VARCHAR(50) "
+                + " , " + PROXY_DESIGNATION_COL + " VARCHAR(50) "
+                + " , " + PROXY_NAME_FIRST_COL + " VARCHAR(50) "
+                + " , " + PROXY_NAME_MIDDLE_COL + " VARCHAR(50) "
+                + " , " + PROXY_NAME_LAST_COL + " VARCHAR(50) "
+                + " , " + PROXY_BIRTH_YEAR_COL + " VARCHAR(20) "
+                + " , " + PROXY_PHOTO_COL + " BLOB "
+                + " , " + PROXY_TYPE_ID_COL + " VARCHAR(50) "
+                + " , " + PROXY_ID_NO_COL + " VARCHAR(50) "
+                + " , " + PROXY_BSC_MEM_1_NAME_FIRST_COL + " VARCHAR(50) "
+                + " , " + PROXY_BSC_MEM_1_NAME_MIDDLE_COL + " VARCHAR(50) "
+                + " , " + PROXY_BSC_MEM_1_NAME_LAST_COL + " VARCHAR(50) "
+                + " , " + PROXY_BSC_MEM_1_TITLE_COL + " VARCHAR(50) "
+                + " , " + PROXY_BSC_MEM_2_NAME_FIRST_COL + " VARCHAR(50) "
+                + " , " + PROXY_BSC_MEM_2_NAME_MIDDLE_COL + " VARCHAR(50) "
+                + " , " + PROXY_BSC_MEM_2_NAME_LAST_COL + " VARCHAR(50) "
+                + " , " + PROXY_BSC_MEM_2_TITLE_COL + " VARCHAR(50) "
                 + " , " + GROUP_CODE_COL + " VARCHAR(5) "
 
                 + " )";
@@ -292,8 +292,8 @@ public class Schema {
      */
 
     public static String sqlCreateVillage() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.VILLAGE_TABLE + "("
-                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+        return CREATE_TABLE_IF_NOT_EXISTS + VILLAGE_TABLE + "("
+                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(50), "
                 + LAYER_CODE_COL + " VARCHAR(2),"
                 + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " VARCHAR(10), "
@@ -301,7 +301,7 @@ public class Schema {
                 + LAY_R3_LIST_CODE_COL + " VARCHAR(10), "
                 + LAY_R4_LIST_CODE_COL + " VARCHAR(10), "
                 + VILLAGE_NAME_COL + " VARCHAR(50), "
-                + SQLiteHandler.HOUSE_HOLD_TARGET + " VARCHAR(50))"; // new
+                + HOUSE_HOLD_TARGET + " VARCHAR(50))"; // new
     }
 
     // added @2015-09-29
@@ -361,7 +361,7 @@ public class Schema {
                 + SERVICE_CENTER_CODE_COL + " VARCHAR(7), "
                 + BTN_NEW_COL + " VARCHAR(5), "
                 + BTN_SAVE_COL + " VARCHAR(5), "
-                + BTN_DEL_COL + " VARCHAR(5) "                +
+                + BTN_DEL_COL + " VARCHAR(5) " +
                 " )";
     }
 
@@ -512,7 +512,7 @@ public class Schema {
 
     public static String sqlCreateDistributionTable() {
         return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.DISTRIBUTION_TABLE + " ( "
-               // + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+                // + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(10), "
                 + DONOR_CODE_COL + " VARCHAR(5), "
                 + AWARD_CODE_COL + " VARCHAR(5), "
@@ -593,8 +593,6 @@ public class Schema {
                 + SQLiteHandler.SQL_QUERY_SYNTAX + " BLOB , "
                 + SYNC_COL + " BOOLEAN DEFAULT 0 )";
     }
-
-
 
 
     public static String sqlCreateRegNLMTable() {
@@ -900,95 +898,93 @@ public class Schema {
         return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.REGISTRATION_TABLE + "("
                 + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(10), "
-                + SQLiteHandler.REGISTRATION_TABLE_DISTRICT_CODE_COL + " VARCHAR(10), "
-                + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL + " VARCHAR(10), "
+                + REGISTRATION_TABLE_DISTRICT_CODE_COL + " VARCHAR(10), "
+                + REGISTRATION_TABLE_UPZILLA_CODE_COL + " VARCHAR(10), "
                 + REGISTRATION_TABLE_UNION_CODE_COL + " VARCHAR(10), "
                 + REGISTRATION_TABLE_VILLAGE_CODE_COL + " VARCHAR(10), "
                 + REGISTRATION_TABLE_REGN_ADDRESS_LOOKUP_CODE_COL + " VARCHAR(3), "
-                + SQLiteHandler.REGISTRATION_TABLE_HHID + " VARCHAR(10), " // pid
-                + SQLiteHandler.REG_DATE_COL + " DATE, "
-                + SQLiteHandler.REGISTRATION_TABLE_HH_HEAD_NAME + " VARCHAR(50), "/// pname
-                + SQLiteHandler.REGISTRATION_TABLE_HH_HEAD_SEX + " VARCHAR(8), "
-                + SQLiteHandler.HH_SIZE + " VARCHAR(10), "
-                + SQLiteHandler.REGISTRATION_TABLE_GPS_LAT + " VARCHAR(20), "
-                + SQLiteHandler.REGISTRATION_TABLE_GPS_LONG + " VARCHAR(20), "
-                + SQLiteHandler.AG_LAND + " VARCHAR(20), "
-                + SQLiteHandler.V_STATUS + " VARCHAR(10), "
-                + SQLiteHandler.M_STATUS + " VARCHAR(10), "
-
+                + REGISTRATION_TABLE_HHID + " VARCHAR(10), " // pid
+                + REG_DATE_COL + " DATE, "
+                + REGISTRATION_TABLE_HH_HEAD_NAME + " VARCHAR(50), "/// pname
+                + REGISTRATION_TABLE_HH_HEAD_SEX + " VARCHAR(8), "
+                + HH_SIZE + " VARCHAR(10), "
+                + REGISTRATION_TABLE_GPS_LAT + " VARCHAR(20), "
+                + REGISTRATION_TABLE_GPS_LONG + " VARCHAR(20), "
+                + AG_LAND + " VARCHAR(20), "
+                + V_STATUS + " VARCHAR(10), "
+                + M_STATUS + " VARCHAR(10), "
                 + ENTRY_BY + " VARCHAR(20), "
                 + ENTRY_DATE + " DATE, "
-                + SQLiteHandler.VSLA_GROUP + " VARCHAR(10), "
-                + SQLiteHandler.GPS_LONG_SWAP + " VARCHAR(100), "
-                + SQLiteHandler.REGISTRATION_TABLE_HOUSE_HOLD_TYPE_CODE_COL + " VARCHAR(10), "
-                + SQLiteHandler.LT2YRS_M_COL + " VARCHAR(10), "
-                + SQLiteHandler.LT2YRS_F_COL + " VARCHAR(10), "
-                + SQLiteHandler.M_2TO5YRS_COL + " VARCHAR(10), "
-                + SQLiteHandler.F_2TO5YRS_COL + " VARCHAR(10), "
-                + SQLiteHandler.M_6TO12YRS_COL + " VARCHAR(10), "
-                + SQLiteHandler.F_6TO12YRS_COL + " VARCHAR(10), "
-                + SQLiteHandler.M_13TO17YRS_COL + " VARCHAR(10), "
-                + SQLiteHandler.F_13TO17YRS_COL + " VARCHAR(10), "
-                + SQLiteHandler.ORPHN_LT18YRS_M_COL + " VARCHAR(10), "
-                + SQLiteHandler.ORPHN_LT18YRS_F_COL + " VARCHAR(10), "
-                + SQLiteHandler.ADLT_18TO59_M_COL + " VARCHAR(10), "
-                + SQLiteHandler.ADLT_18TO59_F_COL + " VARCHAR(10), "
-                + SQLiteHandler.ELD_60P_M_COL + " VARCHAR(10), "
-                + SQLiteHandler.ELD_60P_F_COL + " VARCHAR(10), "
-                + SQLiteHandler.PLW_NO_COL + " VARCHAR(10), "
-                + SQLiteHandler.CHRO_ILL_NO_COL + " VARCHAR(10), "
-                + SQLiteHandler.DECEASED_CONTRACT_EBOLA_COL + " VARCHAR(10), "
-                + SQLiteHandler.EXTRA_CHILD_CAUSE_EBOLA_COL + " VARCHAR(10), "
-                + SQLiteHandler.EXTRA_ELDERLY_CAUSE_EBOLA_COL + " VARCHAR(10), "
-                + SQLiteHandler.EXTRA_CHRONICALLY_ILL_CAUSE_EBOLA_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_COUNT_CATTLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VALUE_CATTLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_COUNT_CATTLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VALUE_CATTLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_COUNT_SGOATS_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VALUE_SGOATS_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_COUNT_SGOATS_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VALUE_SGOATS_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_COUNT_POULTRY_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VALUE_POULTRY_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_COUNT_POULTRY_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VALUE_POULTRY_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_COUNT_OTHER_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VALUE_OTHER_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_COUNT_OTHER_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VALUE_OTHER_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_ACRE_CULTIVABLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VALUE_CULTIVABLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_ACRE_CULTIVABLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VALUE_CULTIVABLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_ACRE_NON_CULTIVABLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VAL_NON_CULTIVABLE_COL + " VARCHAR(10), "
-                + SQLiteHandler.AFT_ACRE_NON_CULTIVABLE + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VAL_NON_CULTIVABLE + " VARCHAR(10), "
-                + SQLiteHandler.BRF_ACRE_ORCHARDS + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VAL_ORCHARDS + " VARCHAR(10), "
-                + SQLiteHandler.AFT_ACRE_ORCHARDS + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VAL_ORCHARDS + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VAL_CROP + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VAL_CROP + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VAL_LIVESTOCK + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VAL_LIVESTOCK + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VAL_SMALL_BUSINESS + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VAL_SMALL_BUSINESS + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VAL_EMPLOYMENT + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VAL_EMPLOYMENT + " VARCHAR(10), "
-                + SQLiteHandler.BRF_VAL_REMITTANCES + " VARCHAR(10), "
-                + SQLiteHandler.AFT_VAL_REMITTANCES + " VARCHAR(10), "
-                + SQLiteHandler.BRF_CNT_WAGEENR + " VARCHAR(10), "
-                + SQLiteHandler.AFT_CNT_WAGEENR + " VARCHAR(10), "
-                + SQLiteHandler.W_RANK_COL + " VARCHAR(10), "
-
-                + SQLiteHandler.LTP_2_HECTRES_COL + " VARCHAR(2) , "
-                + SQLiteHandler.LT_3_FOOD_STOCK_COL + " VARCHAR(2) , "
-                + SQLiteHandler.NO_MAJOR_COMMON_LIVE_STOCK_COL + " VARCHAR(2), "
-                + SQLiteHandler.RECEIVE_NO_FORMAL_WAGES_COL + " VARCHAR(2), "
-                + SQLiteHandler.NO_IGA_COL + " VARCHAR(2) , "
-                + SQLiteHandler.RELY_PICE_EORK_COL + " VARCHAR(2) ,"
+                + VSLA_GROUP + " VARCHAR(10), "
+                + GPS_LONG_SWAP + " VARCHAR(100), "
+                + REGISTRATION_TABLE_HOUSE_HOLD_TYPE_CODE_COL + " VARCHAR(10), "
+                + LT2YRS_M_COL + " VARCHAR(10), "
+                + LT2YRS_F_COL + " VARCHAR(10), "
+                + M_2TO5YRS_COL + " VARCHAR(10), "
+                + F_2TO5YRS_COL + " VARCHAR(10), "
+                + M_6TO12YRS_COL + " VARCHAR(10), "
+                + F_6TO12YRS_COL + " VARCHAR(10), "
+                + M_13TO17YRS_COL + " VARCHAR(10), "
+                + F_13TO17YRS_COL + " VARCHAR(10), "
+                + ORPHN_LT18YRS_M_COL + " VARCHAR(10), "
+                + ORPHN_LT18YRS_F_COL + " VARCHAR(10), "
+                + ADLT_18TO59_M_COL + " VARCHAR(10), "
+                + ADLT_18TO59_F_COL + " VARCHAR(10), "
+                + ELD_60P_M_COL + " VARCHAR(10), "
+                + ELD_60P_F_COL + " VARCHAR(10), "
+                + PLW_NO_COL + " VARCHAR(10), "
+                + CHRO_ILL_NO_COL + " VARCHAR(10), "
+                + DECEASED_CONTRACT_EBOLA_COL + " VARCHAR(10), "
+                + EXTRA_CHILD_CAUSE_EBOLA_COL + " VARCHAR(10), "
+                + EXTRA_ELDERLY_CAUSE_EBOLA_COL + " VARCHAR(10), "
+                + EXTRA_CHRONICALLY_ILL_CAUSE_EBOLA_COL + " VARCHAR(10), "
+                + BRF_COUNT_CATTLE_COL + " VARCHAR(10), "
+                + BRF_VALUE_CATTLE_COL + " VARCHAR(10), "
+                + AFT_COUNT_CATTLE_COL + " VARCHAR(10), "
+                + AFT_VALUE_CATTLE_COL + " VARCHAR(10), "
+                + BRF_COUNT_SGOATS_COL + " VARCHAR(10), "
+                + BRF_VALUE_SGOATS_COL + " VARCHAR(10), "
+                + AFT_COUNT_SGOATS_COL + " VARCHAR(10), "
+                + AFT_VALUE_SGOATS_COL + " VARCHAR(10), "
+                + BRF_COUNT_POULTRY_COL + " VARCHAR(10), "
+                + BRF_VALUE_POULTRY_COL + " VARCHAR(10), "
+                + AFT_COUNT_POULTRY_COL + " VARCHAR(10), "
+                + AFT_VALUE_POULTRY_COL + " VARCHAR(10), "
+                + BRF_COUNT_OTHER_COL + " VARCHAR(10), "
+                + BRF_VALUE_OTHER_COL + " VARCHAR(10), "
+                + AFT_COUNT_OTHER_COL + " VARCHAR(10), "
+                + AFT_VALUE_OTHER_COL + " VARCHAR(10), "
+                + BRF_ACRE_CULTIVABLE_COL + " VARCHAR(10), "
+                + BRF_VALUE_CULTIVABLE_COL + " VARCHAR(10), "
+                + AFT_ACRE_CULTIVABLE_COL + " VARCHAR(10), "
+                + AFT_VALUE_CULTIVABLE_COL + " VARCHAR(10), "
+                + BRF_ACRE_NON_CULTIVABLE_COL + " VARCHAR(10), "
+                + BRF_VAL_NON_CULTIVABLE_COL + " VARCHAR(10), "
+                + AFT_ACRE_NON_CULTIVABLE + " VARCHAR(10), "
+                + AFT_VAL_NON_CULTIVABLE + " VARCHAR(10), "
+                + BRF_ACRE_ORCHARDS + " VARCHAR(10), "
+                + BRF_VAL_ORCHARDS + " VARCHAR(10), "
+                + AFT_ACRE_ORCHARDS + " VARCHAR(10), "
+                + AFT_VAL_ORCHARDS + " VARCHAR(10), "
+                + BRF_VAL_CROP + " VARCHAR(10), "
+                + AFT_VAL_CROP + " VARCHAR(10), "
+                + BRF_VAL_LIVESTOCK + " VARCHAR(10), "
+                + AFT_VAL_LIVESTOCK + " VARCHAR(10), "
+                + BRF_VAL_SMALL_BUSINESS + " VARCHAR(10), "
+                + AFT_VAL_SMALL_BUSINESS + " VARCHAR(10), "
+                + BRF_VAL_EMPLOYMENT + " VARCHAR(10), "
+                + AFT_VAL_EMPLOYMENT + " VARCHAR(10), "
+                + BRF_VAL_REMITTANCES + " VARCHAR(10), "
+                + AFT_VAL_REMITTANCES + " VARCHAR(10), "
+                + BRF_CNT_WAGEENR + " VARCHAR(10), "
+                + AFT_CNT_WAGEENR + " VARCHAR(10), "
+                + W_RANK_COL + " VARCHAR(10), "
+                + LTP_2_HECTRES_COL + " VARCHAR(2) , "
+                + LT_3_FOOD_STOCK_COL + " VARCHAR(2) , "
+                + NO_MAJOR_COMMON_LIVE_STOCK_COL + " VARCHAR(2), "
+                + RECEIVE_NO_FORMAL_WAGES_COL + " VARCHAR(2), "
+                + NO_IGA_COL + " VARCHAR(2) , "
+                + RELY_PICE_EORK_COL + " VARCHAR(2) ,"
 
                 + SYNC_COL + " BOOLEAN DEFAULT 0 )";
     }
@@ -1122,7 +1118,7 @@ public class Schema {
                 + SQLiteHandler.MEAS_R_CODE_COL + " VARCHAR(5), "
                 + SQLiteHandler.VOUCHER_ITEM_SPEC_COL + " VARCHAR(15), "
                 + SQLiteHandler.UNITE_COST_COL + " VARCHAR(25), "
-                + SQLiteHandler.ACTIVE_COL + " VARCHAR(5), "
+                + SQLiteHandler.ACTIVE_STATUS_COL + " VARCHAR(5), "
                 + SQLiteHandler.CURRENCY_COL + " VARCHAR(5), "
                 + SYNC_COL + " VARCHAR(5) DEFAULT '0' "
                 + " )";
@@ -1168,7 +1164,7 @@ public class Schema {
 
         return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.DISTRIBUTION_EXTENDED_TABLE + " ("
 
-               // + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+                // + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4), "
                 + DONOR_CODE_COL + " VARCHAR(2), "
@@ -1291,7 +1287,7 @@ public class Schema {
                 + " , " + SQLiteHandler.LAND_SIZE_UNDER_IRRIGATION_COL + " VARCHAR(20) "
                 + " , " + SQLiteHandler.IRRIGATION_SYSTEM_USED_COL + " VARCHAR(4) "
                 + " , " + SQLiteHandler.FUND_SUPPORT_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.ACTIVE_COL + " VARCHAR(4) "
+                + " , " + SQLiteHandler.ACTIVE_STATUS_COL + " VARCHAR(4) "
                 + " , " + SQLiteHandler.REP_NAME_COL + " VARCHAR(100) "
                 + " , " + SQLiteHandler.REP_PHONE_NUMBER_COL + " VARCHAR(100) "
                 + " , " + SQLiteHandler.FORMATION_DATE_COL + " VARCHAR(100) "
@@ -1573,7 +1569,7 @@ public class Schema {
                 + " , " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " VARCHAR(2) "
                 + " , " + GROUP_CODE_COL + " VARCHAR(5) "
                 + " , " + GROUP_NAME_COL + " VARCHAR(100) "
-                + " , " + SQLiteHandler.REG_N_MEM_PROG_GRP_TABLE_ACTIVE_COL + " VARCHAR(5) "
+                + " , " + SQLiteHandler.ACTIVE_COL + " VARCHAR(5) "
                 + " , " + ENTRY_BY + " VARCHAR(4) "
                 + " , " + ENTRY_DATE + " VARCHAR(20) "
                 + " , " + REG_N_MEM_PROG_GRP_TABLE_GRP_LAY_R1_LIST_CODE_COL + " VARCHAR(2) "
@@ -2045,10 +2041,10 @@ public class Schema {
                 + " , " + END_DATE_COL + " VARCHAR(10) "
                 + " , " + VENUE_NAME_COL + " VARCHAR(100) "
                 + " , " + VENUE_ADDRESS_COL + " VARCHAR(200) "
-                + " , " + REG_N_MEM_PROG_GRP_TABLE_ACTIVE_COL + " VARCHAR(10) "
+                + " , " + ACTIVE_COL + " VARCHAR(10) "
                 + " , " + TOTAL_DAYS_COL + " VARCHAR(10) "
                 + " , " + HOURS_PER_DAY_COL + " VARCHAR(10) "
-                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + EVENT_CODE_COL +  " ) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + EVENT_CODE_COL + " ) "
                 + " ) ";
     }
 
@@ -2060,7 +2056,7 @@ public class Schema {
                 + " , " + TA_CAT_CODE_COL + " VARCHAR(3) "
                 + " , " + TA_CAT_NAME_COL + " VARCHAR(50) "
                 + " , " + SRC_BEN_COL + " VARCHAR(3) "
-                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + TA_CAT_CODE_COL +  " ) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + TA_CAT_CODE_COL + " ) "
                 + " ) ";
     }
 
@@ -2071,7 +2067,7 @@ public class Schema {
                 + " , " + EVENT_CODE_COL + " VARCHAR(3) "
                 + " , " + TOPIC_MASTER_CODE_COL + " VARCHAR(50) "
                 + " , " + TOPIC_CHILD_CODE_COL + " VARCHAR(3) "
-                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + EVENT_CODE_COL + ", " + TOPIC_MASTER_CODE_COL + ", " + TOPIC_CHILD_CODE_COL +  " ) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + EVENT_CODE_COL + ", " + TOPIC_MASTER_CODE_COL + ", " + TOPIC_CHILD_CODE_COL + " ) "
                 + " ) ";
     }
 
@@ -2081,7 +2077,7 @@ public class Schema {
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
                 + " , " + TOPIC_GROUP_COL + " VARCHAR(3) "
                 + " , " + TOPIC_GROUP_TITLE_COL + " VARCHAR(200) "
-                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + TOPIC_GROUP_COL +  " ) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + TOPIC_GROUP_COL + " ) "
                 + " ) ";
     }
 
@@ -2102,10 +2098,11 @@ public class Schema {
                 + " , " + PM_SESSION_COL + " VARCHAR(1) "
                 + " , " + ATDN_DATE_COL + " VARCHAR(30) "
                 + " , " + TA_GROUP_COL + " VARCHAR(3) "
-                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + EVENT_CODE_COL  + ", " + PART_ID_COL + ", " + ATDN_DATE_COL  +  " ) "
+                + " , " + ENTRY_BY + " VARCHAR(4) "
+                + " , " + ENTRY_DATE + " VARCHAR(20) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + EVENT_CODE_COL + ", " + PART_ID_COL + ", " + ATDN_DATE_COL + " ) "
                 + " ) ";
     }
-
 
 
     public static String createTAPartOrgNTable() {
@@ -2115,7 +2112,7 @@ public class Schema {
                 + " , " + PART_ORG_N_CODE_COL + " VARCHAR(3) "
                 + " , " + PART_ORG_N_NAME_COL + " VARCHAR(200) "
                 + " , " + SRC_BEN_COL + " VARCHAR(1) "
-                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + PART_ORG_N_CODE_COL  +  " ) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + PART_ORG_N_CODE_COL + " ) "
                 + " ) ";
     }
 
@@ -2126,7 +2123,7 @@ public class Schema {
                 + " , " + POS_CODE_COL + " VARCHAR(3) "
                 + " , " + POS_TITLE_COL + " VARCHAR(100) "
 
-                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + POS_CODE_COL  +  " ) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + POS_CODE_COL + " ) "
                 + " ) ";
     }
 
@@ -2138,7 +2135,7 @@ public class Schema {
                 + " , " + TA_GROUP_COL + " VARCHAR(3) "
                 + " , " + TA_SUB_GROUP_COL + " VARCHAR(3) "
                 + " , " + TA_SUB_TITLE_COL + " VARCHAR(200) "
-                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + TA_GROUP_COL + ", " + TA_SUB_GROUP_COL  +  " ) "
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + TA_GROUP_COL + ", " + TA_SUB_GROUP_COL + " ) "
                 + " ) ";
     }
 
@@ -2149,7 +2146,7 @@ public class Schema {
                 + " , " + TOPIC_CHILD_CODE_COL + " VARCHAR(3) "
                 + " , " + TOPIC_SUB_TITLE_COL + " VARCHAR(200) "
 
-                + " , " + PRIMARY_KEY + " (" + TOPIC_MASTER_CODE_COL + ", " + TOPIC_CHILD_CODE_COL   +  " ) "
+                + " , " + PRIMARY_KEY + " (" + TOPIC_MASTER_CODE_COL + ", " + TOPIC_CHILD_CODE_COL + " ) "
                 + " ) ";
     }
 
@@ -2159,7 +2156,7 @@ public class Schema {
                 + TOPIC_MASTER_CODE_COL + " VARCHAR(4) "
                 + " , " + TOPIC_TITLE_COL + " VARCHAR(200) "
 
-                + " , " + PRIMARY_KEY + " (" + TOPIC_MASTER_CODE_COL    +  " ) "
+                + " , " + PRIMARY_KEY + " (" + TOPIC_MASTER_CODE_COL + " ) "
                 + " ) ";
     }
 
