@@ -11,16 +11,17 @@ import android.widget.TextView;
 import com.siddiquinoor.restclient.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Faisal on 9/5/2016.
  */
 public class SummaryGroupListAdapter extends BaseAdapter {
-    private ArrayList<SummaryGroupListDataModel> arrayList = new ArrayList<SummaryGroupListDataModel>();
+    private List<SummaryGroupListDataModel> arrayList = new ArrayList<SummaryGroupListDataModel>();
     private Activity mActivity;
     private LayoutInflater inflater;
 
-    public SummaryGroupListAdapter(Activity mActivity, ArrayList<SummaryGroupListDataModel> arrayList) {
+    public SummaryGroupListAdapter(Activity mActivity, List<SummaryGroupListDataModel> arrayList) {
         this.mActivity = mActivity;
         this.arrayList = arrayList;
     }

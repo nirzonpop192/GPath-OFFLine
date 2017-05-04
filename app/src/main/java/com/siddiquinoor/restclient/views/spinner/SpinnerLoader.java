@@ -24,15 +24,7 @@ import static com.siddiquinoor.restclient.manager.SQLiteHandler.ADM_COUNTRY_CODE
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.DONOR_CODE_COL;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.GROUP_CAT_CODE_COL;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.GROUP_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R1_LIST_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R2_LIST_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R3_LIST_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R4_LIST_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.PROGRAM_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.SELECTED_VILLAGE_TABLE;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.VILLAGE_NAME_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.VILLAGE_TABLE;
 
 /**
  * Created by pop
@@ -396,7 +388,7 @@ public class SpinnerLoader {
 
 
         String criteria = " WHERE " + SQLiteHandler.HOUSE_HOLD_CATEGORY_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "' ";
-        //GROUP BY "+sqlH.DISTRICT_TABLE+"."+sqlH.LAY_R1_LIST_CODE_COL+", "+sqlH.DISTRICT_TABLE+"."+sqlH.DISTRICT_NAME_COL;
+        //GROUP BY "+sqlH.DISTRICT_TABLE+"."+sqlH.LAY_R_LIST_CODE_COL+", "+sqlH.DISTRICT_TABLE+"."+sqlH.DISTRICT_NAME_COL;
 
         List<SpinnerHelper> listHHCategory = sqlH.getListAndID(SQLiteHandler.HOUSE_HOLD_CATEGORY_TABLE, criteria, cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listHHCategory);
@@ -417,32 +409,14 @@ public class SpinnerLoader {
 
     }
 
-    // // TODO: 2/13/2017   implement it on Summary page
-    public void loadLayR4CodeForRegisterRecordViewLoader(Context context, SQLiteHandler sqlH, Spinner spVillage, String cCode) {
-        String criteria = "SELECT " + " v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " || '' ||  v." + LAY_R1_LIST_CODE_COL + " || '' || v." + LAY_R2_LIST_CODE_COL + " || '' || v." +
-                LAY_R3_LIST_CODE_COL + " || '' || v." + LAY_R4_LIST_CODE_COL + " AS v_code," +
-                " v." + VILLAGE_NAME_COL + " AS Vill_Name " +
-                     /*   " COUNT("+PID_COL+") AS records"*/" FROM " + VILLAGE_TABLE + " AS v" +
-                " LEFT JOIN " + SQLiteHandler.REGISTRATION_TABLE + " AS r" +
-                " ON r." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "= v." + SQLiteHandler.ADM_COUNTRY_CODE_COL
-                + " AND " +
-                "r." + SQLiteHandler.DISTRICT_NAME_COL + "= v." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
-                + " AND " +
-                "r." + SQLiteHandler.UPZILLA_NAME_COL + "= v." + LAY_R2_LIST_CODE_COL
-                + " AND " +
-                "r." + SQLiteHandler.UNITE_NAME_COL + "= v." + LAY_R3_LIST_CODE_COL
-                + " AND " +
-                "r." + VILLAGE_NAME_COL + "= v." + LAY_R4_LIST_CODE_COL +
-                " Inner join " + SELECTED_VILLAGE_TABLE + " AS s"
-                + " on " + " s." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "= v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " AND " +
-                "s." + LAY_R1_LIST_CODE_COL + "= v." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " AND " +
-                "s." + LAY_R2_LIST_CODE_COL + "= v." + LAY_R2_LIST_CODE_COL + " AND " +
-                "s." + LAY_R3_LIST_CODE_COL + "= v." + LAY_R3_LIST_CODE_COL + " AND " +
-                "s." + LAY_R4_LIST_CODE_COL + "= v." + LAY_R4_LIST_CODE_COL +
+    // // TODO: 2/13/2017   implement it on SumRegLay4TotalHHRecords page
+    public static void loadLayR4CodeForRegisterRecordViewLoader(Context context, SQLiteHandler sqlH, Spinner spVillage, String cCode) {
 
-                " WHERE v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'" + /** send the no of village for selected country added by Faisal Mohammad*/
-                "  GROUP BY v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + ",v." + LAY_R1_LIST_CODE_COL + ",v." + LAY_R2_LIST_CODE_COL + ",v." + LAY_R3_LIST_CODE_COL + ",v." + LAY_R4_LIST_CODE_COL;
 
+        String criteria = SQLiteQuery.loadLayR4CodeForRegisterRecordView_sql(cCode);
+
+
+//        Log.d(TAG,"criteria: "+criteria);
         List<SpinnerHelper> listVillage = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
 
 
@@ -453,6 +427,40 @@ public class SpinnerLoader {
         // attaching data adapter to spinner
         spVillage.setAdapter(dataAdapter);
         //dataAdapter.notifyDataSetChanged();
+//        String criteria = "SELECT " + " v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " || '' ||  v." + LAY_R_LIST_CODE_COL + " || '' || v." + LAY_R2_LIST_CODE_COL + " || '' || v." +
+//                LAY_R3_LIST_CODE_COL + " || '' || v." + LAY_R4_LIST_CODE_COL + " AS v_code," +
+//                " v." + LAY_R4_LIST_NAME_COL + " AS Vill_Name " +
+//                     /*   " COUNT("+PID_COL+") AS records"*/" FROM " + VILLAGE_TABLE + " AS v" +
+//                " LEFT JOIN " + SQLiteHandler.REG_N_HH_TABLE + " AS r" +
+//                " ON r." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "= v." + SQLiteHandler.ADM_COUNTRY_CODE_COL
+//                + " AND " +
+//                "r." + SQLiteHandler.DISTRICT_NAME_COL + "= v." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
+//                + " AND " +
+//                "r." + SQLiteHandler.UPZILLA_NAME_COL + "= v." + LAY_R2_LIST_CODE_COL
+//                + " AND " +
+//                "r." + SQLiteHandler.LAY_R3_LIST_NAME + "= v." + LAY_R3_LIST_CODE_COL
+//                + " AND " +
+//                "r." + LAY_R4_LIST_NAME_COL + "= v." + LAY_R4_LIST_CODE_COL +
+//                " Inner join " + SELECTED_VILLAGE_TABLE + " AS s"
+//                + " on " + " s." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "= v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " AND " +
+//                "s." + LAY_R_LIST_CODE_COL + "= v." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " AND " +
+//                "s." + LAY_R2_LIST_CODE_COL + "= v." + LAY_R2_LIST_CODE_COL + " AND " +
+//                "s." + LAY_R3_LIST_CODE_COL + "= v." + LAY_R3_LIST_CODE_COL + " AND " +
+//                "s." + LAY_R4_LIST_CODE_COL + "= v." + LAY_R4_LIST_CODE_COL +
+//
+//                " WHERE v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'" + /** send the no of village for selected country added by Faisal Mohammad*/
+//                "  GROUP BY v." + SQLiteHandler.ADM_COUNTRY_CODE_COL + ",v." + LAY_R_LIST_CODE_COL + ",v." + LAY_R2_LIST_CODE_COL + ",v." + LAY_R3_LIST_CODE_COL + ",v." + LAY_R4_LIST_CODE_COL;
+//
+//        List<SpinnerHelper> listVillage = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
+//
+//
+//        // Creating adapter for spinner
+//        final ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listVillage);
+//        // Drop down layout style
+//        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
+//        // attaching data adapter to spinner
+//        spVillage.setAdapter(dataAdapter);
+//        //dataAdapter.notifyDataSetChanged();
     }
 
 
@@ -652,17 +660,16 @@ public class SpinnerLoader {
      * @param spUnion  spinner view.
      * @param idUnion  layR4Code Code
      * @param strUnion layR4Code Name
-     * @param cCode
-     * @param idDist
-     * @param idUP
+     * @param cCode    country code
+     * @param idDist   LayR1 code
+     * @param idUP     LayR2 code
      */
     public static void loadLayR3ListLoader(Context context, SQLiteHandler sqlH, Spinner spUnion, String idUnion, String strUnion, String cCode, String idDist, String idUP) {
         int position = 0;
 
 
-        String criteria = SQLiteQuery.getUnionJoinQuery(cCode, idDist, idUP);
-
-        List<SpinnerHelper> listUnion = sqlH.getListAndID(SQLiteHandler.UNIT_TABLE, criteria, cCode, false);
+        String criteria = SQLiteQuery.getLayR3List_sql(cCode, idDist, idUP);
+        List<SpinnerHelper> listUnion = sqlH.getListAndID(SQLiteHandler.GEO_LAY_R3_LIST_TABLE, criteria, cCode, false);
 
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listUnion);
 
@@ -682,19 +689,58 @@ public class SpinnerLoader {
         }
     }
 
+
+
+    public static void loadLayR3ListLoader(Context context, SQLiteHandler sqlH, Spinner spLayR3List, String idLayR3Code, String strLayR3Name, String cCode,String criteria , boolean disableActivation,boolean disableFlag) {
+        int position = 0;
+//        String criteria =SQLiteQuery.loadLayR3List_sql(cCode) ;
+
+
+        List<SpinnerHelper> listLayR2Code = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
+        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listLayR2Code);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        spLayR3List.setAdapter(dataAdapter);
+
+
+        if (idLayR3Code != null) {
+
+            for (int i = 0; i < spLayR3List.getCount(); i++) {
+                String LayR2Name = spLayR3List.getItemAtPosition(i).toString();
+                if (LayR2Name.equals(strLayR3Name)) {
+                    position = i;
+                }
+            }
+            spLayR3List.setSelection(position);
+
+
+
+            if (disableActivation) {
+                /**
+                 *  block the  control selection of
+                 */
+                if (disableFlag) {
+                    spLayR3List.setEnabled(false);
+                }
+            }
+
+        }
+
+    }
+
     /**
      * used  in {@link com.siddiquinoor.restclient.activity.GroupSearchPage#loadProgram(String)}
+     * used  in {@link com.siddiquinoor.restclient.activity.sub_activity.commu_group_sub.CommunityGroupNDetailsRecodes#loadProgram(String, String, String)}
      * This method  load the program name to the spinner
      *
-     * @param context     refer to the activity which will invoke this method.
-     * @param sqlH        database reference.
-     * @param spProgram   spinner view.
-     * @param idProgCode  program Code
-     * @param strProgName Program Name
-     * @param sql         sql Query
+     * @param context   refer to the activity which will invoke this method.
+     * @param sqlH      database reference.
+     * @param spProgram spinner view.
+     * @param progCode  program Code
+     * @param progName  Program Name
+     * @param sql       sql Query
      */
 
-    public static void loadProgramLoader(Context context, SQLiteHandler sqlH, Spinner spProgram, String idProgCode, String strProgName, String sql) {
+    public static void loadProgramLoader(Context context, SQLiteHandler sqlH, Spinner spProgram, String progCode, String progName, String sql, boolean disableActivation, boolean disableFlag) {
         int position = 0;
 
 
@@ -705,16 +751,51 @@ public class SpinnerLoader {
         spProgram.setAdapter(dataAdapter);
 
 
-        if (idProgCode != null) {
+        if (progCode != null) {
             for (int i = 0; i < spProgram.getCount(); i++) {
-                String progName = spProgram.getItemAtPosition(i).toString();
-                if (progName.equals(strProgName)) {
+                String programName = spProgram.getItemAtPosition(i).toString();
+                if (progName.equals(programName)) {
                     position = i;
                 }
             }
             spProgram.setSelection(position);
+
+            if (disableActivation) {
+                /**
+                 *  block the  control selection of
+                 */
+                if (disableFlag) {
+                    spProgram.setEnabled(false);
+                }
+            }
+
         }
 
 
     }
-}// end of the class
+
+
+    public static void loadCountryLoader(Context context, SQLiteHandler sqlH, Spinner spCountry, String idCountry, String strCountry, String criteria) {
+        int position = 0;
+
+
+        List<SpinnerHelper> listCountry = sqlH.getListAndID(SQLiteHandler.COUNTRY_TABLE, criteria, null, true);
+        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listCountry);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
+
+        spCountry.setAdapter(dataAdapter);
+
+
+        if (idCountry != null) {
+            for (int i = 0; i < spCountry.getCount(); i++) {
+                String district = spCountry.getItemAtPosition(i).toString();
+                if (district.equals(strCountry)) {
+                    position = i;
+                }
+            }
+            spCountry.setSelection(position);
+        }
+
+
+    }
+}                                                                                                   // end of the class

@@ -32,14 +32,14 @@ public final class R {
 		public static final int zxing_decode = 0x7f10000f;
 		public static final int zxing_decode_failed = 0x7f100010;
 		public static final int zxing_decode_succeeded = 0x7f100011;
-		public static final int zxing_preview_view = 0x7f1004d3;
+		public static final int zxing_preview_view = 0x7f1004d8;
 		public static final int zxing_quit = 0x7f100012;
 		public static final int zxing_return_scan_result = 0x7f100013;
-		public static final int zxing_status_view = 0x7f1004d5;
-		public static final int zxing_viewfinder_view = 0x7f1004d4;
+		public static final int zxing_status_view = 0x7f1004da;
+		public static final int zxing_viewfinder_view = 0x7f1004d9;
 	}
 	public static final class layout {
-		public static final int zxing_capture = 0x7f04008e;
+		public static final int zxing_capture = 0x7f04008f;
 	}
 	public static final class raw {
 		public static final int zxing_beep = 0x7f0701e7;

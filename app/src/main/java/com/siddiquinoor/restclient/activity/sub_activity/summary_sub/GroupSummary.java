@@ -1,7 +1,7 @@
 package com.siddiquinoor.restclient.activity.sub_activity.summary_sub;
 /**
  * Created by Faisal on 9/5/2016.
- * This Activity show the Group Summary List number of people Assigned in  Group
+ * This Activity show the Group SumRegLay4TotalHHRecords List number of people Assigned in  Group
  * Group Name	Category (Short Name)	Short Name (SrvCode)	Count
  */
 
@@ -14,7 +14,6 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -22,6 +21,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.siddiquinoor.restclient.R;
+import com.siddiquinoor.restclient.activity.SummaryMenuActivity;
 import com.siddiquinoor.restclient.fragments.BaseActivity;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
 import com.siddiquinoor.restclient.utils.KEY;
@@ -35,7 +35,7 @@ import java.util.List;
 public class GroupSummary extends BaseActivity /*implements AdapterView.OnItemClickListener*/ {
     /**
      * buttons of the page.
-     * btnBack is used to back to {@link com.siddiquinoor.restclient.activity.AllSummaryActivity} page
+     * btnBack is used to back to {@link SummaryMenuActivity} page
      * btnHome  is used to  goto {@link com.siddiquinoor.restclient.activity.MainActivity} page
      */
     private Button btnBack, btnHome;
@@ -96,9 +96,9 @@ public class GroupSummary extends BaseActivity /*implements AdapterView.OnItemCl
         setAllListener();
 
         // anonymous class object
-      //  new LoadListView(idCountry).execute();
+        new LoadListView(idCountry).execute();
 // for test purpose
-        loadGroupList(idCountry);
+//        loadGroupList(idCountry);
 
     }
 
@@ -191,19 +191,19 @@ public class GroupSummary extends BaseActivity /*implements AdapterView.OnItemCl
         // use variable to like operation
         List<SummaryGroupListDataModel> assignList = sqlH.getGroupSummaryList(cCode);
         if (assignList.size() != 0) {
-            mGroupListA.clear();
-            for (SummaryGroupListDataModel data : assignList) {
-                // add contacts data in arrayList
-                mGroupListA.add(data);
+//            mGroupListA.clear();
+//            for (SummaryGroupListDataModel data : assignList) {
+//                // add contacts data in arrayList
+//                mGroupListA.add(data);
+//
+//            }
 
-            }
-
-            mAdapter = new SummaryGroupListAdapter((Activity) mContext, mGroupListA);
-            // leave it for test purpose
-            mAdapter.notifyDataSetChanged();
-            mListView.setAdapter(mAdapter);
-        //    mListView.setOnItemClickListener(this);
-            mListView.setFocusableInTouchMode(true);
+           mAdapter = new SummaryGroupListAdapter((Activity) mContext, assignList);
+//            // leave it for test purpose
+//            mAdapter.notifyDataSetChanged();
+//            mListView.setAdapter(mAdapter);
+//        //    mListView.setOnItemClickListener(this);
+//            mListView.setFocusableInTouchMode(true);
 
         }
     }

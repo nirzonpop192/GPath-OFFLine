@@ -15,11 +15,9 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.wifi.WifiManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -200,7 +198,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 String sourceDbPath = "/data/data/" + getPackageName() + "/databases/pci";
 
-                dataBaseCopy(sourceDbPath, destinationDbPath,  "Import Successful! " +destinationDbPath);
+                dataBaseCopy(sourceDbPath, destinationDbPath, "Import Successful! " + destinationDbPath);
 
             }
         });
@@ -217,11 +215,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 sqLiteHandler.insertIntoExportDataBase(MainActivity.this);
 
 
-
                 String currentDBPath = "/data/data/" + getPackageName() + "/databases/" + SQLiteHandler.EXTERNAL_DATABASE_NAME;
                 String backupdbName = null;
                 try {
-                    backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_" + getStaffID() + "_" + getDateTime() + ".db";
+                    backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_" + getStaffID() + "_" + getDateTime() + ".off";
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -237,28 +234,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         importDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "hello ", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(mContext, "hello ", Toast.LENGTH_SHORT).show();
                 importDataBase();
             }
         });
     }
 
-//    /**
-//     * this method get the IMEI no
-//     *
-//     * @return IMEI no odf device
-//     */
-//
-//    private String getIMEINumber() {
-//        TelephonyManager teMg = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-//        return teMg.getDeviceId();
-//    }
-//
-//    private String getMacAddress() {
-//        WifiManager m_wm = (WifiManager) getSystemService(Context.WIFI_SERVICE);
-//        return m_wm.getConnectionInfo().getMacAddress();
-//
-//    }
 
     private void dataBaseCopy(final String sourcePath, final String destinationPath, String msg) {
         try {
@@ -276,28 +257,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     src.close();
                     dst.close();
 
-                    // // TODO: 4/19/2017  use custom toast
+                    // TODO: 4/19/2017  use custom toast
                     Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                 }
             }
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Backup Failed!", Toast.LENGTH_SHORT)
-                    .show();
+            Toast.makeText(getApplicationContext(), "Backup Failed!", Toast.LENGTH_SHORT).show();
 
         }
     }
 
 
     private void importDataBase() {
-        boolean flag=false;
-        Toast.makeText(mContext,Environment.getExternalStorageDirectory().getPath()+"/"+SQLiteHandler.DATABASE_NAME,Toast.LENGTH_SHORT).show();
+        boolean flag = false;
+        Toast.makeText(mContext, Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME, Toast.LENGTH_SHORT).show();
         try {
-            flag=  sqlH.importDatabase( Environment.getExternalStorageDirectory().getPath()+"/"+SQLiteHandler.DATABASE_NAME,MainActivity.this);
+            flag = sqlH.importDatabase(Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME, MainActivity.this);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String ddf=flag? "true ":"false ";
-        Toast.makeText(mContext,"FLAG : "+  ddf,Toast.LENGTH_SHORT).show();
+        String ddf = flag ? "true " : "false ";
+        Toast.makeText(mContext, "FLAG : " + ddf, Toast.LENGTH_SHORT).show();
     }
 
 
@@ -493,7 +473,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
                 break;
             case R.id.btnSummaryReport:
-                Intent iSumm = new Intent(getApplicationContext(), AllSummaryActivity.class);
+                Intent iSumm = new Intent(getApplicationContext(), SummaryMenuActivity.class);
                 // // TODO: 4/4/2017  check intent  then remove the object parameter
                 iSumm.putExtra(KEY.COUNTRY_ID, idCountry);
                 iSumm.putExtra(KEY.STR_COUNTRY, strCountry);
@@ -1203,7 +1183,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         protected Void doInBackground(Void... params) {
 
             String retrieveData = readDataFromFile(LoginActivity.REG_MEMBER_PROG_GROUP_DATA);
-// todo change the  structure
+                // todo change the  structure
             Parser.RegNMemProGrpParser(retrieveData, db);
             publishProgress(++progressIncremental);
 
@@ -1343,64 +1323,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 }
 
-                // u may delete the code after check the db
-//                if (!jObj.isNull(Parser.ADM_OP_MONTH_JSON_A)) {
-//                    JSONArray adm_op_months = jObj.getJSONArray(Parser.ADM_OP_MONTH_JSON_A);
-//                    size = adm_op_months.length();
-//                    for (int i = 0; i < size; i++) {
-//                        JSONObject adm_op_month = adm_op_months.getJSONObject(i);
-//
-//                        String AdmCountryCode = adm_op_month.getString(Parser.ADM_COUNTRY_CODE);
-//                        String AdmDonorCode = adm_op_month.getString(Parser.ADM_DONOR_CODE);
-//                        String AdmAwardCode = adm_op_month.getString(Parser.ADM_AWARD_CODE);
-//                        String OpCode = adm_op_month.getString(Parser.OP_CODE);
-//                        String OpMonthCode = adm_op_month.getString(Parser.OP_MONTH_CODE);
-//                        String MonthLabel = adm_op_month.getString(Parser.MONTH_LABEL_COL);
-//                        String StartDate = adm_op_month.getString(Parser.START_DATE_COL);
-//                        String EndDate = adm_op_month.getString(Parser.END_DATE_COL);
-//
-//                        String UsaStartDate = adm_op_month.getString(Parser.USA_START_DATE_COL);
-//                        String UsaEndDate = adm_op_month.getString(Parser.USA_END_DATE_COL);
-//                        String Status = adm_op_month.getString("Status");
-//                        db.addOpMonthFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode, OpCode, OpMonthCode, MonthLabel, StartDate, EndDate, UsaStartDate, UsaEndDate, Status);
-//
-//
-//                    }
-//                }
 
-//                publishProgress(++progressIncremental);
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull(Parser.ADM_COUNTRY_PROGRAM_JSON_A)) {
                     Parser.admCountryProgramParser(jObj.getJSONArray(Parser.ADM_COUNTRY_PROGRAM_JSON_A), db);
 
                 }
-
-//                if (!jObj.isNull(Parser.ADM_COUNTRY_PROGRAM_JSON_A)) {
-//                    JSONArray adm_country_programs = jObj.getJSONArray(Parser.ADM_COUNTRY_PROGRAM_JSON_A);
-//                    size = adm_country_programs.length();
-//                    for (int i = 0; i < size; i++) {
-//                        JSONObject adm_country_program = adm_country_programs.getJSONObject(i);
-//                        String AdmCountryCode = adm_country_program.getString(Parser.ADM_COUNTRY_CODE);
-//                        String AdmDonorCode = adm_country_program.getString(Parser.ADM_DONOR_CODE);
-//                        String AdmAwardCode = adm_country_program.getString(Parser.ADM_AWARD_CODE);
-//                        String AdmProgCode = adm_country_program.getString(Parser.ADM_PROG_CODE);
-//                        String AdmSrvCode = adm_country_program.getString(Parser.ADM_SRV_CODE);
-//                        String ProgFlag = adm_country_program.getString("ProgFlag");
-//                        String FoodFlag = adm_country_program.getString(Parser.FOOD_FLAG);
-//                        String NFoodFlag = adm_country_program.getString(Parser.N_FOOD_FLAG);
-//                        String CashFlag = adm_country_program.getString(Parser.CASH_FLAG);
-//                        String VOFlag = adm_country_program.getString(Parser.VO_FLAG);
-//                        String DefaultFoodDays = adm_country_program.getString(Parser.DEFAULT_FOOD_DAYS);
-//                        String DefaultNFoodDays = adm_country_program.getString(Parser.DEFAULT_N_FOOD_DAYS);
-//                        String DefaultCashDays = adm_country_program.getString(Parser.DEFAULT_CASH_DAYS);
-//                        String DefaultVODays = adm_country_program.getString(Parser.DEFAULT_VO_DAYS);
-//                        String SrvSpecific = adm_country_program.getString(Parser.SRV_SPECIFIC);
-//
-//                        db.insertAdmCountryProgram(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, AdmSrvCode, ProgFlag, FoodFlag, NFoodFlag, CashFlag, VOFlag, DefaultFoodDays, DefaultNFoodDays, DefaultCashDays, DefaultVODays, SrvSpecific);
-//
-//
-//                    }
-//                }
 
                 publishProgress(++progressIncremental);
 
@@ -2040,110 +1968,57 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     Parser.CommunityGroupParser(jObj.getJSONArray("community_group"), db);
                 }
 
+
+
+
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("lup_community_animal")) {
-                    JSONArray lup_community_animal_Datas = jObj.getJSONArray("lup_community_animal");
-                    size = lup_community_animal_Datas.length();
-                    for (int i = 0; i < size; i++) {
-                        JSONObject lup_community_animal_Data = lup_community_animal_Datas.getJSONObject(i);
 
-
-                        String AdmCountryCode = lup_community_animal_Data.getString("AdmCountryCode");
-                        String AdmDonorCode = lup_community_animal_Data.getString("AdmDonorCode");
-                        String AdmAwardCode = lup_community_animal_Data.getString("AdmAwardCode");
-                        String AdmProgCode = lup_community_animal_Data.getString("AdmProgCode");
-                        String AnimalCode = lup_community_animal_Data.getString("AnimalCode");
-                        String AnimalType = lup_community_animal_Data.getString("AnimalType");
-
-
-                        db.addLUP_AnimalTypeFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, AnimalCode, AnimalType);
-
-
-                    }
+                    Parser.lupCommunityAnimalParser(jObj.getJSONArray("lup_community_animal"), db);
                 }
+
 
 
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("lup_prog_group_crop")) {
-                    Parser.lupProgGroupCropParser(jObj.getJSONArray("lup_prog_group_crop"), db);
+                    Parser.lupProgramGroupCropParser(jObj.getJSONArray("lup_prog_group_crop"), db);
                 }
 
 
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("lup_community_loan_source")) {
-                    JSONArray lup_community_loan_source_Datas = jObj.getJSONArray("lup_community_loan_source");
-                    size = lup_community_loan_source_Datas.length();
-                    for (int i = 0; i < size; i++) {
-                        JSONObject lup_community_loan_source_Data = lup_community_loan_source_Datas.getJSONObject(i);
-
-
-                        String AdmCountryCode = lup_community_loan_source_Data.getString("AdmCountryCode");
-                        String AdmDonorCode = lup_community_loan_source_Data.getString("AdmDonorCode");
-                        String AdmAwardCode = lup_community_loan_source_Data.getString("AdmAwardCode");
-                        String AdmProgCode = lup_community_loan_source_Data.getString("AdmProgCode");
-                        String LoanCode = lup_community_loan_source_Data.getString("LoanCode");
-                        String LoanSource = lup_community_loan_source_Data.getString("LoanSource");
-
-
-                /*        Log.d("InTest", "AdmCountryCode:" + AdmCountryCode
-                                + "AdmDonorCode: " + AdmDonorCode + "AdmAwardCode : " + AdmAwardCode + "AdmProgCode:" + AdmProgCode
-                                + " LoanCode: " + LoanCode + "LoanSource:" + LoanSource);
-*/
-                        db.addLUP_CommunityLoanSource(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode
-                                , LoanCode, LoanSource);
-                    }
+                    Parser.lupCommunityLoanSourceParser(jObj.getJSONArray("lup_community_loan_source"), db);
                 }
+
+
+
+                publishProgress(++progressIncremental);
+                if (!jObj.isNull("lup_community_fund_source")) {
+                    Parser.lupCommunityFundSourceParser(jObj.getJSONArray("lup_community_fund_source"), db);
+                }
+
+
+                publishProgress(++progressIncremental);
+                if (!jObj.isNull("lup_community_irrigation_system")) {
+                    Parser.lupCommunityIrrigationSystemParser(jObj.getJSONArray("lup_community_irrigation_system"), db);
+                }
+
+
+
 
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("lup_community__lead_position")) {
-                    JSONArray lup_community_lead_position_Datas = jObj.getJSONArray("lup_community__lead_position");
-                    size = lup_community_lead_position_Datas.length();
-                    for (int i = 0; i < size; i++) {
-                        JSONObject lup_community_lead_position_Data = lup_community_lead_position_Datas.getJSONObject(i);
-
-
-                        String AdmCountryCode = lup_community_lead_position_Data.getString("AdmCountryCode");
-                        String AdmDonorCode = lup_community_lead_position_Data.getString("AdmDonorCode");
-                        String AdmAwardCode = lup_community_lead_position_Data.getString("AdmAwardCode");
-                        String AdmProgCode = lup_community_lead_position_Data.getString("AdmProgCode");
-                        String LeadCode = lup_community_lead_position_Data.getString("LeadCode");
-                        String LeadPosition = lup_community_lead_position_Data.getString("LeadPosition");
-
-
-              /*          Log.d("InTest", "AdmCountryCode:" + AdmCountryCode
-                                + "AdmDonorCode: " + AdmDonorCode + "AdmAwardCode : " + AdmAwardCode + "AdmProgCode:" + AdmProgCode
-                                + " LeadCode: " + LeadCode + "LeadPosition:" + LeadPosition);*/
-                        db.addLUP_CommunityLeadPostition(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, LeadCode, LeadPosition);
-
-                    }
+                    Parser.lupCommunityLeadPositionParser(jObj.getJSONArray("lup_community__lead_position"), db);
                 }
+
+
 
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("community_group_category")) {
-                    JSONArray community_group_category_Datas = jObj.getJSONArray("community_group_category");
-                    size = community_group_category_Datas.length();
-                    for (int i = 0; i < size; i++) {
-                        JSONObject community_group_category_Data = community_group_category_Datas.getJSONObject(i);
-
-
-                        String AdmCountryCode = community_group_category_Data.getString("AdmCountryCode");
-                        String AdmDonorCode = community_group_category_Data.getString("AdmDonorCode");
-                        String AdmAwardCode = community_group_category_Data.getString("AdmAwardCode");
-                        String AdmProgCode = community_group_category_Data.getString("AdmProgCode");
-                        String GrpCatCode = community_group_category_Data.getString("GrpCatCode");
-                        String GrpCatName = community_group_category_Data.getString("GrpCatName");
-                        String GrpCatShortName = community_group_category_Data.getString("GrpCatShortName");
-
-
-           /*             Log.d("InTest", "AdmCountryCode:" + AdmCountryCode
-                                + "AdmDonorCode: " + AdmDonorCode + "AdmAwardCode : " + AdmAwardCode + "AdmProgCode:" + AdmProgCode
-                                + " GrpCatCode: " + GrpCatCode + " GrpCatName:" + GrpCatName
-                                + " GrpCatShortName: " + GrpCatShortName
-                        );*/
-                        db.addCommunityGroupCategoryFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, GrpCatCode, GrpCatName, GrpCatShortName);
-
-                    }
+                    Parser.lupCommunityGroupCategoryParser(jObj.getJSONArray("community_group_category"), db);
                 }
+
+
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("lup_reg_n_add_lookup")) {
                     JSONArray lup_reg_n_add_lookup = jObj.getJSONArray("lup_reg_n_add_lookup");
@@ -2203,11 +2078,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         String OrgNCode = org_n_code_Data.getString("OrgNCode");
                         String OrgNName = org_n_code_Data.getString("OrgNName");
                         String OrgNShortName = org_n_code_Data.getString("OrgNShortName");
-                        Log.d(TAG, "OrgNName:" + OrgNName + "OrgNShortName:" + OrgNShortName);
+//                        Log.d(TAG, "OrgNName:" + OrgNName + "OrgNShortName:" + OrgNShortName);
                         db.insertIntoProgOrgN(OrgNCode, OrgNName, OrgNShortName);
                     }
                 }
-//// TODO: 10/18/2016  this parsing of the group detail set to parse class
+
 
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("community_grp_detail")) {
@@ -2283,6 +2158,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (!jObj.isNull("staff_srv_center_access")) {
                     Parser.staff_srv_center_accessParser(jObj.getJSONArray("staff_srv_center_access"), db);
                 }
+
 
 
             } catch (Exception e) {

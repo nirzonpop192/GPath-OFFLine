@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -284,54 +283,10 @@ public class CommunityGroupNDetailsRecodes extends BaseActivity {
 
     private void loadCountry() {
 
-//        SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-
-        int position = 0;
-        String criteria = "";
-
-//        String operationModeName = settings.getInt(UtilClass.OPERATION_MODE, 0);
-        String operationModeName =  sqlH.getDeviceOperationMode();
-
-        switch (operationModeName) {
-            case UtilClass.REGISTRATION_OPERATION_MODE_NAME:
-                criteria = " INNER JOIN " + SQLiteHandler.SELECTED_VILLAGE_TABLE + " ON "
-                        + SQLiteHandler.COUNTRY_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = "
-                        + SQLiteHandler.SELECTED_VILLAGE_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL;
+        String operationModeName = sqlH.getDeviceOperationMode();
 
 
-                break;
-            case UtilClass.DISTRIBUTION_OPERATION_MODE_NAME:
-                criteria = " INNER JOIN " + SQLiteHandler.SELECTED_FDP_TABLE + " ON "
-                        + SQLiteHandler.COUNTRY_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = "
-                        + SQLiteHandler.SELECTED_FDP_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL;
-
-                break;
-            case UtilClass.SERVICE_OPERATION_MODE_NAME:
-                criteria = " INNER JOIN " + SQLiteHandler.SELECTED_SERVICE_CENTER_TABLE + " ON "
-                        + SQLiteHandler.COUNTRY_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = "
-                        + SQLiteHandler.SELECTED_SERVICE_CENTER_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL;
-
-
-                break;
-        }
-
-
-        List<SpinnerHelper> listCountry = sqlH.getListAndID(SQLiteHandler.COUNTRY_TABLE, criteria, null, true);
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listCountry);
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-
-        spCountry.setAdapter(dataAdapter);
-
-
-        if (idCountry != null) {
-            for (int i = 0; i < spCountry.getCount(); i++) {
-                String district = spCountry.getItemAtPosition(i).toString();
-                if (district.equals(strCountry)) {
-                    position = i;
-                }
-            }
-            spCountry.setSelection(position);
-        }
+        SpinnerLoader.loadCountryLoader(mContext, sqlH, spCountry, idCountry, strCountry, SQLiteQuery.loadCountry_sql(operationModeName));
 
 
         spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -359,53 +314,38 @@ public class CommunityGroupNDetailsRecodes extends BaseActivity {
      * LOAD :: UNIT: loadLayR3List
      */
     private void loadLayR3List(String cCode) {
-        int position = 0;
-        String criteria = "SELECT  ut." + SQLiteHandler.LAY_R1_LIST_CODE_COL + " || '' || " + "ut." + SQLiteHandler.LAY_R2_LIST_CODE_COL + " || '' || " + " ut." + SQLiteHandler.LAY_R3_LIST_CODE_COL
-                + ", " + "ut." + SQLiteHandler.UNITE_NAME_COL
-                + " FROM " + SQLiteHandler.UNIT_TABLE + " AS ut"
-                + " INNER JOIN "
+//        int position = 0;
+//        String criteria =SQLiteQuery.loadLayR3List_sql(cCode) ;
+//
+//
+//        List<SpinnerHelper> listLayR2Code = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
+//        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listLayR2Code);
+//        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
+//        spLayR3List.setAdapter(dataAdapter);
+//
+//
+//        if (idLayR3Code != null) {
+//
+//            for (int i = 0; i < spLayR3List.getCount(); i++) {
+//                String LayR2Name = spLayR3List.getItemAtPosition(i).toString();
+//                if (LayR2Name.equals(strLayR3Name)) {
+//                    position = i;
+//                }
+//            }
+//            spLayR3List.setSelection(position);
+//
+//            if (!addNewFlag) {
+//                spLayR3List.setEnabled(false);
+//            }
+//
+//        }
 
-                + SQLiteHandler.STAFF_GEO_INFO_ACCESS_TABLE + " AS geo "
-                + " ON geo." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = " + "ut." + SQLiteHandler.ADM_COUNTRY_CODE_COL
-                + " AND geo." + SQLiteHandler.LAY_R1_LIST_CODE_COL + " = " + "ut." + SQLiteHandler.LAY_R1_LIST_CODE_COL
-                + " AND geo." + SQLiteHandler.LAY_R2_LIST_CODE_COL + " = " + "ut." + SQLiteHandler.LAY_R2_LIST_CODE_COL
-                + " AND geo." + SQLiteHandler.LAY_R3_LIST_CODE_COL + " = " + "ut." + SQLiteHandler.LAY_R3_LIST_CODE_COL
-                + " WHERE " + "ut." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "'"
-                + " AND ( geo." + SQLiteHandler.BTN_NEW_COL + " = 1 OR geo."
-                + SQLiteHandler.BTN_SAVE_COL + " = 1 OR geo."
-                + SQLiteHandler.BTN_DEL_COL + " ) ";
-              /*  + " GROUP BY " +
-                SQLiteHandler.UPAZILLA_TABLE + "." + SQLiteHandler.LAY_R2_LIST_CODE_COL + ", " + SQLiteHandler.UPAZILLA_TABLE + "." + SQLiteHandler.UPZILLA_NAME_COL;*/
-        // SQLiteQuery.getUpzillaJoinQuery(idCountry, idDist);
-
-
-        List<SpinnerHelper> listLayR2Code = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
-
-
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listLayR2Code);
-
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-
-        spLayR3List.setAdapter(dataAdapter);
-
-
-        if (idLayR3Code != null) {
-
-            for (int i = 0; i < spLayR3List.getCount(); i++) {
-                String LayR2Name = spLayR3List.getItemAtPosition(i).toString();
-                if (LayR2Name.equals(strLayR3Name)) {
-                    position = i;
-                }
-            }
-            spLayR3List.setSelection(position);
-
-            if (!addNewFlag) {
-                spLayR3List.setEnabled(false);
-            }
-
+        boolean disableFlag = false;
+        if (!addNewFlag) {
+            disableFlag = true;
         }
 
-
+        SpinnerLoader.loadLayR3ListLoader(mContext, sqlH,spLayR3List,idLayR3Code,strLayR3Name,cCode,SQLiteQuery.loadLayR3List_sql(cCode),true,disableFlag);
         spLayR3List.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -477,7 +417,6 @@ public class CommunityGroupNDetailsRecodes extends BaseActivity {
 // todo: recheck this position
 //                if (idStaff.length() > 0) {
 
-                // loadGroupCategory(idCountry, idDonor, idAward, idProgram);
 //                }
 
 
@@ -1054,31 +993,12 @@ public class CommunityGroupNDetailsRecodes extends BaseActivity {
 
 
     private void loadProgram(final String cCode, final String awardCode, final String donorCode) {
-        int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.AWARD_CODE_COL + "='" + awardCode + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.DONOR_CODE_COL + "='" + donorCode + "'";
-
-        List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
-
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listProgram);
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        spProgram.setAdapter(dataAdapter);
-
-        if (idProgram != null) {
-            for (int i = 0; i < spProgram.getCount(); i++) {
-                String prog = spProgram.getItemAtPosition(i).toString();
-                if (prog.equals(strProgram)) {
-                    position = i;
-                }
-            }
-            spProgram.setSelection(position);
-            /**
-             *  block the  control selection of
-             */
-            if (!addNewFlag) {
-                spProgram.setEnabled(false);
-            }
+        boolean disableFlag = false;
+        if (!addNewFlag) {
+            disableFlag = true;
         }
+        SpinnerLoader.loadProgramLoader(mContext, sqlH, spProgram, idProgram, strProgram, SQLiteQuery.loadProgram_sql(awardCode, donorCode), true, disableFlag);
+
         spProgram.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

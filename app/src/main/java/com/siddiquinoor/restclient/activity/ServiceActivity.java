@@ -503,7 +503,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.btnRegisterFooter:
                 finish();
-                Intent iSummary = new Intent(mContext, AllSummaryActivity.class);
+                Intent iSummary = new Intent(mContext, SummaryMenuActivity.class);
                 iSummary.putExtra("ID_COUNTRY", idCountry);
                 startActivity(iSummary);
                 break;
@@ -1030,7 +1030,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
         int position = 0;
 
 
-        String criteria = "SELECT  " + SQLiteHandler.GRP_LAY_R1_LIST_CODE_COL + "||"
+        String criteria = "SELECT  " + SQLiteHandler.LAY_R1_CODE_COL + "||"
                 + SQLiteHandler.GRP_LAY_R2_LIST_CODE_COL + "||" +
                 SQLiteHandler.GRP_LAY_R3_LIST_CODE_COL + "||"
 

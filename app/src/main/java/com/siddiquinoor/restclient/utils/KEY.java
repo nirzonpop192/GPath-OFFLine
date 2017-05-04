@@ -167,5 +167,6 @@ public class KEY {
     public static final String DYNAMIC_T_QUES_SIZE = "qusSize";
 
 
-
+    public static final String VILLAGE_CODE_1 = "village_code";
+    public static final String VILLAGE_NAME_1 = "village";
 }

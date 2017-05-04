@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 
-import com.siddiquinoor.restclient.activity.AllSummaryActivity;
+import com.siddiquinoor.restclient.activity.SummaryMenuActivity;
 import com.siddiquinoor.restclient.activity.MainActivity;
 import com.siddiquinoor.restclient.R;
 import com.siddiquinoor.restclient.fragments.BaseActivity;
@@ -100,7 +100,7 @@ public class SummaryAssignCriteria extends BaseActivity implements AdapterView.O
             @Override
             public void onClick(View v) {
                 finish();
-                Intent iSummary = new Intent(mContext, AllSummaryActivity.class);
+                Intent iSummary = new Intent(mContext, SummaryMenuActivity.class);
                 iSummary.putExtra(KEY.COUNTRY_ID, idCountry);
 
                 startActivity(iSummary);
@@ -123,7 +123,7 @@ public class SummaryAssignCriteria extends BaseActivity implements AdapterView.O
         spVillage = (Spinner) findViewById(R.id.sp_villageAssgnSummary);
 
         lv_CriteriaSummary = (ListView) findViewById(R.id.lv_AssignSumCriteria);
-        //  btnSummary.setText("Summary");
+        //  btnSummary.setText("SumRegLay4TotalHHRecords");
 
 
     }

@@ -1800,14 +1800,220 @@ public class Parser extends Parse {
                 EntryDate = "";
 
 
-                sqlH.addCommunityGroup(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, GrpCode, GrpName, GrpCatCode, LayR1Code, LayR2Code, LayR3Code, SrvCenterCode, EntryBy, EntryDate);
+                sqlH.addCommunityGroup(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode,
+                        GrpCode, GrpName, GrpCatCode, LayR1Code, LayR2Code, LayR3Code, SrvCenterCode,
+                        EntryBy, EntryDate);
 
 
             } catch (Exception e) {
                 Log.e(TAG, "Exception : " + e);
                 e.printStackTrace();
             }
-        }// end of for
+        }                                                                                           // end of for
+
+    }
+
+    public static void lupCommunityAnimalParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, AnimalCode, AnimalType;
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject lup_community_animal_Data = jsonArrayData.getJSONObject(i);
+
+
+                AdmCountryCode = lup_community_animal_Data.getString("AdmCountryCode");
+                AdmDonorCode = lup_community_animal_Data.getString("AdmDonorCode");
+                AdmAwardCode = lup_community_animal_Data.getString("AdmAwardCode");
+                AdmProgCode = lup_community_animal_Data.getString("AdmProgCode");
+                AnimalCode = lup_community_animal_Data.getString("AnimalCode");
+                AnimalType = lup_community_animal_Data.getString("AnimalType");
+
+
+                sqlH.addLUP_AnimalTypeFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, AnimalCode, AnimalType);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public static void lupProgramGroupCropParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+        String AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, CropCode, CropList, CropCatCode;
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+
+                AdmCountryCode = jsonObject.getString("AdmCountryCode");
+                AdmDonorCode = jsonObject.getString("AdmDonorCode");
+                AdmAwardCode = jsonObject.getString("AdmAwardCode");
+                AdmProgCode = jsonObject.getString("AdmProgCode");
+                CropCode = jsonObject.getString("CropCode");
+                CropList = jsonObject.getString("CropList");
+                CropCatCode = jsonObject.getString("CropCatCode");
+
+                sqlH.addLUP_ProgramGroupCrop(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, CropCode, CropList, CropCatCode);
+
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
+    public static void lupCommunityLoanSourceParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, LoanCode, LoanSource;
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+
+                AdmCountryCode = jsonObject.getString("AdmCountryCode");
+                AdmDonorCode = jsonObject.getString("AdmDonorCode");
+                AdmAwardCode = jsonObject.getString("AdmAwardCode");
+                AdmProgCode = jsonObject.getString("AdmProgCode");
+                LoanCode = jsonObject.getString("LoanCode");
+                LoanSource = jsonObject.getString("LoanSource");
+
+
+                sqlH.addLUP_CommunityLoanSource(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, LoanCode, LoanSource);
+
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+
+    }
+    public static void lupCommunityFundSourceParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, FundCode, FundSource;
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject lup_community_loan_source_Data = jsonArrayData.getJSONObject(i);
+
+                AdmCountryCode = lup_community_loan_source_Data.getString("AdmCountryCode");
+                AdmDonorCode = lup_community_loan_source_Data.getString("AdmDonorCode");
+                AdmAwardCode = lup_community_loan_source_Data.getString("AdmAwardCode");
+                AdmProgCode = lup_community_loan_source_Data.getString("AdmProgCode");
+                FundCode = lup_community_loan_source_Data.getString("FundCode");
+                FundSource = lup_community_loan_source_Data.getString("FundSource");
+
+                sqlH.addLUP_CommunityFundSource(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, FundCode, FundSource);
+
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public static void lupCommunityIrrigationSystemParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, IrriSysCode, IrriSysName;
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject lup_community_loan_source_Data = jsonArrayData.getJSONObject(i);
+
+
+                AdmCountryCode = lup_community_loan_source_Data.getString("AdmCountryCode");
+                AdmDonorCode = lup_community_loan_source_Data.getString("AdmDonorCode");
+                AdmAwardCode = lup_community_loan_source_Data.getString("AdmAwardCode");
+                AdmProgCode = lup_community_loan_source_Data.getString("AdmProgCode");
+                IrriSysCode = lup_community_loan_source_Data.getString("IrriSysCode");
+                IrriSysName = lup_community_loan_source_Data.getString("IrriSysName");
+
+
+                sqlH.addLUP_CommunityIrrigationSystem(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, IrriSysCode, IrriSysName);
+
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public static void lupCommunityLeadPositionParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, LeadCode, LeadPosition;
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+
+                AdmCountryCode = jsonObject.getString("AdmCountryCode");
+                AdmDonorCode = jsonObject.getString("AdmDonorCode");
+                AdmAwardCode = jsonObject.getString("AdmAwardCode");
+                AdmProgCode = jsonObject.getString("AdmProgCode");
+                LeadCode = jsonObject.getString("LeadCode");
+                LeadPosition = jsonObject.getString("LeadPosition");
+
+
+                sqlH.addLUP_CommunityLeadPostition(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, LeadCode, LeadPosition);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+    public static void lupCommunityGroupCategoryParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+        String AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, GrpCatCode, GrpCatName, GrpCatShortName;
+
+        for (int i = 0; i < size; i++) {
+            try {
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+
+
+                AdmCountryCode = jsonObject.getString("AdmCountryCode");
+                AdmDonorCode = jsonObject.getString("AdmDonorCode");
+                AdmAwardCode = jsonObject.getString("AdmAwardCode");
+                AdmProgCode = jsonObject.getString("AdmProgCode");
+                GrpCatCode = jsonObject.getString("GrpCatCode");
+                GrpCatName = jsonObject.getString("GrpCatName");
+                GrpCatShortName = jsonObject.getString("GrpCatShortName");
+
+
+                sqlH.addCommunityGroupCategoryFromOnline(AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, GrpCatCode, GrpCatName, GrpCatShortName);
+
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+        }
 
     }
 
@@ -2253,7 +2459,7 @@ public class Parser extends Parse {
     public static void staff_access_infoParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
         int size = jsonArrayData.length();
-        String StfCode, AdmCountryCode, AdmDonorCode, AdmAwardCode, LayRListCode, btnNew, btnSave, btnDel, btnPepr, btnAprv, btnRevw, btnVrfy, disCode, upCode, unCode, vCode, btnDTran;
+        String StfCode, AdmCountryCode, AdmDonorCode, AdmAwardCode, LayRListCode, btnNew, btnSave, btnDel, btnPepr, btnAprv, btnRevw, btnVrfy/*, disCode, upCode, unCode, vCode*/, btnDTran;
         for (int i = 0; i < size; i++) {
             try {
                 JSONObject jsonObject = jsonArrayData.getJSONObject(i);
@@ -2273,11 +2479,11 @@ public class Parser extends Parse {
                 btnDTran = jsonObject.getString(Parser.BTN_D_TRAN);
 
                 //String FDPCode = dbo_staff_geo_info_access.getString("FDPCode");
-                disCode = LayRListCode.substring(0, 2);
-                upCode = LayRListCode.substring(2, 4);
-                unCode = LayRListCode.substring(4, 6);
-                vCode = LayRListCode.substring(6);
-                sqlH.addStaffGeoAccessInfo(StfCode, AdmCountryCode, AdmDonorCode, AdmAwardCode, LayRListCode, disCode, upCode, unCode, vCode, btnNew, btnSave, btnDel, btnPepr, btnAprv, btnRevw, btnVrfy, btnDTran);//, SrvCenterCatCode, FDPCode);
+//                disCode = LayRListCode.substring(0, 2);
+//                upCode = LayRListCode.substring(2, 4);
+//                unCode = LayRListCode.substring(4, 6);
+//                vCode = LayRListCode.substring(6);
+                sqlH.addStaffGeoAccessInfo(StfCode, AdmCountryCode, AdmDonorCode, AdmAwardCode, LayRListCode/*, disCode, upCode, unCode, vCode*/, btnNew, btnSave, btnDel, btnPepr, btnAprv, btnRevw, btnVrfy, btnDTran);//, SrvCenterCatCode, FDPCode);
             } catch (Exception e) {
                 Log.e(TAG, "Exception : " + e);
                 e.printStackTrace();

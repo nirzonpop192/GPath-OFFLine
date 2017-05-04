@@ -500,71 +500,71 @@ public class RegisterMember extends BaseActivity {
 
     }
 
-    private void goToNextPage(String c_code, String districtCode, String upazillaCode, String unionCode, String villageCode, String hhID, String redirect) {
-
-        ContentValues results = new ContentValues();
-        Intent dIntent = new Intent(this, ViewRecordDetail.class);
-
-        dIntent.putExtra("regID", hhID);
-
-        // getting House hold data
-        results = sqlH.getHouseHoldData(c_code, districtCode, upazillaCode, unionCode, villageCode, hhID);
-
-        country_name = results.getAsString("country_name");
-
-        str_district = results.getAsString("str_district");
-        str_upazilla = results.getAsString("str_upazilla");
-        str_union = results.getAsString("str_union");
-        str_village = results.getAsString("str_village");
-
-        str_c_code = results.getAsString("str_c_code");
-        str_districtCode = results.getAsString("str_districtCode");
-        str_upazillaCode = results.getAsString("str_upazillaCode");
-        str_unionCode = results.getAsString("str_unionCode");
-        str_villageCode = results.getAsString("str_villageCode");
-
-        str_reg_date = results.getAsString("str_reg_date");
-        //str_hhName = results.getAsString("str_hhName");
-        str_gender = results.getAsString("str_gender");
-        String str_hhsize = results.getAsString("str_hhsize");
-        String str_latitude = results.getAsString("str_latitude");
-        String str_longitude = results.getAsString("str_longitude");
-        str_agland = results.getAsString("str_agland");
-        String str_vstatus = results.getAsString("str_vstatus");
-        String str_mstatus = results.getAsString("str_mstatus");
-        str_entry_by = cIntent.getStringExtra("str_entry_by");
-        str_entry_date = cIntent.getStringExtra("str_entry_date");
-
-        dIntent.putExtra("country_code", str_c_code);
-
-
-        dIntent.putExtra("country_name", country_name);
-        dIntent.putExtra("district", str_district);
-        dIntent.putExtra("upazilla", str_upazilla);
-        dIntent.putExtra("unit", str_union);
-        dIntent.putExtra("village", str_village);
-
-        dIntent.putExtra("districtCode", str_districtCode);
-        dIntent.putExtra("upazillaCode", str_upazillaCode);
-        dIntent.putExtra("unitCode", str_unionCode);
-        dIntent.putExtra("villageCode", str_villageCode);
-
-
-        //dIntent.putExtra("regID", str_village);
-        dIntent.putExtra("regDate", str_reg_date);
-        dIntent.putExtra("personName", str_hhName);
-        dIntent.putExtra("sex", str_gender);
-        dIntent.putExtra("hhSize", str_hhsize);
-        dIntent.putExtra("latitude", str_latitude);
-        dIntent.putExtra("longitude", str_longitude);
-        dIntent.putExtra("agLand", str_agland);
-        dIntent.putExtra("vstatus", str_vstatus);
-        dIntent.putExtra("mstatus", str_mstatus);
-        dIntent.putExtra("entryBy", str_entry_by);
-        dIntent.putExtra("entryDate", str_entry_date);
-
-        startActivity(dIntent);
-    }
+//    private void goToNextPage(String c_code, String districtCode, String upazillaCode, String unionCode, String villageCode, String hhID, String redirect) {
+//
+//        ContentValues results = new ContentValues();
+//        Intent dIntent = new Intent(this, ViewRecordDetail.class);
+//
+//        dIntent.putExtra("regID", hhID);
+//
+//        // getting House hold data
+//        results = sqlH.getHouseHoldData(c_code, districtCode, upazillaCode, unionCode, villageCode, hhID);
+//
+//        country_name = results.getAsString("country_name");
+//
+//        str_district = results.getAsString("str_district");
+//        str_upazilla = results.getAsString("str_upazilla");
+//        str_union = results.getAsString("str_union");
+//        str_village = results.getAsString("str_village");
+//
+//        str_c_code = results.getAsString("str_c_code");
+//        str_districtCode = results.getAsString("str_districtCode");
+//        str_upazillaCode = results.getAsString("str_upazillaCode");
+//        str_unionCode = results.getAsString("str_unionCode");
+//        str_villageCode = results.getAsString("str_villageCode");
+//
+//        str_reg_date = results.getAsString("str_reg_date");
+//        //str_hhName = results.getAsString("str_hhName");
+//        str_gender = results.getAsString("str_gender");
+//        String str_hhsize = results.getAsString("str_hhsize");
+//        String str_latitude = results.getAsString("str_latitude");
+//        String str_longitude = results.getAsString("str_longitude");
+//        str_agland = results.getAsString("str_agland");
+//        String str_vstatus = results.getAsString("str_vstatus");
+//        String str_mstatus = results.getAsString("str_mstatus");
+//        str_entry_by = cIntent.getStringExtra("str_entry_by");
+//        str_entry_date = cIntent.getStringExtra("str_entry_date");
+//
+//        dIntent.putExtra("country_code", str_c_code);
+//
+//
+//        dIntent.putExtra("country_name", country_name);
+//        dIntent.putExtra("district", str_district);
+//        dIntent.putExtra("upazilla", str_upazilla);
+//        dIntent.putExtra("unit", str_union);
+//        dIntent.putExtra("village", str_village);
+//
+//        dIntent.putExtra("districtCode", str_districtCode);
+//        dIntent.putExtra("upazillaCode", str_upazillaCode);
+//        dIntent.putExtra("unitCode", str_unionCode);
+//        dIntent.putExtra("villageCode", str_villageCode);
+//
+//
+//        //dIntent.putExtra("regID", str_village);
+//        dIntent.putExtra("regDate", str_reg_date);
+//        dIntent.putExtra("personName", str_hhName);
+//        dIntent.putExtra("sex", str_gender);
+//        dIntent.putExtra("hhSize", str_hhsize);
+//        dIntent.putExtra("latitude", str_latitude);
+//        dIntent.putExtra("longitude", str_longitude);
+//        dIntent.putExtra("agLand", str_agland);
+//        dIntent.putExtra("vstatus", str_vstatus);
+//        dIntent.putExtra("mstatus", str_mstatus);
+//        dIntent.putExtra("entryBy", str_entry_by);
+//        dIntent.putExtra("entryDate", str_entry_date);
+//
+//        startActivity(dIntent);
+//    }
 
     private void setMemID(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String hhID) {
         String next_id = sqlH.getMemberID(str_c_code, str_district, str_upazilla, str_union, str_village, hhID);

@@ -284,7 +284,7 @@ public class OldAssignActivity extends BaseActivity implements AdapterView.OnIte
                 goToAlert();
                 break;
             case R.id.btnRegisterFooter:
-                Intent iSummary = new Intent(mcontext, AllSummaryActivity.class);
+                Intent iSummary = new Intent(mcontext, SummaryMenuActivity.class);
                 iSummary.putExtra(KEY.COUNTRY_ID, idCountry);
                 startActivity(iSummary);
                 break;
@@ -465,7 +465,7 @@ public class OldAssignActivity extends BaseActivity implements AdapterView.OnIte
         //  String criteria=" WHERE "+SQLiteHandler.ADM_COUNTRY_CODE_COL +" = '"+idcCode+"' ";
         String criteria = " AS v   INNER JOIN " + SQLiteHandler.SELECTED_VILLAGE_TABLE + " as S "
                 + " ON S." + SQLiteHandler.LAYER_CODE_COL + "  = v." + SQLiteHandler.ADM_COUNTRY_CODE_COL
-                + " ||''|| v." + SQLiteHandler.LAY_R1_LIST_CODE_COL
+                + " ||''|| v." + SQLiteHandler.LAY_R_LIST_CODE_COL
                 + " ||''|| v." + SQLiteHandler.LAY_R2_LIST_CODE_COL
                 + " ||''|| v." + SQLiteHandler.LAY_R3_LIST_CODE_COL
                 + " ||''|| v." + SQLiteHandler.LAY_R4_LIST_CODE_COL + " ";
@@ -691,7 +691,7 @@ public class OldAssignActivity extends BaseActivity implements AdapterView.OnIte
                         break;
                     case 3:
                         finish();
-                        intent = new Intent(OldAssignActivity.this, AllSummaryActivity.class);
+                        intent = new Intent(OldAssignActivity.this, SummaryMenuActivity.class);
                         intent.putExtra(KEY.COUNTRY_ID, sqlH.selectCountryCode());
                         startActivity(intent);
                         break;

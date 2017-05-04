@@ -42,6 +42,20 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
     private TrainingNActivityBeneficiaryAdapter adapter;
     private String mIdCategories;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_tabeneficiary_card_list);
+        initial();
+        setText();
+        setListener();
+
+        // to debug the below code
+//        loadEligibleTrainingAcitMemList(mTAMasterData.getcCode(), "");
+        LoadListView loadList = new LoadListView(mTAMasterData.getcCode(), "");
+        loadList.execute();
+    }
+
     private void viewReference() {
 
         tv_taTitle = (TextView) findViewById(R.id.ta_index_row_tv_taTitle);
@@ -162,27 +176,27 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
         List<TrainigActivBeneficiaryDataModel> assDatalist = sqlH.getEligibleTrainingAcitMemList(cCode, memberString);
 
         if (assDatalist.size() != 0) {
-            dataArray.clear();
-            for (TrainigActivBeneficiaryDataModel data : assDatalist) {
-                // add contacts data in arrayList
-
-                dataArray.add(data);
-            }
+//            dataArray.clear();
+//            for (TrainigActivBeneficiaryDataModel data : assDatalist) {
+//                // add contacts data in arrayList
+//
+//                dataArray.add(data);
+//            }
 
 
             adapter = new TrainingNActivityBeneficiaryAdapter((Activity) TABeneficiaryCardListActivity.this,
-                    dataArray);
+                    assDatalist);
 
             //  use below code to debug
 
-            if (adapter.getCount() > 0) {
-                if (adapter.getCount() != 0) {
-                    adapter.notifyDataSetChanged();
-                    listView.setAdapter(adapter);
-                } else {
-                    new ADNotificationManager().showInfromDialog(mContext, "NO Data", "No data Found");
-                }
-            }
+//            if (adapter.getCount() > 0) {
+//                if (adapter.getCount() != 0) {
+//                    adapter.notifyDataSetChanged();
+//                    listView.setAdapter(adapter);
+//                } else {
+//                    new ADNotificationManager().showInfromDialog(mContext, "NO Data", "No data Found");
+//                }
+//            }
 
         }
     }
@@ -238,17 +252,5 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
         }
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tabeneficiary_card_list);
-        initial();
-        setText();
-        setListener();
 
-        // to debug the below code
-        loadEligibleTrainingAcitMemList(mTAMasterData.getcCode(), "");
-//        LoadListView loadList = new LoadListView(mTAMasterData.getcCode(), "");
-//        loadList.execute();
-    }
 }

@@ -36,14 +36,14 @@ public class TrainingNActivityBeneficiaryAdapter extends BaseAdapter {
         return mSelectedEligibleBeneList;
     }
     private LayoutInflater inflater;
-    private ArrayList<TrainigActivBeneficiaryDataModel> dataList = new ArrayList<>();
+    private List<TrainigActivBeneficiaryDataModel> dataList = new ArrayList<>();
 
 
 
     ViewHolder holder = null;
 
 
-    public TrainingNActivityBeneficiaryAdapter(Activity activity, ArrayList<TrainigActivBeneficiaryDataModel> assignData
+    public TrainingNActivityBeneficiaryAdapter(Activity activity, List<TrainigActivBeneficiaryDataModel> assignData
     ) {
         this.activity = activity;
         this.dataList = assignData;

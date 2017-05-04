@@ -11,8 +11,10 @@ package com.siddiquinoor.restclient.activity.sub_activity.summary_sub;
  * @since 1.0
  */
 
+import android.annotation.TargetApi;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -46,11 +48,12 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
     private static final String LIBERIA = "0004";
     TextView tv_regID;
     TextView tv_personID;
-    TextView tv_country, tv_district, tv_upazilla, tv_unit, tv_village,tv_Address;
+    TextView tv_country, tv_district, tv_upazilla, tv_unit, tv_village, tv_Address;
     TextView tv_person_name, tv_regDate;
 
 
-    TextView tv_LayR4Name, tv_hhSize, tv_Latitude, tv_Longitude,/* tv_agland,*/ tv_vstatus, tv_mstatus;
+    TextView tv_LayR4Name, tv_hhSize, tv_Latitude, tv_Longitude,/* tv_agland,*/
+            tv_vstatus, tv_mstatus;
 
 
     TextView tv_hhType;
@@ -58,7 +61,7 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
     RelativeLayout rLayoutMalawi, rLayoutLiberia;
 
     int pID;
-    String str_hhID = null;
+    String str_hhID = null;                                                                         // layR1Code+layR2Code+layR3Code+layR4Code+hhID
     String str_hhName = null;
 
 
@@ -102,12 +105,10 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
             tv_bf_Cultivable_Accre, tv_bf_Cultivable_Value, tv_af_Cultivable_Accre, tv_af_Cultivable_Value,
             tv_bf_NCultivable_Accre, tv_bf_NCultivable_Value, tv_af_NCultivable_Accre, tv_af_NCultivable_Value,
             tv_bf_Orchards_Accre, tv_bf_Orchards_Value, tv_af_Orchards_Accre, tv_af_Orchards_Value,
-            tv_bf_corp_ld, tv_af_corp_ld,
-            tv_bf_liveStock_ld, tv_af_liveStock_ld,
-            tv_bf_smallBusiness_ld, tv_af_smallBusiness_ld,
-            tv_bf_employments_ld, tv_af_employments_ld,
-            tv_bf_remitance_ld, tv_af_remitance_ld,
-            tv_bf_noOfEarner, tv_af_noOfEarner;
+            tv_bf_corp_ld, tv_af_corp_ld, tv_bf_liveStock_ld, tv_af_liveStock_ld,
+            tv_bf_smallBusiness_ld, tv_af_smallBusiness_ld, tv_bf_employments_ld, tv_af_employments_ld,
+            tv_bf_remitance_ld, tv_af_remitance_ld, tv_bf_noOfEarner, tv_af_noOfEarner;
+    private String hhID;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -128,6 +129,9 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
         pID = intnt.getIntExtra(KEY.P_ID, -1);
 
         str_hhID = intnt.getStringExtra(KEY.REG_ID);
+        if (str_hhID.length() > 8)
+            hhID = str_hhID.substring(8);
+
         str_hhName = intnt.getStringExtra(KEY.PERSON_NAME);
 
 
@@ -155,7 +159,7 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
         tv_upazilla.setText(str_upazilla);
         tv_unit.setText(str_union);
         tv_village.setText(str_village);
-        tv_Address.setText("Address :"+str_Address);
+        tv_Address.setText("Address :" + str_Address);
         tv_regID.setText(str_hhID);
 
         tv_regDate.setText(intnt.getStringExtra(KEY.REG_DATE));
@@ -168,15 +172,15 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
             tv_hhSize.setText(intnt.getStringExtra(KEY.HH_SIZE));
             tv_Latitude.setText(intnt.getStringExtra(KEY.LATITUDE));
             tv_Longitude.setText(intnt.getStringExtra(KEY.LONGITUDE));
-           // tv_agland.setText(intnt.getStringExtra(KEY.AG_LAND));
+            // tv_agland.setText(intnt.getStringExtra(KEY.AG_LAND));
             tv_vstatus.setText(intnt.getStringExtra(KEY.VSTATUS));
             tv_mstatus.setText(intnt.getStringExtra(KEY.MSTATUS));
 
         } else {
             rLayoutMalawi.setVisibility(View.GONE);
 
-             setLibetiasValuesToTextView();
-
+            // for test
+            setLibetiasValuesToTextView();
 
 
         }
@@ -185,79 +189,81 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
 
         //String member =  intnt.getStringExtra("member");
 
-        String temId=str_hhID.substring(8);
+        String temId = str_hhID.substring(8);
 
         loadMemberListData(c_code, districtCode, upazillaCode, unionCode, villageCode, temId);
 
     }
 
     private void setLibetiasValuesToTextView() {
-        RegN_HH_libDataModel libHHData = sqlH.getSingleLiberiaHouseHoldData(c_code, districtCode, upazillaCode, unionCode, villageCode, str_hhID);
-        tv_hhType.setText(libHHData.getHHTypeString());
+        RegN_HH_libDataModel libHHData = sqlH.getSingleLiberiaHouseHoldData(c_code, districtCode, upazillaCode, unionCode, villageCode, hhID);
 
-        tv_childL2M.setText(libHHData.getLT2yrsM());
-        tv_childL2F.setText(libHHData.getLT2yrsF());
-        tv_child2to5M.setText(libHHData.getM2to5yers());
-        tv_child2to5F.setText(libHHData.getF2to5yrs());
-        tv_child6to12M.setText(libHHData.getM6to12yrs());
-        tv_child6to12F.setText(libHHData.getF6to12yrs());
-        tv_child13to17M.setText(libHHData.getM13to17yrs());
-        tv_child13to17F.setText(libHHData.getF13to17yrs());
-        tv_orphan18M.setText(libHHData.getOrphn_LT18yrsM());
-        tv_orphan18F.setText(libHHData.getOrphn_LT18yrsF());
-        tv_adult18to59M.setText(libHHData.getAdlt_18to59M());
-        tv_adult18to59F.setText(libHHData.getAdlt_18to59F());
-        tv_yelderly60M.setText(libHHData.getEld_60pM());
-        tv_elderly60F.setText(libHHData.getEld_60pF());
-        tv_No_PLW_HH.setText(libHHData.getPLW());
-        tvNoChroni_ill.setText(libHHData.getChronicallyIll());
+        if (libHHData != null) {
+            tv_hhType.setText(libHHData.getHHTypeString());
 
-        tv_hasTakeCForEbola.setText(libHHData.getLivingDeceasedContractEbola().equals("Y") ? "Yes" : "No");
-        tv_DidContractEbola.setText(libHHData.getExtraChildBecauseEbola().equals("Y") ? "Yes" : "No");
-        tv_hasTakeEForEbola.setText(libHHData.getExtraelderlyPersonBecauseEbola().equals("Y") ? "Yes" : "No");
-        tv_hasTakeChrIllForEbola.setText(libHHData.getExtraChronicallyIllDisabledPersonBecauseEbola().equals("Y") ? "Yes" : "No");
+            tv_childL2M.setText(libHHData.getLT2yrsM());
+            tv_childL2F.setText(libHHData.getLT2yrsF());
+            tv_child2to5M.setText(libHHData.getM2to5yers());
+            tv_child2to5F.setText(libHHData.getF2to5yrs());
+            tv_child6to12M.setText(libHHData.getM6to12yrs());
+            tv_child6to12F.setText(libHHData.getF6to12yrs());
+            tv_child13to17M.setText(libHHData.getM13to17yrs());
+            tv_child13to17F.setText(libHHData.getF13to17yrs());
+            tv_orphan18M.setText(libHHData.getOrphn_LT18yrsM());
+            tv_orphan18F.setText(libHHData.getOrphn_LT18yrsF());
+            tv_adult18to59M.setText(libHHData.getAdlt_18to59M());
+            tv_adult18to59F.setText(libHHData.getAdlt_18to59F());
+            tv_yelderly60M.setText(libHHData.getEld_60pM());
+            tv_elderly60F.setText(libHHData.getEld_60pF());
+            tv_No_PLW_HH.setText(libHHData.getPLW());
+            tvNoChroni_ill.setText(libHHData.getChronicallyIll());
 
-        tv_bf_cattle_Count.setText(libHHData.getBrfCntCattle());
-        tv_bf_cattle_Value.setText(libHHData.getBrfValCattle());
-        tv_af_cattle_count.setText(libHHData.getAftCntCattle());
-        tv_af_cattle_Value.setText(libHHData.getAftValCattle());
-        tv_bf_sheep_Count.setText(libHHData.getBrfCntSheepGoats());
-        tv_bf_sheep_Value.setText(libHHData.getBrfValSheepGoats());
-        tv_af_sheep_Count.setText(libHHData.getAftCntSheepGoats());
-        tv_af_sheep_Value.setText(libHHData.getAftValSheepGoats());
-        tv_bf_poultry_Count.setText(libHHData.getBrfCntPoultry());
-        tv_bf_poultry_Value.setText(libHHData.getBrfValPoultry());
-        tv_af_poultry_Count.setText(libHHData.getAftCntPoultry());
-        tv_af_poultry_Value.setText(libHHData.getAftValPoultry());
-        tv_bf_other_Count.setText(libHHData.getBrfCntOther());
-        tv_bf_other_Value.setText(libHHData.getBrfValOther());
-        tv_af_other_Count.setText(libHHData.getAftCntOther());
-        tv_af_other_Value.setText(libHHData.getAftValOther());
-        tv_bf_Cultivable_Accre.setText(libHHData.getBrfAcreCultivable());
-        tv_bf_Cultivable_Value.setText(libHHData.getBrfValCultivable());
-        tv_af_Cultivable_Accre.setText(libHHData.getAftAcreCultivable());
-        tv_af_Cultivable_Value.setText(libHHData.getAftValCultivable());
-        tv_bf_NCultivable_Accre.setText(libHHData.getBrfAcreNonCultivable());
-        tv_bf_NCultivable_Value.setText(libHHData.getBrfValNonCultivable());
-        tv_af_NCultivable_Accre.setText(libHHData.getAftAcreNonCultivable());
-        tv_af_NCultivable_Value.setText(libHHData.getAftValNonCultivable());
-        tv_bf_Orchards_Accre.setText(libHHData.getBrfAcreOrchards());
-        tv_bf_Orchards_Value.setText(libHHData.getBrfValOrchards());
-        tv_af_Orchards_Accre.setText(libHHData.getAftAcreOrchards());
-        tv_af_Orchards_Value.setText(libHHData.getAftValOrchards());
+            tv_hasTakeCForEbola.setText(libHHData.getLivingDeceasedContractEbola().equals("Y") ? "Yes" : "No");
+            tv_DidContractEbola.setText(libHHData.getExtraChildBecauseEbola().equals("Y") ? "Yes" : "No");
+            tv_hasTakeEForEbola.setText(libHHData.getExtraelderlyPersonBecauseEbola().equals("Y") ? "Yes" : "No");
+            tv_hasTakeChrIllForEbola.setText(libHHData.getExtraChronicallyIllDisabledPersonBecauseEbola().equals("Y") ? "Yes" : "No");
 
-        tv_bf_corp_ld.setText(libHHData.getBrfValCrop());
-        tv_af_corp_ld.setText(libHHData.getAftValCrop());
-        tv_bf_liveStock_ld.setText(libHHData.getBrfValLivestock());
-        tv_af_liveStock_ld.setText(libHHData.getAftValLivestock());
-        tv_bf_smallBusiness_ld.setText(libHHData.getBrfValSmallBusiness());
-        tv_af_smallBusiness_ld.setText(libHHData.getAftValSmallBusiness());
-        tv_bf_employments_ld.setText(libHHData.getBrfValEmployment());
-        tv_af_employments_ld.setText(libHHData.getAftValEmployment());
-        tv_bf_remitance_ld.setText(libHHData.getBrfValRemittances());
-        tv_af_remitance_ld.setText(libHHData.getAftValRemittances());
-        tv_bf_noOfEarner.setText(libHHData.getBrfCntWageEnr());
-        tv_af_noOfEarner.setText(libHHData.getAftCntWageEnr());
+            tv_bf_cattle_Count.setText(libHHData.getBrfCntCattle());
+            tv_bf_cattle_Value.setText(libHHData.getBrfValCattle());
+            tv_af_cattle_count.setText(libHHData.getAftCntCattle());
+            tv_af_cattle_Value.setText(libHHData.getAftValCattle());
+            tv_bf_sheep_Count.setText(libHHData.getBrfCntSheepGoats());
+            tv_bf_sheep_Value.setText(libHHData.getBrfValSheepGoats());
+            tv_af_sheep_Count.setText(libHHData.getAftCntSheepGoats());
+            tv_af_sheep_Value.setText(libHHData.getAftValSheepGoats());
+            tv_bf_poultry_Count.setText(libHHData.getBrfCntPoultry());
+            tv_bf_poultry_Value.setText(libHHData.getBrfValPoultry());
+            tv_af_poultry_Count.setText(libHHData.getAftCntPoultry());
+            tv_af_poultry_Value.setText(libHHData.getAftValPoultry());
+            tv_bf_other_Count.setText(libHHData.getBrfCntOther());
+            tv_bf_other_Value.setText(libHHData.getBrfValOther());
+            tv_af_other_Count.setText(libHHData.getAftCntOther());
+            tv_af_other_Value.setText(libHHData.getAftValOther());
+            tv_bf_Cultivable_Accre.setText(libHHData.getBrfAcreCultivable());
+            tv_bf_Cultivable_Value.setText(libHHData.getBrfValCultivable());
+            tv_af_Cultivable_Accre.setText(libHHData.getAftAcreCultivable());
+            tv_af_Cultivable_Value.setText(libHHData.getAftValCultivable());
+            tv_bf_NCultivable_Accre.setText(libHHData.getBrfAcreNonCultivable());
+            tv_bf_NCultivable_Value.setText(libHHData.getBrfValNonCultivable());
+            tv_af_NCultivable_Accre.setText(libHHData.getAftAcreNonCultivable());
+            tv_af_NCultivable_Value.setText(libHHData.getAftValNonCultivable());
+            tv_bf_Orchards_Accre.setText(libHHData.getBrfAcreOrchards());
+            tv_bf_Orchards_Value.setText(libHHData.getBrfValOrchards());
+            tv_af_Orchards_Accre.setText(libHHData.getAftAcreOrchards());
+            tv_af_Orchards_Value.setText(libHHData.getAftValOrchards());
+            tv_bf_corp_ld.setText(libHHData.getBrfValCrop());
+            tv_af_corp_ld.setText(libHHData.getAftValCrop());
+            tv_bf_liveStock_ld.setText(libHHData.getBrfValLivestock());
+            tv_af_liveStock_ld.setText(libHHData.getAftValLivestock());
+            tv_bf_smallBusiness_ld.setText(libHHData.getBrfValSmallBusiness());
+            tv_af_smallBusiness_ld.setText(libHHData.getAftValSmallBusiness());
+            tv_bf_employments_ld.setText(libHHData.getBrfValEmployment());
+            tv_af_employments_ld.setText(libHHData.getAftValEmployment());
+            tv_bf_remitance_ld.setText(libHHData.getBrfValRemittances());
+            tv_af_remitance_ld.setText(libHHData.getAftValRemittances());
+            tv_bf_noOfEarner.setText(libHHData.getBrfCntWageEnr());
+            tv_af_noOfEarner.setText(libHHData.getAftCntWageEnr());
+        }
 
 
     }
@@ -267,8 +273,6 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
         btnHome.setOnClickListener(this);
         btnAddMember.setOnClickListener(this);
     }
-
-
 
 
     private void viewsReference() {
@@ -288,7 +292,7 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
         tv_upazilla = (TextView) findViewById(id.upazilla);
         tv_unit = (TextView) findViewById(id.unit);
         tv_village = (TextView) findViewById(id.village);
-       tv_Address = (TextView) findViewById(id.lblAddress);
+        tv_Address = (TextView) findViewById(id.lblAddress);
         tv_regID = (TextView) findViewById(id.regid);
         tv_regDate = (TextView) findViewById(id.regdate);
         tv_person_name = (TextView) findViewById(id.person_name);
@@ -380,11 +384,11 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
         tv_bf_noOfEarner = (TextView) findViewById(R.id.tv_bf_noOfEarner);
         tv_af_noOfEarner = (TextView) findViewById(R.id.tv_af_noOfEarner);
 
-        addIconHomeButton();
+//        addIconHomeButton();
         addIconRegistrationButton();
         setAddMember();
     }
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void setAddMember() {
         btnAddMember.setText("");
         Drawable addMemberIcon = getResources().getDrawable(R.drawable.add_member);
@@ -392,20 +396,33 @@ public class ViewRecordDetail extends BaseActivity implements View.OnClickListen
         btnAddMember.setPadding(80, 5, 80, 5);
     }
 
-    private void addIconHomeButton() {
+//    private void addIconHomeButton() {
+//
+//        btnHome.setText("");
+//        Drawable imageHome = getResources().getDrawable(R.drawable.home_b);
+//        btnHome.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
+//        btnHome.setPadding(180, 5, 180, 5);
+//    }
 
-        btnHome.setText("");
-        Drawable imageHome = getResources().getDrawable(R.drawable.home_b);
-        btnHome.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        btnHome.setPadding(180, 5, 180, 5);
+    /**
+     * calling getWidth() and getHeight() too early:
+     * When  the UI has not been sized and laid out on the screen yet..
+     *
+     * @param hasFocus the value will be true when UI is focus
+     */
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+//        setUpHomeButton();
+        addIconRegistrationButton();
     }
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void addIconRegistrationButton() {
-
         btnReg.setText("");
         Drawable imageHome = getResources().getDrawable(R.drawable.registration);
-        btnReg.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        btnReg.setPadding(180, 5, 180, 5);
+        btnReg.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageHome, null, null);
+        btnReg.setPadding(-1, 10, -1, 10);
     }
 
 

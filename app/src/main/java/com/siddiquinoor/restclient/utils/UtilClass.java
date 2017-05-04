@@ -57,7 +57,7 @@ public class UtilClass {
      * OTHER Mode or dynamic  mode
      */
     public static final int TRANING_n_ACTIVITY_OPERATION_MODE = 5;
-    public static final String TRANING_N_ACTIVITY_OPERATION_MODE_NAME = "Training Activity";
+    public static final String TRANING_N_ACTIVITY_OPERATION_MODE_NAME = "Training & Activity";
 
     /**
      * Class Tag for Debug

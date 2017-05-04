@@ -363,17 +363,9 @@ public class RegisterLiberia extends BaseActivity implements View.OnClickListene
     private void getHouseHoldDataFromDataBase(String str_c_code, String str_districtCode, String str_upazillaCode, String str_unionCode, String str_villageCode, String str_hhID) {
         RegN_HH_libDataModel houseHold = sqlH.getSingleLiberiaHouseHoldData(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, str_hhID);
 
-       /* codeMartial = houseHold.getCodeMartial();
-        codeIDType = houseHold.getCodeIDType();
-        codeIDTypeForProxy = houseHold.getCodeIDTypeForProxy();
-        codeBscMem1Title = houseHold.getCodeBscMem1Title();
-        codeBscMem2Title = houseHold.getCodeBscMem2Title();
-        codeProxyBscMem1Title = houseHold.getCodeProxyBscMem1Title();
-        codeProxyBscMem2Title = houseHold.getCodeProxyBscMem2Title();
-        codeDesignatedProxy = houseHold.getCodeDesignatedProxy();*/
+
         setTextToEditText(houseHold);
-        /*ivMemberImage.setImageBitmap(decodeImage(houseHold.getMemberEncodedImage()));
-        ivProxyImage.setImageBitmap(decodeImage(houseHold.getProxyEncodedImage()));*/
+
     }
 
 
@@ -732,11 +724,11 @@ public class RegisterLiberia extends BaseActivity implements View.OnClickListene
     private void loadLayR3List(final String cCode, final String distCode, final String upCode) {
         position = 0;
 
-        String criteria = SQLiteQuery.getUnionJoinQuery(cCode, distCode, upCode);
+        String criteria = SQLiteQuery.getLayR3List_sql(cCode, distCode, upCode);
 
 
         // Spinner Drop down elements for District
-        List<SpinnerHelper> listUnion = sqlH.getListAndID(sqlH.UNIT_TABLE, criteria, cCode, false);
+        List<SpinnerHelper> listUnion = sqlH.getListAndID(sqlH.GEO_LAY_R3_LIST_TABLE, criteria, cCode, false);
 
         // Creating adapter for spinner
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listUnion);

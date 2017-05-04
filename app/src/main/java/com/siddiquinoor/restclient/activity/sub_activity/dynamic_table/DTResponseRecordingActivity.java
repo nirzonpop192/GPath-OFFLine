@@ -107,6 +107,8 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
     public static final String CHECKBOX_N_TEXTBOX = "Checkbox, Textbox";
     public static final String LOOKUP_LIST = "Lookup List";
 
+    public static final String COMMNITY_ANIMAL = "Commnity Animal";
+
     private CustomToast cusToast;
 
     /**

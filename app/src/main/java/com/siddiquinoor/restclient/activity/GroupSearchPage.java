@@ -142,7 +142,7 @@ public class GroupSearchPage extends BaseActivity {
      */
     private void loadProgram(final String cCode) {
 
-        SpinnerLoader.loadProgramLoader(mContext, sqlH, spProgram, idCriteria, strCriteria, SQLiteQuery.loadProgram_sql(cCode));
+        SpinnerLoader.loadProgramLoader(mContext, sqlH, spProgram, idCriteria, strCriteria, SQLiteQuery.loadProgram_sql(cCode),false,false);
 
 
         spProgram.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

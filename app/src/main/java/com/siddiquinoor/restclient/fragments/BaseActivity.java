@@ -28,7 +28,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.siddiquinoor.restclient.activity.AllSummaryActivity;
+import com.siddiquinoor.restclient.activity.SummaryMenuActivity;
 import com.siddiquinoor.restclient.activity.LoginActivity;
 import com.siddiquinoor.restclient.R;
 import com.siddiquinoor.restclient.activity.MainActivity;
@@ -287,6 +287,15 @@ public abstract class BaseActivity extends Activity {
         } else {
             curr_date = test_date + " 00:00:00.000";
         }
+
+        if(sdate.length()==19  ){
+            sdate=sdate+".000";
+
+        }
+        if (edate.length()==19 ){
+            edate=edate+".000";
+        }
+
         //SimpleDateFormat nformat = new SimpleDateFormat("MMMM dd, yyyy", Locale.ENGLISH);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss.SSS", Locale.ENGLISH);
 
@@ -424,7 +433,7 @@ public abstract class BaseActivity extends Activity {
      */
     protected void goToSummaryActivity(Activity activity, String countryCode) {
         activity.finish();
-        Intent iSummary = new Intent(activity, AllSummaryActivity.class);
+        Intent iSummary = new Intent(activity, SummaryMenuActivity.class);
         iSummary.putExtra(KEY.COUNTRY_ID, countryCode);
 
         startActivity(iSummary);
