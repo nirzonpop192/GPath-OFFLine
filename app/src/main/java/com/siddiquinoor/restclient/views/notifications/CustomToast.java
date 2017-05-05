@@ -17,13 +17,13 @@ import com.siddiquinoor.restclient.R;
 public class CustomToast {
 
     // class variable
-    private Context mContext;
+//    private Context mContext;
+//
+//    public CustomToast(Context mContext) {
+//        this.mContext = mContext;
+//    }
 
-    public CustomToast(Context mContext) {
-        this.mContext = mContext;
-    }
-
-    public void show(String msg) {
+    public static void show(Context mContext,String msg) {
 
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 

@@ -748,7 +748,6 @@ com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SummaryServiceOrDi
 com/google/android/gms/internal/zzcs.class
 com/google/android/gms/internal/zzgp.class
 android/support/v4/app/FragmentManagerImpl$2.class
-com/siddiquinoor/restclient/views/notifications/CustomToast.class
 android/support/v4/view/ViewCompat$KitKatViewCompatImpl.class
 com/android/volley/Request.class
 com/siddiquinoor/restclient/views/helper/SpinnerHelper.class
@@ -1390,6 +1389,7 @@ android/support/v4/view/ViewCompatJellybeanMr1.class
 android/support/v7/widget/RecyclerViewAccessibilityDelegate.class
 com/google/android/gms/internal/zzdz.class
 com/siddiquinoor/restclient/activity/sub_activity/register_sub/RegisterMemberLiberia$10.class
+com/siddiquinoor/restclient/activity/MainActivity$ImportDbAsycnTask.class
 android/support/v4/view/ViewCompat$GBViewCompatImpl.class
 com/siddiquinoor/restclient/data_model/adapters/AssignDataModel$1.class
 com/google/android/gms/ads/internal/purchase/GInAppPurchaseManagerInfoParcel.class

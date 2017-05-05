@@ -109,7 +109,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
     public static final String COMMNITY_ANIMAL = "Commnity Animal";
 
-    private CustomToast cusToast;
+//    private CustomToast cusToast;
 
     /**
      * Tag response class
@@ -372,7 +372,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
     private void inti() {
         viewReference();
         sqlH = new SQLiteHandler(mContext);
-        cusToast = new CustomToast(mContext);
+//        cusToast = new CustomToast(mContext);
 
         // initiate with dialog Manager
         dialogManager = new ADNotificationManager();
@@ -510,7 +510,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
                 } else {
 
-                    cusToast.show("Freeze will not be possible at this point.");
+                    CustomToast.show(mContext,"Freeze will not be possible at this point.");
                     tBtnFreezNUnfeez.setChecked(false);
                 }
 
@@ -556,7 +556,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                     //  set custom toast
                     String custMsg = " Freeze point";
                     custMsg = custMsg + (freeze ? " Activated " : " Deactivated ");
-                    cusToast.show(custMsg);
+                    CustomToast.show(mContext,custMsg);
 
                 }
             });
@@ -597,7 +597,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 //  set custom toast
                     String custMsg = " Freeze point";
                     custMsg = custMsg + (freeze ? " Activated " : " Deactivated ");
-                    cusToast.show(custMsg);
+                    CustomToast.show(mContext,custMsg);
 
                 }
             });

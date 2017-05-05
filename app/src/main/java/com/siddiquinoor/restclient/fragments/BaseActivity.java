@@ -108,17 +108,9 @@ public abstract class BaseActivity extends Activity {
 
         setLogin(false);
 
-        if (AppConfig.DEV_ENVIRONMENT) {
-            //sqlH.deleteUsers();
-            //db.refreshDatabase();
-        }
-        // Launching the login activity
-        //Intent intent = new Intent(app_context, LoginActivity.class);
-        //startActivity(intent);
-        //finish();
 
         Intent intent = new Intent(app_context, LoginActivity.class);
-        // intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 
         startActivity(intent);
@@ -279,21 +271,40 @@ public abstract class BaseActivity extends Activity {
     }
 
 
+    protected boolean getValidDateRange(String test_date, String sdate, String edate, boolean flag) throws ParseException {
+
+        String curr_date;
+
+
+        curr_date = test_date + " 00:00:00";
+
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss", Locale.ENGLISH);
+
+        Date newDate = format.parse(curr_date);
+        Date startDate = format.parse(sdate);
+        Date endDate = format.parse(edate);
+
+        return newDate.getTime() >= startDate.getTime() && newDate.getTime() <= endDate.getTime();
+
+    }
+
+
     protected boolean getValidDateRange(String test_date, String sdate, String edate) throws ParseException {
 
         String curr_date;
         if (isTheDateValidFormat(test_date)) {
             curr_date = test_date;
         } else {
-            curr_date = test_date + " 00:00:00.000";
+            curr_date = test_date + " 00:00:00";
         }
 
-        if(sdate.length()==19  ){
-            sdate=sdate+".000";
+        if (sdate.length() == 19) {
+            sdate = sdate + ".000";
 
         }
-        if (edate.length()==19 ){
-            edate=edate+".000";
+        if (edate.length() == 19) {
+            edate = edate + ".000";
         }
 
         //SimpleDateFormat nformat = new SimpleDateFormat("MMMM dd, yyyy", Locale.ENGLISH);
@@ -306,7 +317,6 @@ public abstract class BaseActivity extends Activity {
         return newDate.getTime() >= startDate.getTime() && newDate.getTime() <= endDate.getTime();
 
     }
-
 
 
     protected boolean isTheDateValidUSAFormat(String testingDate) {
@@ -335,7 +345,6 @@ public abstract class BaseActivity extends Activity {
     }
 
 
-
     protected boolean getValidDateRangeUSAFormat(String test_date, String sdate, String edate) throws ParseException {
 
         String curr_date;
@@ -355,6 +364,7 @@ public abstract class BaseActivity extends Activity {
         return newDate.getTime() >= startDate.getTime() && newDate.getTime() <= endDate.getTime();
 
     }
+
 
     //dynamically file will create Read from it
     protected String readDataFromFile(String mfile_name) {
@@ -388,18 +398,17 @@ public abstract class BaseActivity extends Activity {
     }
 
 
-
-
     /**
      * dynamically file will be created. Write bytes on it as string operation
+     *
      * @param stringResponse json String
-     * @param file_name file Name
+     * @param file_name      file Name
      */
     protected void writeJSONToTextFile(String stringResponse, String file_name) {
 
         String fileName = "pci_" + file_name + ".txt";
 
-      //  Log.d(TAG, "String Response write into : " + mfile_name);
+        //  Log.d(TAG, "String Response write into : " + mfile_name);
         FileOutputStream outputStream;
 
 

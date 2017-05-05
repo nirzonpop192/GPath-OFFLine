@@ -1079,7 +1079,7 @@ public class SQLiteQuery {
                 "        )" +
                 "        ) AS INTEGER) AS daydiffernce";
     }
-
+// // TODO: 5/5/2017  solved it  
     public static String getRptMemberServiceList_cu2_sql(String country, String donor, String award, String program, String srvCode, String opCode, String opMonthCode, String memId, String grpCode, String distFlag,
                                                          String grpLayR1Code, String grpLayR2Code, String grpLayR3Code
     ) {
@@ -3924,7 +3924,7 @@ public class SQLiteQuery {
 
             case GEO_LAYER_3:
 
-                udf = "SELECT " + LAY_R_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL
+                udf = "SELECT " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL
                         + ", " + LAY_R3_LIST_NAME
                         + " FROM " + GEO_LAY_R3_LIST_TABLE
                         + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'";
@@ -3932,7 +3932,7 @@ public class SQLiteQuery {
 
                 break;
             case GEO_LAYER_2:
-                udf = "SELECT " + LAY_R_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL
+                udf = "SELECT " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL
                         + ", " + UPZILLA_NAME_COL
                         + " FROM " + UPAZILLA_TABLE
                         + " WHERE " + ADM_COUNTRY_CODE_COL + "= '" + cCode + "'";
@@ -3942,7 +3942,7 @@ public class SQLiteQuery {
 
             case GEO_LAYER_1:
 
-                udf = "SELECT " + LAY_R_LIST_CODE_COL
+                udf = "SELECT " + LAY_R1_LIST_CODE_COL
                         + ", " + DISTRICT_NAME_COL
                         + " FROM " + DISTRICT_TABLE
                         + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'";
@@ -3952,7 +3952,7 @@ public class SQLiteQuery {
 
             case GEO_LAYER_4:
 
-                udf = "SELECT " + LAY_R_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL + " || '' || " + LAY_R4_LIST_CODE_COL
+                udf = "SELECT " + LAY_R1_LIST_CODE_COL + " || '' || " + LAY_R2_LIST_CODE_COL + " || '' || " + LAY_R3_LIST_CODE_COL + " || '' || " + LAY_R4_LIST_CODE_COL
                         + ", " + LAY_R4_LIST_NAME_COL
                         + " FROM " + VILLAGE_TABLE
                         + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'";
@@ -4215,7 +4215,7 @@ public class SQLiteQuery {
                 + " WHERE " +
                 ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
                 + " AND " + STATUS + " = '" + "A" + "' "
-                + " AND " + OPERATION_CODE_COL + " = '" + opCode + "' "
+                + " AND " + OPERATION_CODE_COL + " = '5' "
                 + criteria
                 + " ORDER BY OpMonthID   DESC ";
     }
@@ -4287,7 +4287,7 @@ public class SQLiteQuery {
     public static String getDynamicTableIndexList_sql(String cCode, String dtTitleSearch, String staffId) {
         return "SELECT dtB." + DT_TITLE_COL + "  " +
                 " , dtCPgr." + DT_BASIC_COL + " AS dtBasicCode  " +
-                " , donor." + DONOR_NAME_COL + " || '-' || award." + AWARD_SHORT_COL + " AS awardName  " +
+                " , donor." + DONOR_NAME_COL + " || '-' || award." + AWARD_SHORT_NAME_COL  + " AS awardName  " +
                 " , dtCPgr." + DONOR_CODE_COL + " || '' || dtCPgr." + AWARD_CODE_COL + " AS awardCode  " +
                 " , prg." + PROGRAM_SHORT_NAME_COL + "  " +
                 " , dtCPgr." + PROGRAM_CODE_COL + "  " +
@@ -4303,9 +4303,9 @@ public class SQLiteQuery {
                 " LEFT JOIN " + DT_BASIC_TABLE + "  AS dtB  " +
                 " ON dtB." + DT_BASIC_COL + " = dtCpgr." + DT_BASIC_COL + "   " +
                 " LEFT JOIN " +
-                ADM_COUNTRY_AWARD_TABLE + " as award  " +
-                " ON award." + ADM_COUNTRY_CODE_COL + " = dtCpgr." + ADM_COUNTRY_CODE_COL + "  " +
-                " AND award." + DONOR_CODE_COL + " = dtCpgr." + DONOR_CODE_COL + "  " +
+                ADM_COUNTRY_AWARD_TABLE + " as award  ON " +
+                "  award." + ADM_COUNTRY_CODE_COL + " = dtCpgr." + ADM_COUNTRY_CODE_COL + "  " +
+                " AND  award." + DONOR_CODE_COL + " = dtCpgr." + DONOR_CODE_COL + "  " +
                 " AND award." + AWARD_CODE_COL + "= dtCpgr." + AWARD_CODE_COL + "  " +
                 " LEFT JOIN " +
                 ADM_DONOR_TABLE + " AS donor  " +

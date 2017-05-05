@@ -51,7 +51,7 @@ public class UtilClass {
      * OTHER Mode or dynamic  mode
      */
     public static final int OTHER_OPERATION_MODE = 4;
-    public static final String OTHER_OPERATION_MODE_NAME = "Other";
+    public static final String OTHER_OPERATION_MODE_NAME = "Others";
 
     /**
      * OTHER Mode or dynamic  mode

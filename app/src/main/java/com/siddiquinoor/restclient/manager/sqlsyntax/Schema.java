@@ -655,11 +655,12 @@ public class Schema {
                 + " , " + OPERATION_CODE_COL + " VARCHAR(20) "
                 + " , " + OP_MONTH_CODE_COL + " VARCHAR(50) "
                 + " , " + MONTH_LABEL_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.START_DATE_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.END_DATE_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.USA_START_DATE_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.USA_END_DATE_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.STATUS + " VARCHAR(20) "
+                + " , " + START_DATE_COL + " VARCHAR(20) "
+                + " , " + END_DATE_COL + " VARCHAR(20) "
+                // // TODO: 5/5/2017  remove the usa fomate
+                + " , " + USA_START_DATE_COL + " VARCHAR(20) "
+                + " , " + USA_END_DATE_COL + " VARCHAR(20) "
+                + " , " + STATUS + " VARCHAR(20) "
                 + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + DONOR_CODE_COL + ", " + AWARD_CODE_COL + ", " + OPERATION_CODE_COL + ", " + OP_MONTH_CODE_COL + " ) "
                 + " ) ";
     }

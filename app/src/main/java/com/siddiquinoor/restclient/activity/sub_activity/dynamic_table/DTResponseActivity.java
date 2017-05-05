@@ -45,7 +45,7 @@ public class DTResponseActivity extends BaseActivity {
     private TextView tvActivityTitle;
     private TextView tvDate;
     private Calendar calendar = Calendar.getInstance();
-    private SimpleDateFormat mFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+    private SimpleDateFormat mFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
     private SQLiteHandler sqlH;
     private Context mContext = DTResponseActivity.this;
     private String idAward;
@@ -110,7 +110,7 @@ public class DTResponseActivity extends BaseActivity {
 
                     if (regDate.length() > 0 && start_date != null && end_date != null) {
                         try {
-                            if (!getValidDateRangeUSAFormat(regDate, start_date, end_date)) {
+                            if (!getValidDateRange(regDate, start_date, end_date,false)) {
 
 //                            dialog.showErrorDialog(mContext, "Registration date is not within the valid range. Save attempt denied.");
                                 Toast.makeText(mContext, "date is not within the valid range", Toast.LENGTH_SHORT).show();

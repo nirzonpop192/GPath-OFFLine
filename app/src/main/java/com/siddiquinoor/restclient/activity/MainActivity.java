@@ -40,6 +40,7 @@ import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.data_model.adapters.DistributionSaveDataModel;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.AlertDialogManager;
+import com.siddiquinoor.restclient.views.notifications.CustomToast;
 import com.siddiquinoor.restclient.views.spinner.SpinnerLoader;
 
 import org.json.JSONArray;
@@ -60,7 +61,7 @@ import java.util.Locale;
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     public static final String LIBERIA_COUNTRY_CODE = "0004";
-
+    private static ProgressDialog pDialog;
 
     private final String TAG = MainActivity.class.getSimpleName();
 
@@ -235,7 +236,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onClick(View v) {
 //                Toast.makeText(mContext, "hello ", Toast.LENGTH_SHORT).show();
-                importDataBase();
+//                importDataBase();
+                ImportDbAsycnTask importDbAsycnTask = new ImportDbAsycnTask();
+                importDbAsycnTask.execute();
             }
         });
     }
@@ -268,18 +271,85 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
-    private void importDataBase() {
+    private boolean importDataBase() {
         boolean flag = false;
-        Toast.makeText(mContext, Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(mContext, Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME, Toast.LENGTH_SHORT).show();
         try {
-            flag = sqlH.importDatabase(Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME, MainActivity.this);
+            String path = Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME;
+
+
+            File newDb = new File(path);
+            if (newDb.exists()) {
+                flag = sqlH.importDatabase(path, MainActivity.this);
+                File file = new File(path);                                                         // delete
+                file.delete();
+            } else flag = false;
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String ddf = flag ? "true " : "false ";
-        Toast.makeText(mContext, "FLAG : " + ddf, Toast.LENGTH_SHORT).show();
+        return flag;
     }
 
+
+    private class ImportDbAsycnTask extends AsyncTask<Void, Integer, String> {
+
+        private boolean importFlag;
+
+
+        private ImportDbAsycnTask() {
+            importFlag = false;
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            importFlag = importDataBase();
+            return "successes";
+        }
+
+        /**
+         * Initiate the dialog
+         */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            startProgressBar("Data Importing");
+
+        }
+
+
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            hideProgressBar();
+
+
+            String ddf = importFlag ? "Imported " : " is not imported ";
+
+            CustomToast.show(mContext, "DataBase : " + ddf);
+//            Toast.makeText(mContext, "FLAG : " + ddf, Toast.LENGTH_SHORT).show();
+
+            logoutUser();
+
+        }
+    }
+
+
+    private void hideProgressBar() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
+    /**
+     * @param msg text massage
+     */
+    private void startProgressBar(String msg) {
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage(msg);
+        pDialog.setCancelable(true);
+        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pDialog.show();
+    }
 
     /**
      * this method bring the database front Internal memory
@@ -330,7 +400,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         // get operation mode from shared and preference
 //        int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
 
-        String operationModeName = sqlH.getDeviceOperationMode();
+        String operationModeName = sqlH.getDeviceOperationModeName();
         switch (operationModeName) {
             case UtilClass.REGISTRATION_OPERATION_MODE_NAME:
                 btnNewReg.setEnabled(true);
@@ -624,8 +694,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * LOAD :: COUNTRY
      */
     private void loadCountry() {
-        SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
+//        SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+//        int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
+        int operationMode = sqlH.getDeviceOperationModeCode();
+
 
         SpinnerLoader.loadCountryLoader(mContext, sqlH, spCountry, operationMode, idCountry, strCountry);
         spCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -1183,7 +1255,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         protected Void doInBackground(Void... params) {
 
             String retrieveData = readDataFromFile(LoginActivity.REG_MEMBER_PROG_GROUP_DATA);
-                // todo change the  structure
+            // todo change the  structure
             Parser.RegNMemProGrpParser(retrieveData, db);
             publishProgress(++progressIncremental);
 
@@ -1969,14 +2041,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
 
-
-
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("lup_community_animal")) {
 
                     Parser.lupCommunityAnimalParser(jObj.getJSONArray("lup_community_animal"), db);
                 }
-
 
 
                 publishProgress(++progressIncremental);
@@ -1991,7 +2060,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
 
-
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("lup_community_fund_source")) {
                     Parser.lupCommunityFundSourceParser(jObj.getJSONArray("lup_community_fund_source"), db);
@@ -2004,13 +2072,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
 
-
-
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull("lup_community__lead_position")) {
                     Parser.lupCommunityLeadPositionParser(jObj.getJSONArray("lup_community__lead_position"), db);
                 }
-
 
 
                 publishProgress(++progressIncremental);
@@ -2160,7 +2225,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
 
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -2202,7 +2266,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private void showOperationModelLabel(SharedPreferences settings) {
 //        int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
-        String operationModeName = sqlH.getDeviceOperationMode();
+        String operationModeName = sqlH.getDeviceOperationModeName();
         switch (operationModeName) {
             case UtilClass.REGISTRATION_OPERATION_MODE_NAME:
 

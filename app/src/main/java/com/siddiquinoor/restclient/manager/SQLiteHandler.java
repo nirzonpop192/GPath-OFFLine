@@ -2654,7 +2654,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         // Inserting Row into local database
         db.update(REG_N_HH_TABLE, values, where, null);
 
-        updateRegistrationStatus("" + pID, 0);    // Setting Update status to false
+//        updateRegistrationStatus("" + pID, 0);    // Setting Update status to false
 
         db.close(); // Closing database connection
 
@@ -9897,13 +9897,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void updateRegistrationStatus(String update_id, int status) {
-
-        SQLiteDatabase db = this.getWritableDatabase();
-        String selectQuery = "UPDATE " + REG_N_HH_TABLE + " SET " + SYNC_COL + "=" + status + " WHERE " + ID_COL + "=" + update_id;
-        db.execSQL(selectQuery);
-        db.close();
-    }
+//    public void updateRegistrationStatus(String update_id, int status) {
+//
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        String selectQuery = "UPDATE " + REG_N_HH_TABLE + " SET " + SYNC_COL + "=" + status + " WHERE " + ID_COL + "=" + update_id;
+//        db.execSQL(selectQuery);
+//        db.close();
+//    }
 
    /* public void updateLiberaiRegistrationStatus(String update_id, int status) {
 
@@ -11326,7 +11326,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.update(REGISTRATION_MEMBER_TABLE, values, where, null);
 
         if (pID != 0)
-            updateRegistrationStatus("" + pID, 0);    // Setting Update status to false to avail the Synchronization
+//            updateRegistrationStatus("" + pID, 0);    // Setting Update status to false to avail the Synchronization
 
         db.close(); // Closing database connection
 
@@ -11452,8 +11452,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         insertIntoUploadTable(malawiMember.insertIntoRegNMemberForMalawi());
 
-        if (pID != 0)
-            updateRegistrationStatus("" + pID, 0);    // Setting Update status to false to avail the Synchronization
+//        if (pID != 0)
+//            updateRegistrationStatus("" + pID, 0);    // Setting Update status to false to avail the Synchronization
 
 
     }
@@ -11666,7 +11666,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(RELY_PICE_EORK_COL, RelyPiecework);
 // Inserting Row into local database
         db.update(REG_N_HH_TABLE, values, where, null);
-        updateRegistrationStatus("" + pID, 0);    // Setting Update status to false
+//        updateRegistrationStatus("" + pID, 0);    // Setting Update status to false
         db.close(); // Closing database connection
 //        Log.d(TAG, "Registration data edited for: " + pID);
     }
@@ -11946,7 +11946,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * @return get device operation mode code registration  =1 / distributation=2 /service = 3/ other =4
      */
-    public String getDeviceOperationMode() {
+    public String getDeviceOperationModeName() {
         String deviceOperationModeName = "";
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT " + SELECTED_OPERATION_MODE_NAME_COL + " FROM " + SELECTED_OPERATION_MODE_TABLE;
@@ -11959,11 +11959,25 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();
         return deviceOperationModeName;
     }
+    public int getDeviceOperationModeCode() {
+        int deviceOperationModeCode = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT " + SELECTED_OPERATION_MODE_CODE_COL + " FROM " + SELECTED_OPERATION_MODE_TABLE;
+        Cursor cursor = db.rawQuery(sql, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            deviceOperationModeCode = cursor.getInt(cursor.getColumnIndex(SELECTED_OPERATION_MODE_CODE_COL));
+            cursor.close();
+        }
+
+        db.close();
+        return deviceOperationModeCode;
+    }
+
 
     /**
      * @return get device operation mode code registration  =1 / distributation=2 /service = 3/ other =4
      */
-  /*  public int getDeviceOperationMode() {
+  /*  public int getDeviceOperationModeName() {
         int deviceOperationMode = 0;
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT " + SELECTED_OPERATION_MODE_NAME_COL + " FROM " + SELECTED_OPERATION_MODE_TABLE;
@@ -12155,8 +12169,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         String sql = "SELECT  "
-                + "  " + USA_START_DATE_COL
-                + " , " + USA_END_DATE_COL
+                + "  " + START_DATE_COL
+                + " , " + END_DATE_COL
                 + " FROM " + OP_MONTH_TABLE
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
                 + " AND " + STATUS + "= 'A'"

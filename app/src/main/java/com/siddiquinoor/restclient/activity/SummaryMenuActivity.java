@@ -3,7 +3,6 @@ package com.siddiquinoor.restclient.activity;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -119,7 +118,7 @@ public class SummaryMenuActivity extends BaseActivity {
 //
 //        settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
 //        int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
-        String operationModeName = sqlH.getDeviceOperationMode();
+        String operationModeName = sqlH.getDeviceOperationModeName();
 //        Log.d("NIR1", "operation mode : " + operationMode);
         switch (operationModeName) {
             case UtilClass.REGISTRATION_OPERATION_MODE_NAME:

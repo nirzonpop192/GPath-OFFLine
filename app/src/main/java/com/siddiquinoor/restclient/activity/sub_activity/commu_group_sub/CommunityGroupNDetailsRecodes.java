@@ -28,7 +28,6 @@ import com.siddiquinoor.restclient.manager.SQLiteHandler;
 import com.siddiquinoor.restclient.manager.sqlsyntax.SQLServerSyntaxGenerator;
 import com.siddiquinoor.restclient.manager.sqlsyntax.SQLiteQuery;
 import com.siddiquinoor.restclient.utils.KEY;
-import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.data_model.adapters.CommunityGroupDataModel;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 
@@ -283,7 +282,7 @@ public class CommunityGroupNDetailsRecodes extends BaseActivity {
 
     private void loadCountry() {
 
-        String operationModeName = sqlH.getDeviceOperationMode();
+        String operationModeName = sqlH.getDeviceOperationModeName();
 
 
         SpinnerLoader.loadCountryLoader(mContext, sqlH, spCountry, idCountry, strCountry, SQLiteQuery.loadCountry_sql(operationModeName));
