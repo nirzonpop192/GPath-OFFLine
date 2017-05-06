@@ -218,6 +218,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 String currentDBPath = "/data/data/" + getPackageName() + "/databases/" + SQLiteHandler.EXTERNAL_DATABASE_NAME;
                 String backupdbName = null;
+
+
+//                File dir = new File("path/to/your/directory");
+//                try{
+//                    if(dir.mkdir()) {
+//                        System.out.println("Directory created");
+//                    } else {
+//                        System.out.println("Directory is not created");
+//                    }
+//                }catch(Exception e){
+//                    e.printStackTrace();
+//                }
                 try {
                     backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_" + getStaffID() + "_" + getDateTime() + ".off";
                 } catch (ParseException e) {
@@ -232,6 +244,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
          * import db
          */
         Button importDb = (Button) findViewById(R.id.btnImport);
+
+        importDb.setVisibility(View.GONE);
+        String path = Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME;
+        File newDb = new File(path);
+        if (newDb.exists()) {
+            importDb.setVisibility(View.VISIBLE);
+        }
         importDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -247,8 +266,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void dataBaseCopy(final String sourcePath, final String destinationPath, String msg) {
         try {
 
-            File sd = Environment.getExternalStorageDirectory();                                    // get the internal root directories
+            String root = Environment.getExternalStorageDirectory().toString();
 
+//            File sd = Environment.getExternalStorageDirectory();                                   // get the internal root directories
+           File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories
+
+
+            sd.mkdirs();
             if (sd.canWrite()) {
                 File currentDB = new File(sourcePath);
                 File backupDB = new File(sd, destinationPath);
@@ -322,12 +346,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             hideProgressBar();
-
-
             String ddf = importFlag ? "Imported " : " is not imported ";
-
             CustomToast.show(mContext, "DataBase : " + ddf);
-//            Toast.makeText(mContext, "FLAG : " + ddf, Toast.LENGTH_SHORT).show();
 
             logoutUser();
 

@@ -61,7 +61,8 @@ public class CU2 extends BaseActivity {
 
     private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
     private Calendar calendar = Calendar.getInstance();
-    private SimpleDateFormat formatUSA = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+    // private SimpleDateFormat formatUSA = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+    private SimpleDateFormat formatUSA = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
     AssignDataModel assignMem = new AssignDataModel();
     private String memberId15D;
@@ -388,7 +389,7 @@ public class CU2 extends BaseActivity {
                 /**
                  * this days valid check block
                  */
-                days = getDateDifference(tv_regDate.getText().toString(), tv_dobDate.getText().toString());
+                days = getDateDifference(tv_regDate.getText().toString(), tv_dobDate.getText().toString()+" 00:00:00");
 
                 if (days > 181 && days < 720) {
 
@@ -662,7 +663,8 @@ public class CU2 extends BaseActivity {
 
     private long getDateDifference(String from, String to) {
         long days = 0;
-        SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        // SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
             Date dateFrom = myFormat.parse(from);
             Date dateTo = myFormat.parse(to);
@@ -682,7 +684,8 @@ public class CU2 extends BaseActivity {
      */
     private String calculateGRDDate(String inputDate) {
         String outputDate = "";
-        SimpleDateFormat inputFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        // SimpleDateFormat inputFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         SimpleDateFormat saveFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         Calendar calendar = Calendar.getInstance();
         try {

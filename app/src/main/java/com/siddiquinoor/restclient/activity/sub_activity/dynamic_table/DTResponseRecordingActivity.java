@@ -510,7 +510,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
                 } else {
 
-                    CustomToast.show(mContext,"Freeze will not be possible at this point.");
+                    CustomToast.show(mContext, "Freeze will not be possible at this point.");
                     tBtnFreezNUnfeez.setChecked(false);
                 }
 
@@ -556,7 +556,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                     //  set custom toast
                     String custMsg = " Freeze point";
                     custMsg = custMsg + (freeze ? " Activated " : " Deactivated ");
-                    CustomToast.show(mContext,custMsg);
+                    CustomToast.show(mContext, custMsg);
 
                 }
             });
@@ -597,7 +597,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 //  set custom toast
                     String custMsg = " Freeze point";
                     custMsg = custMsg + (freeze ? " Activated " : " Deactivated ");
-                    CustomToast.show(mContext,custMsg);
+                    CustomToast.show(mContext, custMsg);
 
                 }
             });
@@ -1273,7 +1273,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         String DataType = dtATable.getDataType();
 
 
-        DTAValue = dtATable.getDt_AValue().equals("null") || dtATable.getDt_AValue().length() == 0 ? ansValue : dtATable.getDt_AValue();
+        DTAValue = dtATable.getDt_AValue() == null || dtATable.getDt_AValue().equals("null") || dtATable.getDt_AValue().length() == 0 ? ansValue : dtATable.getDt_AValue();
 
         /**
          *  get data freeze data         *
@@ -1296,7 +1296,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 
 
             sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, imageString, true);
-            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber,imageString);
+            sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString);
 
             Log.i(TAG, "DTBasic :" + DTBasic + " AdmCountryCode: " + AdmCountryCode + " AdmDonorCode: " + AdmDonorCode + " AdmAwardCode: " + AdmAwardCode + " AdmProgCode:" + AdmProgCode + " DTEnuID: " + DTEnuID + " DTQCode: " + DTQCode + " DTACode: " + DTACode + " DTRSeq: " + String.valueOf(DTRSeq) + " DTAValue:" + DTAValue
                     + " ProgActivityCode :" + ProgActivityCode + " DTTimeString:" + DTTimeString + " OpMode: " + OpMode + "OpMonthCode :" + OpMonthCode + " DataType: " + DataType + " imageString :" + imageString);
@@ -1508,7 +1508,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                     // it's all about  check box
                     if (!presentQuesCode.equals(previousQuesCode)) {
                         sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                        sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber,imageString);
+                        sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString);
 
                         // uses suffix in increments
                         mQusIndex++;
@@ -1516,7 +1516,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                 } else if (i == 0) {
                     // saved the first freeze question
                     sqlH.addIntoDTResponseTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, "", true);
-                    sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber,imageString);
+                    sqlH.addIntoDTSurveyTable(DTBasic, AdmCountryCode, AdmDonorCode, AdmAwardCode, AdmProgCode, DTEnuID, DTQCode, DTACode, String.valueOf(DTRSeq), DTAValue, ProgActivityCode, DTTimeString, OpMode, OpMonthCode, DataType, DTQText, surveyNumber, imageString);
 
                 }
 
@@ -1843,7 +1843,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
 //                    case CameraUtils.DELETE_IMAGE:
 //                        // checkPhotoAvailability(CountryCode, GrpCode, subGrpCode, LocationCode, ContentCode);
 //                        break;
-                    case CameraUtils.CANCEL-1:
+                    case CameraUtils.CANCEL - 1:
                         imageCaptureOptionDialog.dismiss();
                         break;
                 }

@@ -131,11 +131,27 @@
                     style="@style/button_action_normal"
                     />
 
+
+
             </LinearLayout>
 
 
             <!-- Link to Registration -->
-
+            <Button
+                android:id="@+id/btnImport"
+                style="@style/btn_main_page"
+                android:textColor="#fff"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/database_import_32"
+                android:drawableStart="@drawable/database_import_32"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:paddingStart="15dp"
+                android:text="  Import DB" />
 
         </LinearLayout>
        <TextView

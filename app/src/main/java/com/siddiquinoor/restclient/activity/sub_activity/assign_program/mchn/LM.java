@@ -60,7 +60,7 @@ public class LM extends BaseActivity {
     private Button btnBackToAssign;
     private ADNotificationManager erroDialog = new ADNotificationManager();
     private Context mContext;
-    private SimpleDateFormat formatUSA = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+    private SimpleDateFormat formatUSA = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
 
 
     /*   private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);*/
@@ -283,7 +283,7 @@ public class LM extends BaseActivity {
                 if (idGroupCat.length() > 2)
                     loadGroup(cCode, donorCode, awardCode, progCode, idGroupCat);
 
-             //   Log.d(TAG, "Group Category ,idGroupCat:" + idGroupCat + " strGroupCat : " + strGroupCat);
+                //   Log.d(TAG, "Group Category ,idGroupCat:" + idGroupCat + " strGroupCat : " + strGroupCat);
 
             }
 
@@ -397,7 +397,7 @@ public class LM extends BaseActivity {
             } else if (assignMem.getMember_age() == null) {
                 erroDialog.showErrorDialog(mContext, "Invalid age specified.");
             } else {
-                days = getDateDifference(tv_regDate.getText().toString(), tv_LmDate.getText().toString());
+                days = getDateDifference(tv_regDate.getText().toString(), tv_LmDate.getText().toString()+" 00:00:00");
 
 
                 /**
@@ -551,7 +551,7 @@ public class LM extends BaseActivity {
 
     private long getDateDifference(String from, String to) {
         long days = 0;
-        SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
             Date dateFrom = myFormat.parse(from);
             Date dateTo = myFormat.parse(to);
@@ -570,8 +570,11 @@ public class LM extends BaseActivity {
      */
     private String calculateGRDDate(String inputDate) {
         String outputDate = "";
-        SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
-        SimpleDateFormat saveFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+       /* SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        SimpleDateFormat saveFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH); */
+
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
+        SimpleDateFormat saveFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         Calendar calendar = Calendar.getInstance();
         try {
             calendar.setTime(myFormat.parse(inputDate));

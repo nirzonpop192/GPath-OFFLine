@@ -347,6 +347,7 @@ android/support/v4/app/SuperNotCalledException.class
 com/google/android/gms/internal/zzcw.class
 com/google/android/gms/games/Players.class
 com/siddiquinoor/restclient/activity/sub_activity/dynamic_table/DTResponseRecordingActivity$5.class
+com/siddiquinoor/restclient/activity/LoginActivity$ImportDbAsycnTask.class
 com/android/volley/Response$Listener.class
 android/support/v4/media/VolumeProviderCompat.class
 com/google/android/gms/internal/zzjo$zza.class
@@ -1027,6 +1028,7 @@ com/google/android/gms/auth/api/credentials/CredentialRequest.class
 com/google/android/gms/ads/internal/reward/client/zzi.class
 com/google/android/gms/internal/zzce.class
 org/joda/time/Seconds.class
+com/siddiquinoor/restclient/activity/LoginActivity$69.class
 com/google/android/gms/ads/internal/request/zzd$zzb.class
 com/google/zxing/client/android/CaptureActivity$1.class
 com/siddiquinoor/restclient/activity/sub_activity/assign_program/mchn/CA2$12.class

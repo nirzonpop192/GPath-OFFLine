@@ -17,6 +17,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -45,6 +46,7 @@ import com.siddiquinoor.restclient.network.ConnectionDetector;
 import com.siddiquinoor.restclient.parse.Parser;
 import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.views.notifications.AlertDialogManager;
+import com.siddiquinoor.restclient.views.notifications.CustomToast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,6 +55,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -188,7 +191,106 @@ public class LoginActivity extends BaseActivity {
         setListener();
         createDeviceIDFile();
 
+
+        /**
+         * import db
+         */
+        Button importDb = (Button) findViewById(R.id.btnImport);
+        importDb.setVisibility(View.GONE);
+
+        String path = Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME;
+        File newDb = new File(path);
+        if (newDb.exists()) {
+            importDb.setVisibility(View.VISIBLE);
+        }
+        importDb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ImportDbAsycnTask importDbAsycnTask = new ImportDbAsycnTask();
+                importDbAsycnTask.execute();
+            }
+        });
+
     }
+
+
+    private class ImportDbAsycnTask extends AsyncTask<Void, Integer, String> {
+
+        private boolean importFlag;
+
+
+        private ImportDbAsycnTask() {
+            importFlag = false;
+        }
+
+        @Override
+        protected String doInBackground(Void... params) {
+            importFlag = importDataBase();
+            return "successes";
+        }
+
+        /**
+         * Initiate the dialog
+         */
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            startProgressBar("Data Importing");
+
+        }
+
+
+        protected void onPostExecute(String result) {
+            super.onPostExecute(result);
+            hideProgressBar();
+            String ddf = importFlag ? "Imported " : " is not imported ";
+            CustomToast.show(mContext, "DataBase : " + ddf);
+
+//            logoutUser();
+
+        }
+    }
+
+    private void hideProgressBar() {
+        if (pDialog.isShowing())
+            pDialog.dismiss();
+    }
+
+
+    /**
+     * @param msg text massage
+     */
+    private void startProgressBar(String msg) {
+        pDialog = new ProgressDialog(this);
+        pDialog.setMessage(msg);
+        pDialog.setCancelable(true);
+        pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        pDialog.show();
+    }
+
+
+    private boolean importDataBase() {
+        boolean flag = false;
+//        Toast.makeText(mContext, Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME, Toast.LENGTH_SHORT).show();
+        try {
+            String path = Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME;
+
+
+            File newDb = new File(path);
+            if (newDb.exists()) {
+                flag = db.importDatabase(path, LoginActivity.this);
+                File file = new File(path);                                                         // delete
+                file.delete();
+            } else flag = false;
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
 
     private void viewReference() {
         inputUsername = (EditText) findViewById(R.id.user_name);

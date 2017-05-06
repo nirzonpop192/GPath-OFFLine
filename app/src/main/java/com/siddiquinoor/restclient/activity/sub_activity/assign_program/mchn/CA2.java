@@ -64,7 +64,8 @@ public class CA2 extends BaseActivity {
     private String directories;
 
 
-    private SimpleDateFormat formatUSA = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+    // private SimpleDateFormat formatUSA = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+    private SimpleDateFormat formatUSA = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
     private Calendar calendar = Calendar.getInstance();
 
 
@@ -364,7 +365,7 @@ public class CA2 extends BaseActivity {
                 /**
                  * this days valid check block
                  */
-                days = getDateDifference(tv_regDate.getText().toString(), tv_dobDate.getText().toString());
+                days = getDateDifference(tv_regDate.getText().toString(), tv_dobDate.getText().toString()+" 00:00:00");
 
 
                 if (days > 721 && days < 1801) {
@@ -478,7 +479,7 @@ public class CA2 extends BaseActivity {
 
 
                         sqlH.addMemIntoRegN_CA2(assignMem.getCountryCode(), assignMem.getDistrictCode(), assignMem.getUpazillaCode(), assignMem.getUnitCode(), assignMem.getVillageCode(), assignMem.getHh_id()
-                                , assignMem.getMemId(), assignMem.getProgram_code(), assignMem.getService_code(), assignMem.getRegNDate(), assignMem.getGrdCode(), dobDate, assignMem.getGrdDate(), childName, strChildGender, entryBy, entryDate, "0");
+                                , assignMem.getMemId(), assignMem.getProgram_code(), assignMem.getService_code(), assignMem.getRegNDate(), assignMem.getGrdCode(), dobDate, assignMem.getGrdDate(), childName, strChildGender, entryBy, entryDate);
 
                         sqlH.insertIntoUploadTable(assign_ca2.insertIntoRegNCA2ForChildAbove());
 
@@ -664,7 +665,8 @@ public class CA2 extends BaseActivity {
 
     private long getDateDifference(String from, String to) {
         long days = 0;
-        SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        // SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        SimpleDateFormat myFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
             Date dateFrom = myFormat.parse(from);
             Date dateTo = myFormat.parse(to);
@@ -682,7 +684,8 @@ public class CA2 extends BaseActivity {
      */
     private String calculateGRDDate(String inputDate) {
         String outputDate = "";
-        SimpleDateFormat inputFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        // SimpleDateFormat inputFormat = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+        SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         SimpleDateFormat saveFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         Calendar calendar = Calendar.getInstance();
         try {
