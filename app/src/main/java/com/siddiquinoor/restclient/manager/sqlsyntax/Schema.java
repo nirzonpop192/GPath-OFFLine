@@ -1884,7 +1884,7 @@ public class Schema {
     }
 
     public static String createTableDTSurveyTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DT_SURVEY_TABLE + "    (   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_SURVEY_TABLE + "    (   " +
                 "      " + DT_BASIC_COL + "      TEXT NOT NULL,   " +
                 "      " + ADM_COUNTRY_CODE_COL + "      TEXT NOT NULL,   " +
                 "      " + DONOR_CODE_COL + "      TEXT NOT NULL,   " +

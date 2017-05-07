@@ -218,18 +218,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 String currentDBPath = "/data/data/" + getPackageName() + "/databases/" + SQLiteHandler.EXTERNAL_DATABASE_NAME;
                 String backupdbName = null;
-
-
-//                File dir = new File("path/to/your/directory");
-//                try{
-//                    if(dir.mkdir()) {
-//                        System.out.println("Directory created");
-//                    } else {
-//                        System.out.println("Directory is not created");
-//                    }
-//                }catch(Exception e){
-//                    e.printStackTrace();
-//                }
                 try {
                     backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_" + getStaffID() + "_" + getDateTime() + ".off";
                 } catch (ParseException e) {
@@ -307,6 +295,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 flag = sqlH.importDatabase(path, MainActivity.this);
                 File file = new File(path);                                                         // delete
                 file.delete();
+
+                sqlH.reCreateSurveyTable();
             } else flag = false;
 
 

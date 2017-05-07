@@ -918,7 +918,9 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                             if (mDTATables.get(0).getDataType().equals("Number")) {
 
                                 // comparing the highest input value an  lowest value
-                                if ((Double.parseDouble(edtInput) <= Parse.StringToDoubleNullCheck(mDTATables.get(0).getMaxValue())) && (Double.parseDouble(edtInput) >= Parse.StringToDoubleNullCheck(mDTATables.get(0).getMinValue()))) {
+                                String max=mDTATables.get(0).getMaxValue();
+                                String min=mDTATables.get(0).getMinValue();
+                                if (((max==null||max.length()==0)||(min==null||min.length()==0))||(Double.parseDouble(edtInput) <= Parse.StringToDoubleNullCheck(max)) && (Double.parseDouble(edtInput) >= Parse.StringToDoubleNullCheck(min))) {
                                     normalIndicator();
                                     saveData(edtInput, "", mDTATables.get(0), calling4TerminalPoint);
 

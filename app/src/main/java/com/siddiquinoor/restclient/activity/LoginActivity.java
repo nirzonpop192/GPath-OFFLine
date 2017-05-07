@@ -282,6 +282,8 @@ public class LoginActivity extends BaseActivity {
                 flag = db.importDatabase(path, LoginActivity.this);
                 File file = new File(path);                                                         // delete
                 file.delete();
+
+                db.reCreateSurveyTable();
             } else flag = false;
 
 

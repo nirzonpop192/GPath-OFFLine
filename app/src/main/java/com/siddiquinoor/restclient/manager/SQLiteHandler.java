@@ -105,7 +105,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     // Database Version
     private static final int DATABASE_VERSION = 21;
     // Database Name
-    public static final String DATABASE_NAME = "PCI";
+    public static final String DATABASE_NAME = "PCI.db";
 
     public static final String EXTERNAL_DATABASE_NAME = "PCI_ex";
     // Android meta data table
@@ -1166,6 +1166,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             return true;
         }
         return false;
+    }
+
+    public  void reCreateSurveyTable(){
+        SQLiteDatabase db= getWritableDatabase();
+        db.execSQL(DROP_TABLE_IF_EXISTS + DT_SURVEY_TABLE);
+        db.execSQL(Schema.createTableDTSurveyTable());
+        db.close();
     }
 
 
@@ -12913,8 +12920,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(U_FILE_COL, image);
 
 
-        db.insert(DT_SURVEY_TABLE, null, values);
+        long row=db.insert(DT_SURVEY_TABLE, null, values);
         db.close();
+        Log.d("DT_survey"," row: "+row);
     }
 
     public void updateIntoDTSurveyTable(String dtBasic, String countryCode, String donorCode, String awardCode, String programCode,
