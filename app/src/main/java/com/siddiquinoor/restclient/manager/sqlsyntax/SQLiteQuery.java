@@ -4651,7 +4651,7 @@ public class SQLiteQuery {
                     + " regAss." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " LIKE '%" + searchID_orName + "%' ";
         }
 
-        return "SELECT " + " regMem." + HHID_COL
+        String Mor = "SELECT " + " regMem." + HHID_COL
                 + " , " + " regMem." + HH_MEM_ID
                 + " , " + " regMem." + LAY_R1_LIST_CODE_COL
                 + " || '' || " + " regMem." + LAY_R2_LIST_CODE_COL
@@ -4697,18 +4697,30 @@ public class SQLiteQuery {
                 " AND " + " regAss." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = " + " regMem." + HH_MEM_ID +
 
 
-                " INNER JOIN " + VILLAGE_TABLE + " AS vill " +
-                " ON regHH." + ADM_COUNTRY_CODE_COL + " = " + " vill." + ADM_COUNTRY_CODE_COL +
-                " AND regHH." + LAY_R1_LIST_CODE + " = " + " vill." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL +
-                " AND regHH." + LAY_R2_LIST_CODE_COL + " = " + " vill." + LAY_R2_LIST_CODE_COL +
-                " AND regHH." + LAY_R3_LIST_CODE_COL + " = " + " vill." + LAY_R3_LIST_CODE_COL +
-                " AND regHH." + LAY_R4_LIST_CODE_COL + " = " + " vill." + LAY_R4_LIST_CODE_COL +
+
                 " INNER JOIN " + SELECTED_VILLAGE_TABLE + " AS sv " +
                 " ON regHH."+ADM_COUNTRY_CODE_COL + " = " + " sv.CountryCode "+
                 " AND regHH."+LAY_R1_LIST_CODE + " = " + " sv.DistrictCode "+
                 " AND regHH."+LAY_R2_LIST_CODE_COL + " = " + " sv.UpazillaCode "+
                 " AND regHH."+LAY_R3_LIST_CODE_COL + " = " + " sv.UnitCode "+
                 " AND regHH."+LAY_R4_LIST_CODE_COL + " = " + " sv.VillageCode "+
+
+
+                " INNER JOIN " + VILLAGE_TABLE + " AS vill " +
+                " ON regHH." + ADM_COUNTRY_CODE_COL + " = " + " vill." + ADM_COUNTRY_CODE_COL +
+                " AND regHH." + LAY_R1_LIST_CODE + " = " + " vill." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL +
+                " AND regHH." + LAY_R2_LIST_CODE_COL + " = " + " vill." + LAY_R2_LIST_CODE_COL +
+                " AND regHH." + LAY_R3_LIST_CODE_COL + " = " + " vill." + LAY_R3_LIST_CODE_COL +
+                " AND regHH." + LAY_R4_LIST_CODE_COL + " = " + " vill." + LAY_R4_LIST_CODE_COL +
+
+
+                " AND " + " sv.CountryCode "+ " = " + " vill." + ADM_COUNTRY_CODE_COL +
+                " AND " + " sv.DistrictCode "+ " = " + " vill." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL +
+                " AND " + " sv.UpazillaCode "+ " = " + " vill." + LAY_R2_LIST_CODE_COL +
+                " AND " + " sv.UnitCode "+ " = " + " vill." + LAY_R3_LIST_CODE_COL +
+                " AND " + " sv.VillageCode "+ " = " + " vill." + LAY_R4_LIST_CODE_COL +
+
+
                 " WHERE " + " regMem." + ADM_COUNTRY_CODE_COL + " =  '" + cCode + "' "
                 + searchID_orName +
                 " GROUP BY  newId , memName " +
@@ -4716,7 +4728,9 @@ public class SQLiteQuery {
 
                 " ORDER BY " + " regMem." + HHID_COL + " DESC ";
 
+        Log.e("ShuvoMor",Mor);
 
+        return Mor;
     }
 
     public static String loadCriteria_sql(final String cCode, final String donorCode, final String awardCode, final String programCode, final String memId) {

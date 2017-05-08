@@ -449,7 +449,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
             DTQTableDataModel nextQus = skipToQuestionCheck(mQusIndex); //  add skip rules
 
             if (nextQus != null) {
-                if (!nextQus.getqText().equals("Thank You!") && !nextQus.getqText().equals("Thank you!"))
+                if (nextQus.getqText() != null && !nextQus.getqText().equals("Thank You!") && !nextQus.getqText().equals("Thank you!"))
                     displayQuestion(nextQus);
                 else {
                     getNextQuestion();
@@ -900,7 +900,7 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
         if (mDTQTable == null)
             return;
 
-        if (mDTQTable.getAllowNullFlag().equals("N")) {
+        if (mDTQTable.getAllowNullFlag() != null && mDTQTable.getAllowNullFlag().equals("N")) {
 
             switch (responseControl) {
                 case TEXT_BOX:
@@ -918,9 +918,9 @@ public class DTResponseRecordingActivity extends BaseActivity implements Compoun
                             if (mDTATables.get(0).getDataType().equals("Number")) {
 
                                 // comparing the highest input value an  lowest value
-                                String max=mDTATables.get(0).getMaxValue();
-                                String min=mDTATables.get(0).getMinValue();
-                                if (((max==null||max.length()==0)||(min==null||min.length()==0))||(Double.parseDouble(edtInput) <= Parse.StringToDoubleNullCheck(max)) && (Double.parseDouble(edtInput) >= Parse.StringToDoubleNullCheck(min))) {
+                                String max = mDTATables.get(0).getMaxValue();
+                                String min = mDTATables.get(0).getMinValue();
+                                if (((max == null || max.length() == 0) || (min == null || min.length() == 0)) || (Double.parseDouble(edtInput) <= Parse.StringToDoubleNullCheck(max)) && (Double.parseDouble(edtInput) >= Parse.StringToDoubleNullCheck(min))) {
                                     normalIndicator();
                                     saveData(edtInput, "", mDTATables.get(0), calling4TerminalPoint);
 

@@ -160,7 +160,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String ADM_PROGRAM_MASTER_TABLE = "AdmProgramMaster";
     public static final String SERVICE_MASTER_TABLE = "AdmServiceMaster";
     public static final String REG_N_ASSIGN_PROG_SRV_TABLE = "RegNAssignProgSrv";
-    public static final String GPS_GROUP_TABLE = "GpsGroup";
+    public static final String GPS_GROUP_TABLE = "GPSGroupTable";
     public static final String GPS_SUB_GROUP_TABLE = "GPSSubGroupTable";
     public static final String GPS_LOCATION_TABLE = "GPSLocationTable";
     public static final String OP_MONTH_TABLE = "AdmOpMonthTable";
@@ -730,7 +730,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     // ADDED BY POP COLUMN FOR GPS SUB GROUP TABLE
 
     public static final String SUB_GROUP_CODE_COL = "SubGrpCode";
-    public static final String SUB_GROUP_NAME_COL = "SubGroupName";
+    public static final String SUB_GROUP_NAME_COL = "SubGrpName";
 
     // ADDED BY POP COLUMN FOR GPS LOCATION  TABLE
 
@@ -1168,8 +1168,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         return false;
     }
 
-    public  void reCreateSurveyTable(){
-        SQLiteDatabase db= getWritableDatabase();
+    public void reCreateSurveyTable() {
+        SQLiteDatabase db = getWritableDatabase();
         db.execSQL(DROP_TABLE_IF_EXISTS + DT_SURVEY_TABLE);
         db.execSQL(Schema.createTableDTSurveyTable());
         db.close();
@@ -1419,6 +1419,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         refreshDatabase(db);
     }
 
+    public  void clearUploadSyntaxTable(){
+        SQLiteDatabase db= getWritableDatabase();
+        db.delete(UPLOAD_SYNTAX_TABLE, null, null);
+    }
     /**
      * Drop All the Table to alter the Any table column in table.
      * after droping all the table it called {@link #onCreate(SQLiteDatabase)} method to create tables
@@ -1823,7 +1827,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 data.setIdCatCode(cursor.getString(cursor.getColumnIndex(ID_CATEGORY_COL)));
                 data.setPartName(cursor.getString(cursor.getColumnIndex(PART_NAME_COL)));
                 data.setPartOrgNCode(cursor.getString(cursor.getColumnIndex(PART_ORG_N_CODE_COL)));
-                data.setSex(cursor.getString(cursor.getColumnIndex(SEX_COL)));
+                data.setSex(cursor.getString(cursor.getColumnIndex(TA_PARTICIPANTS_LIST_TABLE_SEX_COL)));
                 data.setPartCatCode(cursor.getString(cursor.getColumnIndex(PART_CAT_CODE_COL)));
                 data.setPosCode(cursor.getString(cursor.getColumnIndex(POS_CODE_COL)));
                 data.setAmSession(cursor.getString(cursor.getColumnIndex(AM_SESSION_COL)));
@@ -1861,7 +1865,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(ID_CATEGORY_COL, idCatCode);
         values.put(PART_NAME_COL, partName);
         values.put(PART_ORG_N_CODE_COL, partOrgNCode);
-        values.put(SEX_COL, sex);
+        values.put(TA_PARTICIPANTS_LIST_TABLE_SEX_COL, sex);
         values.put(PART_CAT_CODE_COL, partCatCode);
         values.put(POS_CODE_COL, posCode);
         values.put(AM_SESSION_COL, amSession);
@@ -1932,7 +1936,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             data.setIdCatCode(cursor.getString(cursor.getColumnIndex(ID_CATEGORY_COL)));
             data.setPartName(cursor.getString(cursor.getColumnIndex(PART_NAME_COL)));
             data.setPartOrgNCode(cursor.getString(cursor.getColumnIndex(PART_ORG_N_CODE_COL)));
-            data.setSex(cursor.getString(cursor.getColumnIndex(SEX_COL)));
+            data.setSex(cursor.getString(cursor.getColumnIndex(TA_PARTICIPANTS_LIST_TABLE_SEX_COL)));
             data.setPartCatCode(cursor.getString(cursor.getColumnIndex(PART_CAT_CODE_COL)));
             data.setPosCode(cursor.getString(cursor.getColumnIndex(POS_CODE_COL)));
             data.setAmSession(cursor.getString(cursor.getColumnIndex(AM_SESSION_COL)));
@@ -6967,7 +6971,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
 
-
     public boolean ifExistsInCA2Table(AssignDataModel asPeople) {
         //  todo : use checkDataExistInTable()
         SQLiteDatabase db = this.getReadableDatabase();
@@ -10078,7 +10081,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.insert(GEO_LAY_R3_LIST_TABLE, null, values);                                              // Inserting Row
         db.close();                                                                                 // Closing database connection
 
-//        Log.d(TAG, "New UNIT inserted into Unit Table: " + id);
+
     }
 
     public void addSelectedVillage(String country, String dcode, String upcode, String ucode, String vcode, String layrCode, String vname, String addressCode) {
@@ -10087,23 +10090,31 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         ContentValues values = new ContentValues();
-        values.put(ADM_COUNTRY_CODE_COL, country);                                                  // country code
+        values.put("CountryCode", country);
+        values.put("DistrictCode", dcode);
+        values.put("UpazillaCode", upcode);
+        values.put("UnitCode", ucode);
+        values.put("VillageCode", vcode);
+        values.put(LAYER_CODE_COL, layrCode);
+        values.put("VillageName", vname);
+        values.put(REGN_ADDRESS_LOOKUP_CODE_COL, addressCode);
 
-        values.put(LAY_R_LIST_CODE_COL, dcode);                                                                 //  district code
-        values.put(LAY_R2_LIST_CODE_COL, upcode); // upazilla code
-        values.put(LAY_R3_LIST_CODE_COL, ucode); // unit code
-        values.put(LAY_R4_LIST_CODE_COL, vcode); // Village code
-        values.put(LAYER_CODE_COL, layrCode); // whoe LaRCode code
-        values.put(LAY_R4_LIST_NAME_COL, vname); // Village name
-        values.put(REGN_ADDRESS_LOOKUP_CODE_COL, addressCode); // Village name
+//                                                                                                   donn't delete below code previous satage
+//        values.put(ADM_COUNTRY_CODE_COL, country);                                                // country code
+//        values.put(LAY_R_LIST_CODE_COL, dcode);                                                                 //  district code
+//        values.put(LAY_R2_LIST_CODE_COL, upcode); // upazilla code
+//        values.put(LAY_R3_LIST_CODE_COL, ucode); // unit code
+//        values.put(LAY_R4_LIST_CODE_COL, vcode); // Village code
+//        values.put(LAYER_CODE_COL, layrCode); // whoe LaRCode code
+//        values.put(LAY_R4_LIST_NAME_COL, vname); // Village name
+//        values.put(REGN_ADDRESS_LOOKUP_CODE_COL, addressCode); // Village name
+//
 
 
-        // Inserting Row
-        // long id =
         db.insert(SELECTED_VILLAGE_TABLE, null, values);
         db.close();
 
-//        Log.d(TAG, "New Village inserted into VILLAGE_TABLE: " + id);
+
     }
 
 
@@ -10111,11 +10122,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(ADM_COUNTRY_CODE_COL, country); // country code
-        values.put(FDP_CODE_COL, fdpCode); //  fdp code
-        values.put(FDP_NAME_COL, fdpName); // fdp name
-        // Inserting Row
-        long id = db.insert(SELECTED_FDP_TABLE, null, values);
+        values.put(ADM_COUNTRY_CODE_COL, country);                                                  // country code
+        values.put(FDP_CODE_COL, fdpCode);                                                          //  fdp code
+        values.put(FDP_NAME_COL, fdpName);                                                                                                      // fdp name
+
+        long id = db.insert(SELECTED_FDP_TABLE, null, values);                                      // Inserting Row
         db.close();
 
 //        Log.d(TAG, "New Village inserted into VILLAGE_TABLE: " + id);
@@ -12920,9 +12931,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(U_FILE_COL, image);
 
 
-        long row=db.insert(DT_SURVEY_TABLE, null, values);
+        long row = db.insert(DT_SURVEY_TABLE, null, values);
         db.close();
-        Log.d("DT_survey"," row: "+row);
+        Log.d("DT_survey", " row: " + row);
     }
 
     public void updateIntoDTSurveyTable(String dtBasic, String countryCode, String donorCode, String awardCode, String programCode,

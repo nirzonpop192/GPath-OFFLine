@@ -204,10 +204,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             }
         });
 
-        Button extrDb = (Button) findViewById(R.id.btnEXTDB);
+        Button btnExportDataBase = (Button) findViewById(R.id.btnEXTDB);
 
         // extrDb.setVisibility(View.GONE);
-        extrDb.setOnClickListener(new View.OnClickListener() {
+        btnExportDataBase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -224,6 +224,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     e.printStackTrace();
                 }
                 dataBaseCopy(currentDBPath, backupdbName, "Export Successful! ");
+                db.clearUploadSyntaxTable();
+                logoutUser();
+
 
             }
         });
@@ -257,10 +260,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             String root = Environment.getExternalStorageDirectory().toString();
 
 //            File sd = Environment.getExternalStorageDirectory();                                   // get the internal root directories
-           File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories
+            File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories
 
+            if (!sd.exists())
+                sd.mkdirs();
 
-            sd.mkdirs();
             if (sd.canWrite()) {
                 File currentDB = new File(sourcePath);
                 File backupDB = new File(sd, destinationPath);
@@ -277,7 +281,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
             }
         } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Backup Failed!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Export success !", Toast.LENGTH_SHORT).show();
 
         }
     }

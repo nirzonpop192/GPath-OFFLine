@@ -743,12 +743,12 @@ public class Schema {
 
     public static String sqlCreateGpsSubGroupTable() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.GPS_SUB_GROUP_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + GPS_SUB_GROUP_TABLE + "("
                 //    + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
                 + GROUP_CODE_COL + " VARCHAR(20), "
-                + SQLiteHandler.SUB_GROUP_CODE_COL + " VARCHAR(20), "
-                + SQLiteHandler.SUB_GROUP_NAME_COL + " VARCHAR(50), "
-                + SQLiteHandler.DESCRIPTION_COL + " VARCHAR(100) ) ";
+                + SUB_GROUP_CODE_COL + " VARCHAR(20), "
+                + SUB_GROUP_NAME_COL + " VARCHAR(50), "
+                + DESCRIPTION_COL + " VARCHAR(100) ) ";
     }
 
     /**
@@ -1252,7 +1252,7 @@ public class Schema {
 
         return CREATE_TABLE_IF_NOT_EXISTS + SELECTED_VILLAGE_TABLE + " ("
 
-                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
 
                 + " CountryCode VARCHAR(4), "
                 + " DistrictCode VARCHAR(2), "
@@ -1260,7 +1260,7 @@ public class Schema {
                 + " UnitCode VARCHAR(2), "
                 + " VillageCode VARCHAR(2), "
                 + LAYER_CODE_COL + " VARCHAR(2), "
-                + LAY_R4_LIST_NAME_COL + " VARCHAR(2), "
+                +  " VillageName VARCHAR(100), "
                 + REGN_ADDRESS_LOOKUP_CODE_COL + " VARCHAR(4) "
 
                 + " )";

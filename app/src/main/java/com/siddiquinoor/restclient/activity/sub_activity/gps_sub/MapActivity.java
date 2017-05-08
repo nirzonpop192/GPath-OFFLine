@@ -839,7 +839,7 @@ public class MapActivity extends BaseActivity {
  * if data exits in data base
  */
 
-        if (data.getLatitude().length() > 1 && data.getLongitude().length() > 1) {
+        if (data.getLatitude()!=null&&data.getLongitude()!=null&& data.getLatitude().length() > 1 && data.getLongitude().length() > 1) {
             if (!data.getLatitude().equals("null") && !data.getLongitude().equals("null"))
                 setMarker(locationName, Double.valueOf(data.getLatitude()), Double.valueOf(data.getLongitude()));
 

@@ -280,10 +280,10 @@ public class LoginActivity extends BaseActivity {
             File newDb = new File(path);
             if (newDb.exists()) {
                 flag = db.importDatabase(path, LoginActivity.this);
-                File file = new File(path);                                                         // delete
-                file.delete();
-
-                db.reCreateSurveyTable();
+//                File file = new File(path);                                                         // delete
+//                file.delete();
+//
+//                db.reCreateSurveyTable();
             } else flag = false;
 
 

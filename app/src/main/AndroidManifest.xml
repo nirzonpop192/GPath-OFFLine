@@ -339,8 +339,14 @@
         <activity
             android:name=".activity.sub_activity.training.TABeneficiaryCardListActivity"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-        <activity android:name=".activity.sub_activity.training.AddTaParticipaintActivity" />
-        <activity android:name=".activity.sub_activity.training.TaSummaryPage" />
+        <activity android:name=".activity.sub_activity.training.AddTaParticipaintActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+        <activity android:name=".activity.sub_activity.training.TaSummaryPage"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity android:name=".activity.FileExploerActivity"></activity>
     </application>
 
