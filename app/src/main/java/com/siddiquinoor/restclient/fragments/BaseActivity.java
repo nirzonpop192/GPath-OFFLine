@@ -245,6 +245,13 @@ public abstract class BaseActivity extends Activity {
         return dateFormat.format(date).toString();
     }
 
+
+    protected String getDate() throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "MM-dd-yyyyHH-MM", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date).toString();
+    }
     protected boolean isTheDateValidFormat(String testingDate) {
 
 
@@ -296,7 +303,7 @@ public abstract class BaseActivity extends Activity {
         if (isTheDateValidFormat(test_date)) {
             curr_date = test_date;
         } else {
-            curr_date = test_date + " 00:00:00";
+            curr_date = test_date + " 00:00:00.000";
         }
 
         if (sdate.length() == 19) {

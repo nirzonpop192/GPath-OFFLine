@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.RadioButton;
 
 import com.siddiquinoor.restclient.R;
+import com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionSummaryMenu;
 import com.siddiquinoor.restclient.activity.sub_activity.summary_sub.GroupSummary;
 import com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ServiceSummaryMenu;
 import com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SumRegLay4TotalHHRecords;
@@ -47,7 +48,9 @@ public class SummaryMenuActivity extends BaseActivity {
 
         initial();
 
-        idCountry = sqlH.getSelectedCountryCode();
+//        sdkcfjadsklhckjxdchkj
+        String operationModeName = sqlH.getDeviceOperationModeName();
+        idCountry = sqlH.getSelectedCountryCode(operationModeName);
 
         viewAccessController();
         btnGo.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +76,7 @@ public class SummaryMenuActivity extends BaseActivity {
                     finish();
                     startActivity(iAsgSum);
                 } else if (rbDistribution.isChecked()) {
-                    Intent iDistSum = new Intent(SummaryMenuActivity.this, ServiceSummaryMenu.class);
+                    Intent iDistSum = new Intent(SummaryMenuActivity.this, DistributionSummaryMenu.class);
                     iDistSum.putExtra(KEY.COUNTRY_ID, idCountry);
                     iDistSum.putExtra(KEY.FLAG, KEY.DIST_FLAG);
                     iDistSum.putExtra(KEY.DIR_CLASS_NAME_KEY, "SummaryMenuActivity");

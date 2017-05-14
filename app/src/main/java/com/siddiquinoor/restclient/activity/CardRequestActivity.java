@@ -410,7 +410,7 @@ public class CardRequestActivity extends BaseActivity  implements View.OnClickLi
 
         int position=0;
         String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE +"."+ SQLiteHandler.AWARD_CODE_COL + "='" + idAward + "'"
-                +" AND " +SQLiteHandler.COUNTRY_PROGRAM_TABLE +"."+ SQLiteHandler.DONOR_CODE_COL + "='" + donorId + "'" ;
+                +" AND " +SQLiteHandler.COUNTRY_PROGRAM_TABLE +"."+ SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'" ;
         // Spinner Drop down elements for District
         List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null,false);
 

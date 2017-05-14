@@ -35,6 +35,7 @@ import com.siddiquinoor.restclient.manager.SQLiteHandler;
 import com.siddiquinoor.restclient.manager.SyncDatabase;
 import com.siddiquinoor.restclient.network.ConnectionDetector;
 import com.siddiquinoor.restclient.parse.Parser;
+import com.siddiquinoor.restclient.utils.FileUtils;
 import com.siddiquinoor.restclient.utils.KEY;
 import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.data_model.adapters.DistributionSaveDataModel;
@@ -133,11 +134,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         txtName.setText(getUserName());
         tvLastSync.setText(db.lastSyncStatus());
 
-        /**
-         * todo : file e save kori
-         */
-//        String imeiNo = getIMEINumber();
-        String macAddress = UtilClass.getMacAddress(mContext);
+
+        String macAddress = UtilClass.getMacAddress(mContext);                                      // get mac address
 
         tvDeviceId.setText(macAddress);
 
@@ -177,29 +175,19 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         loadCountry();
         setAllButtonDisabled();
-        viewAccessController(settings);
+        viewAccessController();
         //showOperationModelLabel(settings);
 /**
  * back up db
  */
-        Button restorDb = (Button) findViewById(R.id.btnRestoreDB);
+        final Button restorDb = (Button) findViewById(R.id.btnRestoreDB);
+
+        restorDb.setVisibility(View.GONE);                                                          //no dded this button any more
         restorDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                restorDataBase();
 
-                String dbBy = getStaffID();
-                String dbByName = getUserName();
-                String backupDate = null;
-                try {
-                    backupDate = getDateTime();
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                String destinationDbPath = "G_path_" + dbBy + "-" + dbByName + "_" + backupDate + ".db";
-
-                String sourceDbPath = "/data/data/" + getPackageName() + "/databases/pci";
-
-                dataBaseCopy(sourceDbPath, destinationDbPath, "Import Successful! " + destinationDbPath);
 
             }
         });
@@ -216,14 +204,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 sqLiteHandler.insertIntoExportDataBase(MainActivity.this);
 
 
-                String currentDBPath = "/data/data/" + getPackageName() + "/databases/" + SQLiteHandler.EXTERNAL_DATABASE_NAME;
+                String currentDBPath = "/data/data/" + getPackageName() + "/databases/"
+                        + SQLiteHandler.EXTERNAL_DATABASE_NAME;
                 String backupdbName = null;
                 try {
-                    backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_" + getStaffID() + "_" + getDateTime() + ".off";
+//                    backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_"            //Due to macAddress file is not saving
+                    // + getStaffID() + "_" + getDateTime() + ".off";
+                    backupdbName = "EXPORT_" + getStaffID() + "_" + getDate() + ".off";
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
-                dataBaseCopy(currentDBPath, backupdbName, "Export Successful! ");
+                FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext,currentDBPath, backupdbName, "Export Successful! ");
                 db.clearUploadSyntaxTable();
                 logoutUser();
 
@@ -245,7 +236,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         importDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(mContext, "hello ", Toast.LENGTH_SHORT).show();
+
 //                importDataBase();
                 ImportDbAsycnTask importDbAsycnTask = new ImportDbAsycnTask();
                 importDbAsycnTask.execute();
@@ -253,43 +244,27 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         });
     }
 
-
-    private void dataBaseCopy(final String sourcePath, final String destinationPath, String msg) {
+    private void restorDataBase() {
+        String dbBy = getStaffID();
+        String dbByName = getUserName();
+        String backupDate = null;
         try {
-
-            String root = Environment.getExternalStorageDirectory().toString();
-
-//            File sd = Environment.getExternalStorageDirectory();                                   // get the internal root directories
-            File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories
-
-            if (!sd.exists())
-                sd.mkdirs();
-
-            if (sd.canWrite()) {
-                File currentDB = new File(sourcePath);
-                File backupDB = new File(sd, destinationPath);
-
-                if (currentDB.exists()) {
-                    FileChannel src = new FileInputStream(currentDB).getChannel();
-                    FileChannel dst = new FileOutputStream(backupDB).getChannel();
-                    dst.transferFrom(src, 0, src.size());
-                    src.close();
-                    dst.close();
-
-                    // TODO: 4/19/2017  use custom toast
-                    Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
-                }
-            }
-        } catch (Exception e) {
-            Toast.makeText(getApplicationContext(), "Export success !", Toast.LENGTH_SHORT).show();
-
+            backupDate = getDateTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
+        String destinationDbPath = "G_path_" + dbBy + "-" + dbByName + "_" + backupDate + ".db";
+
+        String sourceDbPath = "/data/data/" + getPackageName() + "/databases/pci";
+
+        FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext,sourceDbPath, destinationDbPath, "Import Successful! " + destinationDbPath);
+
     }
 
 
     private boolean importDataBase() {
         boolean flag = false;
-//        Toast.makeText(mContext, Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME, Toast.LENGTH_SHORT).show();
+
         try {
             String path = Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME;
 
@@ -410,7 +385,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * @param settings Shared Preference Object
      */
 
-    private void viewAccessController(SharedPreferences settings) {
+    private void viewAccessController() {
         // get operation mode from shared and preference
 //        int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
 
@@ -419,7 +394,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case UtilClass.REGISTRATION_OPERATION_MODE_NAME:
                 btnNewReg.setEnabled(true);
                 btnAssign.setEnabled(true);
-
                 btnGraduation.setEnabled(true);
                 btnGroup.setEnabled(true);
 
@@ -487,13 +461,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 
         txtName = (TextView) findViewById(R.id.user_name);
-        //txtEmail = (TextView) findViewById(R.id.email);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         tvGeoData = (TextView) findViewById(R.id.tv_geo_data_1);
         tvLastSync = (TextView) findViewById(R.id.tv_last_sync);
         tvSyncRequired = (TextView) findViewById(R.id.tv_sync_required);
-//        tvOperationMode = (TextView) findViewById(R.id.tv_operation_mode);
-
         btnNewReg = (Button) findViewById(R.id.btnNewReg);
         btnSummaryRep = (Button) findViewById(R.id.btnSummaryReport);
         btnCardRequest = (Button) findViewById(R.id.btnCardRequest);
@@ -659,15 +630,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 finish();
                 Intent iDynamicData = new Intent(getApplicationContext(), DynamicTable.class);
                 iDynamicData.putExtra(KEY.COUNTRY_ID, idCountry);
-
                 startActivity(iDynamicData);
                 break;
             case R.id.btnTrainingActivity:
                 finish();
-                // // TODO: 4/4/2017  create new activity
                 Intent iTrainingActivity = new Intent(getApplicationContext(), TrainingActivity.class);
-//                iTrainingActivity.putExtra(KEY.COUNTRY_ID, idCountry);
-
                 startActivity(iTrainingActivity);
                 break;
         }

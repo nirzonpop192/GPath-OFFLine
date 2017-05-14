@@ -22,6 +22,7 @@ import com.siddiquinoor.restclient.manager.sqlsyntax.SQLiteQuery;
 import com.siddiquinoor.restclient.utils.KEY;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
+import com.siddiquinoor.restclient.views.spinner.SpinnerLoader;
 
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class ServiceSummaryMenu extends BaseActivity {
     private Button btnShow;
     private ADNotificationManager dialog;
     private SQLiteHandler sqlH;
-    private final Context CONTEXT = ServiceSummaryMenu.this;
+    private final Context mContext = ServiceSummaryMenu.this;
     private String idCountry;
     private RadioButton rbServiceSummary, rbItemSummary, rbServiceAttendance, rbItemAttendance;
     private String idAward;
@@ -40,7 +41,7 @@ public class ServiceSummaryMenu extends BaseActivity {
     private String idProgram;
     private String strProgram;
     private Spinner spAward, spProgram, spServiceMonth;
-    private final String TAG = "ServiceSummaryMenu";
+    private final String TAG = ServiceSummaryMenu.class.getSimpleName();
     private String idServiceMonth;
     private String strSrvMonth;
     private String idOpMonthCode;
@@ -55,7 +56,7 @@ public class ServiceSummaryMenu extends BaseActivity {
         viewReference();
         dialog = new ADNotificationManager();
 
-        sqlH = new SQLiteHandler(CONTEXT);
+        sqlH = new SQLiteHandler(mContext);
         rbItemSummary.setVisibility(View.GONE);
         rbItemAttendance.setVisibility(View.GONE);
 
@@ -96,11 +97,11 @@ public class ServiceSummaryMenu extends BaseActivity {
 
 
                 if (idAward.equals("00")) {
-                    dialog.showErrorDialog(CONTEXT, "Select Award");
+                    dialog.showErrorDialog(mContext, "Select Award");
                 } else if (idProgram.equals("00")) {
-                    dialog.showErrorDialog(CONTEXT, "Select Program");
+                    dialog.showErrorDialog(mContext, "Select Program");
                 } else if (idServiceMonth.equals("00")) {
-                    dialog.showErrorDialog(CONTEXT, "Select Month");
+                    dialog.showErrorDialog(mContext, "Select Month");
                 } else
                     goToSubPages();
 
@@ -110,7 +111,7 @@ public class ServiceSummaryMenu extends BaseActivity {
 
 
         if (flag.equals(KEY.DIST_FLAG)){
-            tvPageTitle.setText("Distribution SumRegLay4TotalHHRecords");
+            tvPageTitle.setText("Service Summary");
             rbServiceSummary.setText("SumRegLay4TotalHHRecords");
             rbServiceAttendance.setText("Distribution Attendance");
         }
@@ -121,7 +122,7 @@ public class ServiceSummaryMenu extends BaseActivity {
     private void goToSubPages() {
         Intent intent = null;
         if (rbServiceSummary.isChecked()) {
-            intent = new Intent(CONTEXT, SumSrvOrDistCriteria.class);
+            intent = new Intent(mContext, SumSrvOrDistCriteria.class);
             intent.putExtra(KEY.DIR_CLASS_NAME_KEY, "ServiceSummaryMenu");
             intent.putExtra(KEY.COUNTRY_ID, idCountry);
             intent.putExtra(KEY.FLAG, flag);
@@ -133,7 +134,7 @@ public class ServiceSummaryMenu extends BaseActivity {
             intent.putExtra(KEY.SERVICE_MONTH_CODE, idOpMonthCode);
             intent.putExtra(KEY.SERVICE_MONTH_NAME, strSrvMonth);
         } else if (rbItemSummary.isChecked()) {
-            intent = new Intent(CONTEXT, SummaryServiceOrDistributionItemize.class);
+            intent = new Intent(mContext, SummaryServiceOrDistributionItemize.class);
             intent.putExtra(KEY.DIR_CLASS_NAME_KEY, "ServiceSummaryMenu");
             intent.putExtra(KEY.FLAG, flag);
             intent.putExtra(KEY.COUNTRY_ID, idCountry);
@@ -145,7 +146,7 @@ public class ServiceSummaryMenu extends BaseActivity {
             intent.putExtra(KEY.SERVICE_MONTH_CODE, idOpMonthCode);
             intent.putExtra(KEY.SERVICE_MONTH_NAME, strSrvMonth);
         } else if (rbServiceAttendance.isChecked()) {
-            intent = new Intent(CONTEXT, SumSrvOrDistAttendance.class);
+            intent = new Intent(mContext, SumSrvOrDistAttendance.class);
             intent.putExtra(KEY.DIR_CLASS_NAME_KEY, "ServiceSummaryMenu");
             intent.putExtra(KEY.FLAG, flag);
             intent.putExtra(KEY.COUNTRY_ID, idCountry);
@@ -157,7 +158,7 @@ public class ServiceSummaryMenu extends BaseActivity {
             intent.putExtra(KEY.SERVICE_MONTH_CODE, idOpMonthCode);
             intent.putExtra(KEY.SERVICE_MONTH_NAME, strSrvMonth);
         } else if (rbItemAttendance.isChecked()) {
-            intent = new Intent(CONTEXT, SummaryServiceOrDistributionItemizeAttendance.class);
+            intent = new Intent(mContext, SummaryServiceOrDistributionItemizeAttendance.class);
             intent.putExtra(KEY.DIR_CLASS_NAME_KEY, "ServiceSummaryMenu");
             intent.putExtra(KEY.FLAG, flag);
             intent.putExtra(KEY.COUNTRY_ID, idCountry);
@@ -169,7 +170,7 @@ public class ServiceSummaryMenu extends BaseActivity {
             intent.putExtra(KEY.SERVICE_MONTH_CODE, idOpMonthCode);
             intent.putExtra(KEY.SERVICE_MONTH_NAME, strSrvMonth);
         } else
-            dialog.showErrorDialog(CONTEXT, "No Menu is selected yet");
+            dialog.showErrorDialog(mContext, "No Menu is selected yet");
 
 
         if (intent != null) {
@@ -219,28 +220,7 @@ public class ServiceSummaryMenu extends BaseActivity {
      */
     private void loadAward(final String idCountry) {
 
-        int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + idCountry + "'";
-        // Spinner Drop down elements for District
-        List<SpinnerHelper> listAward = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_AWARD_TABLE, criteria, null, false);
-
-        // Creating adapter for spinner
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listAward);
-        // Drop down layout style
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // attaching data adapter to spinner
-        spAward.setAdapter(dataAdapter);
-
-
-        if (idAward != null) {
-            for (int i = 0; i < spAward.getCount(); i++) {
-                String award = spAward.getItemAtPosition(i).toString();
-                if (award.equals(strAward)) {
-                    position = i;
-                }
-            }
-            spAward.setSelection(position);
-        }
+        SpinnerLoader.loadAwardLoader(mContext, sqlH, spAward, idCountry, idAward, strAward);
 
 
         spAward.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -276,7 +256,7 @@ public class ServiceSummaryMenu extends BaseActivity {
 
         int position = 0;
         String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.AWARD_CODE_COL + "='" + idAward + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.DONOR_CODE_COL + "='" + donorId + "'";
+                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'";
         // Spinner Drop down elements for District
         List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
 
@@ -306,15 +286,18 @@ public class ServiceSummaryMenu extends BaseActivity {
                 idProgram = ((SpinnerHelper) spProgram.getSelectedItem()).getId();
                 // if(idProgram.length()>2){
                 Log.d(TAG, "load Prog data " + idProgram);
-                if (sqlH.checkAdmCountryProgramsVoucherFlag(idCountry, idDonor, idAward, idProgram)) {
-                    rbItemSummary.setVisibility(View.VISIBLE);
-                    rbItemAttendance.setVisibility(View.VISIBLE);
-                } else {
-                    rbItemSummary.setVisibility(View.GONE);
-                    rbItemAttendance.setVisibility(View.GONE);
+                if (!idProgram.equals("00")){
+                    if (sqlH.checkAdmCountryProgramsVoucherFlag(idCountry, idDonor, idAward, idProgram)) {
+                        rbItemSummary.setVisibility(View.VISIBLE);
+                        rbItemAttendance.setVisibility(View.VISIBLE);
+                    } else {
+                        rbItemSummary.setVisibility(View.GONE);
+                        rbItemAttendance.setVisibility(View.GONE);
+                    }
+
+                    loadServiceMonth(idcCode);
                 }
 
-                loadServiceMonth(idcCode);
 
             }
 

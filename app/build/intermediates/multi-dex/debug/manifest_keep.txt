@@ -16,6 +16,7 @@
 -keep class com.siddiquinoor.restclient.activity.OldAssignActivity { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceRecordDetails { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SumSrvOrDistAttendance { <init>(); }
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionAttendanceActivity { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.GraduationActivity { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.LM { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.assign_program.mchn.PW { <init>(); }
@@ -36,6 +37,7 @@
 -keep class com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceVoucherDetails { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.dist_sub.DistrubutionVoucherActivity { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ServiceSummaryMenu { <init>(); }
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionSummaryMenu { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemizeAttendance { <init>(); }
 -keep class com.siddiquinoor.restclient.activity.sub_activity.service_sub.ServiceSpecification { <init>(); }

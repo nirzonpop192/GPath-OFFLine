@@ -809,9 +809,9 @@ public class CommunityGroupNDetailsRecodes extends BaseActivity {
 
         int position = 0;
         String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
-                + " AND " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + progCode + "' "
+                + " AND " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + progCode + "' "
                 + " GROUP BY " + SQLiteHandler.GROUP_CAT_CODE_COL + " , " + SQLiteHandler.GROUP_CAT_NAME_COL;
 
 
@@ -934,9 +934,9 @@ public class CommunityGroupNDetailsRecodes extends BaseActivity {
 
         int position = 0;
         String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
-                + " AND " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + progCode + "' "
+                + " AND " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + progCode + "' "
                 + " AND " + SQLiteHandler.GROUP_CAT_CODE_COL + " = '" + grpCateCode + "' "
                 //    + " AND " + SQLiteHandler.SERVICE_CENTER_CODE_COL + " = '" + idSrvCenter + "' "
                 ;

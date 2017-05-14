@@ -625,12 +625,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * ADDED BY POP COLUMN FOR SERVICE TABLE
      */
 
-    public static final String DONOR_CODE_COL = "AdmDonorCode";
+    public static final String ADM_DONOR_CODE_COL = "AdmDonorCode";
     public static final String AWARD_CODE_COL = "AdmAwardCode";
-    public static final String PROGRAM_CODE_COL = "AdmProgCode";
-    public static final String REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL = "ProgCode";
-    public static final String SERVICE_CODE_COL = "AdmSrvCode";
-    public static final String REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL = "SrvCode";
+    public static final String ADM_PROG_CODE_COL = "AdmProgCode";
+    public static final String PROG_CODE_COL = "ProgCode";
+    public static final String ADM_SRV_CODE_COL = "AdmSrvCode";
+    public static final String SRV_CODE_COL = "SrvCode";
     public static final String OPERATION_CODE_COL = "OpCode";
     public static final String OP_MONTH_CODE_COL = "OpMonthCode";
     public static final String SERVICE_SL_COL = "ServiceSL";
@@ -2165,7 +2165,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         values.put(EVENT_CODE_COL, eventCode);
         values.put(EVENT_NAME_COL, eventName);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
 
         values.put(AWARD_CODE_COL, awardCode);
         values.put(TA_GROUP_COL, taGroup);
@@ -2277,9 +2277,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(GROUP_CAT_CODE_COL, groupCatCode);
         values.put(GROUP_CAT_NAME_COL, groupCatName);
         values.put(GROUP_CAT_SHORT_NAME_COL, groupCatShortName);
@@ -2330,12 +2330,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R2_LIST_CODE_COL, layR2Code);
         values.put(LAY_R3_LIST_CODE_COL, layR3Code);
         values.put(LAY_R4_LIST_CODE_COL, layR4Code);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
         values.put(HHID_COL, hhID);
         values.put(REG_N_ASSIGN_PROG_SRV_HH_MEM_ID, memID);
-        values.put(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL, progCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL, srvCode);
+        values.put(PROG_CODE_COL, progCode);
+        values.put(SRV_CODE_COL, srvCode);
         values.put(GROUP_CODE_COL, grpCode);/*
         values.put(GROUP_NAME_COL, grpName);*/
         values.put(ACTIVE_COL, active);
@@ -2357,9 +2357,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(ANIMAL_CODE_COL, animalCode);
         values.put(ANIMAL_TYPE_COL, animalType);
 
@@ -2388,9 +2388,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(CROP_CODE_COL, cropCode);
         values.put(CROP_NAME_COL, corpName);
         values.put(CROP_CAT_COL, cropCatCode);
@@ -2410,9 +2410,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(LOAN_CODE_COL, loanCode);
         values.put(LOAN_SOURCE_COL, loanSource);
 
@@ -2428,9 +2428,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(FUND_CODE_COL, fundCode);
         values.put(FUND_SOURCE_COL, fundSource);
 
@@ -2447,9 +2447,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(IRRI_SYS_CODE_COL, irriSysCode);
         values.put(IRRI_SYS_NAME_COL, irriSystemName);
 
@@ -2467,9 +2467,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(LEAD_CODE_COL, leadCode);
         values.put(LEAD_POSITION_COL, leadPosition);
 
@@ -2504,10 +2504,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, programCode);
-        values.put(SERVICE_CODE_COL, servCode);
+        values.put(ADM_PROG_CODE_COL, programCode);
+        values.put(ADM_SRV_CODE_COL, servCode);
         values.put(PROG_FLAG, progFlag);
         values.put(FOOD_FLAG, food);
         values.put(NON_FOOD_FLAG, nonFood);
@@ -2537,8 +2537,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
-        values.put(PROGRAM_CODE_COL, programCode);
-        values.put(SERVICE_CODE_COL, serviceCode);
+        values.put(ADM_PROG_CODE_COL, programCode);
+        values.put(ADM_SRV_CODE_COL, serviceCode);
         values.put(GRD_CODE_COL, grdCode);
         values.put(GRD_TITLE_COL, grdTitle);
         values.put(DEFAULT_CAT_ACTIVE_COL, defaultCatActive);
@@ -2854,7 +2854,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
         values.put(MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL, distCode);
         values.put(LAY_R2_LIST_CODE_COL, upCode);
@@ -2862,8 +2862,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R4_LIST_CODE_COL, vCode);
         values.put(HHID_COL, hhId);
         values.put(REG_N_ASSIGN_PROG_SRV_HH_MEM_ID, memId);
-        values.put(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL, programCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL, srvCode);
+        values.put(PROG_CODE_COL, programCode);
+        values.put(SRV_CODE_COL, srvCode);
         values.put(OPERATION_CODE_COL, opCode);
         values.put(OP_MONTH_CODE_COL, opMonthCode);
         values.put(SERVICE_CENTER_CODE_COL, srvCenterCode);
@@ -2991,7 +2991,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String where = ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' "
                 + " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + distCode + "' "
                 + " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' "
@@ -2999,8 +2999,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' "
                 + " AND " + HHID_COL + " = '" + hhId + "' "
                 + " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "' "
-                + " AND " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + programCode + "' "
-                + " AND " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "' "
+                + " AND " + PROG_CODE_COL + " = '" + programCode + "' "
+                + " AND " + SRV_CODE_COL + " = '" + srvCode + "' "
                 + " AND " + OPERATION_CODE_COL + " = '" + opCode + "' " //OPCODE 2 IS SERVICE MODE
                 + " AND " + OP_MONTH_CODE_COL + " = '" + opMonthCode + "' "
                 + " AND " + SERVICE_CENTER_CODE_COL + " = '" + srvCenterCode + "' "
@@ -3099,7 +3099,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         String where = ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' "
                 + " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + distCode + "' "
                 + " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' "
@@ -3107,8 +3107,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' "
                 + " AND " + HHID_COL + " = '" + hhId + "' "
                 + " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "' "
-                + " AND " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + programCode + "' "
-                + " AND " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "' "
+                + " AND " + PROG_CODE_COL + " = '" + programCode + "' "
+                + " AND " + SRV_CODE_COL + " = '" + srvCode + "' "
                 + " AND " + OPERATION_CODE_COL + " = '" + opCode + "' " //OPCODE 2 IS SERVICE MODE
                 + " AND " + OP_MONTH_CODE_COL + " = '" + opMonthCode + "' ";
 
@@ -3132,14 +3132,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, distData.getCountryCode());
-        values.put(DONOR_CODE_COL, distData.getAdmDonorCode());
+        values.put(ADM_DONOR_CODE_COL, distData.getAdmDonorCode());
         values.put(AWARD_CODE_COL, distData.getAdmAwardCode());
         values.put(LAY_R_LIST_CODE_COL, distData.getDistrictCode());
         values.put(LAY_R2_LIST_CODE_COL, distData.getUpCode());
         values.put(LAY_R3_LIST_CODE_COL, distData.getUniteCode());
         values.put(LAY_R4_LIST_CODE_COL, distData.getVillageCode());
-        values.put(PROGRAM_CODE_COL, distData.getProgCode());
-        values.put(SERVICE_CODE_COL, distData.getSrvCode());
+        values.put(ADM_PROG_CODE_COL, distData.getProgCode());
+        values.put(ADM_SRV_CODE_COL, distData.getSrvCode());
         values.put(OP_MONTH_CODE_COL, distData.getOpMonthCode());
         values.put(FDP_CODE_COL, distData.getFDPCode());
         values.put(MEM_ID_15_D_COL, distData.getID());
@@ -3168,14 +3168,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         values.put(ADM_COUNTRY_CODE_COL, c_code);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
         values.put(MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL, districtCode);
         values.put(LAY_R2_LIST_CODE_COL, upzellaCode);
         values.put(LAY_R3_LIST_CODE_COL, uname);
         values.put(LAY_R4_LIST_CODE_COL, vname);
-        values.put(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL, program);
-        values.put(REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL, service);
+        values.put(PROG_CODE_COL, program);
+        values.put(SRV_CODE_COL, service);
         values.put(OP_MONTH_CODE_COL, opMonth);
         values.put(FDP_CODE_COL, fdp);
         values.put(MEM_ID_15_D_COL, memID);
@@ -3205,9 +3205,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String sql = "SELECT *  FROM " + DIST_N_PLAN_BASIC_TABLE
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + AdmCountryCode + "' "
-                + " AND " + DONOR_CODE_COL + " = '" + AdmDonorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + AdmDonorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + AdmAwardCode + "' "
-                + " AND " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + ProgCode + "' "
+                + " AND " + PROG_CODE_COL + " = '" + ProgCode + "' "
                 + " AND " + OPERATION_CODE_COL + " = '" + OpCode + "' "
                 + " AND " + SRV_OP_MONTH_CODE_COL + " = '" + SrvOpMonthCode + "' "
                 + " AND " + DIST_OP_MONTH_CODE_COL + " = '" + DisOpMonthCode + "' "
@@ -3229,9 +3229,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         values.put(ADM_COUNTRY_CODE_COL, AdmCountryCode);
-        values.put(DONOR_CODE_COL, AdmDonorCode);
+        values.put(ADM_DONOR_CODE_COL, AdmDonorCode);
         values.put(AWARD_CODE_COL, AdmAwardCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL, ProgCode);
+        values.put(PROG_CODE_COL, ProgCode);
         values.put(OPERATION_CODE_COL, OpCode);
         values.put(SRV_OP_MONTH_CODE_COL, SrvOpMonthCode);
         values.put(DIST_OP_MONTH_CODE_COL, DisOpMonthCode);
@@ -3369,8 +3369,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         ContentValues values = new ContentValues();
-        values.put(PROGRAM_CODE_COL, assMem.getProgram_code());
-        values.put(SERVICE_CODE_COL, assMem.getService_code());
+        values.put(ADM_PROG_CODE_COL, assMem.getProgram_code());
+        values.put(ADM_SRV_CODE_COL, assMem.getService_code());
         values.put(REG_N_DAT_COL, assMem.getRegNDate());
         values.put(CU2DOB_DATE_COL, dob); // GDR Date
         values.put(GRD_CODE_COL, assMem.getGrdCode());
@@ -3412,8 +3412,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         values.put(HHID_COL, assingPerson.getHh_id()); // Hh id
         values.put(HH_MEM_ID, assingPerson.getMemId()); // member id
-        values.put(PROGRAM_CODE_COL, assingPerson.getProgram_code()); // program Code
-        values.put(SERVICE_CODE_COL, assingPerson.getService_code()); // service Code
+        values.put(ADM_PROG_CODE_COL, assingPerson.getProgram_code()); // program Code
+        values.put(ADM_SRV_CODE_COL, assingPerson.getService_code()); // service Code
 
         values.put(REG_N_DAT_COL, assingPerson.getRegNDate()); //
         values.put(CU2DOB_DATE_COL, dob);
@@ -3495,7 +3495,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(STAFF_CODE, staffCode);
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
 
         values.put(LAY_R_LIST_CODE_COL, layrListCode);
@@ -3544,7 +3544,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
         values.put(OPERATION_CODE_COL, opCode);
         values.put(OP_MONTH_CODE_COL, opMonthCode);
@@ -3714,8 +3714,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 data.setUpazillaCode(cursor.getString(cursor.getColumnIndex(LAY_R2_LIST_CODE_COL)));
                 data.setUnitCode(cursor.getString(cursor.getColumnIndex(LAY_R3_LIST_CODE_COL)));
                 data.setVillageCode(cursor.getString(cursor.getColumnIndex(LAY_R4_LIST_CODE_COL)));
-                data.setProgram_code(cursor.getString(cursor.getColumnIndex(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL)));
-                data.setService_code(cursor.getString(cursor.getColumnIndex(REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL)));
+                data.setProgram_code(cursor.getString(cursor.getColumnIndex(PROG_CODE_COL)));
+                data.setService_code(cursor.getString(cursor.getColumnIndex(SRV_CODE_COL)));
 
 //                graduation.setGraduationDate(removeTimestamp(cursor.getString(cursor.getColumnIndex(GRD_DATE_COL))));
                 data.setGraduationDate(cursor.getString(cursor.getColumnIndex(GRD_DATE_COL)));
@@ -3826,7 +3826,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 SERVICE_STATUS_COL +
                 " FROM  " + SERVICE_TABLE +
                 " WHERE  " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
-                " And   " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " And   " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " And   " + AWARD_CODE_COL + " = '" + awardCord + "' " +
                 " And  " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + districCode + "' " +
                 " And   " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' " +
@@ -3834,8 +3834,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " And   " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
                 "  And  " + HHID_COL + " = '" + hhId + "' " +
                 "  And  " + MEM_CARD_PRINT_HH_MEM_ID + " = '" + mmId + "' " +
-                " And   " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " ='" + prgCode + "' " +
-                "  And  " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " ='" + srvCode + "' " +
+                " And   " + PROG_CODE_COL + " ='" + prgCode + "' " +
+                "  And  " + SRV_CODE_COL + " ='" + srvCode + "' " +
                 "  And  " + OPERATION_CODE_COL + " = '2' " +
                 "  And  " + OP_MONTH_CODE_COL + "   ='" + opMCode + "' ";
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -4185,10 +4185,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String selectQuery = "SELECT * FROM " + SERVICE_SPECIFIC_TABLE
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
-                + " AND  " + DONOR_CODE_COL + " = '" + donorCode + "'"
+                + " AND  " + ADM_DONOR_CODE_COL + " = '" + donorCode + "'"
                 + " AND  " + AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " AND  " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + programCode + "'"
-                + " AND  " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'"
+                + " AND  " + PROG_CODE_COL + " = '" + programCode + "'"
+                + " AND  " + SRV_CODE_COL + " = '" + srvCode + "'"
                 + " AND  " + OPERATION_CODE_COL + " = '" + opCode + "'"
                 + " AND  " + OP_MONTH_CODE_COL + " = '" + opMonthCode + "'"
                 + " AND  " + SERVICE_CENTER_CODE_COL + " = '" + srvCenterCode + "'"
@@ -4416,9 +4416,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             do {
                 SummaryGroupListDataModel data = new SummaryGroupListDataModel();
                 data.setcCode(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
-                data.setDonorCode(cursor.getString(cursor.getColumnIndex(DONOR_CODE_COL)));
+                data.setDonorCode(cursor.getString(cursor.getColumnIndex(ADM_DONOR_CODE_COL)));
                 data.setAwardCode(cursor.getString(cursor.getColumnIndex(AWARD_CODE_COL)));
-                data.setProgramCode(cursor.getString(cursor.getColumnIndex(PROGRAM_CODE_COL)));
+                data.setProgramCode(cursor.getString(cursor.getColumnIndex(ADM_PROG_CODE_COL)));
                 data.setGroupCatCode(cursor.getString(cursor.getColumnIndex(GROUP_CAT_CODE_COL)));
                 data.setGroupCatShortName(cursor.getString(cursor.getColumnIndex(GROUP_CAT_SHORT_NAME_COL)));
                 data.setGroupCode(cursor.getString(cursor.getColumnIndex(GROUP_CODE_COL)));
@@ -4475,7 +4475,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String selectQuery = "SELECT " + AWARD_END_DATE_COL +
                 " FROM " + ADM_COUNTRY_AWARD_TABLE +
                 " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' ";
 
 
@@ -4726,7 +4726,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String selectQuery = "SELECT CASE WHEN MAX( " + CARD_REQUEST_SL_COL + " ) IS NULL THEN '0' ELSE " + CARD_REQUEST_SL_COL + " END AS SL" +
                 " FROM " + MEMBER_CARD_PRINT_TABLE + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
                 " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + disCode + "' " +
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' " +
@@ -4880,7 +4880,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " IS NULL THEN 'N' ELSE " + DELIVERY_STATUS_COL + " END AS deliveryStatus " +
                 " FROM " + MEMBER_CARD_PRINT_TABLE + " WHERE " + CARD_REQUEST_SL_COL + " = '" + requestSl + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
                 " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + disCode + "' " +
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' " +
@@ -4929,7 +4929,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " IS NULL THEN '' ELSE " + DELIVERY_DATE_COL + " END AS deliveryDate " +
                 " FROM " + MEMBER_CARD_PRINT_TABLE + " WHERE " + CARD_REQUEST_SL_COL + " = '" + requestSl + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
                 " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + disCode + "' " +
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' " +
@@ -4989,7 +4989,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " IS NULL THEN '' ELSE " + PRINT_DATE_COL + " END AS printDate " +
                 " FROM " + MEMBER_CARD_PRINT_TABLE + " WHERE " + CARD_REQUEST_SL_COL + " = '" + requestSl + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
                 " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + disCode + "' " +
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' " +
@@ -5048,7 +5048,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         String query = COUNTRY_CODE + " = '" + c_code + "' AND " +
-                DONOR_CODE_COL + " = '" + donorCode + "' AND " +
+                ADM_DONOR_CODE_COL + " = '" + donorCode + "' AND " +
                 AWARD_CODE_COL + " = '" + awardCode + "' AND " +
                 LAY_R_LIST_CODE_COL + " = '" + disCode + "' AND " +
                 LAY_R2_LIST_CODE_COL + " = '" + upCode + "' AND " +
@@ -5082,7 +5082,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, c_code);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
 
         values.put(MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL, disCode);
@@ -5134,7 +5134,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(COUNTRY_CODE, c_code);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
 
         values.put(MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL, disCode);
@@ -5187,7 +5187,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " IS NULL THEN '' ELSE " + REQUEST_DATE_COL + " END AS requestDate " +
                 " FROM " + MEMBER_CARD_PRINT_TABLE + " WHERE " + CARD_REQUEST_SL_COL + " = '" + requestSl + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
                 " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + disCode + "' " +
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' " +
@@ -5377,8 +5377,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, countryCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL, progCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL, srvCode);
+        values.put(PROG_CODE_COL, progCode);
+        values.put(SRV_CODE_COL, srvCode);
         values.put(LUP_OPTION_CODE_COL, optionCode);
         values.put(LUP_OPTION_NAME_COL, optionName);
 
@@ -5428,10 +5428,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, countryCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
-        values.put(SERVICE_CODE_COL, srvCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
+        values.put(ADM_SRV_CODE_COL, srvCode);
         values.put(VOUCHER_ITEM_CATEGORY_CODE_COL, catCode);
         values.put(ITEM_CODE_COL, itemCode);
         values.put(MEAS_R_CODE_COL, mearCode);
@@ -5570,9 +5570,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 +" WHERE "+
 
         ADM_COUNTRY_CODE_COL    , cCode
-        DONOR_CODE_COL      , donorCode
+        ADM_DONOR_CODE_COL      , donorCode
         AWARD_CODE_COL      , awardCode
-        PROGRAM_CODE_COL     , progCode
+        ADM_PROG_CODE_COL     , progCode
         GROUP_CODE_COL, groupCode
     }*/
 
@@ -5603,9 +5603,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(GROUP_CODE_COL, grpCode);
         values.put(GROUP_NAME_COL, grpName);
         values.put(GROUP_CAT_CODE_COL, grpCatCode);
@@ -5647,9 +5647,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         String where = ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "'"
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "'"
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " AND " + PROGRAM_CODE_COL + " = '" + progCode + "'"
+                + " AND " + ADM_PROG_CODE_COL + " = '" + progCode + "'"
                 + " AND " + GROUP_CODE_COL + " = '" + grpCode + "'";
         /**
          * do not delete the below the program
@@ -5707,9 +5707,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, progCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
         values.put(GROUP_CODE_COL, grpCode);
         values.put(ORG_CODE_COL, ogrCode);
         values.put(LAY_R1_CODE_COL, layR1Code);
@@ -5755,9 +5755,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " , " + GRP_LAY_R3_LIST_CODE_COL
                 + " FROM " + tableName
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' "
-                + " AND " + PROGRAM_CODE_COL + " = '" + progCode + "' "
+                + " AND " + ADM_PROG_CODE_COL + " = '" + progCode + "' "
                 + " AND " + GROUP_CODE_COL + " = '" + grpCode + "' "
                 + criteria;
 
@@ -5829,9 +5829,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             extraCondition = "";
         }
         String where = ADM_COUNTRY_CODE_COL + " = '" + AdmCountryCode + "' "
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' "
-                + " AND " + PROGRAM_CODE_COL + " = '" + progCode + "' "
+                + " AND " + ADM_PROG_CODE_COL + " = '" + progCode + "' "
                 + " AND " + GROUP_CODE_COL + " = '" + grpCode + "' "
                 + extraCondition;
 
@@ -5958,12 +5958,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 crite.setPlan(Integer.parseInt(cursor.getString(cursor.getColumnIndex("plan"))));
                 crite.setRecord(Integer.parseInt(cursor.getString(cursor.getColumnIndex("receive"))));
                 criteriaList.add(crite);
-           /*     Log.d(TAG, " Distribution summary Criteria : "
-                        + cursor.getString(0) + ",IdCriteria : "
-                        + cursor.getString(1)
-                        + ", plan : " + cursor.getString(2)
-                        + ", receive : " + cursor.getString(3)
-                );*/
+
             } while (cursor.moveToNext());
         }
         cursor.close();
@@ -6249,9 +6244,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " WHERE " +
                 " " + DT_BASIC_COL + " = '" + dtBasic + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + prgCode + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + prgCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + entryBy + "' " +
                 " GROUP By " + DT_R_SEQ_COL + " " +
                 " order by " + DT_R_SEQ_COL + " DESC " +
@@ -6591,7 +6586,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 data.setcCode(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
                 data.setEventCode(cursor.getString(cursor.getColumnIndex(EVENT_CODE_COL)));
                 data.setEventTittle(cursor.getString(cursor.getColumnIndex(EVENT_NAME_COL)));
-                data.setDonorCode(cursor.getString(cursor.getColumnIndex(DONOR_CODE_COL)));
+                data.setDonorCode(cursor.getString(cursor.getColumnIndex(ADM_DONOR_CODE_COL)));
                 data.setAwardCode(cursor.getString(cursor.getColumnIndex(AWARD_CODE_COL)));
                 data.setTaGroupCode(cursor.getString(cursor.getColumnIndex(TA_GROUP_COL)));
                 data.setTaSubGroupCode(cursor.getString(cursor.getColumnIndex(TA_SUB_GROUP_COL)));
@@ -6641,7 +6636,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 data.setAwardName(cursor.getString(cursor.getColumnIndex("awardName")));
                 data.setAwardCode(cursor.getString(cursor.getColumnIndex(AWARD_CODE_COL)));
                 data.setProgramName(cursor.getString(cursor.getColumnIndex(ADM_PROGRAM_MASTER_PROGRAM_NAME_COL)));
-                data.setProgramCode(cursor.getString(cursor.getColumnIndex(PROGRAM_CODE_COL)));
+                data.setProgramCode(cursor.getString(cursor.getColumnIndex(ADM_PROG_CODE_COL)));
                 data.setLayr1Code(cursor.getString(cursor.getColumnIndex(LAY_R1_LIST_CODE_COL)));
                 data.setLayr2Code(cursor.getString(cursor.getColumnIndex(LAY_R2_LIST_CODE_COL)));
                 data.setLayr3Code(cursor.getString(cursor.getColumnIndex(LAY_R3_LIST_CODE_COL)));
@@ -6692,7 +6687,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donarCode);
+        values.put(ADM_DONOR_CODE_COL, donarCode);
         values.put(AWARD_CODE_COL, awardCode);
         values.put(STAFF_ORG_CODE_COL, orgCode);
         values.put(PRIME_Y_N_COL, primeyn);
@@ -7050,7 +7045,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String sql = "SELECT * FROM " + REG_N_MEM_PROG_GRP_TABLE
                 + " WHERE    " + ADM_COUNTRY_CODE_COL + "= '" + cCode + "' "
-                + " AND " + DONOR_CODE_COL + "= '" + donorCode + "'"
+                + " AND " + ADM_DONOR_CODE_COL + "= '" + donorCode + "'"
                 + " AND " + AWARD_CODE_COL + "= '" + awardCode + "'"
                 + " AND " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + "= '" + disttCode + "'"
                 + " AND " + LAY_R2_LIST_CODE_COL + "= '" + upCode + "'"
@@ -7058,8 +7053,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND " + LAY_R4_LIST_CODE_COL + "= '" + vCode + "'"
                 + " AND " + HHID_COL + "= '" + hhID + "'"
                 + " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + "=  '" + memID + "'"
-                + " AND " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + "=  '" + progCode + "'"
-                + " AND " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + "=  '" + srvCode + "'";
+                + " AND " + PROG_CODE_COL + "=  '" + progCode + "'"
+                + " AND " + SRV_CODE_COL + "=  '" + srvCode + "'";
 
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -7104,12 +7099,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' " +
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
                 " AND " + HHID_COL + " = '" + hhId + "' " +
                 " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + mmId + "' " +
-                " AND " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " <> '" + progCode + "' " +
-                " AND " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "' " +
+                " AND " + PROG_CODE_COL + " <> '" + progCode + "' " +
+                " AND " + SRV_CODE_COL + " = '" + srvCode + "' " +
                 " AND " + GRD_CODE_COL + " = (" + SQLiteQuery.getGraduationDefaultActiveReason_Select_Query(progCode, srvCode) + ") ";
 
         //  Cursor cursor = db.rawQuery(sql, null);
@@ -7170,10 +7165,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + "' AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode
                 + "' AND " + HHID_COL + " = '" + hhId
                 + "' AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + mmId
-                + "' AND " + DONOR_CODE_COL + " = '" + donorCode
+                + "' AND " + ADM_DONOR_CODE_COL + " = '" + donorCode
                 + "' AND " + AWARD_CODE_COL + " = '" + awardCode
-                + "' AND " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode
-                + "' AND " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'  ";
+                + "' AND " + PROG_CODE_COL + " = '" + progCode
+                + "' AND " + SRV_CODE_COL + " = '" + srvCode + "'  ";
 
         SQLiteDatabase db = this.getReadableDatabase();
         String grdCode = "";
@@ -7194,8 +7189,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         String selectQuery = "SELECT " + GRD_CODE_COL + " FROM " + REG_N_LUP_GRADUATION_TABLE +
-                " WHERE  " + PROGRAM_CODE_COL + " = '" + progCode
-                + "' AND " + SERVICE_CODE_COL + " = '" + srvCode
+                " WHERE  " + ADM_PROG_CODE_COL + " = '" + progCode
+                + "' AND " + ADM_SRV_CODE_COL + " = '" + srvCode
                 + "' AND " + DEFAULT_CAT_EXIT_COL + " = 'Y'  ";
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -7221,8 +7216,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String selectQuery = SQLiteQuery.getGraduationDefaultActiveReason_Select_Query(progCode, srvCode);
         /*"SELECT " + GRD_CODE_COL + " FROM " + REG_N_LUP_GRADUATION_TABLE +
-                " WHERE  " + PROGRAM_CODE_COL + " = '" + progCode
-                + "' AND " + SERVICE_CODE_COL + " = '" + srvCode
+                " WHERE  " + ADM_PROG_CODE_COL + " = '" + progCode
+                + "' AND " + ADM_SRV_CODE_COL + " = '" + srvCode
                 + "' AND " + DEFAULT_CAT_ACTIVE_COL + " = 'Y'  ";*/
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -7262,8 +7257,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(PROGRAM_CODE_COL, pCode);
-        values.put(SERVICE_CODE_COL, serviceCode);
+        values.put(ADM_PROG_CODE_COL, pCode);
+        values.put(ADM_SRV_CODE_COL, serviceCode);
         values.put(SERVICE_MASTER_SERVICE_NAME_COL, serviceN);
         values.put(SERVICE_MASTER_SERVICE_SHORT_NAME_COL, srvShortN);
         //values.put(PROGRAM_SHORT_NAME_COL, pShortN);
@@ -7283,9 +7278,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(PROGRAM_CODE_COL, pCode);
+        values.put(ADM_PROG_CODE_COL, pCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(ADM_PROGRAM_MASTER_PROGRAM_NAME_COL, pName);
         values.put(PROGRAM_SHORT_NAME_COL, pShortN);
         values.put(MULTIPLE_SERVICE_FLAG_COL, multipleSrv);
@@ -7305,7 +7300,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
 
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
         values.put(AWARD_NAME_COL, awardName);
         values.put(AWARD_SHORT_COL, awardShortName);
@@ -7324,7 +7319,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);                                                    // country code
-        values.put(DONOR_CODE_COL, donorCode);                                                      // donor code
+        values.put(ADM_DONOR_CODE_COL, donorCode);                                                      // donor code
         values.put(AWARD_CODE_COL, awardCode);                                                      //  award code
         values.put(AWARD_REF_N_COL, awardRef);                                                      // award reference code
         values.put(AWARD_START_DATE_COL, awardStartD);                                              // awardStartDate
@@ -7349,7 +7344,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(DONOR_CODE_COL, donorCode); // donor code
+        values.put(ADM_DONOR_CODE_COL, donorCode); // donor code
         values.put(DONOR_NAME_COL, donorName); // donor Name
 
 
@@ -7475,34 +7470,34 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             case "FoodFlag":
                 sql = "SELECT " + DEFAULT_FOOD_DAYS_COL + " FROM " + COUNTRY_PROGRAM_TABLE
                         + " WHERE " + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                        + " AND  " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                        + " AND  " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                         + " AND  " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
-                        + " AND  " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + progCode + "' "
-                        + " AND  " + SQLiteHandler.SERVICE_CODE_COL + " = '" + srvCode + "' ";
+                        + " AND  " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + progCode + "' "
+                        + " AND  " + SQLiteHandler.ADM_SRV_CODE_COL + " = '" + srvCode + "' ";
                 break;
             case "NFoodFlag":
                 sql = "SELECT " + DEFAULT_NO_FOOD_DAYS_COL + " FROM " + COUNTRY_PROGRAM_TABLE
                         + " WHERE " + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                        + " AND  " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                        + " AND  " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                         + " AND  " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
-                        + " AND  " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + progCode + "' "
-                        + " AND  " + SQLiteHandler.SERVICE_CODE_COL + " = '" + srvCode + "' ";
+                        + " AND  " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + progCode + "' "
+                        + " AND  " + SQLiteHandler.ADM_SRV_CODE_COL + " = '" + srvCode + "' ";
                 break;
             case "CashFlag":
                 sql = "SELECT " + DEFAULT_CASH_DAYS_COL + " FROM " + COUNTRY_PROGRAM_TABLE
                         + " WHERE " + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                        + " AND  " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                        + " AND  " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                         + " AND  " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
-                        + " AND  " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + progCode + "' "
-                        + " AND  " + SQLiteHandler.SERVICE_CODE_COL + " = '" + srvCode + "' ";
+                        + " AND  " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + progCode + "' "
+                        + " AND  " + SQLiteHandler.ADM_SRV_CODE_COL + " = '" + srvCode + "' ";
                 break;
             case "VOFlag":
                 sql = "SELECT " + DEFAULT_VOUCHAR_DAYS_COL + " FROM " + COUNTRY_PROGRAM_TABLE
                         + " WHERE " + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                        + " AND  " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                        + " AND  " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                         + " AND  " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
-                        + " AND  " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + progCode + "' "
-                        + " AND  " + SQLiteHandler.SERVICE_CODE_COL + " = '" + srvCode + "' ";
+                        + " AND  " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + progCode + "' "
+                        + " AND  " + SQLiteHandler.ADM_SRV_CODE_COL + " = '" + srvCode + "' ";
                 break;
         }
 
@@ -7835,10 +7830,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String tem = null;
         String selectQuery = "SELECT " + SERVICE_SPECIFIC_FLAG_COL + " FROM " + COUNTRY_PROGRAM_TABLE
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "'"
-                + " AND " + DONOR_CODE_COL + " = '" + donarCode + "'"
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donarCode + "'"
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " AND " + PROGRAM_CODE_COL + " = '" + progCode + "'"
-                + " AND " + SERVICE_CODE_COL + " = '" + srvCode + "'";
+                + " AND " + ADM_PROG_CODE_COL + " = '" + progCode + "'"
+                + " AND " + ADM_SRV_CODE_COL + " = '" + srvCode + "'";
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -8419,14 +8414,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         selectQuery = "SELECT " + VOUCHER_REFERENCE_NUMBER_COL +
                 " FROM  " + DISTRIBUTION_EXTENDED_TABLE +
                 " WHERE  " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
-                " AND  " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND  " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND  " + AWARD_CODE_COL + " = '" + awardCode + "' " +
                 " AND  " + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + discode + "' " +
                 " AND  " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "' " +
                 " AND  " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' " +
                 " AND  " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
-                " AND  " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + programCode + "' " +
-                " AND  " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + serviceCode + "' " +
+                " AND  " + PROG_CODE_COL + " = '" + programCode + "' " +
+                " AND  " + SRV_CODE_COL + " = '" + serviceCode + "' " +
                 " AND  " + OP_MONTH_CODE_COL + " = '" + opMonthCode + "' " +
                 " AND  " + MEM_ID_15_D_COL + " = '" + memId + "' " +
                 " AND  " + FDP_CODE_COL + " = '" + fdpCode + "' "
@@ -8485,14 +8480,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 VouItemServiceExtDataModel items = new VouItemServiceExtDataModel();
 
                 items.setC_code(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
-                items.setDonor_code(cursor.getString(cursor.getColumnIndex(DONOR_CODE_COL)));
+                items.setDonor_code(cursor.getString(cursor.getColumnIndex(ADM_DONOR_CODE_COL)));
                 items.setAward_code(cursor.getString(cursor.getColumnIndex(AWARD_CODE_COL)));
                 items.setDistrictCode(cursor.getString(cursor.getColumnIndex(LAY_R_LIST_CODE_COL)));
                 items.setUpazillaCode(cursor.getString(cursor.getColumnIndex(LAY_R2_LIST_CODE_COL)));
                 items.setUnitCode(cursor.getString(cursor.getColumnIndex(LAY_R3_LIST_CODE_COL)));
                 items.setVillageCode(cursor.getString(cursor.getColumnIndex(LAY_R4_LIST_CODE_COL)));
-                items.setProgram_code(cursor.getString(cursor.getColumnIndex(PROGRAM_CODE_COL)));
-                items.setService_code(cursor.getString(cursor.getColumnIndex(SERVICE_CODE_COL)));
+                items.setProgram_code(cursor.getString(cursor.getColumnIndex(ADM_PROG_CODE_COL)));
+                items.setService_code(cursor.getString(cursor.getColumnIndex(ADM_SRV_CODE_COL)));
                 items.setOpMontheCode(cursor.getString(cursor.getColumnIndex(OP_MONTH_CODE_COL)));
                 items.setItemName(cursor.getString(cursor.getColumnIndex("ItemName")));
                 items.setMeasurments(cursor.getString(cursor.getColumnIndex("measerment")));
@@ -8553,7 +8548,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " SrET." + ADM_COUNTRY_CODE_COL + " = VOCPI." + ADM_COUNTRY_CODE_COL +
 
                 " and  SrET." + AWARD_CODE_COL + " = VOCPI." + AWARD_CODE_COL
-                + " and        SrET." + DONOR_CODE_COL + " = VOCPI." + DONOR_CODE_COL +
+                + " and        SrET." + ADM_DONOR_CODE_COL + " = VOCPI." + ADM_DONOR_CODE_COL +
                 " and        SrET." + VOUCHER_ITEM_SPEC_COL + " = VOCPI." + VOUCHER_ITEM_SPEC_COL +
                 " and        SrET." + FDP_MASTER_LAY_R1_LIST_CODE_COL + " = '" + discode + "'" +
                 " and SrET." + LAY_R2_LIST_CODE_COL + " = '" + upCode + "'" +
@@ -8561,14 +8556,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " and SrET." + LAY_R4_LIST_CODE_COL + " = '" + vCode + "'" +
                 " and SrET." + HHID_COL + " = '" + hhId + "'" +
                 " and SrET." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "'" +
-                " and SrET." + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + programCode + "'" +
-                " and SrET." + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + serviceCode + "'" +
+                " and SrET." + PROG_CODE_COL + " = '" + programCode + "'" +
+                " and SrET." + SRV_CODE_COL + " = '" + serviceCode + "'" +
                 " and SrET." + OPERATION_CODE_COL + " = '2'" +      // opcode 2 mean s service
                 " and SrET." + OP_MONTH_CODE_COL + " = '" + opMonthCode + "'" +
                 " where VOCPI." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
-                " and VOCPI." + DONOR_CODE_COL + " = '" + donorCode + "'" +
+                " and VOCPI." + ADM_DONOR_CODE_COL + " = '" + donorCode + "'" +
                 " and VOCPI." + AWARD_CODE_COL + " = '" + awardCode + "'" +
-                " and VOCPI." + SERVICE_CODE_COL + " = '" + serviceCode + "'";
+                " and VOCPI." + ADM_SRV_CODE_COL + " = '" + serviceCode + "'";
 
 
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -8603,14 +8598,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String selectDelete = " Select * from " + DISTRIBUTION_EXTENDED_TABLE + " where " +
                 SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
                 + " AND " + SQLiteHandler.LAY_R_LIST_CODE_COL + " = '" + discode + "' "
                 + " AND " + SQLiteHandler.LAY_R2_LIST_CODE_COL + " = '" + upCode + "' "
                 + " AND " + SQLiteHandler.LAY_R3_LIST_CODE_COL + " = '" + unCode + "' "
                 + " AND " + SQLiteHandler.LAY_R4_LIST_CODE_COL + " = '" + vCode + "' "
-                + " AND " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + programCode + "' "
-                + " AND " + SQLiteHandler.SERVICE_CODE_COL + " = '" + serviceCode + "' "
+                + " AND " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + programCode + "' "
+                + " AND " + SQLiteHandler.ADM_SRV_CODE_COL + " = '" + serviceCode + "' "
                 + " AND " + SQLiteHandler.OP_MONTH_CODE_COL + " = '" + opMonthCode + "' "
                 + " AND " + SQLiteHandler.MEM_ID_15_D_COL + " = '" + memId + "' "
                 + " AND " + SQLiteHandler.FDP_CODE_COL + " = '" + fdpCode + "' ";
@@ -8637,7 +8632,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String selectDelete = " Delete from " + DISTRIBUTION_EXTENDED_TABLE + " where " +
                 SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
                 + " AND " + SQLiteHandler.MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = '" + discode + "' "
                 + " AND " + SQLiteHandler.LAY_R2_LIST_CODE_COL + " = '" + upCode + "' "
@@ -8645,8 +8640,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND " + SQLiteHandler.LAY_R4_LIST_CODE_COL + " = '" + vCode + "' "
                 // + " AND " + SQLiteHandler.HHID_COL + " = '" + hhId + "' "
                 + " AND " + SQLiteHandler.MEM_ID_15_D_COL + " = '" + memId + "' "
-                + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + programCode + "' "
-                + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + serviceCode + "' "
+                + " AND " + SQLiteHandler.PROG_CODE_COL + " = '" + programCode + "' "
+                + " AND " + SQLiteHandler.SRV_CODE_COL + " = '" + serviceCode + "' "
                 + " AND " + SQLiteHandler.OP_MONTH_CODE_COL + " = '" + opMonthCode + "' "
                 + " AND " + SQLiteHandler.FDP_CODE_COL + " = '" + fdpCode + "' ";
 
@@ -8664,7 +8659,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String selectDelete = " Delete from " + SERVICE_EXTENDED_TABLE + " where " +
                 SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
                 + " AND " + SQLiteHandler.FDP_MASTER_LAY_R1_LIST_CODE_COL + " = '" + discode + "' "
                 + " AND " + SQLiteHandler.LAY_R2_LIST_CODE_COL + " = '" + upCode + "' "
@@ -8672,8 +8667,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND " + SQLiteHandler.LAY_R4_LIST_CODE_COL + " = '" + vCode + "' "
                 + " AND " + SQLiteHandler.HHID_COL + " = '" + hhId + "' "
                 + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "' "
-                + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + programCode + "' "
-                + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + serviceCode + "' "
+                + " AND " + SQLiteHandler.PROG_CODE_COL + " = '" + programCode + "' "
+                + " AND " + SQLiteHandler.SRV_CODE_COL + " = '" + serviceCode + "' "
                 + " AND " + SQLiteHandler.OPERATION_CODE_COL + " = '2' "
                 + " AND " + SQLiteHandler.OP_MONTH_CODE_COL + " = '" + opMonthCode + "' ";
         //  + " AND " + SQLiteHandler.VOUCHER_ITEM_SPEC_COL + " = '" + voItmSpec + "' "
@@ -8693,7 +8688,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String selectDelete = " Select * from " + SERVICE_EXTENDED_TABLE + " where " +
                 SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "' "
                 + " AND " + SQLiteHandler.FDP_MASTER_LAY_R1_LIST_CODE_COL + " = '" + discode + "' "
                 + " AND " + SQLiteHandler.LAY_R2_LIST_CODE_COL + " = '" + upCode + "' "
@@ -8701,8 +8696,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND " + SQLiteHandler.LAY_R4_LIST_CODE_COL + " = '" + vCode + "' "
                 + " AND " + SQLiteHandler.HHID_COL + " = '" + hhId + "' "
                 + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "' "
-                + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + programCode + "' "
-                + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + serviceCode + "' "
+                + " AND " + SQLiteHandler.PROG_CODE_COL + " = '" + programCode + "' "
+                + " AND " + SQLiteHandler.SRV_CODE_COL + " = '" + serviceCode + "' "
                 + " AND " + SQLiteHandler.OPERATION_CODE_COL + " = '2' "
                 + " AND " + SQLiteHandler.OP_MONTH_CODE_COL + " = '" + opMonthCode + "' ";
         // + " AND " + SQLiteHandler.VOUCHER_ITEM_SPEC_COL + " = '" + voItmSpec + "' ";
@@ -8731,10 +8726,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " , " + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE + "." + UNITE_COST_COL
                 + " FROM  " + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' "
-                + " AND " + PROGRAM_CODE_COL + " = '" + progCode + "' "
-                + " AND " + SERVICE_CODE_COL + " = '" + srvCode + "' ";
+                + " AND " + ADM_PROG_CODE_COL + " = '" + progCode + "' "
+                + " AND " + ADM_SRV_CODE_COL + " = '" + srvCode + "' ";
 
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -8802,10 +8797,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R4_LIST_CODE_COL, vCode);
         values.put(HHID_COL, hhId);
         values.put(REG_N_ASSIGN_PROG_SRV_HH_MEM_ID, memId);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL, prgCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL, srvCode);
+        values.put(PROG_CODE_COL, prgCode);
+        values.put(SRV_CODE_COL, srvCode);
         values.put(OPERATION_CODE_COL, opCode);
         values.put(OP_MONTH_CODE_COL, opMonthCode);
         values.put(VOUCHER_ITEM_SPEC_COL, voItmSpec);
@@ -8836,21 +8831,21 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " " + " inner join " + COMMUNITY_GROUP_TABLE
                 + " on " + SERVICE_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + COMMUNITY_GROUP_TABLE + "." + ADM_COUNTRY_CODE_COL
                 + " and " + SERVICE_TABLE + "." + AWARD_CODE_COL + " = " + COMMUNITY_GROUP_TABLE + "." + AWARD_CODE_COL
-                + " and " + SERVICE_TABLE + "." + DONOR_CODE_COL + " = " + COMMUNITY_GROUP_TABLE + "." + DONOR_CODE_COL
-                + " and " + SERVICE_TABLE + "." + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = " + COMMUNITY_GROUP_TABLE + "." + PROGRAM_CODE_COL
+                + " and " + SERVICE_TABLE + "." + ADM_DONOR_CODE_COL + " = " + COMMUNITY_GROUP_TABLE + "." + ADM_DONOR_CODE_COL
+                + " and " + SERVICE_TABLE + "." + PROG_CODE_COL + " = " + COMMUNITY_GROUP_TABLE + "." + ADM_PROG_CODE_COL
                 + " and  " + SERVICE_TABLE + "." + GROUP_CODE_COL + " = " + COMMUNITY_GROUP_TABLE + "." + GROUP_CODE_COL
                 + " Where "
                 + SERVICE_TABLE + "." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
                 + " and " + SERVICE_TABLE + "." + AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " and " + SERVICE_TABLE + "." + DONOR_CODE_COL + " = '" + donorCode + "'"
+                + " and " + SERVICE_TABLE + "." + ADM_DONOR_CODE_COL + " = '" + donorCode + "'"
                 + " and " + SERVICE_TABLE + "." + LAY_R_LIST_CODE_COL + " = '" + distCode + "'"
                 + " and " + SERVICE_TABLE + "." + LAY_R2_LIST_CODE_COL + " = '" + upCode + "'"
                 + " and " + SERVICE_TABLE + "." + LAY_R3_LIST_CODE_COL + " = '" + unCode + "'"
                 + " and " + SERVICE_TABLE + "." + LAY_R4_LIST_CODE_COL + " = '" + vCode + "'"
                 + " and " + SERVICE_TABLE + "." + HHID_COL + " = '" + hhId + "'"
                 + " and " + SERVICE_TABLE + "." + MEM_CARD_PRINT_HH_MEM_ID + " = '" + memId + "'"
-                + " and " + SERVICE_TABLE + "." + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode + "'"
-                + " and " + SERVICE_TABLE + "." + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'";
+                + " and " + SERVICE_TABLE + "." + PROG_CODE_COL + " = '" + progCode + "'"
+                + " and " + SERVICE_TABLE + "." + SRV_CODE_COL + " = '" + srvCode + "'";
 
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null) {
@@ -8880,8 +8875,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT " + PROGRAM_SHORT_NAME_COL + " FROM " + ADM_PROGRAM_MASTER_TABLE
                 + " WHERE " + AWARD_CODE_COL + " = '" + awardCode + "' "
-                + " AND  " + DONOR_CODE_COL + " = '" + donorCode + "' "
-                + " AND  " + PROGRAM_CODE_COL + " = '" + ProgCode + "' ";
+                + " AND  " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND  " + ADM_PROG_CODE_COL + " = '" + ProgCode + "' ";
 
         Cursor cursor = db.rawQuery(sql, null);
 
@@ -8908,8 +8903,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String sql = "SELECT " + SERVICE_MASTER_SERVICE_SHORT_NAME_COL
                 + " FROM " + SERVICE_MASTER_TABLE
-                + " WHERE  " + PROGRAM_CODE_COL + " = '" + progCode + "' "
-                + " AND " + SERVICE_CODE_COL + " = '" + srvCode + "' ";
+                + " WHERE  " + ADM_PROG_CODE_COL + " = '" + progCode + "' "
+                + " AND " + ADM_SRV_CODE_COL + " = '" + srvCode + "' ";
 
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor != null) {
@@ -8937,10 +8932,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND  " + SQLiteHandler.LAY_R4_LIST_CODE_COL + " = '" + vCode + "'"
                 + " AND  " + SQLiteHandler.HHID_COL + " = '" + hhId + "'"
                 + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "'"
-                + " AND  " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "'"
+                + " AND  " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "'"
                 + " AND  " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode + "'"
-                + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'";
+                + " AND  " + SQLiteHandler.PROG_CODE_COL + " = '" + progCode + "'"
+                + " AND  " + SQLiteHandler.SRV_CODE_COL + " = '" + srvCode + "'";
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -8963,10 +8958,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND  " + SQLiteHandler.LAY_R4_LIST_CODE_COL + " = '" + vCode + "'"
                 + " AND  " + SQLiteHandler.HHID_COL + " = '" + hhId + "'"
                 + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "'"
-                + " AND  " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "'"
+                + " AND  " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "'"
                 + " AND  " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode + "'"
-                + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'";
+                + " AND  " + SQLiteHandler.PROG_CODE_COL + " = '" + progCode + "'"
+                + " AND  " + SQLiteHandler.SRV_CODE_COL + " = '" + srvCode + "'";
         ContentValues values = new ContentValues();
         values.put(SRV_MIN_DATE_COL, srvMinDate);
         int id = db.update(REG_N_ASSIGN_PROG_SRV_TABLE, values, sql, null);
@@ -8989,10 +8984,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND  " + SQLiteHandler.LAY_R4_LIST_CODE_COL + " = '" + vCode + "'"
                 + " AND  " + SQLiteHandler.HHID_COL + " = '" + hhId + "'"
                 + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "'"
-                + " AND  " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "'"
+                + " AND  " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "'"
                 + " AND  " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode + "'"
-                + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'";
+                + " AND  " + SQLiteHandler.PROG_CODE_COL + " = '" + progCode + "'"
+                + " AND  " + SQLiteHandler.SRV_CODE_COL + " = '" + srvCode + "'";
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -9015,10 +9010,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " AND  " + SQLiteHandler.LAY_R4_LIST_CODE_COL + " = '" + vCode + "'"
                 + " AND  " + SQLiteHandler.HHID_COL + " = '" + hhId + "'"
                 + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + memId + "'"
-                + " AND  " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "'"
+                + " AND  " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "'"
                 + " AND  " + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode + "'"
-                + " AND  " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'";
+                + " AND  " + SQLiteHandler.PROG_CODE_COL + " = '" + progCode + "'"
+                + " AND  " + SQLiteHandler.SRV_CODE_COL + " = '" + srvCode + "'";
         ContentValues values = new ContentValues();
         values.put(SRV_MAX_DATE_COL, srvMaxDate);
         int id = db.update(REG_N_ASSIGN_PROG_SRV_TABLE, values, sql, null);
@@ -9055,15 +9050,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 sperson.setHh_mm_name(cursor.getString(cursor.getColumnIndex("memName")));
 
                 sperson.setC_code(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
-                sperson.setDonor_code(cursor.getString(cursor.getColumnIndex(DONOR_CODE_COL)));
+                sperson.setDonor_code(cursor.getString(cursor.getColumnIndex(ADM_DONOR_CODE_COL)));
                 sperson.setAward_code(cursor.getString(cursor.getColumnIndex(AWARD_CODE_COL)));
                 sperson.setDistrictCode(cursor.getString(cursor.getColumnIndex(LAY_R_LIST_CODE_COL)));
                 sperson.setUpazillaCode(cursor.getString(cursor.getColumnIndex(LAY_R2_LIST_CODE_COL)));
                 sperson.setUnitCode(cursor.getString(cursor.getColumnIndex(LAY_R3_LIST_CODE_COL)));
                 sperson.setVillageCode(cursor.getString(cursor.getColumnIndex(LAY_R4_LIST_CODE_COL)));
                 sperson.setHHID(cursor.getString(cursor.getColumnIndex(HHID_COL)));
-                sperson.setProgram_code(cursor.getString(cursor.getColumnIndex(PROGRAM_CODE_COL)));
-                sperson.setService_code(cursor.getString(cursor.getColumnIndex(SERVICE_CODE_COL)));
+                sperson.setProgram_code(cursor.getString(cursor.getColumnIndex(ADM_PROG_CODE_COL)));
+                sperson.setService_code(cursor.getString(cursor.getColumnIndex(ADM_SRV_CODE_COL)));
                 sperson.setGetSrvMemCount(cursor.getString(cursor.getColumnIndex("SrvRecieved")));
                 sperson.setNewID(cursor.getString(cursor.getColumnIndex("NewID")));
                 sperson.setWorkingDay(cursor.getString(cursor.getColumnIndex("WD")));
@@ -9156,15 +9151,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 sperson.setHh_mm_name(cursor.getString(cursor.getColumnIndex("memName")));
 
                 sperson.setC_code(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
-                sperson.setDonor_code(cursor.getString(cursor.getColumnIndex(DONOR_CODE_COL)));
+                sperson.setDonor_code(cursor.getString(cursor.getColumnIndex(ADM_DONOR_CODE_COL)));
                 sperson.setAward_code(cursor.getString(cursor.getColumnIndex(AWARD_CODE_COL)));
                 sperson.setDistrictCode(cursor.getString(cursor.getColumnIndex(LAY_R_LIST_CODE_COL)));
                 sperson.setUpazillaCode(cursor.getString(cursor.getColumnIndex(LAY_R2_LIST_CODE_COL)));
                 sperson.setUnitCode(cursor.getString(cursor.getColumnIndex(LAY_R3_LIST_CODE_COL)));
                 sperson.setVillageCode(cursor.getString(cursor.getColumnIndex(LAY_R4_LIST_CODE_COL)));
                 sperson.setHHID(cursor.getString(cursor.getColumnIndex(HHID_COL)));
-                sperson.setProgram_code(cursor.getString(cursor.getColumnIndex(PROGRAM_CODE_COL)));
-                sperson.setService_code(cursor.getString(cursor.getColumnIndex(SERVICE_CODE_COL)));
+                sperson.setProgram_code(cursor.getString(cursor.getColumnIndex(ADM_PROG_CODE_COL)));
+                sperson.setService_code(cursor.getString(cursor.getColumnIndex(ADM_SRV_CODE_COL)));
                 sperson.setGetSrvMemCount(cursor.getString(cursor.getColumnIndex("SrvRecieved")));
                 sperson.setNewID(cursor.getString(cursor.getColumnIndex("NewID")));
 
@@ -9207,10 +9202,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String cost = "";
         String selectQuery = "Select " + UNITE_COST_COL + " from " + VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE +
                 " where " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
-                " and " + DONOR_CODE_COL + " = '" + donorCode + "'" +
+                " and " + ADM_DONOR_CODE_COL + " = '" + donorCode + "'" +
                 " and " + AWARD_CODE_COL + " = '" + awardCode + "'" +
-                " and " + PROGRAM_CODE_COL + " = '" + progCode + "'" +
-                " and " + SERVICE_CODE_COL + " = '" + srvCode + "'" +
+                " and " + ADM_PROG_CODE_COL + " = '" + progCode + "'" +
+                " and " + ADM_SRV_CODE_COL + " = '" + srvCode + "'" +
                 " and " + VOUCHER_ITEM_SPEC_COL + " = '" + vOItmSpec + "'";
 
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -9418,9 +9413,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "SELECT max(" + GROUP_CODE_COL + ") FROM " + COMMUNITY_GROUP_TABLE
                 + " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "'"
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "'"
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "'"
-                + " AND " + PROGRAM_CODE_COL + " = '" + progCode + "'"
+                + " AND " + ADM_PROG_CODE_COL + " = '" + progCode + "'"
                 + " AND " + LAY_R1_CODE_COL + " = '" + layR1Code + "'"
                 + " AND " + GRP_LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "'"
                 + " AND " + GRP_LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "'";
@@ -9542,17 +9537,17 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 //listItem.add("Select Village");
                 break;
             case ADM_COUNTRY_AWARD_TABLE:
-                selectQuery = "SELECT " + ADM_COUNTRY_AWARD_TABLE + "." + DONOR_CODE_COL + " || '' ||  " + ADM_COUNTRY_AWARD_TABLE + "." + AWARD_CODE_COL + " AS AwardCode" + " , " +
+                selectQuery = "SELECT " + ADM_COUNTRY_AWARD_TABLE + "." + ADM_DONOR_CODE_COL + " || '' ||  " + ADM_COUNTRY_AWARD_TABLE + "." + AWARD_CODE_COL + " AS AwardCode" + " , " +
                         ADM_DONOR_TABLE + "." + DONOR_NAME_COL + " || '-' ||  " + ADM_COUNTRY_AWARD_TABLE + "." + AWARD_SHORT_NAME_COL + " AS AwardName" +
-                        " FROM " + table_name + " JOIN " + ADM_DONOR_TABLE + " ON " + ADM_COUNTRY_AWARD_TABLE + "." + DONOR_CODE_COL + " = " + ADM_DONOR_TABLE + "." + DONOR_CODE_COL +
+                        " FROM " + table_name + " JOIN " + ADM_DONOR_TABLE + " ON " + ADM_COUNTRY_AWARD_TABLE + "." + ADM_DONOR_CODE_COL + " = " + ADM_DONOR_TABLE + "." + ADM_DONOR_CODE_COL +
                         /* CHANGE*/    criteria + "GROUP BY " + ADM_DONOR_TABLE + "." + DONOR_NAME_COL + " || '-' ||  " + ADM_COUNTRY_AWARD_TABLE + "." + AWARD_SHORT_NAME_COL + " ORDER BY AwardName ";
                 selectLabel = "Select Award";
                 break;
             // Criteria for service
             case ADM_PROGRAM_MASTER_TABLE:
-                selectQuery = "SELECT " + ADM_PROGRAM_MASTER_TABLE + "." + PROGRAM_CODE_COL + " || '' ||  " + SERVICE_MASTER_TABLE + "." + SERVICE_CODE_COL + " AS criteriaId" + " , " +
+                selectQuery = "SELECT " + ADM_PROGRAM_MASTER_TABLE + "." + ADM_PROG_CODE_COL + " || '' ||  " + SERVICE_MASTER_TABLE + "." + ADM_SRV_CODE_COL + " AS criteriaId" + " , " +
                         ADM_PROGRAM_MASTER_TABLE + "." + PROGRAM_SHORT_NAME_COL + " || '-' ||  " + SERVICE_MASTER_TABLE + "." + SERVICE_MASTER_SERVICE_SHORT_NAME_COL + " AS Criteria" +
-                        " FROM " + table_name + " JOIN " + SERVICE_MASTER_TABLE + " ON " + SERVICE_MASTER_TABLE + "." + PROGRAM_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + PROGRAM_CODE_COL +
+                        " FROM " + table_name + " JOIN " + SERVICE_MASTER_TABLE + " ON " + SERVICE_MASTER_TABLE + "." + ADM_PROG_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + ADM_PROG_CODE_COL +
                         criteria + " GROUP BY " + ADM_PROGRAM_MASTER_TABLE + "." + PROGRAM_SHORT_NAME_COL + " || '-' ||  " + SERVICE_MASTER_TABLE + "." + SERVICE_MASTER_SERVICE_SHORT_NAME_COL + " ORDER BY Criteria ";
                 selectLabel = "Select Criteria";
                 break;
@@ -9571,22 +9566,22 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 break;
             // for Program spinner Assigne & gradution
             case COUNTRY_PROGRAM_TABLE:
-                selectQuery = "SELECT " + COUNTRY_PROGRAM_TABLE + "." + PROGRAM_CODE_COL + " , " +
+                selectQuery = "SELECT " + COUNTRY_PROGRAM_TABLE + "." + ADM_PROG_CODE_COL + " , " +
                         ADM_PROGRAM_MASTER_TABLE + "." + PROGRAM_SHORT_NAME_COL +
-                        " FROM " + table_name + " JOIN " + ADM_PROGRAM_MASTER_TABLE + " ON " + COUNTRY_PROGRAM_TABLE + "." + PROGRAM_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + PROGRAM_CODE_COL +
+                        " FROM " + table_name + " JOIN " + ADM_PROGRAM_MASTER_TABLE + " ON " + COUNTRY_PROGRAM_TABLE + "." + ADM_PROG_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + ADM_PROG_CODE_COL +
                         " AND " + COUNTRY_PROGRAM_TABLE + "." + AWARD_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + AWARD_CODE_COL +
-                        " AND " + COUNTRY_PROGRAM_TABLE + "." + DONOR_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + DONOR_CODE_COL + " " +
-                        criteria + " GROUP BY " + COUNTRY_PROGRAM_TABLE + "." + PROGRAM_CODE_COL;//+" GROUP BY "+ADM_PROGRAM_MASTER_TABLE +"."+PROGRAM_SHORT_NAME_COL +" || '-' ||  " +SERVICE_MASTER_TABLE+"."+SERVICE_SHORT_NAME_COL+" ORDER BY Criteria ";
+                        " AND " + COUNTRY_PROGRAM_TABLE + "." + ADM_DONOR_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + ADM_DONOR_CODE_COL + " " +
+                        criteria + " GROUP BY " + COUNTRY_PROGRAM_TABLE + "." + ADM_PROG_CODE_COL;//+" GROUP BY "+ADM_PROGRAM_MASTER_TABLE +"."+PROGRAM_SHORT_NAME_COL +" || '-' ||  " +SERVICE_MASTER_TABLE+"."+SERVICE_SHORT_NAME_COL+" ORDER BY Criteria ";
                 selectLabel = "Select Program";
                 break;
 
             case SERVICE_MASTER_TABLE:
-                selectQuery = "SELECT " + COUNTRY_PROGRAM_TABLE + "." + SERVICE_CODE_COL + " AS criteriaId" + " , " +
+                selectQuery = "SELECT " + COUNTRY_PROGRAM_TABLE + "." + ADM_SRV_CODE_COL + " AS criteriaId" + " , " +
                         SERVICE_MASTER_TABLE + "." + SERVICE_NAME_COL + " || '-' ||  " + SERVICE_MASTER_TABLE + "." + SERVICE_MASTER_SERVICE_SHORT_NAME_COL + " AS Criteria" +
                         " FROM " + COUNTRY_PROGRAM_TABLE + " JOIN " + table_name +
-                        " ON " + SERVICE_MASTER_TABLE + "." + PROGRAM_CODE_COL + " = " + COUNTRY_PROGRAM_TABLE + "." + PROGRAM_CODE_COL + " AND " +
-                        SERVICE_MASTER_TABLE + "." + SERVICE_CODE_COL + " = " + COUNTRY_PROGRAM_TABLE + "." + SERVICE_CODE_COL + " " +
-                        criteria + " GROUP BY " + COUNTRY_PROGRAM_TABLE + "." + SERVICE_CODE_COL;
+                        " ON " + SERVICE_MASTER_TABLE + "." + ADM_PROG_CODE_COL + " = " + COUNTRY_PROGRAM_TABLE + "." + ADM_PROG_CODE_COL + " AND " +
+                        SERVICE_MASTER_TABLE + "." + ADM_SRV_CODE_COL + " = " + COUNTRY_PROGRAM_TABLE + "." + ADM_SRV_CODE_COL + " " +
+                        criteria + " GROUP BY " + COUNTRY_PROGRAM_TABLE + "." + ADM_SRV_CODE_COL;
 
                 selectLabel = "Select Criteria";
                 break;
@@ -9602,13 +9597,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             /** FOR SERVICE SUMMMARY OP_MONTH LOAD */
 
             case OP_MONTH_TABLE:
-                selectQuery = "SELECT " + ADM_COUNTRY_CODE_COL + " || '' || " + DONOR_CODE_COL + " || '' || " + AWARD_CODE_COL + " || '' || " + OP_MONTH_CODE_COL + " AS OpMonthID, " + MONTH_LABEL_COL + " FROM " + table_name + criteria;
+                selectQuery = "SELECT " + ADM_COUNTRY_CODE_COL + " || '' || " + ADM_DONOR_CODE_COL + " || '' || " + AWARD_CODE_COL + " || '' || " + OP_MONTH_CODE_COL + " AS OpMonthID, " + MONTH_LABEL_COL + " FROM " + table_name + criteria;
                 selectLabel = "Select Month";
 
                 break;
             case SERVICE_SUMMARY_CRITERIA_QUERY:
 
-                selectQuery = " SELECT " + SERVICE_MASTER_TABLE + "." + PROGRAM_CODE_COL + " || '' || " + SERVICE_MASTER_TABLE + "." + SERVICE_CODE_COL + " AS IdCriteria ,  " +
+                selectQuery = " SELECT " + SERVICE_MASTER_TABLE + "." + ADM_PROG_CODE_COL + " || '' || " + SERVICE_MASTER_TABLE + "." + ADM_SRV_CODE_COL + " AS IdCriteria ,  " +
                         SERVICE_MASTER_TABLE + "." + SERVICE_MASTER_SERVICE_SHORT_NAME_COL + " AS Criteria  " +
 
                         "FROM " + SERVICE_TABLE + " JOIN " + SERVICE_CENTER_TABLE
@@ -9618,33 +9613,16 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                         + " ON " + SERVICE_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + OP_MONTH_TABLE + "." + ADM_COUNTRY_CODE_COL + " AND " +
                         SERVICE_TABLE + "." + OPERATION_CODE_COL + " = " + OP_MONTH_TABLE + "." + OPERATION_CODE_COL + " AND " +
                         SERVICE_TABLE + "." + OP_MONTH_CODE_COL + " = " + OP_MONTH_TABLE + "." + OP_MONTH_CODE_COL + " AND " +
-                        SERVICE_TABLE + "." + DONOR_CODE_COL + " = " + OP_MONTH_TABLE + "." + DONOR_CODE_COL + " AND " +
+                        SERVICE_TABLE + "." + ADM_DONOR_CODE_COL + " = " + OP_MONTH_TABLE + "." + ADM_DONOR_CODE_COL + " AND " +
                         SERVICE_TABLE + "." + AWARD_CODE_COL + " = " + OP_MONTH_TABLE + "." + AWARD_CODE_COL + " " +
-                        " JOIN " + SERVICE_MASTER_TABLE + " ON " + SERVICE_TABLE + "." + PROGRAM_CODE_COL + " = " + SERVICE_MASTER_TABLE + "." + PROGRAM_CODE_COL + " AND " +       // "\t   INNER JOIN AdmServiceMaster ON SrvTable.ProgCode = AdmServiceMaster.AdmProgCode AND \n" +
-                        SERVICE_TABLE + "." + SERVICE_CODE_COL + " = " + SERVICE_MASTER_TABLE + "." + SERVICE_CODE_COL +
+                        " JOIN " + SERVICE_MASTER_TABLE + " ON " + SERVICE_TABLE + "." + ADM_PROG_CODE_COL + " = " + SERVICE_MASTER_TABLE + "." + ADM_PROG_CODE_COL + " AND " +       // "\t   INNER JOIN AdmServiceMaster ON SrvTable.ProgCode = AdmServiceMaster.AdmProgCode AND \n" +
+                        SERVICE_TABLE + "." + ADM_SRV_CODE_COL + " = " + SERVICE_MASTER_TABLE + "." + ADM_SRV_CODE_COL +
                         criteria +
                         " GROUP BY " + SERVICE_MASTER_TABLE + "." + SERVICE_MASTER_SERVICE_SHORT_NAME_COL;
                 selectLabel = "Select Criteria";
 
                 break;
-//            case VILLAGE_TABLE_QUERY_FROM_REG:
-//                selectQuery = "SELECT " + STAFF_GEO_INFO_ACCESS_TABLE + "." + LAYR_LIST_CODE_COL + " , " + LAY_R4_LIST_NAME_COL + " FROM " + VILLAGE_TABLE
-//                        + " JOIN " + STAFF_GEO_INFO_ACCESS_TABLE +
-//                        " ON " + VILLAGE_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + STAFF_GEO_INFO_ACCESS_TABLE + "." + ADM_COUNTRY_CODE_COL +
-////                        " AND " + VILLAGE_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = " + STAFF_GEO_INFO_ACCESS_TABLE + "." + LAY_R_LIST_CODE_COL +
-//                        " AND " + STAFF_GEO_INFO_ACCESS_TABLE + "." + LAY_R_LIST_CODE_COL + " = " + "  " + VILLAGE_TABLE + "." + LAY_R1_LIST_CODE_COL +
-//                        " || '' || " + VILLAGE_TABLE + "." + LAY_R2_LIST_CODE_COL +
-//                        " || '' || " + VILLAGE_TABLE + "." + LAY_R3_LIST_CODE_COL +
-//                        " || '' || " + VILLAGE_TABLE + "." + LAY_R4_LIST_CODE_COL +
-////                        " AND " + VILLAGE_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + STAFF_GEO_INFO_ACCESS_TABLE + "." + LAY_R2_LIST_CODE_COL +
-////                        " AND " + VILLAGE_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + STAFF_GEO_INFO_ACCESS_TABLE + "." + LAY_R3_LIST_CODE_COL +
-////                        " AND " + VILLAGE_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + STAFF_GEO_INFO_ACCESS_TABLE + "." + LAY_R4_LIST_CODE_COL +
-//
-//
-//                        criteria;
-//                selectLabel += getLayerLabel(cCode, "4");
-//
-//                break;
+
             case VILLAGE_TABLE_QUERY_FOR_RECORDS:
                 selectQuery = "SELECT " + " v." + ADM_COUNTRY_CODE_COL + " || '' ||  v." + LAY_R_LIST_CODE_COL + " || '' || v." + LAY_R2_LIST_CODE_COL + " || '' || v." +
                         LAY_R3_LIST_CODE_COL + " || '' || v." + LAY_R4_LIST_CODE_COL + " AS v_code," +
@@ -9711,15 +9689,15 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 selectLabel = "Select Service";
                 break;
             case ASSIGN_SUMMARY_PROGRAM_DETAILS:
-                selectQuery = "SELECT " + COUNTRY_PROGRAM_TABLE + "." + DONOR_CODE_COL
+                selectQuery = "SELECT " + COUNTRY_PROGRAM_TABLE + "." + ADM_DONOR_CODE_COL
                         + " || '' || " + COUNTRY_PROGRAM_TABLE + "." + AWARD_CODE_COL
-                        + " || '' || " + COUNTRY_PROGRAM_TABLE + "." + PROGRAM_CODE_COL
+                        + " || '' || " + COUNTRY_PROGRAM_TABLE + "." + ADM_PROG_CODE_COL
                         + " , " +
                         ADM_PROGRAM_MASTER_TABLE + "." + PROGRAM_SHORT_NAME_COL +
-                        " FROM " + COUNTRY_PROGRAM_TABLE + " JOIN " + ADM_PROGRAM_MASTER_TABLE + " ON " + COUNTRY_PROGRAM_TABLE + "." + PROGRAM_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + PROGRAM_CODE_COL +
+                        " FROM " + COUNTRY_PROGRAM_TABLE + " JOIN " + ADM_PROGRAM_MASTER_TABLE + " ON " + COUNTRY_PROGRAM_TABLE + "." + ADM_PROG_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + ADM_PROG_CODE_COL +
                         " AND " + COUNTRY_PROGRAM_TABLE + "." + AWARD_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + AWARD_CODE_COL +
-                        " AND " + COUNTRY_PROGRAM_TABLE + "." + DONOR_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + DONOR_CODE_COL + " " +
-                        criteria + " GROUP BY " + COUNTRY_PROGRAM_TABLE + "." + PROGRAM_CODE_COL;//+" GROUP BY "+ADM_PROGRAM_MASTER_TABLE +"."+PROGRAM_SHORT_NAME_COL +" || '-' ||  " +SERVICE_MASTER_TABLE+"."+SERVICE_SHORT_NAME_COL+" ORDER BY Criteria ";
+                        " AND " + COUNTRY_PROGRAM_TABLE + "." + ADM_DONOR_CODE_COL + " = " + ADM_PROGRAM_MASTER_TABLE + "." + ADM_DONOR_CODE_COL + " " +
+                        criteria + " GROUP BY " + COUNTRY_PROGRAM_TABLE + "." + ADM_PROG_CODE_COL;//+" GROUP BY "+ADM_PROGRAM_MASTER_TABLE +"."+PROGRAM_SHORT_NAME_COL +" || '-' ||  " +SERVICE_MASTER_TABLE+"."+SERVICE_SHORT_NAME_COL+" ORDER BY Criteria ";
                 selectLabel = "Select Program";
                 break;
             case FDP_LAY_R2:
@@ -10227,8 +10205,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(HH_MEM_ID, memid); // member id
         values.put(REG_N_DAT_COL, regNdate); //
         values.put(LMP_DATE_COL, lmpDate);
-        values.put(PROGRAM_CODE_COL, program); //
-        values.put(SERVICE_CODE_COL, service);
+        values.put(ADM_PROG_CODE_COL, program); //
+        values.put(ADM_SRV_CODE_COL, service);
         values.put(GRDCODE_COL, grdCode);
         values.put(PW_GRD_DATE_COL, pwGrdDate);
 
@@ -10305,12 +10283,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R2_LIST_CODE_COL, upname);
         values.put(LAY_R3_LIST_CODE_COL, uname);
         values.put(LAY_R4_LIST_CODE_COL, vname);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
         values.put(HHID_COL, hhid);
         values.put(REG_N_ASSIGN_PROG_SRV_HH_MEM_ID, memid);
-        values.put(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL, progCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL, srvCode);
+        values.put(PROG_CODE_COL, progCode);
+        values.put(SRV_CODE_COL, srvCode);
         values.put(REG_N_DAT_COL, regNdate);
         values.put(GRD_CODE_COL, grdCode);
         values.put(GRD_DATE_COL, gdrDate);
@@ -10356,8 +10334,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         values.put(HHID_COL, assingPerson.getHh_id()); // Personal name
         values.put(MEM_CARD_PRINT_HH_MEM_ID, assingPerson.getMemId()); // Registration name
-        values.put(PROGRAM_CODE_COL, assingPerson.getProgram_code()); // Person name
-        values.put(SERVICE_CODE_COL, assingPerson.getService_code()); // sex
+        values.put(ADM_PROG_CODE_COL, assingPerson.getProgram_code()); // Person name
+        values.put(ADM_SRV_CODE_COL, assingPerson.getService_code()); // sex
         values.put(GRDCODE_COL, assingPerson.getGrdCode());
         values.put(PW_GRD_DATE_COL, assingPerson.getGrdDate()); //
 
@@ -10440,8 +10418,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(HHID_COL, hhID);
         values.put(HH_MEM_ID, memId);
 
-        values.put(PROGRAM_CODE_COL, progCode);
-        values.put(SERVICE_CODE_COL, servCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
+        values.put(ADM_SRV_CODE_COL, servCode);
 
         values.put(GRD_CODE_COL, grdCode);
         values.put(LMGRDDATE_COL, lmGrdDate);
@@ -10504,8 +10482,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(HHID_COL, hhID);
         values.put(MEM_CARD_PRINT_HH_MEM_ID, memId);
 
-        values.put(PROGRAM_CODE_COL, progCode);
-        values.put(SERVICE_CODE_COL, servCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
+        values.put(ADM_SRV_CODE_COL, servCode);
 
         values.put(REG_N_DAT_COL, regNdate);
 
@@ -10606,8 +10584,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R4_LIST_CODE_COL, vCode);
         values.put(HHID_COL, hhID);
         values.put(MEM_CARD_PRINT_HH_MEM_ID, memId);
-        values.put(PROGRAM_CODE_COL, progCode);
-        values.put(SERVICE_CODE_COL, servCode);
+        values.put(ADM_PROG_CODE_COL, progCode);
+        values.put(ADM_SRV_CODE_COL, servCode);
         values.put(REG_N_DAT_COL, regNdate);
         values.put(CA2DOB_DATE_COL, dob);
         values.put(GRD_CODE_COL, grdCode);
@@ -10645,8 +10623,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
 
-        values.put(PROGRAM_CODE_COL, asPeople.getProgram_code());
-        values.put(SERVICE_CODE_COL, asPeople.getService_code());
+        values.put(ADM_PROG_CODE_COL, asPeople.getProgram_code());
+        values.put(ADM_SRV_CODE_COL, asPeople.getService_code());
 
         values.put(REG_N_DAT_COL, asPeople.getRegNDate());
         values.put(CA2DOB_DATE_COL, asPeople.getDobDate());
@@ -10721,12 +10699,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 LAY_R2_LIST_CODE_COL + " = '" + upCode + "' AND " +
                 LAY_R3_LIST_CODE_COL + " = '" + unCode + "' AND " +
                 LAY_R4_LIST_CODE_COL + " = '" + vCode + "' AND " +
-                DONOR_CODE_COL + " = '" + donorCode + "' AND " +
+                ADM_DONOR_CODE_COL + " = '" + donorCode + "' AND " +
                 AWARD_CODE_COL + " = '" + awardCode + "' AND " +
                 HHID_COL + " = '" + hhId + "' AND " +
                 REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + mmId + "' AND  " +
-                REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode + "' AND  " +
-                REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'   ";
+                PROG_CODE_COL + " = '" + progCode + "' AND  " +
+                SRV_CODE_COL + " = '" + srvCode + "'   ";
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -10767,12 +10745,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 LAY_R2_LIST_CODE_COL + " = '" + upCode + "' AND " +
                 LAY_R3_LIST_CODE_COL + " = '" + unCode + "' AND " +
                 LAY_R4_LIST_CODE_COL + " = '" + vCode + "' AND " +
-                DONOR_CODE_COL + " = '" + donorCode + "' AND " +
+                ADM_DONOR_CODE_COL + " = '" + donorCode + "' AND " +
                 AWARD_CODE_COL + " = '" + awardCode + "' AND " +
                 HHID_COL + " = '" + hhId + "' AND " +
                 HH_MEM_ID + " = '" + mmId + "' AND  " +
-                PROGRAM_CODE_COL + " = '" + progCode + "' AND  " +
-                SERVICE_CODE_COL + " = '" + srvCode + "'   ";
+                ADM_PROG_CODE_COL + " = '" + progCode + "' AND  " +
+                ADM_SRV_CODE_COL + " = '" + srvCode + "'   ";
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -10808,12 +10786,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + upCode + "'" +
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "'" +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "'" +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "'" +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "'" +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "'" +
                 " AND " + HHID_COL + " = '" + hhId + "'" +
                 " AND " + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + mmId + "'" +
-                " AND  " + REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode + "'" +
-                " AND  " + REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + srvCode + "'   ";
+                " AND  " + PROG_CODE_COL + " = '" + progCode + "'" +
+                " AND  " + SRV_CODE_COL + " = '" + srvCode + "'   ";
 
 
         ContentValues values = new ContentValues();
@@ -10855,7 +10833,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 LAY_R2_LIST_CODE_COL + " = '" + asPeople.getUpazillaCode() + "' AND " +
                 LAY_R3_LIST_CODE_COL + " = '" + asPeople.getUnitCode() + "' AND " +
                 LAY_R4_LIST_CODE_COL + " = '" + asPeople.getVillageCode() + "' AND " +
-                DONOR_CODE_COL + " = '" + asPeople.getDonor_code() + "' AND " +
+                ADM_DONOR_CODE_COL + " = '" + asPeople.getDonor_code() + "' AND " +
                 AWARD_CODE_COL + " = '" + asPeople.getAward_code() + "' AND " +
                 HHID_COL + " = '" + asPeople.getHh_id() + "' AND " +
                 REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = '" + asPeople.getMemId() + "'  ";
@@ -11046,7 +11024,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         values.put(ADM_COUNTRY_CODE_COL, c_code);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
 
         values.put(MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL, layR1Code);
@@ -11056,8 +11034,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(HHID_COL, hhid);
         values.put(MEM_CARD_PRINT_HH_MEM_ID, memId);
 
-        values.put(REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL, progCode);
-        values.put(REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL, srvCode);
+        values.put(PROG_CODE_COL, progCode);
+        values.put(SRV_CODE_COL, srvCode);
 
         values.put(OPERATION_CODE_COL, opCode);
         values.put(OP_MONTH_CODE_COL, opMonthCode);
@@ -11743,7 +11721,35 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String cCode = "";
-        String sql = SQLiteQuery.getSelectedCountryCode_sql();
+        String sql = SQLiteQuery.getSelectedCountryCodeFromSelectedVillage_sql();
+
+        Cursor cursor = db.rawQuery(sql, null);
+        if ((cursor != null) && cursor.moveToFirst()) {
+            cCode = cursor.getString(0);
+
+            cursor.close();
+        }
+        db.close();
+        return cCode;
+    }
+
+
+    public String getSelectedCountryCode(String operationMode) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String cCode = "";
+        String sql ="";
+        switch (operationMode){
+               case UtilClass.REGISTRATION_OPERATION_MODE_NAME:
+                   sql = SQLiteQuery.getSelectedCountryCodeFromSelectedVillage_sql();
+                   break;
+
+            case UtilClass.DISTRIBUTION_OPERATION_MODE_NAME:
+                sql = SQLiteQuery.getSelectedCountryCodeFromSelectedFDP_sql();
+                break;
+
+        }
+
 
         Cursor cursor = db.rawQuery(sql, null);
         if ((cursor != null) && cursor.moveToFirst()) {
@@ -12114,7 +12120,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         String selectQuery = "SELECT " + AWARD_END_DATE_COL + " FROM "
                 + ADM_COUNTRY_AWARD_TABLE +
                 " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "'"
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' ";
         String grdDate = "";
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -12306,14 +12312,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
         String where = ADM_COUNTRY_CODE_COL + " = '" + distData.getCountryCode() + "'" +
-                " AND " + DONOR_CODE_COL + " = '" + distData.getAdmDonorCode() + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + distData.getAdmDonorCode() + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + distData.getAdmAwardCode() + "' " +
                 " AND " + LAY_R_LIST_CODE_COL + " = '" + distData.getDistrictCode() + "' " +
                 " AND " + LAY_R2_LIST_CODE_COL + " = '" + distData.getUpCode() + "' " +
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + distData.getUniteCode() + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + distData.getVillageCode() + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + distData.getProgCode() + "' " +
-                " AND " + SERVICE_CODE_COL + " = '" + distData.getSrvCode() + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + distData.getProgCode() + "' " +
+                " AND " + ADM_SRV_CODE_COL + " = '" + distData.getSrvCode() + "' " +
                 " AND " + OP_MONTH_CODE_COL + " = '" + distData.getOpMonthCode() + "' " +
 
                 " AND " + MEM_ID_15_D_COL + " = '" + distData.getID() + "' ";
@@ -12684,9 +12690,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put(ADM_COUNTRY_CODE_COL, countryCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, programCode);
+        values.put(ADM_PROG_CODE_COL, programCode);
         values.put(PROG_ACTIVITY_CODE_COL, progActivityCode);
         values.put(PROG_ACTIVITY_TITLE_COL, progActivityTitle);
         values.put(DT_BASIC_COL, dtBasic);
@@ -12804,9 +12810,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         values.put(DT_BASIC_COL, dtBasic);
         values.put(ADM_COUNTRY_CODE_COL, countryCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, programCode);
+        values.put(ADM_PROG_CODE_COL, programCode);
         values.put(DT_ENU_ID_COL, dtEnuId);
         values.put(DTQ_CODE_COL, dtqCode);
         values.put(DTA_CODE_COL, dtaCode);
@@ -12856,9 +12862,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String where = DT_BASIC_COL + " = '" + dtBasic + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + programCode + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + programCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + dtEnuId + "' " +
                 " AND " + DTQ_CODE_COL + " = '" + dtqCode + "' " +
                 " AND " + DTA_CODE_COL + " = '" + dtaCode + "' " +
@@ -12913,9 +12919,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         values.put(DT_BASIC_COL, dtBasic);
         values.put(ADM_COUNTRY_CODE_COL, countryCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, programCode);
+        values.put(ADM_PROG_CODE_COL, programCode);
         values.put(DT_ENU_ID_COL, dtEnuId);
         values.put(DTQ_CODE_COL, dtqCode);
         values.put(DTA_CODE_COL, dtaCode);
@@ -12944,9 +12950,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String where = DT_BASIC_COL + " = '" + dtBasic + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + programCode + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + programCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + dtEnuId + "' " +
                 " AND " + DTQ_CODE_COL + " = '" + dtqCode + "' " +
                 " AND " + DTA_CODE_COL + " = '" + dtaCode + "' " +
@@ -12990,25 +12996,25 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String where = DT_BASIC_COL + " = '" + DTBasic + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + AdmCountryCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + AdmDonorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + AdmDonorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + AdmAwardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + AdmProgCode + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + AdmProgCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + DTEnuID + "' " +
                 " AND " + DT_R_SEQ_COL + " = " + DTRSeq +
                 " AND " + OP_MODE_COL + " = '" + OpMode + "' " +
                 " AND " + OP_MONTH_CODE_COL + " = '" + OpMonthCode + "' ";
         String where2 = DT_BASIC_COL + " = '" + DTBasic + "' " +
-                " AND " + ADM_COUNTRY_CODE_COL + " = '" + AdmCountryCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + AdmDonorCode + "' " +
-                " AND " + AWARD_CODE_COL + " = '" + AdmAwardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + AdmProgCode + "' " +
+                " AND " + "CountryCode" + " = '" + AdmCountryCode + "' " +
+                " AND " + "DonorCode" + " = '" + AdmDonorCode + "' " +
+                " AND " + "AwardCode" + " = '" + AdmAwardCode + "' " +
+                " AND " + "ProgramCode" + " = '" + AdmProgCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + DTEnuID + "' " +
                 " AND " + DT_R_SEQ_COL + " = " + DTRSeq +
                 " AND " + OP_MODE_COL + " = '" + OpMode + "' " +
                 " AND " + OP_MONTH_CODE_COL + " = '" + OpMonthCode + "' " +
                 " AND " + DT_SURVEY_NUM + " = " + surveyNum;
         int idR = db.delete(DT_RESPONSE_TABLE, where, null);
-        int idS = db.delete(DT_SURVEY_TABLE, where, null);
+        int idS = db.delete(DT_SURVEY_TABLE, where2, null);
 
 //        Log.e("RESPONSE", idR + "");
 //        Log.e("SURVEY", idS + "");
@@ -13066,9 +13072,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         String where = DT_BASIC_COL + " = '" + DTBasic + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + AdmCountryCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + AdmDonorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + AdmDonorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + AdmAwardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + AdmProgCode + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + AdmProgCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + DTEnuID + "' " +
                 " AND " + DT_R_SEQ_COL + " = " + DTRSeq +
                 " AND " + OP_MODE_COL + " = '" + OpMode + "' " +
@@ -13105,9 +13111,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
                 " WHERE " + DT_BASIC_COL + " = '" + dtBasic + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + programCode + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + programCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + dtEnuId + "' " +
                 " AND " + DTQ_CODE_COL + " = '" + dtqCode + "' " +
                 " AND " + DTA_CODE_COL + " = '" + dtaCode + "' " +
@@ -13146,9 +13152,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
                 " WHERE " + DT_BASIC_COL + " = '" + dtBasic + "' " +
                 " AND " + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
-                " AND " + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND " + AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND " + PROGRAM_CODE_COL + " = '" + programCode + "' " +
+                " AND " + ADM_PROG_CODE_COL + " = '" + programCode + "' " +
                 " AND " + DT_ENU_ID_COL + " = '" + dtEnuId + "' " +
                 " AND " + DTQ_CODE_COL + " = '" + dtqCode + "' " +
                 " AND " + DT_R_SEQ_COL + " = " + dtrSeq;
@@ -13193,9 +13199,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
                 " WHERE dtRes." + DT_BASIC_COL + " = '" + dtBasic + "' " +
                 " AND dtRes." + ADM_COUNTRY_CODE_COL + " = '" + countryCode + "' " +
-                " AND dtRes." + DONOR_CODE_COL + " = '" + donorCode + "' " +
+                " AND dtRes." + ADM_DONOR_CODE_COL + " = '" + donorCode + "' " +
                 " AND dtRes." + AWARD_CODE_COL + " = '" + awardCode + "' " +
-                " AND dtRes." + PROGRAM_CODE_COL + " = '" + programCode + "' " +
+                " AND dtRes." + ADM_PROG_CODE_COL + " = '" + programCode + "' " +
                 " AND dtRes." + DT_ENU_ID_COL + " = '" + dtEnuId + "' " +
                 " AND dtRes." + DTQ_CODE_COL + " = '" + dtqCode + "' " +
                 " AND dtRes." + DT_R_SEQ_COL + " = " + dtrSeq;
@@ -13248,7 +13254,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         ArrayList<DTSurveyTableDataModel> dtSurveyTableDataModels = new ArrayList<>();
         String sql = SQLiteQuery.dtSurveyTableDataModels_sql(surveyNum, dtBasic);
-        ;
+
         Cursor cursor = db.rawQuery(sql, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
@@ -13256,10 +13262,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 do {
                     DTSurveyTableDataModel dtSurveyTableDataModel = new DTSurveyTableDataModel();
                     dtSurveyTableDataModel.setDtBasic(cursor.getString(cursor.getColumnIndex(DT_BASIC_COL)));
-                    dtSurveyTableDataModel.setCountryCode(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
-                    dtSurveyTableDataModel.setDonorCode(cursor.getString(cursor.getColumnIndex(DONOR_CODE_COL)));
-                    dtSurveyTableDataModel.setAwardCode(cursor.getString(cursor.getColumnIndex(AWARD_CODE_COL)));
-                    dtSurveyTableDataModel.setProgramCode(cursor.getString(cursor.getColumnIndex(PROGRAM_CODE_COL)));
+                    dtSurveyTableDataModel.setCountryCode(cursor.getString(cursor.getColumnIndex("CountryCode")));
+                    dtSurveyTableDataModel.setDonorCode(cursor.getString(cursor.getColumnIndex("DonorCode")));
+                    dtSurveyTableDataModel.setAwardCode(cursor.getString(cursor.getColumnIndex("AwardCode")));
+                    dtSurveyTableDataModel.setProgramCode(cursor.getString(cursor.getColumnIndex("ProgramCode")));
                     dtSurveyTableDataModel.setDtEnuId(cursor.getString(cursor.getColumnIndex(DT_ENU_ID_COL)));
                     dtSurveyTableDataModel.setDtqCode(cursor.getString(cursor.getColumnIndex(DTQ_CODE_COL)));
                     dtSurveyTableDataModel.setDtaCode(cursor.getString(cursor.getColumnIndex(DTA_CODE_COL)));
@@ -13326,12 +13332,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
-        values.put(PROGRAM_CODE_COL, programCode);
+        values.put(ADM_PROG_CODE_COL, programCode);
         values.put(PROGRAM_NAME_COL, progName);
         values.put(PROGRAM_SHORT_NAME_COL, progShortName);
-  /*      values.put(SERVICE_CODE_COL, servCode);
+  /*      values.put(ADM_SRV_CODE_COL, servCode);
         values.put(FOOD_FLAG, food);
         values.put(NON_FOOD_FLAG, nonFood);
         values.put(CASH_FLAG, cash);
@@ -13353,9 +13359,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         List<ProgramMasterDM> list = new ArrayList<ProgramMasterDM>();
 
         String sql = "SELECT " + ADM_COUNTRY_CODE_COL +
-                ", " + DONOR_CODE_COL +
+                ", " + ADM_DONOR_CODE_COL +
                 ", " + AWARD_CODE_COL +
-                ", " + PROGRAM_CODE_COL +
+                ", " + ADM_PROG_CODE_COL +
                 ", " + PROGRAM_NAME_COL +
                 ", " + PROGRAM_SHORT_NAME_COL +
                 " FROM " + TEMPORARY_COUNTRY_PROGRAM_TABLE + "" +
@@ -13370,9 +13376,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
                 ProgramMasterDM progData = new ProgramMasterDM();
                 progData.setAdmCountryCode(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
-                progData.setAdmProgCode(cursor.getString(cursor.getColumnIndex(DONOR_CODE_COL)));
+                progData.setAdmProgCode(cursor.getString(cursor.getColumnIndex(ADM_DONOR_CODE_COL)));
                 progData.setAdmAwardCode(cursor.getString(cursor.getColumnIndex(AWARD_CODE_COL)));
-                progData.setAdmDonorCode(cursor.getString(cursor.getColumnIndex(PROGRAM_CODE_COL)));
+                progData.setAdmDonorCode(cursor.getString(cursor.getColumnIndex(ADM_PROG_CODE_COL)));
                 progData.setProgName(cursor.getString(cursor.getColumnIndex(PROGRAM_NAME_COL)));
                 progData.setProgShortName(cursor.getString(cursor.getColumnIndex(PROGRAM_SHORT_NAME_COL)));
 
@@ -13392,7 +13398,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, cCode);
-        values.put(DONOR_CODE_COL, donorCode);
+        values.put(ADM_DONOR_CODE_COL, donorCode);
         values.put(AWARD_CODE_COL, awardCode);
         values.put(OPERATION_CODE_COL, opCode);
         values.put(OP_MONTH_CODE_COL, opMonthCode);

@@ -467,7 +467,7 @@ public class GraduationUpdate extends BaseActivity {
     private void loadReason(String cCode, String pCode, String srvCode) { // Graduation Reason
         int position = 0;
 
-        String criteria = " WHERE " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + pCode + "' And " + SQLiteHandler.SERVICE_CODE_COL +
+        String criteria = " WHERE " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + pCode + "' And " + SQLiteHandler.ADM_SRV_CODE_COL +
                 " = '" + srvCode + "' And " + SQLiteHandler.DEFAULT_CAT_ACTIVE_COL + " = 'N' And " +
                 SQLiteHandler.DEFAULT_CAT_EXIT_COL + " = 'N' ORDER BY " + SQLiteHandler.GRD_TITLE_COL;
 

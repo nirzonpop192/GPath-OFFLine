@@ -148,6 +148,14 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <activity
+            android:name=".activity.sub_activity.summary_sub.DistributionAttendanceActivity"
+            android:configChanges="orientation"
+            android:label="Distribution Attendance"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
             android:name=".activity.GraduationActivity"
             android:configChanges="orientation"
@@ -264,6 +272,13 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+
+        <activity
+            android:name=".activity.sub_activity.summary_sub.DistributionSummaryMenu"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+
         <activity
             android:name=".activity.sub_activity.summary_sub.SummaryServiceOrDistributionItemize"
             android:configChanges="orientation"

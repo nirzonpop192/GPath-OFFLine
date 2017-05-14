@@ -1265,8 +1265,8 @@ public class AGR extends BaseActivity {
         int position = 0;
 
         String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + assignDataModel.getCountryCode() + "'"
-                + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + assignDataModel.getProgram_code() + "' "
-                + " AND " + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_SERVICE_CODE_COL + " = '" + assignDataModel.getService_code() + "' ";
+                + " AND " + SQLiteHandler.PROG_CODE_COL + " = '" + assignDataModel.getProgram_code() + "' "
+                + " AND " + SQLiteHandler.SRV_CODE_COL + " = '" + assignDataModel.getService_code() + "' ";
 
 
         List<SpinnerHelper> listOfVcCrop = sqlH.getListAndID(SQLiteHandler.LUP_SRV_OPTION_LIST_TABLE, criteria, null, false);

@@ -74,6 +74,10 @@
     <init>();
 }
 
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionAttendanceActivity {
+    <init>();
+}
+
 -keep class com.siddiquinoor.restclient.activity.GraduationActivity {
     <init>();
 }
@@ -151,6 +155,10 @@
 }
 
 -keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ServiceSummaryMenu {
+    <init>();
+}
+
+-keep class com.siddiquinoor.restclient.activity.sub_activity.summary_sub.DistributionSummaryMenu {
     <init>();
 }
 

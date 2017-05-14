@@ -280,10 +280,10 @@ public class LoginActivity extends BaseActivity {
             File newDb = new File(path);
             if (newDb.exists()) {
                 flag = db.importDatabase(path, LoginActivity.this);
-//                File file = new File(path);                                                         // delete
-//                file.delete();
-//
-//                db.reCreateSurveyTable();
+                File file = new File(path);                                                         // delete
+                file.delete();
+
+                db.reCreateSurveyTable();
             } else flag = false;
 
 
@@ -523,7 +523,7 @@ public class LoginActivity extends BaseActivity {
                                 e.printStackTrace();
                             }
 
-                            db.insertIntoDeviceOperationMode((mode_index + 1), strOperationMode, user_name,entryTime );
+                            db.insertIntoDeviceOperationMode((mode_index + 1), strOperationMode, user_name, entryTime);
                             pDialog = new ProgressDialog(mContext);
                             pDialog.setCancelable(false);
                             pDialog.setMessage("Downloading  data .");

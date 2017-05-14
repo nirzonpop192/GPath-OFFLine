@@ -162,8 +162,12 @@ public class TrainingActivity extends BaseActivity {
         setContentView(R.layout.activity_training);
         initial();
         setListener();
-        LoadListView loadListView= new LoadListView(idCountry,"");
-        loadListView.execute();
+
+/**
+ *  Data load stooped for taking more time than expected
+ */
+//        LoadListView loadListView= new LoadListView(idCountry,"");                                  //
+//        loadListView.execute();
 
         // for test purpose
 //        loadTrainingActivityEventIndex(idCountry,"");

@@ -26,6 +26,7 @@ import com.siddiquinoor.restclient.views.adapters.SummaryServiceListAdapter;
 import com.siddiquinoor.restclient.views.adapters.SummaryServiceListModel;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
+import com.siddiquinoor.restclient.views.spinner.SpinnerLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,17 +36,17 @@ public class SumSrvOrDistAttendance extends BaseActivity {
     private final String TAG = SumSrvOrDistAttendance.class.getName();
     private SQLiteHandler sqlH;
     // private  int position;
-    private Spinner spCriteriaS;// spinner Criteria SumRegLay4TotalHHRecords
+    private Spinner spCriteriaS;                                                                // spinner Criteria SumRegLay4TotalHHRecords
     private String idCriteria;
     private String strCriteria;
-    private boolean isComeThroughIntent;
+
     private ListView lv_summaryList;
     private SummaryServiceListAdapter adapterServiceAttendance;
     private SummaryDistributionListAttendanceAdapter adapterDistAttendance;
     private ArrayList<SummaryServiceListModel> srvListArray = new ArrayList<SummaryServiceListModel>();
     private Button btn_home;
     private Button btn_sammary;
-    private final Context MCONTEXT = SumSrvOrDistAttendance.this;
+    private final Context mContext = SumSrvOrDistAttendance.this;
     private String idCountry;
     private String idSrvMonth_Code;
     private String holderMonth_str;
@@ -144,7 +145,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent iHome = new Intent(MCONTEXT, MainActivity.class);
+                Intent iHome = new Intent(mContext, MainActivity.class);
                 startActivity(iHome);
             }
         });
@@ -153,7 +154,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             public void onClick(View v) {
 
                 finish();
-                Intent iSrvSummary = new Intent(MCONTEXT, SumSrvOrDistCriteria.class);
+                Intent iSrvSummary = new Intent(mContext, SumSrvOrDistCriteria.class);
 
                 iSrvSummary.putExtra(KEY.COUNTRY_ID, idCountry);
                 iSrvSummary.putExtra(KEY.DIR_CLASS_NAME_KEY, "SummaryServiceAttendance");
@@ -165,10 +166,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
                 iSrvSummary.putExtra(KEY.PROGRAM_CODE, idProgram);
                 iSrvSummary.putExtra(KEY.PROGRAM_NAME, strProgram);
                 iSrvSummary.putExtra(KEY.FLAG, flag);
-//                iSrvSummary.putExtra("Srv_SumCRITERIA_ID", criteriaS.getCriteria_id());
-//                iSrvSummary.putExtra("Srv_SumCRITERIA_STR", criteriaS.getCriteria_name());
-//                iSrvSummary.putExtra(KEY.SERVICE_MONTH_CODE, idServiceMonth);
-//                iSrvSummary.putExtra(KEY.SERVICE_MONTH_NAME, strMonth);
+
                 iSrvSummary.putExtra(KEY.SERVICE_MONTH_CODE, idSrvMonth_Code);
                 iSrvSummary.putExtra(KEY.SERVICE_MONTH_NAME, holderMonth_str);
                 iSrvSummary.putExtra(KEY.DISTRIBUTION_TYPE_NAME, strDistType);
@@ -355,7 +353,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
 
         int position = 0;
         String criteria = " WHERE " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.AWARD_CODE_COL + "='" + idAward + "'"
-                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.DONOR_CODE_COL + "='" + donorId + "'";
+                + " AND " + SQLiteHandler.COUNTRY_PROGRAM_TABLE + "." + SQLiteHandler.ADM_DONOR_CODE_COL + "='" + donorId + "'";
 
         List<SpinnerHelper> listProgram = sqlH.getListAndID(SQLiteHandler.COUNTRY_PROGRAM_TABLE, criteria, null, false);
 
@@ -410,14 +408,14 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             criteria = SQLiteQuery.getDistributionMonths_WHERE_Condition(countryCode);
         else
             criteria = SQLiteQuery.getServiceMonths_WHERE_Service_Open_Condition(countryCode);
-        // Spinner Drop down elements for District
+
         List<SpinnerHelper> listMonth = sqlH.getListAndID(SQLiteHandler.OP_MONTH_TABLE, criteria, null, false);
 
-        // Creating adapter for spinner
+
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listMonth);
-        // Drop down layout style
+
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // attaching data adapter to spinner
+
         spServiceMonth.setAdapter(dataAdapter);
 
 
@@ -470,43 +468,12 @@ public class SumSrvOrDistAttendance extends BaseActivity {
     /**
      * LOAD :: Criteria
      */
-    private void loadCriteria(final String cCode, final String donorCode, final String awardCord, final String opMCode, final String progCode, final String srvDsFlag) {
+    private void loadCriteria(final String cCode, final String donorCode, final String awardCord,
+                              final String opMCode, final String progCode, final String srvDsFlag) {
 
-        int position = 0; // here the select the position of spinner
-        String criteria = " WHERE  " + SQLiteHandler.SERVICE_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' AND " +
-                SQLiteHandler.SERVICE_TABLE + "." + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' AND " +
-                SQLiteHandler.SERVICE_TABLE + "." + SQLiteHandler.AWARD_CODE_COL + " = '" + awardCord + "' " +
-                " AND " + SQLiteHandler.SERVICE_TABLE + "." + SQLiteHandler.REG_N_ASSIGN_PROG_SRV_PROGRAM_CODE_COL + " = '" + progCode + "' ";
-               /* "AND "+
-                SQLiteHandler.SERVICE_TABLE +"." +SQLiteHandler.OP_MONTH_CODE_COL+ " = '"+opMCode+"'  ";*/
-
-
-        /** woriking*/
-        // Spinner Drop down elements for District
-        List<SpinnerHelper> listSCriteria = sqlH.getListAndID(SQLiteHandler.SERVICE_SUMMARY_CRITERIA_QUERY, criteria, null, false);
-
-        // Creating adapterServiceAttendance for spinner
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listSCriteria);
-        // Drop down layout style
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // attaching data adapterServiceAttendance to spinner
-        spCriteriaS.setAdapter(dataAdapter);
-
-
-        //  temparary comment it
-        if (idCriteria != null) {
-
-
-            for (int i = 0; i < spCriteriaS.getCount(); i++) {
-                String award = spCriteriaS.getItemAtPosition(i).toString();
-                if (award.equals(strCriteria)) {
-                    position = i;
-                }
-            }
-            spCriteriaS.setSelection(position);
-
-        }
-        spCriteriaS.setSelection(position);
+        SpinnerLoader.loadCriteriaLoader(mContext, sqlH, spCriteriaS, idCriteria, strCriteria,
+                SQLiteQuery.loadCriteriaForDistributionSummary(cCode, donorCode, awardCord,
+                        progCode));
 
 
         spCriteriaS.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -519,10 +486,11 @@ public class SumSrvOrDistAttendance extends BaseActivity {
                     String srvCode = idCriteria.substring(3);
 
 
-                    loadServiceNDistributionSummaryAttendanceList(cCode, donorCode, awardCord, opMCode, progCode, srvCode, idDistributionType, srvDsFlag);
+                    loadServiceNDistributionSummaryAttendanceList(cCode, donorCode, awardCord,
+                            opMCode, progCode, srvCode, idDistributionType, srvDsFlag);
                 }
 
-                Log.d(TAG, "idCriteria : " + idCriteria + " strCriteria :" + strCriteria);
+//                Log.d(TAG, "idCriteria : " + idCriteria + " strCriteria :" + strCriteria);
 
             }
 
@@ -579,14 +547,14 @@ public class SumSrvOrDistAttendance extends BaseActivity {
             }
 
 
-            dialog.showInfromDialog(MCONTEXT, "No Data", "No Data found");
+            dialog.showInfromDialog(mContext, "No Data", "No Data found");
         }
     }
 
 
     /**
-     * @date: 2015-10-12
-     * @description: disable the back press button
+     * 2015-10-12
+     * disable the back press button
      */
     @Override
     public void onBackPressed() {

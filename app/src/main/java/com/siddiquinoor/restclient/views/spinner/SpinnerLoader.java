@@ -21,10 +21,10 @@ import java.util.List;
 
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.AWARD_CODE_COL;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.ADM_COUNTRY_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.DONOR_CODE_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.ADM_DONOR_CODE_COL;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.GROUP_CAT_CODE_COL;
 import static com.siddiquinoor.restclient.manager.SQLiteHandler.GROUP_CODE_COL;
-import static com.siddiquinoor.restclient.manager.SQLiteHandler.PROGRAM_CODE_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.ADM_PROG_CODE_COL;
 
 /**
  * Created by pop
@@ -58,9 +58,9 @@ public class SpinnerLoader {
     public static void loadGroupCatLoader(Context context, SQLiteHandler sqlH, Spinner spGroupCat, String cCode, String donorCode, String awardCode, String progCode, String groupCatCode, String strGroupCat) {
         int position = 0;
         String criteria = " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' "
-                + " AND " + PROGRAM_CODE_COL + " = '" + progCode + "' "
+                + " AND " + ADM_PROG_CODE_COL + " = '" + progCode + "' "
                 + " GROUP BY  " + GROUP_CAT_CODE_COL;
 
 

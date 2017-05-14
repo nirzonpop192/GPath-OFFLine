@@ -48,10 +48,25 @@ import com.siddiquinoor.restclient.data_model.adapters.DistributionGridDataModel
 import com.siddiquinoor.restclient.data_model.adapters.DistributionSaveDataModel;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
+import com.siddiquinoor.restclient.views.spinner.SpinnerLoader;
 
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.ADM_COUNTRY_CODE_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_CODE_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_MASTER_COUNTRY_CODE;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_MASTER_LAY_R1_LIST_CODE_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_MASTER_LAY_R2_LIST_CODE_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.FDP_MASTER_TABLE;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R1_LIST_CODE_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.LAY_R2_LIST_CODE_COL;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.SELECTED_FDP_TABLE;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.STAFF_FDP_ACCESS_COUNTRY_CODE;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.STAFF_FDP_ACCESS_TABLE;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.UPAZILLA_TABLE;
+import static com.siddiquinoor.restclient.manager.SQLiteHandler.UPZILLA_NAME_COL;
 
 public class DistributionActivity extends BaseActivity {
     private static final int ONCE = 1;
@@ -414,30 +429,8 @@ public class DistributionActivity extends BaseActivity {
      */
     private void loadAward(final String idCountry) {
 
-        int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.ADM_COUNTRY_AWARD_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + idCountry + "'";
-        // Spinner Drop down elements for District
-        List<SpinnerHelper> listAward = sqlH.getListAndID(SQLiteHandler.ADM_COUNTRY_AWARD_TABLE, criteria, null, false);
 
-        // Creating adapter for spinner
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listAward);
-        // Drop down layout style
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // attaching data adapter to spinner
-        spAward.setAdapter(dataAdapter);
-
-
-        if (idAward != null) {
-            for (int i = 0; i < spAward.getCount(); i++) {
-                String award = spAward.getItemAtPosition(i).toString();
-                if (award.equals(strAward)) {
-                    position = i;
-                }
-            }
-            spAward.setSelection(position);
-        }
-
-
+        SpinnerLoader.loadAwardLoader(mContext, sqlH, spAward, idCountry, idAward, strAward);
         spAward.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -537,7 +530,7 @@ public class DistributionActivity extends BaseActivity {
         int position = 0;
 
         String criteria = SQLiteQuery.getFDPNames_Where_Condition(cCode, layR2Code);
-        List<SpinnerHelper> fdpList = sqlH.getListAndID(SQLiteHandler.STAFF_FDP_ACCESS_TABLE, criteria, null, false);
+        List<SpinnerHelper> fdpList = sqlH.getListAndID(STAFF_FDP_ACCESS_TABLE, criteria, null, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, fdpList);
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
 
@@ -753,13 +746,30 @@ public class DistributionActivity extends BaseActivity {
      */
     private void loadLayR2List(String cCode) {
         int position = 0;
-        String criteria = " WHERE " + SQLiteHandler.STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.STAFF_FDP_ACCESS_COUNTRY_CODE + " = '" + idCountry + "'"
-                + " AND " + SQLiteHandler.STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.STAFF_CODE + " = '" + getStaffID() + "'"
-                + " AND " + SQLiteHandler.STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.BTN_NEW_COL + " = '1'"
-                + " ORDER BY  Upazilla.UpazillaCode ";
+        String criteria =
+                " Select DISTINCT  " + UPAZILLA_TABLE + "." + LAY_R1_LIST_CODE_COL + " || " + UPAZILLA_TABLE + "." + LAY_R2_LIST_CODE_COL + " AS code "
+                        + " , " + UPAZILLA_TABLE + " ." + UPZILLA_NAME_COL + " AS Name "
+                        + " FROM  " + STAFF_FDP_ACCESS_TABLE
+                        + "  INNER JOIN         " + FDP_MASTER_TABLE
+                        + "   ON         " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + FDP_MASTER_TABLE + "." + ADM_COUNTRY_CODE_COL
+                        + "   AND         " + STAFF_FDP_ACCESS_TABLE + "." + FDP_CODE_COL + " = " + FDP_MASTER_TABLE + "." + FDP_CODE_COL
+                        + "   INNER JOIN    " + UPAZILLA_TABLE
+                        + "   ON    " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + UPAZILLA_TABLE + "." + ADM_COUNTRY_CODE_COL
+                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_COUNTRY_CODE + " = " + UPAZILLA_TABLE + "." + ADM_COUNTRY_CODE_COL
+                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_LAY_R1_LIST_CODE_COL + " = " + UPAZILLA_TABLE + "." + LAY_R1_LIST_CODE_COL
+                        + "   AND   " + FDP_MASTER_TABLE + "." + FDP_MASTER_LAY_R2_LIST_CODE_COL + " = " + UPAZILLA_TABLE + "." + LAY_R2_LIST_CODE_COL
+
+                        + " INNER JOIN " + SELECTED_FDP_TABLE + " ON "
+                        + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = " + SELECTED_FDP_TABLE + "." + ADM_COUNTRY_CODE_COL
+                        + " AND " + STAFF_FDP_ACCESS_TABLE + "." + FDP_CODE_COL + " = " + SELECTED_FDP_TABLE + "." + FDP_CODE_COL+
+
+        " WHERE " + STAFF_FDP_ACCESS_TABLE + "." + STAFF_FDP_ACCESS_COUNTRY_CODE + " = '" + idCountry + "'"
+                + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.STAFF_CODE + " = '" + getStaffID() + "'"
+                + " AND " + STAFF_FDP_ACCESS_TABLE + "." + SQLiteHandler.BTN_NEW_COL + " = '1'"
+                + " ORDER BY  "+UPAZILLA_TABLE + "." + LAY_R2_LIST_CODE_COL ;
 
 
-        List<SpinnerHelper> listUpazilla = sqlH.getListAndID(SQLiteHandler.FDP_LAY_R2, criteria, cCode, false);
+        List<SpinnerHelper> listUpazilla = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listUpazilla);
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
         spUpazilla.setAdapter(dataAdapter);

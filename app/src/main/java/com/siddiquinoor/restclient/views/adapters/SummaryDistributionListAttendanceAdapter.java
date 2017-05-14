@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.siddiquinoor.restclient.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This Class is Adapter Class
@@ -21,10 +22,10 @@ import java.util.ArrayList;
 public class SummaryDistributionListAttendanceAdapter extends BaseAdapter {
     Activity activity;
     private LayoutInflater inflater;
-    private ArrayList<SummaryServiceListModel> srvListData = new ArrayList<SummaryServiceListModel>();
+    private List<SummaryServiceListModel> srvListData = new ArrayList<SummaryServiceListModel>();
     ViewHolderS holder;
 
-    public SummaryDistributionListAttendanceAdapter(Activity activity, ArrayList<SummaryServiceListModel> srvListData) {
+    public SummaryDistributionListAttendanceAdapter(Activity activity, List<SummaryServiceListModel> srvListData) {
         this.activity = activity;
         this.srvListData = srvListData;
     }

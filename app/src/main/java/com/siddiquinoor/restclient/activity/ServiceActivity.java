@@ -1037,9 +1037,9 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 + GROUP_CODE_COL
 
                 + " , " + GROUP_NAME_COL + " FROM " + SQLiteHandler.COMMUNITY_GROUP_TABLE + " WHERE " + SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + SQLiteHandler.DONOR_CODE_COL + " = '" + donorCode + "' "
+                + " AND " + SQLiteHandler.ADM_DONOR_CODE_COL + " = '" + donorCode + "' "
                 + " AND " + AWARD_CODE_COL + " = '" + awardCode + "' "
-                + " AND " + SQLiteHandler.PROGRAM_CODE_COL + " = '" + progCode + "' "
+                + " AND " + SQLiteHandler.ADM_PROG_CODE_COL + " = '" + progCode + "' "
                 + " AND " + SQLiteHandler.GROUP_CAT_CODE_COL + " = '" + grpCateCode + "' "
                 + " AND " + SQLiteHandler.SERVICE_CENTER_CODE_COL + " = '" + srvCenterCode + "' "
                 + " AND " + SQLiteHandler.GRP_LAY_R3_LIST_CODE_COL + " != '-' "

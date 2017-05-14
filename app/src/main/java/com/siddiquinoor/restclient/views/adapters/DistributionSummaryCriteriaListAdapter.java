@@ -29,9 +29,7 @@ public class DistributionSummaryCriteriaListAdapter extends BaseAdapter {
             /*, String countryId, String donorId, String awardId*/) {
         this.activity = activity;
         this.criteriaData = criteriaData;
-      /*  this.countryId = countryId;
-        this.donorId = donorId;
-        this.awardId = awardId;*/
+
     }
 
     @Override
