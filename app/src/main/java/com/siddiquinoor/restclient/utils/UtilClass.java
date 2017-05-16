@@ -30,6 +30,8 @@ import java.util.Arrays;
  */
 public class UtilClass {
 
+
+
     /**
      * Registration Mode
      */
@@ -67,6 +69,8 @@ public class UtilClass {
      * Key of Operation Mode to store Shared preference
      */
     public static final String OPERATION_MODE = "OPERATION_MODE";
+
+    public static final String SYNC_MODE_KEY = "SYNC_MODE";
 
     public String setDateFormatFromTV(TextView tv) {
         String temp = "";

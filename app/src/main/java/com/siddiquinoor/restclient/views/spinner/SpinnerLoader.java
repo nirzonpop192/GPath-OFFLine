@@ -387,10 +387,10 @@ public class SpinnerLoader {
         int position = 0;
 
 
-        String criteria = " WHERE " + SQLiteHandler.HOUSE_HOLD_CATEGORY_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "' ";
+        String criteria = " WHERE " + SQLiteHandler.LUP_REGNH_HEAD_CATEGORY_TABLE + "." + SQLiteHandler.ADM_COUNTRY_CODE_COL + "='" + cCode + "' ";
         //GROUP BY "+sqlH.DISTRICT_TABLE+"."+sqlH.LAY_R_LIST_CODE_COL+", "+sqlH.DISTRICT_TABLE+"."+sqlH.DISTRICT_NAME_COL;
 
-        List<SpinnerHelper> listHHCategory = sqlH.getListAndID(SQLiteHandler.HOUSE_HOLD_CATEGORY_TABLE, criteria, cCode, false);
+        List<SpinnerHelper> listHHCategory = sqlH.getListAndID(SQLiteHandler.LUP_REGNH_HEAD_CATEGORY_TABLE, criteria, cCode, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listHHCategory);
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
         spHHType.setAdapter(dataAdapter);

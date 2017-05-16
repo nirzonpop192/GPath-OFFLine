@@ -146,8 +146,8 @@ public class LoginActivity extends BaseActivity {
     String tem;
 
     /**
-     * {@link LoginActivity#temValue}  variable is only used for {@link #getOperationModeAlert(String, String)} method
-     * Clicking on an item  store the value in {@link LoginActivity#temValue}
+     * variable is only used for {@link #getOperationModeAlert(String, String)} method
+     * Clicking on an item  store the value in temValue}
      * which is used in positive Button
      */
     private String temValue;
@@ -173,19 +173,18 @@ public class LoginActivity extends BaseActivity {
          */
 
 
-        settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE); //1
+        settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         editor = settings.edit(); //2
 
 
-        // Progress mdialog
-        pDialog = new ProgressDialog(this);
+        pDialog = new ProgressDialog(this);                                                         // Progress mdialog
         pDialog.setCancelable(false);
 
-        // SQLite database handler
-        db = new SQLiteHandler(getApplicationContext());
 
-        // connectivity manager
-        cd = new ConnectionDetector(getApplicationContext());
+        db = new SQLiteHandler(getApplicationContext());                                             // SQLite database handler
+
+
+        cd = new ConnectionDetector(getApplicationContext());                                       // connectivity manager
 
 
         setListener();
@@ -272,7 +271,7 @@ public class LoginActivity extends BaseActivity {
 
     private boolean importDataBase() {
         boolean flag = false;
-//        Toast.makeText(mContext, Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME, Toast.LENGTH_SHORT).show();
+
         try {
             String path = Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME;
 
@@ -290,6 +289,11 @@ public class LoginActivity extends BaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        /**
+         * if database is imported than save a flag for not to sync with online
+         */
+        editor.putBoolean(UtilClass.SYNC_MODE_KEY, false);
+        editor.commit();
         return flag;
     }
 
@@ -436,41 +440,45 @@ public class LoginActivity extends BaseActivity {
                         gotoHomePage();
 
                     } else {
-                        /**
-                         * This block determine is Internet available
-                         */
-                        isInternetAvailable = cd.isConnectingToInternet();
-                        if (isInternetAvailable) {
-                            /***
-                             * This if  block determine is there any un-synchronized  data exits in local device
+                        boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
+                        if (syncMode) {
+                            /**
+                             * This block determine is Internet available
                              */
-                            if (db.selectUploadSyntextRowCount() > 0) {
-                                /**
-                                 * This block check the user is country admin or not
-                                 * if the the user is country admin or admin
-                                 * than the app will be unlocked . but will remain for previous user
+                            isInternetAvailable = cd.isConnectingToInternet();
+                            if (isInternetAvailable) {
+                                /***
+                                 * This if  block determine is there any un-synchronized  data exits in local device
                                  */
-                                if (db.isValidAdminLocalLogin(user_name, password)) {
-                                    gotoHomePage();
+                                if (db.selectUploadSyntextRowCount() > 0) {
+                                    /**
+                                     * This block check the user is country admin or not
+                                     * if the the user is country admin or admin
+                                     * than the app will be unlocked . but will remain for previous user
+                                     */
+                                    if (db.isValidAdminLocalLogin(user_name, password)) {
+                                        gotoHomePage();
+                                    } else {
+                                        showAlert(getResources().getString(R.string.unsyn_msg));
+                                    }
+
                                 } else {
-                                    showAlert(getResources().getString(R.string.unsyn_msg));
+                                    pDialog = new ProgressDialog(mContext);
+                                    pDialog.setCancelable(false);
+                                    pDialog.setMessage("Loading..");
+                                    pDialog.show();
+                                    /**
+                                     * for selecting operation Mood
+                                     *
+                                     */
+                                    getOperationModeAlert(user_name, password);
                                 }
 
-                            } else {
-                                pDialog = new ProgressDialog(mContext);
-                                pDialog.setCancelable(false);
-                                pDialog.setMessage("Loading..");
-                                pDialog.show();
-                                /**
-                                 * for selecting operation Mood
-                                 *
-                                 */
-                                getOperationModeAlert(user_name, password);
-                            }
 
-
+                            } else
+                                showAlert("Check your internet connectivity!!");
                         } else
-                            showAlert("Check your internet connectivity!!");
+                            showAlert("Device is not configure for internet connectivity !!");
                     }
                 } else {
                     // Prompt user to enter credentials
@@ -612,7 +620,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+//        super.onBackPressed();
     }
 
 

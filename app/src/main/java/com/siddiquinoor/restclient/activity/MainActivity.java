@@ -207,15 +207,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 String currentDBPath = "/data/data/" + getPackageName() + "/databases/"
                         + SQLiteHandler.EXTERNAL_DATABASE_NAME;
                 String backupdbName = null;
-                try {
-//                    backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_"            //Due to macAddress file is not saving
-                    // + getStaffID() + "_" + getDateTime() + ".off";
-                    backupdbName = "EXPORT_" + getStaffID() + "_" + getDate() + ".off";
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext,currentDBPath, backupdbName, "Export Successful! ");
-                db.clearUploadSyntaxTable();
+//                try {
+////                    backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_"            //Due to macAddress file is not saving
+//                    // + getStaffID() + "_" + getDateTime() + ".off";
+//                    backupdbName = "EXPORT_" + getStaffID() + "_" + getDate() + ".off";
+//                } catch (ParseException e) {
+//                    e.printStackTrace();
+//                }
+
+                backupdbName = "EXPORT_" + getStaffID() + ".off";
+                FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, currentDBPath, backupdbName, "Export Successful! ");
+//                db.clearUploadSyntaxTable();
                 logoutUser();
 
 
@@ -257,7 +259,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         String sourceDbPath = "/data/data/" + getPackageName() + "/databases/pci";
 
-        FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext,sourceDbPath, destinationDbPath, "Import Successful! " + destinationDbPath);
+        FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, sourceDbPath, destinationDbPath, "Import Successful! " + destinationDbPath);
 
     }
 
@@ -381,8 +383,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * <p>
      * This method control the button view with respect to operation
      * </p>
-     *
-     * @param settings Shared Preference Object
      */
 
     private void viewAccessController() {
@@ -536,32 +536,37 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 //main_activity.finish();
                 break;
             case R.id.btnSyncRecord:
-                my_view = v;
-                isInternetPresent = cd.isConnectingToInternet();
+                SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+                boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
+                if (syncMode) {
+                    my_view = v;
+                    isInternetPresent = cd.isConnectingToInternet();
 
-                if (isInternetPresent)
-                    synchronizeData(my_view);
-                else {
+                    if (isInternetPresent)
+                        synchronizeData(my_view);
+                    else {
 
-                    showAlert("Check your internet connectivity!!");
-                }
-                SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
-                Date now = new Date();
-                String SyncDate = date.format(now);
-                db.insertIntoLastSyncTraceStatus(getUserID(), getUserName(), SyncDate);
-                //tvSyncRequired = (TextView)findViewById(R.id.tv_sync_required);
-                tvSyncRequired.setText(N);
-                if (db.lastSyncStatus().equals("")) {
-                    tvLastSync.setText("N/A");
-                } else {
-                    tvLastSync.setText(db.lastSyncStatus());
-                }
+                        showAlert("Check your internet connectivity!!");
+                    }
+                    SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.ENGLISH);
+                    Date now = new Date();
+                    String SyncDate = date.format(now);
+                    db.insertIntoLastSyncTraceStatus(getUserID(), getUserName(), SyncDate);
+                    //tvSyncRequired = (TextView)findViewById(R.id.tv_sync_required);
+                    tvSyncRequired.setText(N);
+                    if (db.lastSyncStatus().equals("")) {
+                        tvLastSync.setText("N/A");
+                    } else {
+                        tvLastSync.setText(db.lastSyncStatus());
+                    }
+                } else
+                    showAlert("Device is not configure for internet connectivity !!");
                 break;
 
             case R.id.btnCardRequest:
                 finish();
                 Intent iCardR = new Intent(getApplicationContext(), CardRequestActivity.class);
-                // // TODO: 4/4/2017  check intent  then remove the object parameter
+
                 iCardR.putExtra("ID_COUNTRY", idCountry);
                 iCardR.putExtra("STR_COUNTRY", strCountry);
                 startActivity(iCardR);
@@ -569,7 +574,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btnDistribution:
                 finish();
                 Intent iDist = new Intent(getApplicationContext(), DistributionActivity.class);
-                // // TODO: 4/4/2017  check intent  then remove the object parameter
+
                 iDist.putExtra(KEY.COUNTRY_ID, idCountry);
                 iDist.putExtra(KEY.STR_COUNTRY, strCountry);
                 iDist.putExtra(KEY.DIR_CLASS_NAME_KEY, "MainActivity");
@@ -579,17 +584,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.btnService:
                 finish();
                 Intent iSer = new Intent(getApplicationContext(), ServiceActivity.class);
-                // // TODO: 4/4/2017  check intent  then remove the object parameter
+
                 iSer.putExtra(KEY.COUNTRY_ID, idCountry);
                 iSer.putExtra(KEY.STR_COUNTRY, strCountry);
                 iSer.putExtra(KEY.DIR_CLASS_NAME_KEY, "MainActivity");
                 startActivity(iSer);
                 break;
             case R.id.btnGPS:
-                //   Intent iMap = new Intent(getApplicationContext(), MapActivity.class);
+
                 finish();
                 Intent iMap = new Intent(getApplicationContext(), GPSLocationSearchPage.class);
-                // // TODO: 4/4/2017  check intent  then remove the object parameter
+
                 iMap.putExtra(KEY.COUNTRY_ID, idCountry);
                 iMap.putExtra(KEY.STR_COUNTRY, strCountry);
                 iMap.putExtra(KEY.DIR_CLASS_NAME_KEY, "MainActivity");
@@ -675,8 +680,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      * LOAD :: COUNTRY
      */
     private void loadCountry() {
-//        SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-//        int operationMode = settings.getInt(UtilClass.OPERATION_MODE, 0);
+
         int operationMode = sqlH.getDeviceOperationModeCode();
 
 

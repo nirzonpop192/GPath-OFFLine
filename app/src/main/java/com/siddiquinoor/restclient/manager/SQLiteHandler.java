@@ -176,7 +176,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String STAFF_GEO_INFO_ACCESS_TABLE = "StaffGeoInfoAccess";
     public static final String STAFF_SRV_CENTER_ACCESS_TABLE = "StaffSrvCenterAccess";
 
-    public static final String HOUSE_HOLD_CATEGORY_TABLE = "HouseHoldCategory";
+    public static final String LUP_REGNH_HEAD_CATEGORY_TABLE = "LUP_RegNHHHeadCategory";
     // public static final String LIBERIA_REGISTRATION_TABLE = "Liberia_Registration";
 
     public static final String REG_N_LUP_GRADUATION_TABLE = "RegNLUP_Graduation";
@@ -362,13 +362,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String USE_GIS_COL = "UseGIS";
     public static final String TD_SP_NAME_COL = "TDspName";
     public static final String T_CONTENTS_COL = "TContents";
-
-
     public static final String SHOW_HIDE_COL = "ShowHide";
     public static final String MAX_VALUE_COL = "MaxValue";
     public static final String MIN_VALUE_COL = "MinValue";
     public static final String MARK_ON_GRID_COL = "MarkOnGrid";
-
     public static final String LAND_SIZE_UNDER_IRRIGATION_COL = "LandSizeUnderIrrigation";
     public static final String IRRIGATION_SYSTEM_USED_COL = "IrrigationSystemUsed";
     public static final String FUND_SUPPORT_COL = "FundSupport";
@@ -571,7 +568,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     // Registration Member
 
     public static final String HHID_COL = "HHID";
-    public static final String MEM_CARD_PRINT_HH_MEM_ID = "MemID";
+    public static final String MEM_ID_COL = "MemID";
     public static final String REG_N_ASSIGN_PROG_SRV_HH_MEM_ID = "MemID";
     public static final String HH_MEM_ID = "HHMemID";
     public static final String MEM_NAME_COL = "MemName";
@@ -1204,7 +1201,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.execSQL(DROP_TABLE_IF_EXISTS + REG_N_CU2_TABLE);
         db.execSQL(DROP_TABLE_IF_EXISTS + REG_N_CA2_TABLE);
         db.execSQL(DROP_TABLE_IF_EXISTS + STAFF_GEO_INFO_ACCESS_TABLE);
-        db.execSQL(DROP_TABLE_IF_EXISTS + HOUSE_HOLD_CATEGORY_TABLE);
+        db.execSQL(DROP_TABLE_IF_EXISTS + LUP_REGNH_HEAD_CATEGORY_TABLE);
         db.execSQL(DROP_TABLE_IF_EXISTS + REG_N_LUP_GRADUATION_TABLE);
         db.execSQL(DROP_TABLE_IF_EXISTS + REPORT_TEMPLATE_TABLE);
         db.execSQL(DROP_TABLE_IF_EXISTS + CARD_PRINT_REASON_TABLE);
@@ -1419,10 +1416,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         refreshDatabase(db);
     }
 
-    public  void clearUploadSyntaxTable(){
-        SQLiteDatabase db= getWritableDatabase();
+    public void clearUploadSyntaxTable() {
+        SQLiteDatabase db = getWritableDatabase();
         db.delete(UPLOAD_SYNTAX_TABLE, null, null);
     }
+
     /**
      * Drop All the Table to alter the Any table column in table.
      * after droping all the table it called {@link #onCreate(SQLiteDatabase)} method to create tables
@@ -1467,7 +1465,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             db.execSQL(DROP_TABLE_IF_EXISTS + REG_N_CU2_TABLE);
             db.execSQL(DROP_TABLE_IF_EXISTS + REG_N_CA2_TABLE);
             db.execSQL(DROP_TABLE_IF_EXISTS + STAFF_GEO_INFO_ACCESS_TABLE);
-            db.execSQL(DROP_TABLE_IF_EXISTS + HOUSE_HOLD_CATEGORY_TABLE);
+            db.execSQL(DROP_TABLE_IF_EXISTS + LUP_REGNH_HEAD_CATEGORY_TABLE);
             //db.execSQL(DROP_TABLE_IF_EXISTS + LIBERIA_REGISTRATION_TABLE);
             db.execSQL(DROP_TABLE_IF_EXISTS + REG_N_LUP_GRADUATION_TABLE);
             db.execSQL(DROP_TABLE_IF_EXISTS + REPORT_TEMPLATE_TABLE);
@@ -1583,7 +1581,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             //db.delete(COUNTRY_PROGRAM_TABLE, null, null);
 //            db.delete(SERVICE_CENTER_TABLE, null, null);
             ///  db.delete(STAFF_GEO_INFO_ACCESS_TABLE, null, null);
-            db.delete(HOUSE_HOLD_CATEGORY_TABLE, null, null);
+            db.delete(LUP_REGNH_HEAD_CATEGORY_TABLE, null, null);
             db.delete(REG_N_LUP_GRADUATION_TABLE, null, null);
             db.delete(LAYER_LABEL_TABLE, null, null);
             db.delete(REPORT_TEMPLATE_TABLE, null, null);
@@ -1678,7 +1676,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             db.delete(REG_N_CA2_TABLE, null, null);
             db.delete(STAFF_GEO_INFO_ACCESS_TABLE, null, null);
             db.delete(STAFF_SRV_CENTER_ACCESS_TABLE, null, null);
-            db.delete(HOUSE_HOLD_CATEGORY_TABLE, null, null);
+            db.delete(LUP_REGNH_HEAD_CATEGORY_TABLE, null, null);
 
             db.delete(REG_N_LUP_GRADUATION_TABLE, null, null);
             db.delete(REPORT_TEMPLATE_TABLE, null, null);
@@ -3134,7 +3132,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(ADM_COUNTRY_CODE_COL, distData.getCountryCode());
         values.put(ADM_DONOR_CODE_COL, distData.getAdmDonorCode());
         values.put(AWARD_CODE_COL, distData.getAdmAwardCode());
-        values.put(LAY_R_LIST_CODE_COL, distData.getDistrictCode());
+        values.put(LAY_R1_LIST_CODE_COL, distData.getDistrictCode());
         values.put(LAY_R2_LIST_CODE_COL, distData.getUpCode());
         values.put(LAY_R3_LIST_CODE_COL, distData.getUniteCode());
         values.put(LAY_R4_LIST_CODE_COL, distData.getVillageCode());
@@ -3321,7 +3319,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(CATEGORY_CODE_COL, hhCatCode);
         values.put(CATEGORY_NAME_COL, hhCategoryName);
         // Insert
-        long id = db.insert(HOUSE_HOLD_CATEGORY_TABLE, null, values);
+        long id = db.insert(LUP_REGNH_HEAD_CATEGORY_TABLE, null, values);
         db.close();
 //        Log.d(TAG, "New House Hold Category  added: " + id);
 
@@ -3349,7 +3347,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         boolean flag = false;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + REG_N_CU2_TABLE + " WHERE    " + ADM_COUNTRY_CODE_COL + "=? AND " + LAY_R1_LIST_CODE_COL + "=? AND "
-                        + LAY_R2_LIST_CODE_COL + "=? AND " + LAY_R3_LIST_CODE_COL + "=? AND " + LAY_R4_LIST_CODE_COL + "=? AND " + HHID_COL + "=? AND " + MEM_CARD_PRINT_HH_MEM_ID + "=?  ",
+                        + LAY_R2_LIST_CODE_COL + "=? AND " + LAY_R3_LIST_CODE_COL + "=? AND " + LAY_R4_LIST_CODE_COL + "=? AND " + HHID_COL + "=? AND " + MEM_ID_COL + "=?  ",
                 new String[]{asPeople.getCountryCode(), asPeople.getDistrictCode(), asPeople.getUpazillaCode(), asPeople.getUnitCode(), asPeople.getVillageCode(),
                         asPeople.getHh_id(), asPeople.getMemId()});//*keyValue,keyvalue1*/});
 
@@ -3833,7 +3831,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " And   " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' " +
                 " And   " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
                 "  And  " + HHID_COL + " = '" + hhId + "' " +
-                "  And  " + MEM_CARD_PRINT_HH_MEM_ID + " = '" + mmId + "' " +
+                "  And  " + MEM_ID_COL + " = '" + mmId + "' " +
                 " And   " + PROG_CODE_COL + " ='" + prgCode + "' " +
                 "  And  " + SRV_CODE_COL + " ='" + srvCode + "' " +
                 "  And  " + OPERATION_CODE_COL + " = '2' " +
@@ -3902,7 +3900,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + asPeople.getUnitCode() + "'" +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + asPeople.getVillageCode() + "'" +
                 " AND " + HHID_COL + " = '" + asPeople.getHh_id() + "' " +
-                " AND " + MEM_CARD_PRINT_HH_MEM_ID + " = '" + asPeople.getMemId() + "'  ";
+                " AND " + MEM_ID_COL + " = '" + asPeople.getMemId() + "'  ";
 
 
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -3936,7 +3934,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 LAY_R3_LIST_CODE_COL + " = '" + asPeople.getUnitCode() + "' AND " +
                 LAY_R4_LIST_CODE_COL + " = '" + asPeople.getVillageCode() + "' AND " +
                 HHID_COL + " = '" + asPeople.getHh_id() + "' AND " +
-                MEM_CARD_PRINT_HH_MEM_ID + " = '" + asPeople.getMemId() + "'  ";
+                MEM_ID_COL + " = '" + asPeople.getMemId() + "'  ";
 
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null && cursor.moveToFirst()) {
@@ -3966,7 +3964,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 LAY_R3_LIST_CODE_COL + " = '" + asPeople.getUnitCode() + "' AND " +
                 LAY_R4_LIST_CODE_COL + " = '" + asPeople.getVillageCode() + "' AND " +
                 HHID_COL + " = '" + asPeople.getHh_id() + "' AND " +
-                MEM_CARD_PRINT_HH_MEM_ID + " = '" + asPeople.getMemId() + "'  ";
+                MEM_ID_COL + " = '" + asPeople.getMemId() + "'  ";
 
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor != null && cursor.moveToFirst()) {
@@ -4539,13 +4537,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(REG_N_DAT_COL, regDate);
         values.put(ELDERLY_YN_COL, elderleyNy);
-        String query = ADM_COUNTRY_CODE_COL + " = '" + assignDataModel.getCountryCode() + "' AND " +
-                LAY_R_LIST_CODE_COL + " = '" + assignDataModel.getDistrictCode() + "' AND " +
-                LAY_R2_LIST_CODE_COL + " = '" + assignDataModel.getUpazillaCode() + "' AND " +
-                LAY_R3_LIST_CODE_COL + " = '" + assignDataModel.getUnitCode() + "' AND " +
-                LAY_R4_LIST_CODE_COL + " = '" + assignDataModel.getVillageCode() + "' AND " +
-                HHID_COL + " = '" + assignDataModel.getHh_id() + "' AND " +
-                HH_MEM_ID + " = '" + assignDataModel.getMemId() + "'  ";
+        String query = SQLiteQuery.edtAssignAgerIn_Elderley_sql(assignDataModel);
         int id = db.update(REG_N_AGR_TABLE, values, query, null);
         db.close();
         return id;
@@ -4623,13 +4615,14 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
 
-        String where = ADM_COUNTRY_CODE_COL + " = '" + assignDataModel.getCountryCode() + "' AND " +
-                LAY_R_LIST_CODE_COL + " = '" + assignDataModel.getDistrictCode() + "' AND " +
-                LAY_R2_LIST_CODE_COL + " = '" + assignDataModel.getUpazillaCode() + "' AND " +
-                LAY_R3_LIST_CODE_COL + " = '" + assignDataModel.getUnitCode() + "' AND " +
-                LAY_R4_LIST_CODE_COL + " = '" + assignDataModel.getVillageCode() + "' AND " +
-                HHID_COL + " = '" + assignDataModel.getHh_id() + "' AND " +
-                HH_MEM_ID + " = '" + assignDataModel.getMemId() + "'  ";
+        String where = SQLiteQuery.edtAssignAgerIn_Elderley_sql(assignDataModel);
+//        ADM_COUNTRY_CODE_COL + " = '" + assignDataModel.getCountryCode() + "' AND " +
+//                LAY_R_LIST_CODE_COL + " = '" + assignDataModel.getDistrictCode() + "' AND " +
+//                LAY_R2_LIST_CODE_COL + " = '" + assignDataModel.getUpazillaCode() + "' AND " +
+//                LAY_R3_LIST_CODE_COL + " = '" + assignDataModel.getUnitCode() + "' AND " +
+//                LAY_R4_LIST_CODE_COL + " = '" + assignDataModel.getVillageCode() + "' AND " +
+//                HHID_COL + " = '" + assignDataModel.getHh_id() + "' AND " +
+//                HH_MEM_ID + " = '" + assignDataModel.getMemId() + "'  ";
 
         ContentValues values = new ContentValues();
         values.put(REG_N_DAT_COL, regDate);
@@ -4650,27 +4643,16 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         return id;
     }
 
-    /**
-     * @param assignDataModel
-     * @param landSize
-     * @param willingness
-     * @param winterCultivation
-     * @param regDate           TODO: ELDERLEY-IG
-     */
+
     public int edtAssignAgerIn_IG(AssignDataModel assignDataModel, String landSize, String willingness, String winterCultivation, String regDate) {
         SQLiteDatabase db = this.getWritableDatabase();
+        String query = SQLiteQuery.edtAssignAgerIn_Elderley_sql(assignDataModel);
         ContentValues values = new ContentValues();
         values.put(REG_N_DAT_COL, regDate);
         values.put(LAND_SIZE_COL, landSize);
         values.put(WINTER_CULTIVATION_COL, winterCultivation);
         values.put(WILLINGNESS_COL, willingness);
-        String query = COUNTRY_CODE + " = '" + assignDataModel.getCountryCode() + "' AND " +
-                LAY_R_LIST_CODE_COL + " = '" + assignDataModel.getDistrictCode() + "' AND " +
-                LAY_R2_LIST_CODE_COL + " = '" + assignDataModel.getUpazillaCode() + "' AND " +
-                LAY_R3_LIST_CODE_COL + " = '" + assignDataModel.getUnitCode() + "' AND " +
-                LAY_R4_LIST_CODE_COL + " = '" + assignDataModel.getVillageCode() + "' AND " +
-                HHID_COL + " = '" + assignDataModel.getHh_id() + "' AND " +
-                HH_MEM_ID + " = '" + assignDataModel.getMemId() + "'  ";
+
         int id = db.update(REG_N_AGR_TABLE, values, query, null);
         return id;
     }
@@ -4678,18 +4660,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     public int edtAssignAgerIn_LG(AssignDataModel assignDataModel, String landSize, String willingness, String vurnarableHH, String regDate) {
         SQLiteDatabase db = this.getWritableDatabase();
+        String query = SQLiteQuery.edtAssignAgerIn_Elderley_sql(assignDataModel);
         ContentValues values = new ContentValues();
         values.put(REG_N_DAT_COL, regDate);
         values.put(LAND_SIZE_COL, landSize);
         values.put(VULNERABLE_HH_COL, vurnarableHH);
         values.put(WILLINGNESS_COL, willingness);
-        String query = ADM_COUNTRY_CODE_COL + " = '" + assignDataModel.getCountryCode() + "' AND " +
-                LAY_R_LIST_CODE_COL + " = '" + assignDataModel.getDistrictCode() + "' AND " +
-                LAY_R2_LIST_CODE_COL + " = '" + assignDataModel.getUpazillaCode() + "' AND " +
-                LAY_R3_LIST_CODE_COL + " = '" + assignDataModel.getUnitCode() + "' AND " +
-                LAY_R4_LIST_CODE_COL + " = '" + assignDataModel.getVillageCode() + "' AND " +
-                HHID_COL + " = '" + assignDataModel.getHh_id() + "' AND " +
-                HH_MEM_ID + " = '" + assignDataModel.getMemId() + "'  ";
+
         int id = db.update(REG_N_AGR_TABLE, values, query, null);
         return id;
     }
@@ -4697,18 +4674,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     public int edtAssignAgerIn_MG(AssignDataModel assignDataModel, String landSize, String willingness, String plantingVC, String regDate) {
         SQLiteDatabase db = this.getWritableDatabase();
+        String query = SQLiteQuery.edtAssignAgerIn_Elderley_sql(assignDataModel);
         ContentValues values = new ContentValues();
         values.put(REG_N_DAT_COL, regDate);
         values.put(LAND_SIZE_COL, landSize);
         values.put(PLANTING_VALUE_CHAIN_CROP_COL, plantingVC);
         values.put(WILLINGNESS_COL, willingness);
-        String query = COUNTRY_CODE + " = '" + assignDataModel.getCountryCode() + "' AND " +
-                LAY_R_LIST_CODE_COL + " = '" + assignDataModel.getDistrictCode() + "' AND " +
-                LAY_R2_LIST_CODE_COL + " = '" + assignDataModel.getUpazillaCode() + "' AND " +
-                LAY_R3_LIST_CODE_COL + " = '" + assignDataModel.getUnitCode() + "' AND " +
-                LAY_R4_LIST_CODE_COL + " = '" + assignDataModel.getVillageCode() + "' AND " +
-                HHID_COL + " = '" + assignDataModel.getHh_id() + "' AND " +
-                HH_MEM_ID + " = '" + assignDataModel.getMemId() + "'  ";
+
         int id = db.update(REG_N_AGR_TABLE, values, query, null);
         return id;
     }
@@ -4733,7 +4705,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
                 " AND " + HHID_COL + " = '" + hhID + "' " +
-                " AND " + MEM_CARD_PRINT_HH_MEM_ID + " = '" + memID + "' " +
+                " AND " + MEM_ID_COL + " = '" + memID + "' " +
                 " AND " + REPORT_GROUP_COL + " = '" + rptGroup + "' " +
                 " AND " + REPORT_CODE_COL + " = '" + reportCode + "' ";
         Cursor cursor = null;
@@ -4887,7 +4859,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
                 " AND " + HHID_COL + " = '" + hhID + "' " +
-                " AND " + MEM_CARD_PRINT_HH_MEM_ID + " = '" + memID + "' " +
+                " AND " + MEM_ID_COL + " = '" + memID + "' " +
                 " AND " + REPORT_GROUP_COL + " = '" + rptGroup + "' " +
                 " AND " + REPORT_CODE_COL + " = '" + reportCode + "' ";
         Cursor cursor = null;
@@ -4936,7 +4908,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
                 " AND " + HHID_COL + " = '" + hhID + "' " +
-                " AND " + MEM_CARD_PRINT_HH_MEM_ID + " = '" + memID + "' " +
+                " AND " + MEM_ID_COL + " = '" + memID + "' " +
                 " AND " + REPORT_GROUP_COL + " = '" + rptGroup + "' " +
                 " AND " + REPORT_CODE_COL + " = '" + reportCode + "' ";
         Cursor cursor = null;
@@ -4996,7 +4968,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
                 " AND " + HHID_COL + " = '" + hhID + "' " +
-                " AND " + MEM_CARD_PRINT_HH_MEM_ID + " = '" + memID + "' " +
+                " AND " + MEM_ID_COL + " = '" + memID + "' " +
                 " AND " + REPORT_GROUP_COL + " = '" + rptGroup + "' " +
                 " AND " + REPORT_CODE_COL + " = '" + reportCode + "' ";
         Cursor cursor = null;
@@ -5091,7 +5063,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R4_LIST_CODE_COL, vCode);
 
         values.put(HHID_COL, hhid); // Registration id
-        values.put(MEM_CARD_PRINT_HH_MEM_ID, memid); // member id
+        values.put(MEM_ID_COL, memid); // member id
 
 
         values.put(REPORT_GROUP_COL, reportGroupCode);
@@ -5143,7 +5115,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R4_LIST_CODE_COL, vCode);
 
         values.put(HHID_COL, hhid); // Registration id
-        values.put(MEM_CARD_PRINT_HH_MEM_ID, memid); // member id
+        values.put(MEM_ID_COL, memid); // member id
 
 
         values.put(REPORT_GROUP_COL, reportGroupCode);
@@ -5194,7 +5166,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 " AND " + LAY_R3_LIST_CODE_COL + " = '" + unCode + "' " +
                 " AND " + LAY_R4_LIST_CODE_COL + " = '" + vCode + "' " +
                 " AND " + HHID_COL + " = '" + hhID + "' " +
-                " AND " + MEM_CARD_PRINT_HH_MEM_ID + " = '" + memID + "' " +
+                " AND " + MEM_ID_COL + " = '" + memID + "' " +
                 " AND " + REPORT_GROUP_COL + " = '" + rptGroup + "' " +
                 " AND " + REPORT_CODE_COL + " = '" + reportCode + "' ";
         Cursor cursor = null;
@@ -5876,12 +5848,12 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
         values.put(ADM_COUNTRY_CODE_COL, data.getCountryCode());
-        values.put(LAY_R_LIST_CODE_COL, data.getDistrictCode());
+        values.put(LAY_R1_LIST_CODE_COL, data.getDistrictCode());
         values.put(LAY_R2_LIST_CODE_COL, data.getUpazillaCode());
         values.put(LAY_R3_LIST_CODE_COL, data.getUnitCode());
         values.put(LAY_R4_LIST_CODE_COL, data.getVillageCode());
         values.put(HHID_COL, data.getHhId());
-        values.put(HH_MEM_ID, data.getHhMemId());
+        values.put(MEM_ID_COL, data.getHhMemId());
         values.put(REG_N_DAT_COL, data.getRegnDate());
         values.put(ELDERLY_YN_COL, data.getElderleyYN());
         values.put(LAND_SIZE_COL, data.getLandSize());
@@ -6970,7 +6942,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         //  todo : use checkDataExistInTable()
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM " + REG_N_CA2_TABLE + " WHERE    " + ADM_COUNTRY_CODE_COL + "=? AND " + LAY_R1_LIST_CODE_COL + "=? AND "
-                        + LAY_R2_LIST_CODE_COL + "=? AND " + LAY_R3_LIST_CODE_COL + "=? AND " + LAY_R4_LIST_CODE_COL + "=? AND " + HHID_COL + "=? AND " + MEM_CARD_PRINT_HH_MEM_ID + "=?  ",
+                        + LAY_R2_LIST_CODE_COL + "=? AND " + LAY_R3_LIST_CODE_COL + "=? AND " + LAY_R4_LIST_CODE_COL + "=? AND " + HHID_COL + "=? AND " + MEM_ID_COL + "=?  ",
                 new String[]{asPeople.getCountryCode(), asPeople.getDistrictCode(), asPeople.getUpazillaCode(), asPeople.getUnitCode(), asPeople.getVillageCode(),
                         asPeople.getHh_id(), asPeople.getMemId()});
 
@@ -7002,8 +6974,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     public boolean ifExistsInPWTable(AssignDataModel asPeople) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + REG_N_PW_TABLE + " WHERE    " + ADM_COUNTRY_CODE_COL + "=? AND " + LAY_R1_LIST_CODE_COL + "=? AND "
-                        + LAY_R2_LIST_CODE_COL + "=? AND " + LAY_R3_LIST_CODE_COL + "=? AND " + LAY_R4_LIST_CODE_COL + "=? AND " + HHID_COL + "=? AND " + MEM_CARD_PRINT_HH_MEM_ID + "=?  ",
+        String sql = "SELECT * FROM " + REG_N_PW_TABLE + " WHERE    " + ADM_COUNTRY_CODE_COL + "=? AND " + LAY_R1_LIST_CODE_COL + "=? AND "
+                + LAY_R2_LIST_CODE_COL + "=? AND " + LAY_R3_LIST_CODE_COL + "=? AND " + LAY_R4_LIST_CODE_COL + "=? AND " + HHID_COL + "=? AND " + MEM_ID_COL + "=?  ";
+        Cursor cursor = db.rawQuery(sql,
                 new String[]{asPeople.getCountryCode(), asPeople.getDistrictCode(), asPeople.getUpazillaCode(), asPeople.getUnitCode(), asPeople.getVillageCode(),
                         asPeople.getHh_id(), asPeople.getMemId()});
 
@@ -8345,55 +8318,61 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         selectQuery = SQLiteQuery.getDistributionGridShowData(cCode, donorCode, awardCode, progCode, srvOpMonthCode, fdpCode, searchMem);
 
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor c1 = db.rawQuery(selectQuery, null);
 
-        if (cursor.moveToFirst()) {
-            int i = 0;
+        if (c1 != null) {
+            c1.moveToFirst();
+        }
+
+        int i = 0;
+
+        if (c1 != null&& c1.moveToFirst()) {
             do {
                 DistributionGridDataModel distbutedPerson = new DistributionGridDataModel();
 
-                distbutedPerson.setC_code(cursor.getString(cursor.getColumnIndex("country")));
-                distbutedPerson.setDonorCode(cursor.getString(cursor.getColumnIndex("donor")));
-                distbutedPerson.setAwardCode(cursor.getString(cursor.getColumnIndex("award")));
-                distbutedPerson.setDistrictCode(cursor.getString(cursor.getColumnIndex("district")));
-                distbutedPerson.setUpazillaCode(cursor.getString(cursor.getColumnIndex("upzella")));
-                distbutedPerson.setUnitCode(cursor.getString(cursor.getColumnIndex("unite")));
-                distbutedPerson.setVillageCode(cursor.getString(cursor.getColumnIndex("village")));
+                distbutedPerson.setC_code(c1.getString(0));
+                distbutedPerson.setDonorCode(c1.getString(c1.getColumnIndex("donor")));
+                distbutedPerson.setAwardCode(c1.getString(c1.getColumnIndex("award")));
+                distbutedPerson.setDistrictCode(c1.getString(c1.getColumnIndex("district")));
+                distbutedPerson.setUpazillaCode(c1.getString(c1.getColumnIndex("upzella")));
+                distbutedPerson.setUnitCode(c1.getString(c1.getColumnIndex("unite")));
+                distbutedPerson.setVillageCode(c1.getString(c1.getColumnIndex("village")));
 
                 if (donorCode.equals("01") && awardCode.equals("01") && progCode.equals("001")) {
                     if (i % 2 == 0) {
-                        distbutedPerson.setRpt_id(cursor.getString(cursor.getColumnIndex("HHID")));
-                        distbutedPerson.setRpt_name(cursor.getString(cursor.getColumnIndex("HhName")));
+                        distbutedPerson.setRpt_id(c1.getString(c1.getColumnIndex("HHID")));
+                        distbutedPerson.setRpt_name(c1.getString(c1.getColumnIndex("HhName")));
                         distbutedPerson.setServiceShortName("HHR");
                         distbutedPerson.setService_code("05");
                     } else {
-                        distbutedPerson.setRpt_id(cursor.getString(cursor.getColumnIndex("MEMBERID")));
-                        distbutedPerson.setRpt_name(cursor.getString(cursor.getColumnIndex("MemName")));
-                        distbutedPerson.setServiceShortName(cursor.getString(cursor.getColumnIndex("srvName")));
-                        distbutedPerson.setService_code(cursor.getString(cursor.getColumnIndex("service")));
+                        distbutedPerson.setRpt_id(c1.getString(c1.getColumnIndex("MEMBERID")));
+                        distbutedPerson.setRpt_name(c1.getString(c1.getColumnIndex("MemName")));
+                        distbutedPerson.setServiceShortName(c1.getString(c1.getColumnIndex("srvName")));
+                        distbutedPerson.setService_code(c1.getString(c1.getColumnIndex("service")));
                     }
 
                 } else {
 
 
-                    distbutedPerson.setRpt_id(cursor.getString(cursor.getColumnIndex("MEMBERID")));
-                    distbutedPerson.setRpt_name(cursor.getString(cursor.getColumnIndex("MemName")));
-                    distbutedPerson.setServiceShortName(cursor.getString(cursor.getColumnIndex("srvName")));
-                    distbutedPerson.setService_code(cursor.getString(cursor.getColumnIndex("service")));
+                    distbutedPerson.setRpt_id(c1.getString(c1.getColumnIndex("MEMBERID")));
+                    distbutedPerson.setRpt_name(c1.getString(c1.getColumnIndex("MemName")));
+                    distbutedPerson.setServiceShortName(c1.getString(c1.getColumnIndex("srvName")));
+                    distbutedPerson.setService_code(c1.getString(c1.getColumnIndex("service")));
                 }
 
 
-                distbutedPerson.setProgram_code(cursor.getString(cursor.getColumnIndex("program")));
-                distbutedPerson.setWd(cursor.getString(cursor.getColumnIndex("wd")));
+                distbutedPerson.setProgram_code(c1.getString(c1.getColumnIndex("program")));
+                distbutedPerson.setWd(c1.getString(c1.getColumnIndex("wd")));
                 distributedList.add(distbutedPerson);
                 i++;
 
-            } while (cursor.moveToNext());
-        }
+            } while (c1.moveToNext());
 
-        // Log.d("NIM", DatabaseUtils.dumpCursorToString(cursor));
-        cursor.close();
-        db.close();
+            // Log.d("NIM", DatabaseUtils.dumpCursorToString(cursor));
+            c1.close();
+            db.close();
+
+        }
 
         return distributedList;/// ther select per son to get service
     }
@@ -8843,7 +8822,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 + " and " + SERVICE_TABLE + "." + LAY_R3_LIST_CODE_COL + " = '" + unCode + "'"
                 + " and " + SERVICE_TABLE + "." + LAY_R4_LIST_CODE_COL + " = '" + vCode + "'"
                 + " and " + SERVICE_TABLE + "." + HHID_COL + " = '" + hhId + "'"
-                + " and " + SERVICE_TABLE + "." + MEM_CARD_PRINT_HH_MEM_ID + " = '" + memId + "'"
+                + " and " + SERVICE_TABLE + "." + MEM_ID_COL + " = '" + memId + "'"
                 + " and " + SERVICE_TABLE + "." + PROG_CODE_COL + " = '" + progCode + "'"
                 + " and " + SERVICE_TABLE + "." + SRV_CODE_COL + " = '" + srvCode + "'";
 
@@ -9640,7 +9619,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
                 selectLabel += getLayerLabel(cCode, "4");
                 break;
-            case HOUSE_HOLD_CATEGORY_TABLE:
+            case LUP_REGNH_HEAD_CATEGORY_TABLE:
                 selectQuery = "SELECT " + CATEGORY_CODE_COL + " , " + CATEGORY_NAME_COL + " FROM " + table_name + criteria;
                 selectLabel = "Select House Hold Type";
                 break;
@@ -10202,7 +10181,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R4_LIST_CODE_COL, vname); // village  name
 
         values.put(HHID_COL, hhid); // Registration id
-        values.put(HH_MEM_ID, memid); // member id
+        values.put(MEM_ID_COL, memid); // member id
         values.put(REG_N_DAT_COL, regNdate); //
         values.put(LMP_DATE_COL, lmpDate);
         values.put(ADM_PROG_CODE_COL, program); //
@@ -10212,8 +10191,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         values.put(ENTRY_BY, "00");
         values.put(ENTRY_DATE, "00");
-
-        values.put(SYNC_COL, "1");
 
 
         // Inserting Row
@@ -10333,7 +10310,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R4_LIST_CODE_COL, assingPerson.getVillageCode()); // village  name
 
         values.put(HHID_COL, assingPerson.getHh_id()); // Personal name
-        values.put(MEM_CARD_PRINT_HH_MEM_ID, assingPerson.getMemId()); // Registration name
+        values.put(MEM_ID_COL, assingPerson.getMemId()); // Registration name
         values.put(ADM_PROG_CODE_COL, assingPerson.getProgram_code()); // Person name
         values.put(ADM_SRV_CODE_COL, assingPerson.getService_code()); // sex
         values.put(GRDCODE_COL, assingPerson.getGrdCode());
@@ -10480,7 +10457,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R3_LIST_CODE_COL, unCode);
         values.put(LAY_R4_LIST_CODE_COL, vCode);
         values.put(HHID_COL, hhID);
-        values.put(MEM_CARD_PRINT_HH_MEM_ID, memId);
+        values.put(MEM_ID_COL, memId);
 
         values.put(ADM_PROG_CODE_COL, progCode);
         values.put(ADM_SRV_CODE_COL, servCode);
@@ -10583,7 +10560,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R3_LIST_CODE_COL, unCode);
         values.put(LAY_R4_LIST_CODE_COL, vCode);
         values.put(HHID_COL, hhID);
-        values.put(MEM_CARD_PRINT_HH_MEM_ID, memId);
+        values.put(MEM_ID_COL, memId);
         values.put(ADM_PROG_CODE_COL, progCode);
         values.put(ADM_SRV_CODE_COL, servCode);
         values.put(REG_N_DAT_COL, regNdate);
@@ -11032,7 +11009,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(LAY_R3_LIST_CODE_COL, layR3Code);
         values.put(LAY_R4_LIST_CODE_COL, layR4Code);
         values.put(HHID_COL, hhid);
-        values.put(MEM_CARD_PRINT_HH_MEM_ID, memId);
+        values.put(MEM_ID_COL, memId);
 
         values.put(PROG_CODE_COL, progCode);
         values.put(SRV_CODE_COL, srvCode);
@@ -11738,11 +11715,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
 
         String cCode = "";
-        String sql ="";
-        switch (operationMode){
-               case UtilClass.REGISTRATION_OPERATION_MODE_NAME:
-                   sql = SQLiteQuery.getSelectedCountryCodeFromSelectedVillage_sql();
-                   break;
+        String sql = "";
+        switch (operationMode) {
+            case UtilClass.REGISTRATION_OPERATION_MODE_NAME:
+                sql = SQLiteQuery.getSelectedCountryCodeFromSelectedVillage_sql();
+                break;
 
             case UtilClass.DISTRIBUTION_OPERATION_MODE_NAME:
                 sql = SQLiteQuery.getSelectedCountryCodeFromSelectedFDP_sql();

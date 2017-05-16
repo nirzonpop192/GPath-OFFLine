@@ -555,11 +555,12 @@ public class DistributionActivity extends BaseActivity {
                 idFDP = ((SpinnerHelper) spFDP.getSelectedItem()).getId();
 
                 if (Integer.parseInt(idFDP) > 0) {
-                    LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");
-                    ld.execute();
 
-                    /**
-                     * For test*/
+                         // for loading time
+/*                    LoadingList ld = new LoadingList(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");
+                    ld.execute();*/
+
+                    /**                     * For test*/
 
 
                  /*   loadDistributionListView(idCountry, idDonor, idAward, idProgram, idServiceMonth, idFDP, idDisMonth, "");*/
@@ -741,9 +742,7 @@ public class DistributionActivity extends BaseActivity {
     } // end Load Spinner
 
 
-    /**
-     * LOAD :: UPAZILLA
-     */
+
     private void loadLayR2List(String cCode) {
         int position = 0;
         String criteria =
@@ -798,7 +797,7 @@ public class DistributionActivity extends BaseActivity {
                 if (idUP.length() > 2) {
                     loadFDP(idCountry, idUP);
                 }
-                //Log.d(TAG, "Upazilla selected: " + strUpazilla);
+
             }
 
             @Override
@@ -831,13 +830,10 @@ public class DistributionActivity extends BaseActivity {
 
         @Override
         protected String doInBackground(Void... params) {
-            try {
+
 
                 loadDistributionListView(country, donor, award, program, serviceMonth, fDP, disMonth, memSearch);
-            } catch (Exception e) {
 
-                return "UNKNOWN";
-            }
             return "sucess";
 
 
@@ -904,22 +900,22 @@ public class DistributionActivity extends BaseActivity {
         List<DistributionGridDataModel> distributedListData = sqlH.getDistributionDataList(cCode, donorCode, awardCode, progCode, srvOpMCode, fdpCode, mem);
 
 
-        if (distributedListData.size() != 0) {
-            distributedArray.clear();
+      /*  if (distributedListData.size() != 0) {*/
+           /* distributedArray.clear();
             for (DistributionGridDataModel data : distributedListData) {
 
                 distributedArray.add(data);
-            }
+            }*/
 
-            adapter = new DistributionDataListAdapter(this, distributedArray, distOpMCode, fdpCode, idProgram, idServiceMonth);
+            adapter = new DistributionDataListAdapter(this, distributedListData, distOpMCode, fdpCode, idProgram, idServiceMonth);
 
-        } else {
-            /** clean the list view */
+   /*     } else {
+            *//** clean the list view *//*
             distributedArray.clear();
             adapter = new DistributionDataListAdapter(this, distributedArray, distOpMCode, fdpCode, idProgram, idServiceMonth);
 
 
-        }
+        }*/
 //        mListView.setAdapter(adapter);
 //
     }
@@ -936,7 +932,7 @@ public class DistributionActivity extends BaseActivity {
             mDialog.showErrorDialog(mContext, "Invalid Attempt to save");
         } else {
 
-            ArrayList<DistributionGridDataModel> alist = new ArrayList<DistributionGridDataModel>();
+            List<DistributionGridDataModel> alist = new ArrayList<DistributionGridDataModel>();
             alist = adapter.distributData;
             Log.d(TAG, "distributData size " + alist.size());
             /** set  if condition */
@@ -1037,7 +1033,7 @@ public class DistributionActivity extends BaseActivity {
      */
     public class DistributionDataListAdapter extends BaseAdapter {
         private Activity activity;
-        public ArrayList<DistributionGridDataModel> distributData;
+        public List<DistributionGridDataModel> distributData;
         private LayoutInflater inflater;
         private String distOpMonthCode;
         private String fdpCode;
@@ -1049,7 +1045,7 @@ public class DistributionActivity extends BaseActivity {
 
         viewHolder holder;
 
-        public DistributionDataListAdapter(Activity activity, ArrayList<DistributionGridDataModel> distributData, String distOpMonthCode, String fdpCode, String progCode, String serviceMonthCode) {
+        public DistributionDataListAdapter(Activity activity, List<DistributionGridDataModel> distributData, String distOpMonthCode, String fdpCode, String progCode, String serviceMonthCode) {
             this.distributData = distributData;
             this.activity = activity;
             this.distOpMonthCode = distOpMonthCode;
