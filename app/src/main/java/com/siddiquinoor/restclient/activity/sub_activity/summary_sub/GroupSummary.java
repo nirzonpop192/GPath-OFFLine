@@ -250,7 +250,8 @@ public class GroupSummary extends BaseActivity /*implements AdapterView.OnItemCl
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            startProgressBar("Data is Loading");
+
+            startProgressBar(mContext.getResources().getString(R.string.loading_msg));
         }
 
         @Override

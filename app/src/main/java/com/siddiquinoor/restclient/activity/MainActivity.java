@@ -18,6 +18,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -207,15 +208,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 String currentDBPath = "/data/data/" + getPackageName() + "/databases/"
                         + SQLiteHandler.EXTERNAL_DATABASE_NAME;
                 String backupdbName = null;
-//                try {
-////                    backupdbName = "EXPORT_" + UtilClass.getMacAddress(mContext) + "_"            //Due to macAddress file is not saving
-//                    // + getStaffID() + "_" + getDateTime() + ".off";
-//                    backupdbName = "EXPORT_" + getStaffID() + "_" + getDate() + ".off";
-//                } catch (ParseException e) {
-//                    e.printStackTrace();
-//                }
 
-                backupdbName = "EXPORT_" + getStaffID() + ".off";
+
+                backupdbName = FileUtils.EXPORT_GOF_FILE;
                 FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, currentDBPath, backupdbName, "Export Successful! ");
 //                db.clearUploadSyntaxTable();
                 logoutUser();
@@ -227,15 +222,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         /**
          * import db
          */
-        Button importDb = (Button) findViewById(R.id.btnImport);
+        Button btnImportDatabase = (Button) findViewById(R.id.btnImport);
 
-        importDb.setVisibility(View.GONE);
+        btnImportDatabase.setVisibility(View.GONE);
         String path = Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME;
         File newDb = new File(path);
         if (newDb.exists()) {
-            importDb.setVisibility(View.VISIBLE);
+            btnImportDatabase.setVisibility(View.VISIBLE);
         }
-        importDb.setOnClickListener(new View.OnClickListener() {
+        btnImportDatabase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -300,6 +295,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         @Override
         protected String doInBackground(Void... params) {
             importFlag = importDataBase();
+
+
             return "successes";
         }
 
@@ -319,6 +316,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             hideProgressBar();
             String ddf = importFlag ? "Imported " : " is not imported ";
             CustomToast.show(mContext, "DataBase : " + ddf);
+
 
             logoutUser();
 
@@ -463,6 +461,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         txtName = (TextView) findViewById(R.id.user_name);
         btnLogout = (Button) findViewById(R.id.btnLogout);
         tvGeoData = (TextView) findViewById(R.id.tv_geo_data_1);
+        tvGeoData.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                tvGeoData.setMovementMethod(new ScrollingMovementMethod());
+            }
+        });
+       //
         tvLastSync = (TextView) findViewById(R.id.tv_last_sync);
         tvSyncRequired = (TextView) findViewById(R.id.tv_sync_required);
         btnNewReg = (Button) findViewById(R.id.btnNewReg);

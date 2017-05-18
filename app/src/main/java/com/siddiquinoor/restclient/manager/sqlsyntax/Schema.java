@@ -639,7 +639,7 @@ public class Schema {
                 + LAY_R3_LIST_CODE_COL + " VARCHAR(2), "
                 + LAY_R4_LIST_CODE_COL + " VARCHAR(2), "
                 + HHID_COL + " VARCHAR(6), "
-                + HH_MEM_ID + " VARCHAR(3), "
+                + MEM_ID_COL + " VARCHAR(3), "
                 + REG_N_DAT_COL + " VARCHAR(50), "
                 + LM_DATE_COL + " VARCHAR(50), "
                 + ADM_PROG_CODE_COL + " VARCHAR(3), "
@@ -833,8 +833,6 @@ public class Schema {
     }
 
 
-
-
     public static String sqlCreateRegistration() {
         return CREATE_TABLE_IF_NOT_EXISTS + REG_N_HH_TABLE + "("
                 + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
@@ -953,19 +951,20 @@ public class Schema {
                 + SERVICE_TABLE_SERVICE_SL_COL + " VARCHAR(2)  , "
                 + SERVICE_CENTER_CODE_COL + " VARCHAR(3) , "
                 + SERVICE_TABLE_SERVICE_DT_COL + " VARCHAR(20) DEFAULT '00' , "
-                + SERVICE_TABLE_SERVICE_STATUS_COL + " VARCHAR(2)  , "
+                + SRV_STATUS_COL + " VARCHAR(2)  , "
                 + DISTRIBUTION_STATUS_COL + " VARCHAR(1)  , "
-                + SERVICE_TABLE_DIST_DATE_COL + " VARCHAR(20) DEFAULT '00' , "
+                + DIST_DT_COL + " VARCHAR(20) DEFAULT '00' , "
                 + FDP_CODE_COL + " VARCHAR(4) , "
                 + WORK_DAY_COL + " VARCHAR(6) , "
-                + DIST_FLAG_COL + " VARCHAR(100), "
+                + DIST_FLAG_COL + " VARCHAR(100) , "
 
                 /**  this column may not be necessary in future delete id no use now */
-                + GROUP_CODE_COL + " VARCHAR(4)  , "
+//                + GROUP_CODE_COL + " VARCHAR(4)  , "
                 // for total synch summary report need entry by & entry date
                 + ENTRY_BY + " VARCHAR(4) DEFAULT '00' , "
-                + ENTRY_DATE + " VARCHAR(20) DEFAULT '00' , "
-                + SYNC_COL + "  BOOLEAN DEFAULT 0 ) "
+                + ENTRY_DATE + " VARCHAR(20) DEFAULT '00' " +
+//                ", " + SYNC_COL + "  BOOLEAN DEFAULT 0 " +
+                ") "
                 ;// delete last comma ,
 
     }
@@ -1333,7 +1332,7 @@ public class Schema {
                 + " , " + OP_MONTH_CODE_COL + " VARCHAR(2) "
                 + " , " + SERVICE_CENTER_CODE_COL + " VARCHAR(5) "
                 + " , " + FDP_CODE_COL + " VARCHAR(5) "
-                + " , " + SERVICE_TABLE_SERVICE_STATUS_COL + " VARCHAR(4) "
+                + " , " + SRV_STATUS_COL + " VARCHAR(4) "
 
                 + " , " + SQLiteHandler.BABY_STATUS_COL + " VARCHAR(2) "
                 + " , " + SQLiteHandler.GMP_ATTENDACE_COL + " VARCHAR(2) "
@@ -1884,10 +1883,10 @@ public class Schema {
                 + " , " + OPERATION_CODE_COL + " VARCHAR(20) "
                 + " , " + OP_MONTH_CODE_COL + " VARCHAR(2) "
                 + " , " + MONTH_LABEL_COL + " VARCHAR(50) "
-                + " , " + SQLiteHandler.USA_START_DATE_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.USA_END_DATE_COL + " VARCHAR(20) "
-                + " , " + SQLiteHandler.STATUS + " VARCHAR(20) "
-                + " , " + SQLiteHandler.IS_SELECTED_FLAG_COL + " VARCHAR(1) DEFAULT '0' "
+                + " , " + USA_START_DATE_COL + " VARCHAR(20) "
+                + " , " + USA_END_DATE_COL + " VARCHAR(20) "
+                + " , " + STATUS + " VARCHAR(20) "
+                + " , " + IS_SELECTED_FLAG_COL + " VARCHAR(1) DEFAULT '0' "
                 + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + ADM_DONOR_CODE_COL + ", " + AWARD_CODE_COL + ", " + OPERATION_CODE_COL + ", " + OP_MONTH_CODE_COL + " ) "
                 + " ) ";
     }

@@ -192,16 +192,11 @@ public class SummaryServiceOrDistributionItemizeAttendance extends BaseActivity 
             criteria = SQLiteQuery.getDistExtentedItemName(cCode, donorCode, awardCode, opMCode, programCode);
         }
 
-        /** woriking*/
-        // Spinner Drop down elements for District
-        List<SpinnerHelper> listSCriteria = sqlH.getListAndID(SQLiteHandler.VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE, criteria, null, false);
 
-
-        // Creating adapter for spinner
+        List<SpinnerHelper> listSCriteria = sqlH.getListAndID(SQLiteHandler.VOUCHER_COUNTRY_PROGRAM_ITEM_TABLE
+                , criteria, null, false);
         ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(this, R.layout.spinner_layout, listSCriteria);
-        // Drop down layout style
         dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        // attaching data adapter to spinner
         spItemName.setAdapter(dataAdapter);
 
 

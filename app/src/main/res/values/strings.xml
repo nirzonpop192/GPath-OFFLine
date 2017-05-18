@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="loading_msg">Loading Records </string>
     <string name="group_details">Group Details</string>
 
     <string name="app_name">GPath</string>
@@ -193,7 +194,7 @@
     <string name="srv_summary_TitleLable">Service Summary </string>
     <string name="tv_criteria">Criteria</string>
     <!-- LOG IN SCREEN -->
-    <string name="log_in_version_lable">GPath-OFF-15</string>
+    <string name="log_in_version_lable">GPath-OFF-18</string>
     <!-- VERSION -->
 
 

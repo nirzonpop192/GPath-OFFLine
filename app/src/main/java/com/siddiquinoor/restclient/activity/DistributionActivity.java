@@ -843,13 +843,15 @@ public class DistributionActivity extends BaseActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            startProgressBar("Data is Loading");
+
+            startProgressBar(mContext.getResources().getString(R.string.loading_msg));
         }
 
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            startProgressBar("Data is Loading.");
+            startProgressBar(mContext.getResources().getString(R.string.loading_msg));
+
 
         }
 

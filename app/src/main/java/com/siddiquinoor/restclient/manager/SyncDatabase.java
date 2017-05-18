@@ -152,7 +152,8 @@ public class SyncDatabase {
                         break;
                 }
 
-                checkLoginAndDowenReftData(username, password, array, String.valueOf(operationMode));
+                // don't delete below code '
+//                checkLoginAndDowenReftData(username, password, array, String.valueOf(operationMode));
 
 
             }
@@ -325,7 +326,9 @@ public class SyncDatabase {
                                     break;
                             }
 
-                            checkLoginAndDowenReftData(username, password, array, String.valueOf(operationMode));
+
+                            // don't delete below code '
+//                            checkLoginAndDowenReftData(username, password, array, String.valueOf(operationMode));
 
 
                         }

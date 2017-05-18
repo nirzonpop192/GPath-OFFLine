@@ -5,6 +5,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.siddiquinoor.restclient.views.notifications.CustomToast;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -16,7 +18,9 @@ import java.nio.channels.FileChannel;
  */
 
 public class FileUtils {
-    private static final String TAG=FileUtils.class.getSimpleName();
+    private static final String TAG = FileUtils.class.getSimpleName();
+    public static final String EXPORT_GOF_FILE = "EXPORT.gof";
+
     /**
      * Creates the specified <code>toFile</code> as a byte for byte copy of the
      * <code>fromFile</code>. If <code>toFile</code> already exists, then it
@@ -26,10 +30,8 @@ public class FileUtils {
      * <i> Note: <code>fromFile</code> and <code>toFile</code> will be closed by
      * this function.</i>
      *
-     * @param fromFile
-     *            - FileInputStream for the file to copy from.
-     * @param toFile
-     *            - FileInputStream for the file to copy to.
+     * @param fromFile - FileInputStream for the file to copy from.
+     * @param toFile   - FileInputStream for the file to copy to.
      */
 
     public static void copyFile(FileInputStream fromFile, FileOutputStream toFile) throws IOException {
@@ -74,14 +76,25 @@ public class FileUtils {
                     src.close();
                     dst.close();
 
-                    // TODO: 4/19/2017  use custom toast
-                    Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+                    CustomToast.show(context, msg);
+
                 }
             }
         } catch (Exception e) {
             Toast.makeText(context, "Export Failed", Toast.LENGTH_SHORT).show();
             Log.e(TAG, "Exception : " + e.getMessage());
 
+        }
+    }
+
+    public static void  deleteExportDatabase(){
+        String root = Environment.getExternalStorageDirectory().toString();
+        File exportDbFile = new File(root + "/GpathOffline/" + EXPORT_GOF_FILE);                                             // get the internal root directories root/GpathOffline path
+
+
+        if (exportDbFile.exists()) {                                                                // if file existed
+            if (exportDbFile.delete())                                                              // if file delete successful
+                Log.i("File", "Export Database deleted");
         }
     }
 }

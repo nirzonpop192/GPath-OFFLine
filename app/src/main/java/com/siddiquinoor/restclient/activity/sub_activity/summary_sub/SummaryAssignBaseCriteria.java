@@ -221,7 +221,7 @@ public class SummaryAssignBaseCriteria extends BaseActivity implements AdapterVi
 
     /**
      * 2015-10-17
-     * Faial Mohammad
+
      * off the back press button
      */
 

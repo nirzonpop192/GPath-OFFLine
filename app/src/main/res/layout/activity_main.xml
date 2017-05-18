@@ -348,6 +348,7 @@
 
 
                     <TextView
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -357,12 +358,19 @@
                         android:textSize="15sp"
                         android:textStyle="bold" />
 
+
                     <TextView
+
                         android:id="@+id/tv_geo_data_1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="450dp"
                         android:layout_marginTop="5dp"
+                        android:fadeScrollbars="false"
                         android:gravity="center_horizontal"
+                        android:maxLines="300"
+                        android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
+                        android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track"
+                        android:scrollbars="vertical"
                         android:text="@string/xxxxxx_xxxxxxxx" />
 
 
@@ -414,6 +422,7 @@
                         android:gravity="center_vertical"
                         android:paddingLeft="15dp"
                         android:text="  Restore DB" />
+
                     <Button
                         android:id="@+id/btnImport"
                         style="@style/btn_main_page"

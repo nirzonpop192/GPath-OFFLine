@@ -552,10 +552,7 @@ public class SumSrvOrDistAttendance extends BaseActivity {
     }
 
 
-    /**
-     * 2015-10-12
-     * disable the back press button
-     */
+
     @Override
     public void onBackPressed() {
 

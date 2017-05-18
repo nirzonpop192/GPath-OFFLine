@@ -44,6 +44,7 @@ import com.siddiquinoor.restclient.fragments.BaseActivity;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
 import com.siddiquinoor.restclient.network.ConnectionDetector;
 import com.siddiquinoor.restclient.parse.Parser;
+import com.siddiquinoor.restclient.utils.FileUtils;
 import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.views.notifications.AlertDialogManager;
 import com.siddiquinoor.restclient.views.notifications.CustomToast;
@@ -153,6 +154,8 @@ public class LoginActivity extends BaseActivity {
     private String temValue;
 
 
+    private Button btnImportDb;
+
     /**
      * function to verify login details & select 2 FDP
      */
@@ -194,15 +197,15 @@ public class LoginActivity extends BaseActivity {
         /**
          * import db
          */
-        Button importDb = (Button) findViewById(R.id.btnImport);
-        importDb.setVisibility(View.GONE);
+        btnImportDb = (Button) findViewById(R.id.btnImport);
+        btnImportDb.setVisibility(View.GONE);
 
         String path = Environment.getExternalStorageDirectory().getPath() + "/" + SQLiteHandler.DATABASE_NAME;
         File newDb = new File(path);
         if (newDb.exists()) {
-            importDb.setVisibility(View.VISIBLE);
+            btnImportDb.setVisibility(View.VISIBLE);
         }
-        importDb.setOnClickListener(new View.OnClickListener() {
+        btnImportDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -216,16 +219,16 @@ public class LoginActivity extends BaseActivity {
 
     private class ImportDbAsycnTask extends AsyncTask<Void, Integer, String> {
 
-        private boolean importFlag;
+        private boolean dbImportStatusFlag;
 
 
         private ImportDbAsycnTask() {
-            importFlag = false;
+            dbImportStatusFlag = false;
         }
 
         @Override
         protected String doInBackground(Void... params) {
-            importFlag = importDataBase();
+            dbImportStatusFlag = importDataBase();
             return "successes";
         }
 
@@ -235,7 +238,7 @@ public class LoginActivity extends BaseActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            startProgressBar("Data Importing");
+            startProgressBar("Importing Database !");
 
         }
 
@@ -243,10 +246,16 @@ public class LoginActivity extends BaseActivity {
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             hideProgressBar();
-            String ddf = importFlag ? "Imported " : " is not imported ";
-            CustomToast.show(mContext, "DataBase : " + ddf);
+            String ddf = dbImportStatusFlag ? "Import completed " : " import failed";
+            CustomToast.show(mContext, ddf);
 
 //            logoutUser();
+
+            if (dbImportStatusFlag) {
+                FileUtils.deleteExportDatabase();
+
+                btnImportDb.setVisibility(View.GONE);
+            }
 
         }
     }
@@ -477,8 +486,13 @@ public class LoginActivity extends BaseActivity {
 
                             } else
                                 showAlert("Check your internet connectivity!!");
-                        } else
-                            showAlert("Device is not configure for internet connectivity !!");
+                        } else {
+                            // // TODO: 5/18/2017  the user name get from db
+                            HashMap<String, String> user = db.getUserDetails();
+
+                            showAlert("This device should be operated offline by " + user.get("name"));
+                        }
+
                     }
                 } else {
                     // Prompt user to enter credentials

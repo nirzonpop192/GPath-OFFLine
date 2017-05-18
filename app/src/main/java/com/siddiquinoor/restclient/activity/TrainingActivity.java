@@ -82,7 +82,7 @@ public class TrainingActivity extends BaseActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            startProgressBar("Data is Loading");
+            startProgressBar(mContext.getResources().getString(R.string.loading_msg));
         }
 
         @Override
@@ -166,8 +166,8 @@ public class TrainingActivity extends BaseActivity {
 /**
  *  Data load stooped for taking more time than expected
  */
-//        LoadListView loadListView= new LoadListView(idCountry,"");                                  //
-//        loadListView.execute();
+        LoadListView loadListView= new LoadListView(idCountry,"");                                  //
+        loadListView.execute();
 
         // for test purpose
 //        loadTrainingActivityEventIndex(idCountry,"");

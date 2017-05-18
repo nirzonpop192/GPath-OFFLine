@@ -233,7 +233,8 @@ public class GroupMemberSummary extends BaseActivity /*implements AdapterView.On
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            startProgressBar("Data is Loading");
+
+            startProgressBar(mContext.getResources().getString(R.string.loading_msg));
         }
 
         @Override
@@ -255,7 +256,7 @@ public class GroupMemberSummary extends BaseActivity /*implements AdapterView.On
 
             } else {
                 mDialog.showInfromDialog(mContext, "No Data", "");
-                //  Log.d("MAL", "Adapter Is Empty ");
+
 
             }
         }

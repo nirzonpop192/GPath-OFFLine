@@ -146,7 +146,8 @@ public class SumRegLay4TotalHHRecords extends BaseActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            startProgressBar("Data is Loading");
+
+            startProgressBar(mContext.getResources().getString(R.string.loading_msg));
 
         }
 

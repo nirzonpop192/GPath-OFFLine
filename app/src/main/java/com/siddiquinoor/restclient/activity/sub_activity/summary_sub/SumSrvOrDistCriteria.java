@@ -508,7 +508,7 @@ public class SumSrvOrDistCriteria extends BaseActivity implements AdapterView.On
      * LOAD :: SumRegLay4TotalHHRecords of Criteria for Service
      */
     public void loadServiceSummaryCriteriaList(String idCountry, String idDonor, String idAwarad, String idOpMonth, String idProg,String distFlag, String srvDistFlag) {
-        Log.d(TAG, "In load service List ");
+//        Log.d(TAG, "In load service List ");
 
 
         // use veriable to like operation

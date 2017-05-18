@@ -28,12 +28,12 @@ public class SummaryServiceOrDistributionItemize extends BaseActivity implements
     private ListView lv_ItemSummary;
     private Button btn_home;
     private Button btn_summaryMenu;
-    private final Context CONTEXT = SummaryServiceOrDistributionItemize.this;
+    private final Context mContext = SummaryServiceOrDistributionItemize.this;
 
     private String idCountry;
 
-    private String idDonor;
-    private String idAward;
+    private String idDonor,idAward;
+
     private String strAward;
     private String idProgram;
     private String strProgram;
@@ -56,7 +56,7 @@ public class SummaryServiceOrDistributionItemize extends BaseActivity implements
 
         dialog = new ADNotificationManager();
 
-        sqlH = new SQLiteHandler(CONTEXT);
+        sqlH = new SQLiteHandler(mContext);
 
 
         Intent intent = getIntent();
@@ -102,7 +102,7 @@ public class SummaryServiceOrDistributionItemize extends BaseActivity implements
         btn_home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goToMainActivity((Activity) CONTEXT);
+                goToMainActivity((Activity) mContext);
 
             }
         });
@@ -110,7 +110,7 @@ public class SummaryServiceOrDistributionItemize extends BaseActivity implements
             @Override
             public void onClick(View v) {
                 finish();
-                Intent i = new Intent(CONTEXT, ServiceSummaryMenu.class);
+                Intent i = new Intent(mContext, ServiceSummaryMenu.class);
                 i.putExtra(KEY.COUNTRY_ID, idCountry);
                 i.putExtra(KEY.FLAG, flag);
                 i.putExtra(KEY.DIR_CLASS_NAME_KEY, "SummaryServiceItemize");
@@ -196,17 +196,17 @@ public class SummaryServiceOrDistributionItemize extends BaseActivity implements
             adapter = new SummaryCriteriaListAdapter(this, criteriaArray, idCountry, idDonor, idDonor);
             adapter.notifyDataSetChanged();
             lv_ItemSummary.setAdapter(adapter);
-            dialog.showInfromDialog(CONTEXT, "NO Data", "No Data Found !");
+            dialog.showInfromDialog(mContext, "NO Data", "No Data Found !");
         }
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        Log.i(TAG, "You clicked Item: " + id + " at position:" + position);
+//        Log.i(TAG, "You clicked Item: " + id + " at position:" + position);
         SummaryCriteriaModel item = (SummaryCriteriaModel) adapter.getItem(position);
 
-        Intent iItemSpecAttendance = new Intent(CONTEXT, SummaryServiceOrDistributionItemizeAttendance.class);
+        Intent iItemSpecAttendance = new Intent(mContext, SummaryServiceOrDistributionItemizeAttendance.class);
 
         iItemSpecAttendance.putExtra(KEY.COUNTRY_ID, idCountry);
         iItemSpecAttendance.putExtra(KEY.DIR_CLASS_NAME_KEY, "SummaryServiceItemize");

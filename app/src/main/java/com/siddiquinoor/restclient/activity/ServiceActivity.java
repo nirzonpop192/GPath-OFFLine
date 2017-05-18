@@ -103,7 +103,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
     private String strOpMonthLabel = null;
     private TextView tv_srvDate;
     private Calendar calendar = Calendar.getInstance();
-    private SimpleDateFormat format = new SimpleDateFormat("MM-dd-yyyy", Locale.ENGLISH);
+    private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
     private Button btnHome, btnSummary;
 
     private Button btnSave;
@@ -190,7 +190,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             idGroupCat = intent.getStringExtra(KEY.GROUP_CATEGORY_CODE);
             strGroupCat = intent.getStringExtra(KEY.GROUP_CATEGORY_NAME);
 
-         //   Log.d("NIR0", "idGroupCat :" + idGroupCat + "strGroupCat: " + strGroupCat + " idGroup :" + idGroup + " strGroup" + strGroup);
+            //   Log.d("NIR0", "idGroupCat :" + idGroupCat + "strGroupCat: " + strGroupCat + " idGroup :" + idGroup + " strGroup" + strGroup);
 
             loadindingLog(countryId, srDate);
 
@@ -329,7 +329,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     String temId = edt_srvMMSerach.getText().toString().trim();
                     String serviceDate = tv_srvDate.getText().toString();
 
-                    loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, temId, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
+                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, temId, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
+                    loadlist.execute();
+                    // for test purpose
+//                    loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, temId, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
                     fromQR = false;
                 }
 
@@ -462,12 +465,12 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
                         } else {
 
-                         /*   LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward,
+                            LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward,
                                     idProgram, idService, idMemberSearch, idOpMonthCode,
                                     strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
-                            loadlist.execute();*/
-
-                            loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
+                            loadlist.execute();
+                            /// for test purpose don't delete below code
+//                            loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
                         }
 
                     }
@@ -534,7 +537,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
 
                 if (start_date != null && end_date != null) {
-                    if (!getValidDateRangeUSAFormat(serviceDate, start_date, end_date)) {
+                    if (!getValidDateRange(serviceDate, start_date, end_date,false)) {
                         erroDialog.showErrorDialog(mContext, "Service date is not within the valid range. Save attempt denied");
 
                     } else if (adapter.isArrayListNull()) {
@@ -582,7 +585,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
                                                 defaulftWDIntial();
                                                 break;
-                                            } if (!checkOtherParameterIsGiven(srvName, progName, idCountry, idDonor, idAward, idProgram)) {
+                                            }
+                                            if (!checkOtherParameterIsGiven(srvName, progName, idCountry, idDonor, idAward, idProgram)) {
 
                                                 erroDialog.showErrorDialog(mContext, "Invalid Attempt");
 
@@ -679,18 +683,18 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                                      * A man cannot get 2 service in the same day
                                      */
                                     if (dayDifference != 0) {
-                                        /** check the data exit for Service                                     *                                          */
-                                        if (sqlH.isMemberExitsSrvTable(srvMemData)) {
-                                            /** update for local device */
-                                            sqlH.updateMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);
 
-                                            /** update Syntax for upload in Sync process */
-                                            sqlH.insertIntoUploadTable(sqlServerSyntax.updateInToSrvTable());
+                                        /** check the data exit for Service                        */
+                                        if (sqlH.isMemberExitsSrvTable(srvMemData)) {
+
+                                            sqlH.updateMemberIntoServiceTable(srvMemData, EntryBy, EntryDate); /** update for local device */
+
+                                            sqlH.insertIntoUploadTable(sqlServerSyntax.updateInToSrvTable()); /** update Syntax for upload in Sync process */
                                         } else {
-                                            /** insert for local device */
-                                            sqlH.addMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);
-                                            /** insert for upload in Sync process */
-                                            sqlH.insertIntoUploadTable(sqlServerSyntax.insertInToSrvTable());
+
+                                            sqlH.addMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);     /** insert for local device */
+
+                                            sqlH.insertIntoUploadTable(sqlServerSyntax.insertInToSrvTable());  /** insert for upload in Sync process */
                                         }
 
 
@@ -710,26 +714,26 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                                         /***
                                          * try to edit section
                                          */
-                                        /** update for local device */
-                                        sqlH.updateMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);
 
-                                        /** update Syntax for upload in Sync process */
-                                        sqlH.insertIntoUploadTable(sqlServerSyntax.updateInToSrvTable());
+                                        sqlH.updateMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);  /** update for local device */
+
+
+                                        sqlH.insertIntoUploadTable(sqlServerSyntax.updateInToSrvTable()); /** update Syntax for upload in Sync process */
                                     }
                                 } /** if the man get service for first time */
                                 else {
                                     /** check the data exit for Service                                     *                                          */
                                     if (sqlH.isMemberExitsSrvTable(srvMemData)) {
-                                        /** update for local device */
-                                        sqlH.updateMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);
 
-                                        /** update Syntax for upload in Sync process */
-                                        sqlH.insertIntoUploadTable(sqlServerSyntax.updateInToSrvTable());
+                                        sqlH.updateMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);  /** update for local device */
+
+
+                                        sqlH.insertIntoUploadTable(sqlServerSyntax.updateInToSrvTable());   /** update Syntax for upload in Sync process */
                                     } else {
-                                        /** insert for local device */
-                                        sqlH.addMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);
-                                        /** insert for upload in Sync process */
-                                        sqlH.insertIntoUploadTable(sqlServerSyntax.insertInToSrvTable());
+
+                                        sqlH.addMemberIntoServiceTable(srvMemData, EntryBy, EntryDate);   /** insert for local device */
+
+                                        sqlH.insertIntoUploadTable(sqlServerSyntax.insertInToSrvTable());   /** insert for upload in Sync process */
                                     }
                                     /**
                                      * get SrvMinDate
@@ -760,9 +764,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                         idMemberSearch = "";
                         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
 
-                 /*   LoadingList loadList = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, idSrvCenter, serviceDate, idGroup);
-                    loadList.execute();*/
-                        loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
+                        LoadingList loadList = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, idSrvCenter, serviceDate, idGroup);
+                        loadList.execute();
+                        // for test putpose don't delete below code
+                        //    loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, serviceDate, idSrvCenter, idGroup);
                     }
 
                 }
@@ -833,10 +838,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 if (mChecked.get(i)) {
                     count++;
 
-                    Log.d("AAA","pos: "+i+" mChecked.get(i)"+ mChecked.get(i));
+                    Log.d("AAA", "pos: " + i + " mChecked.get(i)" + mChecked.get(i));
                 }
                 if (count < 2) {
-                    Log.d("AAA","false: ");
+                    Log.d("AAA", "false: ");
                     flag = false;
                     break;
                 }
@@ -856,10 +861,10 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 if (mChecked.get(i)) {
                     count++;
 
-                    Log.d("AAA","pos: "+i+" mChecked.get(i)"+ mChecked.get(i)+"count:");
+                    Log.d("AAA", "pos: " + i + " mChecked.get(i)" + mChecked.get(i) + "count:");
                 }
-                if (count <2) {
-                    Log.d("AAA","false: ");
+                if (count < 2) {
+                    Log.d("AAA", "false: ");
                     flag = false;
                     break;
                 }
@@ -1079,16 +1084,13 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     idGrpLayR3Code = groupCodeWithlayer.substring(4, 6);
                     idGroup = groupCodeWithlayer.substring(6);
 
-                    Log.d("MOR22", "grpLayR1Code:" + idGrpLayR2Code + "\n" +
-                            "grpLayR2Code:" + idGrpLayR2Code + "\n" +
-                            "grpLayR3Code:" + idGrpLayR2Code + "\n" +
-                            "idGroup:" + idGroup);
+//                    Log.d("MOR22", "grpLayR1Code:" + idGrpLayR2Code + "\n" + "grpLayR2Code:" + idGrpLayR2Code + "\n" +                            "grpLayR3Code:" + idGrpLayR2Code + "\n" + "idGroup:" + idGroup);
                     /**   working*/
-              /*      LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
-                    loadlist.execute();*/
+                    LoadingList loadlist = new LoadingList(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
+                    loadlist.execute();
 
                     //  for test query
-                    loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
+//                    loadServiceListView(idCountry, idDonor, idAward, idProgram, idService, idMemberSearch, idOpMonthCode, strOpMonthLabel, idOpMonthCode, strSrvDate, idSrvCenter, idGroup);
                 }
 
 
@@ -1407,8 +1409,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 String start_date = serviceDateRange.get("sdate");
                 String end_date = serviceDateRange.get("edate");
 
-                /***             *  2 is service  op code              */
-                idOpCode = "2";
+
+                idOpCode = "2";                                                                     // the op cod eof the service is 2
                 /**
                  *  KENO  AMI  strOpMonthLabel BOSALAM ETAR KARON BER KORTE HOBE
                  */
@@ -1416,7 +1418,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
 
                 if (date.length() > 0 && start_date != null && end_date != null) {
-                    if (!getValidDateRangeUSAFormat(date, start_date, end_date)) {
+                    if (!getValidDateRange(date, start_date, end_date,false)) {
                         validDate = false;
                         erroDialog.showErrorDialog(mContext, "Service date is not within the valid range. Save attempt denied");
 
@@ -1586,23 +1588,17 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             if (srvMemberList.size() != 0) {
                 serviceArray.clear();
                 for (ServiceDataModel data : srvMemberList) {
-                    // add contacts data in arrayList
+
                     serviceArray.add(data);
                 }
-                Log.d(TAG, "serviceArray size : " + serviceArray.size() + "");
+//                Log.d(TAG, "serviceArray size : " + serviceArray.size() + "");
                 adapter = new ServiceDataListAdapter(this, serviceArray, strAward, idCriteria, strCriteria, opMonthLable, opCode, opMCode, srvDate, srvCenterCode, progName, srvName);
-         /*       *//**
-                 * for the test perpose
-                 *//*
-                mListView.setAdapter(adapter);*/
+
             } else {
                 // this statements clear the list view
                 serviceArray.clear();
                 adapter = new ServiceDataListAdapter(this, serviceArray, strAward, idCriteria, strCriteria, opMonthLable, opCode, opMCode, srvDate, srvCenterCode, progName, srvName);
-            /*    *//**
-                 * for the test perpose
-                 *//*
-                mListView.setAdapter(adapter);*/
+
             }
         } else {
             serviceArray.clear();
@@ -1614,12 +1610,12 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
  *  set adpater
  */
 
-        if (!adapter.isEmpty()) {
+ /*       if (!adapter.isEmpty()) {
             adapter.notifyDataSetChanged();
             mListView.setAdapter(adapter);
-            /**
+            *//**
              * Notify the use no data available
-             */
+             *//*
             if (adapter.getCount() == 0) {
                 erroDialog.showInfromDialog(mContext, "No Data Found", "No Data found");
             }
@@ -1628,7 +1624,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
         } else {
             erroDialog.showInfromDialog(mContext, "No Data Found", "No Data found");
         }
-
+*/
 
     }
 
@@ -1678,7 +1674,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            startProgressBar("Data is Loading.");
+            startProgressBar(mContext.getResources().getString(R.string.loading_msg));
 
         }
 

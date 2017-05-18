@@ -1584,6 +1584,7 @@ android/support/v7/appcompat/R$styleable.class
 com/siddiquinoor/restclient/activity/GroupSearchPage$4.class
 com/siddiquinoor/restclient/activity/DynamicTable.class
 com/siddiquinoor/restclient/activity/sub_activity/register_sub/RegisterMemberLiberia$6.class
+com/siddiquinoor/restclient/activity/MainActivity$6.class
 android/support/v4/media/MediaBrowserCompat$MediaItem.class
 com/google/android/gms/internal/zzjz.class
 org/metalev/multitouch/controller/MultiTouchController$MultiTouchObjectCanvas.class

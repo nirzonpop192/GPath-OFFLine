@@ -29,7 +29,7 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
     private TextView tv_taTitle, tv_startNEndDate, tv_venue, tv_Address;
 
     private TrainingNActivityIndexDataModel mTAMasterData;
-    private Button btnHome, btnNextPage, btnPreview, btn_TABeneficiarySearch,btnTrainActivity;
+    private Button btnHome, btnNextPage, btnPreview, btn_TABeneficiarySearch, btnTrainActivity;
     private Context mContext;
 
     private ADNotificationManager mDialog;
@@ -134,7 +134,7 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 finish();
-                Intent intent= new Intent(mContext, TrainingActivity.class);
+                Intent intent = new Intent(mContext, TrainingActivity.class);
                 startActivity(intent);
             }
         });
@@ -235,7 +235,7 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
             super.onPostExecute(s);
             hideProgressBar();
 
-            if (adapter.getCount() > 0) {
+            if (adapter != null && adapter.getCount() > 0) {
                 if (adapter.getCount() != 0) {
                     adapter.notifyDataSetChanged();
                     listView.setAdapter(adapter);
