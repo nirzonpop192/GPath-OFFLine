@@ -616,6 +616,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String PROXY_BSC_MEM_2_NAME_MIDDLE_COL = "P_BSCMemName2_Middle";
     public static final String PROXY_BSC_MEM_2_NAME_LAST_COL = "P_BSCMemName2_Last";
     public static final String PROXY_BSC_MEM_2_TITLE_COL = "P_BSCMem2_TitlePosition";
+    public static final String MEM_TYPE_FLAG = "MemTypeFlag";
 
 
     /**
@@ -11207,11 +11208,21 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
-    public void editMalawiMemberData(int mID, String str_MemName, String str_gender, String str_relation, String str_lmp_date, String str_child_dob, String str_elderly, String str_disabled, String str_age, int pID) {
+    public void editMalawiMemberData(String counryCode, String layR1Code, String layR2Code, String layR3Code,
+                                     String layR4Code, String hhID,
+            int mID, String str_MemName, String str_gender, String str_relation, String str_lmp_date, String str_child_dob, String str_elderly, String str_disabled, String str_age, int pID) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        String where = "id='" + mID + "'";
+       // String where = "HHMemID='" + mID + "'";
+
+        String where =  ADM_COUNTRY_CODE_COL +" = '" +counryCode+
+                "' and "+ LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
+                "' and "+ LAY_R2_LIST_CODE_COL +" = '"+ layR2Code +
+                "' and "+ LAY_R3_LIST_CODE_COL +" = '"+ layR3Code +
+                "' and "+ LAY_R4_LIST_CODE_COL +" = '"+ layR4Code +
+                "' and "+ HHID_COL +" = '"+ hhID +
+                "' and "+ HH_MEM_ID +" = '0"+ mID +"'";
 
         //String[] whereArgs = new String[] {String.valueOf(mID)};
 
@@ -11228,7 +11239,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         // updating Row into local database
         db.update(REGISTRATION_MEMBER_TABLE, values, where, null);
 
-        if (pID != 0)
+      //  if (pID != 0)
 //            updateRegistrationStatus("" + pID, 0);    // Setting Update status to false to avail the Synchronization
 
             db.close(); // Closing database connection
@@ -11529,6 +11540,69 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
+
+
+    /**
+     *  This method will find out the value of MemTypeFlag, like as Get_MemAgeTypeFlag on the server end function
+     *  After completing registration.... need to update the value of the column named MemTypeFlag
+     */
+
+    public String getMemberAgeTypeFlag(String counryCode, String layR1Code, String layR2Code, String layR3Code,
+                                       String layR4Code, String hhID, String hhMemID){
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String memSex  = "";
+        int memAge  = 0;
+        String sql = "SELECT MemSex, MemAge from "+ REGISTRATION_MEMBER_TABLE + " where "+ ADM_COUNTRY_CODE_COL +" = '" +counryCode+
+                "' and "+ LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
+                "' and "+ LAY_R2_LIST_CODE_COL +" = '"+ layR2Code +
+                "' and "+ LAY_R3_LIST_CODE_COL +" = '"+ layR3Code +
+                "' and "+ LAY_R4_LIST_CODE_COL +" = '"+ layR4Code +
+                "' and "+ HHID_COL +" = '"+ hhID +
+                "' and "+ HH_MEM_ID +" = '"+ hhMemID +"'";
+
+
+        Cursor cursor = db.rawQuery(sql, null);
+        if ((cursor != null) && cursor.moveToFirst()) {
+            memSex = cursor.getString(cursor.getColumnIndex("MemSex"));
+            memAge = cursor.getInt(cursor.getColumnIndex("MemAge"));
+
+            cursor.close();
+        }
+        db.close();
+
+
+        if(memAge > 17 && memSex.equals("F")){
+            return "AF";
+        }else if (memAge > 17 && memSex.equals("M")){
+            return "AM";
+        }else if(memAge < 18){
+            return "CH";
+        }
+
+        return null;
+    }
+
+
+    public void updateMemTypeFlagInMemTable(String counryCode, String layR1Code, String layR2Code, String layR3Code,
+                                            String layR4Code, String hhID, String hhMemID, String memTypeFlag){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        String where =  ADM_COUNTRY_CODE_COL +" = '" +counryCode+
+                "' and "+ LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
+                "' and "+ LAY_R2_LIST_CODE_COL +" = '"+ layR2Code +
+                "' and "+ LAY_R3_LIST_CODE_COL +" = '"+ layR3Code +
+                "' and "+ LAY_R4_LIST_CODE_COL +" = '"+ layR4Code +
+                "' and "+ HHID_COL +" = '"+ hhID +
+                "' and "+ HH_MEM_ID +" = '"+ hhMemID +"'";
+        values.put(MEM_TYPE_FLAG , memTypeFlag); // district name
+
+        db.update(REGISTRATION_MEMBER_TABLE, values, where, null);
+//        updateRegistrationStatus("" + pID, 0);    // Setting Update status to false
+        db.close(); // Closing database connection
+    }
 
     public void updateRegistrationRecord(int pID, String dname, String upname, String uname,
                                          String vname, String addressCode, String pid, String r_date, String pname,

@@ -466,10 +466,20 @@ public class RegisterMember extends BaseActivity {
             dialog.showErrorDialog(mContext, "Missing relation. Please select a Relation");
 
         } else {
+            String temHH;
+            if (str_hhID.length() > 5) {
+                temHH = str_hhID.substring(8);
+            } else {
+                temHH = str_hhID;
+            }
             if (is_edit) {
                 // Update Member data
-                sqlH.editMalawiMemberData(mID, str_MemName, str_gender, idRelation, lmp_date, child_dob, str_elderly, str_disabled, str_age, pID);
+                sqlH.editMalawiMemberData(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,Integer.parseInt(str_hhMemID), str_MemName, str_gender, idRelation, lmp_date, child_dob, str_elderly, str_disabled, str_age, pID);
                 Toast.makeText(mContext, "The member has been uploaded  ", Toast.LENGTH_SHORT).show();
+
+                String value = sqlH.getMemberAgeTypeFlag(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,str_hhMemID);
+                sqlH.updateMemTypeFlagInMemTable(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,str_hhMemID,value);
+                Log.e("shuvoTest",value);
                 // goToNextPage(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, str_hhID, redirect);
                 setIsMemberSaved(true);
             } else {
@@ -484,6 +494,11 @@ public class RegisterMember extends BaseActivity {
 
                 ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temId);
                 sqlH.addMemberDataForMalawi(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temId, str_hhMemID, str_MemName, str_gender, idRelation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age,data.getRegDate(), pID);
+
+                //String value = sqlH.getMemberAgeTypeFlag("0002","02","01","01","01","00658","01");
+                String value = sqlH.getMemberAgeTypeFlag(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temId,str_hhMemID);
+                sqlH.updateMemTypeFlagInMemTable(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temId,str_hhMemID,value);
+                Log.e("shuvoTest",value);
 
                 Toast.makeText(getApplicationContext(), "save successfully", Toast.LENGTH_LONG).show();
                 setIsMemberSaved(true);

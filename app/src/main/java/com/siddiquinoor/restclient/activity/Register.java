@@ -616,6 +616,10 @@ public class Register extends BaseActivity {
 
                         long id = sqlH.addRegistrationForMalawi(idCountry, idDist, idUP, idUnion, idVill, idAddress, registeredId, regDate, name, strGender, HHSize, strLatitude, strLongitude, AGLand, strVStatus, strMStatus, EntryBy, EntryDate, v_group, idWRank, lTp2Hectres, lT3mFoodStock, noMajorCommonLiveStock, receiveNoFormalWages, noIGA, relyPiecework);
 
+
+
+
+
                         sqlH.insertIntoUploadTable(malaiwTable.insertIntoRegNHHtableForMalawi());
                         Toast.makeText(getApplicationContext(), "Saved Successfully", Toast.LENGTH_LONG).show();
                     }

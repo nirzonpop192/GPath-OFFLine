@@ -3,7 +3,9 @@ package com.siddiquinoor.restclient.parse;
 import android.util.Base64;
 import android.util.Log;
 
+import com.siddiquinoor.restclient.data_model.AGR_DataModel;
 import com.siddiquinoor.restclient.data_model.AdmCountryDataModel;
+import com.siddiquinoor.restclient.data_model.CTDataModel;
 import com.siddiquinoor.restclient.data_model.VillageItem;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
 
@@ -300,11 +302,11 @@ public class Parser extends Parse {
     public static final String C_36_CT_PR = "C36_CT_PR";
     public static final String C_37_CT_PR = "C37_CT_PR";
     public static final String C_38_CT_PR = "C38_CT_PR";
-   private static final String EXTRA_ELDERLY_PERSON_BECAUSE_EBOLA = "ExtraElderlyPersonBecauseEbola";
-   private static final String EXTRA_CHILD_BECAUSE_EBOLA = "ExtraChildBecauseEbola";
-   private static final String AFT_VAL_CATTLE = "AFTValCattle";
-   private static final String BRF_CNT_SHEEP_GOATS = "BRFCntSheepGoats";
-   private static final String BRF_VAL_SHEEP_GOATS = "BRFValSheepGoats";
+    private static final String EXTRA_ELDERLY_PERSON_BECAUSE_EBOLA = "ExtraElderlyPersonBecauseEbola";
+    private static final String EXTRA_CHILD_BECAUSE_EBOLA = "ExtraChildBecauseEbola";
+    private static final String AFT_VAL_CATTLE = "AFTValCattle";
+    private static final String BRF_CNT_SHEEP_GOATS = "BRFCntSheepGoats";
+    private static final String BRF_VAL_SHEEP_GOATS = "BRFValSheepGoats";
     public static final String MULTIPLE_SRV = "MultipleSrv";
     public static final String DISTRIBUTION_EXT_TABLE_JSON_A = "distribution_ext_table";
     public static final String VO_ITM_SPEC = "VOItmSpec";
@@ -1328,9 +1330,6 @@ public class Parser extends Parse {
     }
 
 
-
-
-
     public static void DTA_Parser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
         int size = jsonArrayData.length();
@@ -1900,6 +1899,7 @@ public class Parser extends Parse {
         }
 
     }
+
     public static void lupCommunityFundSourceParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
         int size = jsonArrayData.length();
@@ -2112,6 +2112,101 @@ public class Parser extends Parse {
 
     }
 
+
+    public static void RegN_AGRParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+
+        for (int i = 0; i < size; i++) {
+            try {
+
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+                AGR_DataModel data = new AGR_DataModel();
+                data.setCountryCode(jsonObject.getString(Parser.ADM_COUNTRY_CODE));
+
+                data.setDistrictCode(jsonObject.getString(Parser.LAY_R_1_LIST_CODE));
+                data.setUpazillaCode(jsonObject.getString(Parser.LAY_R_2_LIST_CODE));
+                data.setUnitCode(jsonObject.getString(Parser.LAY_R_3_LIST_CODE));
+                data.setVillageCode(jsonObject.getString(Parser.LAY_R_4_LIST_CODE));
+                data.setHhId(jsonObject.getString(Parser.HHID));
+
+                data.setHhMemId(jsonObject.getString(Parser.MEM_ID));
+                data.setRegnDate(jsonObject.getString(Parser.REG_N_DATE));
+                data.setElderleyYN(jsonObject.getString(Parser.ELDERLY_YN));
+                data.setLandSize(jsonObject.getString(Parser.LAND_SIZE));
+                data.setDepenonGanyu(jsonObject.getString(Parser.DEPEND_ON_GANYU));
+                data.setWillingness(jsonObject.getString(Parser.WILLINGNESS));
+                data.setWinterCultivation(jsonObject.getString(Parser.WINTER_CULTIVATION));
+                data.setVulnerableHh(jsonObject.getString(Parser.VULNERABLE_HH));
+                data.setPlantingVcrop(jsonObject.getString(Parser.PLANTING_VALUE_CHAIN_CROP));
+
+
+                String AGOINVC = jsonObject.getString("AGOINVC");
+                String AGONASFAM = jsonObject.getString("AGONASFAM");
+                String AGOCU = jsonObject.getString("AGOCU");
+                String AGOOther = jsonObject.getString("AGOOther");
+                int LSGoat = Integer.parseInt(jsonObject.getString("LSGoat"));
+                int LSChicken = Integer.parseInt(jsonObject.getString("LSChicken"));
+                int LSPigeon = Integer.parseInt(jsonObject.getString("LSPigeon"));
+                int LSOther = Integer.parseInt(jsonObject.getString("LSOther"));
+
+
+                sqlH.addInRegNAgrTableFromOnline(data, AGOINVC, AGONASFAM, AGOCU, AGOOther, LSGoat
+                        , LSChicken, LSPigeon, LSOther);
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+
+
+        }
+
+    }
+
+
+
+
+    public static void RegN_CTParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
+
+        int size = jsonArrayData.length();
+
+
+        for (int i = 0; i < size; i++) {
+            try {
+
+                JSONObject jsonObject = jsonArrayData.getJSONObject(i);
+                CTDataModel data = new CTDataModel();
+                data.setCountryCode(jsonObject.getString(Parser.ADM_COUNTRY_CODE));
+                data.setDistrictCode(jsonObject.getString(Parser.LAY_R_1_LIST_CODE));
+                data.setUpazillaCode(jsonObject.getString(Parser.LAY_R_2_LIST_CODE));
+                data.setUnitCode(jsonObject.getString(Parser.LAY_R_3_LIST_CODE));
+                data.setVillageCode(jsonObject.getString(Parser.LAY_R_4_LIST_CODE));
+                data.setHhId(jsonObject.getString(Parser.HHID));
+                data.setMemID(jsonObject.getString(Parser.MEM_ID));
+                data.setC11CtPr(jsonObject.getString(Parser.C_11_CT_PR));
+                data.setC21CtPr(jsonObject.getString(Parser.C_21_CT_PR));
+                data.setC31CtPr(jsonObject.getString(Parser.C_31_CT_PR));
+                data.setC32CtPr(jsonObject.getString(Parser.C_32_CT_PR));
+                data.setC33CtPr(jsonObject.getString(Parser.C_33_CT_PR));
+                data.setC34CtPr(jsonObject.getString(Parser.C_34_CT_PR));
+                data.setC35CtPr(jsonObject.getString(Parser.C_35_CT_PR));
+                data.setC36CtPr(jsonObject.getString(Parser.C_36_CT_PR));
+                data.setC37CtPr(jsonObject.getString(Parser.C_37_CT_PR));
+                data.setC38CtPr(jsonObject.getString(Parser.C_38_CT_PR));
+
+
+                sqlH.addMemIntoCT_Table(data);
+            } catch (Exception e) {
+                Log.e(TAG, "Exception : " + e);
+                e.printStackTrace();
+            }
+
+
+        }
+
+    }
+
     public static void admCountryAwardParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
         int size = jsonArrayData.length();
@@ -2217,6 +2312,7 @@ public class Parser extends Parse {
 
     /**
      * This method only used in LoginActivity
+     *
      * @param jsonArrayData json data
      * @return AdmCountryDataModel array list
      */
@@ -2261,7 +2357,7 @@ public class Parser extends Parse {
 
 
         String GeoLayRName, AdmCountryCode, LayRCode, LayR4ListName;
-       // ArrayList<AdmCountryDataModel> arrayList = new ArrayList<>();
+        // ArrayList<AdmCountryDataModel> arrayList = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
             try {
@@ -2273,7 +2369,7 @@ public class Parser extends Parse {
                 LayR4ListName = jsonObject.getString("LayR4ListName");
 
 
-                VillageItem villageItem = new VillageItem(AdmCountryCode,GeoLayRName,LayR4ListName,LayRCode);
+                VillageItem villageItem = new VillageItem(AdmCountryCode, GeoLayRName, LayR4ListName, LayRCode);
 
                 villageLists.add(villageItem);
 
@@ -2520,7 +2616,7 @@ public class Parser extends Parse {
     public static void TA_Master_Parser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
         int size = jsonArrayData.length();
-        String AdmCountryCode, EventCode, EventName, AdmDonorCode, AdmAwardCode, TAGroup, TASubGroup, OrgNCode,StartDate, EndDate, VenueName, VenueAddress, Active, TotalDays, HoursPerDay, MarkOnGrid;
+        String AdmCountryCode, EventCode, EventName, AdmDonorCode, AdmAwardCode, TAGroup, TASubGroup, OrgNCode, StartDate, EndDate, VenueName, VenueAddress, Active, TotalDays, HoursPerDay, MarkOnGrid;
 
         Log.d(TAG, "The Number of the data inserted in TA_Master :" + size);
 
@@ -2547,7 +2643,7 @@ public class Parser extends Parse {
                 HoursPerDay = jsonObject.getString("HoursPerDay");
 
 
-                sqlH.addTaMasterTable(AdmCountryCode, EventCode, EventName, AdmDonorCode, AdmAwardCode, TAGroup, TASubGroup, OrgNCode,StartDate, EndDate, VenueName, VenueAddress, Active, TotalDays, HoursPerDay);
+                sqlH.addTaMasterTable(AdmCountryCode, EventCode, EventName, AdmDonorCode, AdmAwardCode, TAGroup, TASubGroup, OrgNCode, StartDate, EndDate, VenueName, VenueAddress, Active, TotalDays, HoursPerDay);
 
 
             } catch (Exception e) {
@@ -2649,7 +2745,7 @@ public class Parser extends Parse {
     public static void T_A_partOrgN_Parser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
         int size = jsonArrayData.length();
-        String AdmCountryCode, PartOrgNCode, PartOrgNName,SrcBen;
+        String AdmCountryCode, PartOrgNCode, PartOrgNName, SrcBen;
 
         Log.d(TAG, "The Number of the data inserted in TAPartOrgTable :" + size);
 
@@ -2666,7 +2762,7 @@ public class Parser extends Parse {
                 SrcBen = jsonObject.getString("SrcBen");
 
 
-                sqlH.addTAPartOrgTable(AdmCountryCode, PartOrgNCode, PartOrgNName,SrcBen);
+                sqlH.addTAPartOrgTable(AdmCountryCode, PartOrgNCode, PartOrgNName, SrcBen);
 
             } catch (Exception e) {
                 Log.e(TAG, "Exception : " + e);
@@ -2708,7 +2804,7 @@ public class Parser extends Parse {
     public static void T_A_subGroup_Parser(JSONArray jsonArrayData, SQLiteHandler sqlH) {
 
         int size = jsonArrayData.length();
-        String AdmCountryCode, TAGroup, TASubGroup,TASubTitle;
+        String AdmCountryCode, TAGroup, TASubGroup, TASubTitle;
 
         Log.d(TAG, "The Number of the data inserted in T_A_posParticipants :" + size);
 
@@ -2725,7 +2821,7 @@ public class Parser extends Parse {
                 TASubTitle = jsonObject.getString("TASubTitle");
 
 
-                sqlH.addTASubGroupTable(AdmCountryCode, TAGroup, TASubGroup,TASubTitle);
+                sqlH.addTASubGroupTable(AdmCountryCode, TAGroup, TASubGroup, TASubTitle);
 
             } catch (Exception e) {
                 Log.e(TAG, "Exception : " + e);

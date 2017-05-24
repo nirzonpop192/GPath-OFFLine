@@ -165,6 +165,7 @@ public class Schema {
                 + " , " + PROXY_BSC_MEM_2_NAME_MIDDLE_COL + " VARCHAR(50) "
                 + " , " + PROXY_BSC_MEM_2_NAME_LAST_COL + " VARCHAR(50) "
                 + " , " + PROXY_BSC_MEM_2_TITLE_COL + " VARCHAR(50) "
+                + " , " + MEM_TYPE_FLAG + " VARCHAR(2) "
 //                + " , " + GROUP_CODE_COL + " VARCHAR(5) "
 
                 + " )";

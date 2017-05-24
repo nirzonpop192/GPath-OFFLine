@@ -772,7 +772,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
 
+
                 publishProgress(++progressIncremental);
+                if (!jObj.isNull(Parser.REG_N_AGR_JSON_A)) {
+                    Parser.RegN_AGRParser(jObj.getJSONArray(Parser.REG_N_AGR_JSON_A), db);
+                }
+
+
+                /*publishProgress(++progressIncremental);
                 if (!jObj.isNull(Parser.REG_N_AGR_JSON_A)) {
 
 
@@ -814,8 +821,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                 , LSOther);
 
                     }
-                }
+                }*/
+
+
+
                 publishProgress(++progressIncremental);
+                if (!jObj.isNull(Parser.REG_N_CT_JSON_A)) {
+                    Parser.RegN_CTParser(jObj.getJSONArray(Parser.REG_N_CT_JSON_A), db);
+                }
+               /* publishProgress(++progressIncremental);
 
 
                 if (!jObj.isNull(Parser.REG_N_CT_JSON_A)) {
@@ -846,7 +860,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         db.addMemIntoCT_Table(data);
 
                     }
-                }
+                }*/
 
 
                 if (!jObj.isNull("reg_n_ffa")) {
