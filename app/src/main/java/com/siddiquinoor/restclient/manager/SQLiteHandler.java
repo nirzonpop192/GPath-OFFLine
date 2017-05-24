@@ -6140,17 +6140,17 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * @return member list
      */
 
-    public ArrayList<AssignDataModel> getMemberList(final String cCode, final String disCode, final String upCode, final String unCode, final String vCode, final String memberIdOrName) {
+    public ArrayList<AssignDataModel> getMemberList(final String cCode, final String disCode, final String upCode, final String unCode, final String vCode, final String memberIdOrName, int number) {
 
 
         ArrayList<AssignDataModel> listAsignPeople = new ArrayList<AssignDataModel>();
         SQLiteDatabase db = this.getReadableDatabase();
         String sql = "";
         if (isAlpha(memberIdOrName)) {
-            sql = SQLiteQuery.getMemberListView_searchBy_Name_sql(cCode, disCode, upCode, unCode, vCode, memberIdOrName);
+            sql = SQLiteQuery.getMemberListView_searchBy_Name_sql(cCode, disCode, upCode, unCode, vCode, memberIdOrName, number);
 
         } else {
-            sql = SQLiteQuery.getMemberListView_searchBy_ID_sql(cCode, disCode, upCode, unCode, vCode, memberIdOrName);
+            sql = SQLiteQuery.getMemberListView_searchBy_ID_sql(cCode, disCode, upCode, unCode, vCode, memberIdOrName, number);
         }
 
 
@@ -6193,6 +6193,30 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
+
+    public int getMemberCount(final String cCode, final String disCode, final String upCode, final String unCode, final String vCode, final String memberIdOrName, int number) {
+
+        int count = 0;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "";
+        sql = SQLiteQuery.getMemberCount_sql(cCode, disCode, upCode, unCode, vCode, memberIdOrName, number);
+
+
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            count = Integer.parseInt(cursor.getString(cursor.getColumnIndex("cont")));
+            cursor.close();
+        }
+
+
+        db.close();
+
+        return count;
+
+
+    }
 
     public int getNextDTResponseSequence(String dtBasic, String cCode, String donorCode, String awardCode, String prgCode, String entryBy) {
         int nextDTRSeq;
@@ -9053,7 +9077,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      */
     public List<ServiceDataModel> getRptMemberServiceList(String cCode, String donorCode, String awardCode, String programCode, String srvCode, String mm_SearchId, String opCode, String opMCode, String groupCode, String distFlag, String grpLayR1Code, String grpLayR2Code, String grpLayR3Code) {
 
-//        Log.d(TAG, "In get data Service ");
 
         List<ServiceDataModel> sList = new ArrayList<ServiceDataModel>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -9120,9 +9143,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 sperson.setNewID(cursor.getString(cursor.getColumnIndex("NewID")));
 
 
-           /*     Log.d(TAG, " Service list data" + cursor.getString(1) + " , " + cursor.getString(2) + " , " + cursor.getString(3) + " , "
-                        + cursor.getString(4) + " , " + cursor.getString(5) + " , " +
-                        cursor.getString(6) + " , " + cursor.getString(7) + " , " + cursor.getString(8) + " , " + cursor.getString(9));*/
                 sList.add(sperson);
 
             } while (cursor.moveToNext());
@@ -11210,19 +11230,19 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     public void editMalawiMemberData(String counryCode, String layR1Code, String layR2Code, String layR3Code,
                                      String layR4Code, String hhID,
-            int mID, String str_MemName, String str_gender, String str_relation, String str_lmp_date, String str_child_dob, String str_elderly, String str_disabled, String str_age, int pID) {
+                                     int mID, String str_MemName, String str_gender, String str_relation, String str_lmp_date, String str_child_dob, String str_elderly, String str_disabled, String str_age, int pID) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-       // String where = "HHMemID='" + mID + "'";
+        // String where = "HHMemID='" + mID + "'";
 
-        String where =  ADM_COUNTRY_CODE_COL +" = '" +counryCode+
-                "' and "+ LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
-                "' and "+ LAY_R2_LIST_CODE_COL +" = '"+ layR2Code +
-                "' and "+ LAY_R3_LIST_CODE_COL +" = '"+ layR3Code +
-                "' and "+ LAY_R4_LIST_CODE_COL +" = '"+ layR4Code +
-                "' and "+ HHID_COL +" = '"+ hhID +
-                "' and "+ HH_MEM_ID +" = '0"+ mID +"'";
+        String where = ADM_COUNTRY_CODE_COL + " = '" + counryCode +
+                "' and " + LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
+                "' and " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code +
+                "' and " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code +
+                "' and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code +
+                "' and " + HHID_COL + " = '" + hhID +
+                "' and " + HH_MEM_ID + " = '0" + mID + "'";
 
         //String[] whereArgs = new String[] {String.valueOf(mID)};
 
@@ -11239,10 +11259,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         // updating Row into local database
         db.update(REGISTRATION_MEMBER_TABLE, values, where, null);
 
-      //  if (pID != 0)
+        //  if (pID != 0)
 //            updateRegistrationStatus("" + pID, 0);    // Setting Update status to false to avail the Synchronization
 
-            db.close(); // Closing database connection
+        db.close(); // Closing database connection
 
 //        Log.d(TAG, "Updated Member data: " + mID);
 
@@ -11541,27 +11561,26 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
 
-
     /**
-     *  This method will find out the value of MemTypeFlag, like as Get_MemAgeTypeFlag on the server end function
-     *  After completing registration.... need to update the value of the column named MemTypeFlag
+     * This method will find out the value of MemTypeFlag, like as Get_MemAgeTypeFlag on the server end function
+     * After completing registration.... need to update the value of the column named MemTypeFlag
      */
 
     public String getMemberAgeTypeFlag(String counryCode, String layR1Code, String layR2Code, String layR3Code,
-                                       String layR4Code, String hhID, String hhMemID){
+                                       String layR4Code, String hhID, String hhMemID) {
 
 
         SQLiteDatabase db = this.getReadableDatabase();
 
-        String memSex  = "";
-        int memAge  = 0;
-        String sql = "SELECT MemSex, MemAge from "+ REGISTRATION_MEMBER_TABLE + " where "+ ADM_COUNTRY_CODE_COL +" = '" +counryCode+
-                "' and "+ LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
-                "' and "+ LAY_R2_LIST_CODE_COL +" = '"+ layR2Code +
-                "' and "+ LAY_R3_LIST_CODE_COL +" = '"+ layR3Code +
-                "' and "+ LAY_R4_LIST_CODE_COL +" = '"+ layR4Code +
-                "' and "+ HHID_COL +" = '"+ hhID +
-                "' and "+ HH_MEM_ID +" = '"+ hhMemID +"'";
+        String memSex = "";
+        int memAge = 0;
+        String sql = "SELECT MemSex, MemAge from " + REGISTRATION_MEMBER_TABLE + " where " + ADM_COUNTRY_CODE_COL + " = '" + counryCode +
+                "' and " + LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
+                "' and " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code +
+                "' and " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code +
+                "' and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code +
+                "' and " + HHID_COL + " = '" + hhID +
+                "' and " + HH_MEM_ID + " = '" + hhMemID + "'";
 
 
         Cursor cursor = db.rawQuery(sql, null);
@@ -11574,11 +11593,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();
 
 
-        if(memAge > 17 && memSex.equals("F")){
+        if (memAge > 17 && memSex.equals("F")) {
             return "AF";
-        }else if (memAge > 17 && memSex.equals("M")){
+        } else if (memAge > 17 && memSex.equals("M")) {
             return "AM";
-        }else if(memAge < 18){
+        } else if (memAge < 18) {
             return "CH";
         }
 
@@ -11587,17 +11606,17 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
     public void updateMemTypeFlagInMemTable(String counryCode, String layR1Code, String layR2Code, String layR3Code,
-                                            String layR4Code, String hhID, String hhMemID, String memTypeFlag){
+                                            String layR4Code, String hhID, String hhMemID, String memTypeFlag) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        String where =  ADM_COUNTRY_CODE_COL +" = '" +counryCode+
-                "' and "+ LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
-                "' and "+ LAY_R2_LIST_CODE_COL +" = '"+ layR2Code +
-                "' and "+ LAY_R3_LIST_CODE_COL +" = '"+ layR3Code +
-                "' and "+ LAY_R4_LIST_CODE_COL +" = '"+ layR4Code +
-                "' and "+ HHID_COL +" = '"+ hhID +
-                "' and "+ HH_MEM_ID +" = '"+ hhMemID +"'";
-        values.put(MEM_TYPE_FLAG , memTypeFlag); // district name
+        String where = ADM_COUNTRY_CODE_COL + " = '" + counryCode +
+                "' and " + LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
+                "' and " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code +
+                "' and " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code +
+                "' and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code +
+                "' and " + HHID_COL + " = '" + hhID +
+                "' and " + HH_MEM_ID + " = '" + hhMemID + "'";
+        values.put(MEM_TYPE_FLAG, memTypeFlag); // district name
 
         db.update(REGISTRATION_MEMBER_TABLE, values, where, null);
 //        updateRegistrationStatus("" + pID, 0);    // Setting Update status to false

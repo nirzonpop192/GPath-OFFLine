@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.siddiquinoor.restclient.R;
 import com.siddiquinoor.restclient.fragments.BaseActivity;
@@ -66,6 +67,8 @@ public class MemberSearchPage extends BaseActivity {
      * Button to Search Member
      */
     private Button btn_searMem;
+    private Button btn_next;
+    private Button btn_prev;
 
     /**
      * edt_memberId is Edit Text which is used to search Id
@@ -77,6 +80,18 @@ public class MemberSearchPage extends BaseActivity {
      * mDialog is Custom Dialog manager
      */
     private ADNotificationManager mDialog;
+
+    private TextView tv_title;
+
+    private int NUM_ITEMS_PAGE = 20;
+    public int TOTAL_LIST_ITEMS;
+
+    private int pageCount;
+
+    /**
+     * Using this increment value we can move the listview items
+     */
+    private int increment = 0;
 
 
     @Override
@@ -101,6 +116,42 @@ public class MemberSearchPage extends BaseActivity {
                 searchMember();
             }
         });
+
+        btn_next.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                increment++;
+                new LoadListView(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", strVillage, increment).execute();
+                CheckEnable();
+            }
+        });
+
+        btn_prev.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+
+                increment--;
+                new LoadListView(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", strVillage, increment).execute();
+                CheckEnable();
+            }
+        });
+
+    }
+
+
+    /**
+     * Method for enabling and disabling Buttons
+     */
+    private void CheckEnable() {
+        if (increment + 1 == pageCount) {
+            btn_next.setEnabled(false);
+        } else if (increment == 0) {
+            btn_prev.setEnabled(false);
+        } else {
+            btn_prev.setEnabled(true);
+            btn_next.setEnabled(true);
+        }
     }
 
     /**
@@ -113,11 +164,11 @@ public class MemberSearchPage extends BaseActivity {
         if (idMember.length() == 0) {
 
             // anonymous object
-            new LoadListView(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", strVillage).execute();
+            new LoadListView(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", strVillage, increment).execute();
         } else {
             // search with member id
             // anonymous object
-            new LoadListView(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, idMember, strVillage).execute();
+            new LoadListView(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, idMember, strVillage, increment).execute();
         }
     }
 
@@ -130,7 +181,12 @@ public class MemberSearchPage extends BaseActivity {
         sqlH = new SQLiteHandler(MemberSearchPage.this);
         viewReference();
 
-        mDialog= new ADNotificationManager();
+        increment = 0;
+
+        getNumberOfPages();
+
+
+        mDialog = new ADNotificationManager();
 
         // get data from  intent data
         Intent intent = getIntent();
@@ -148,6 +204,18 @@ public class MemberSearchPage extends BaseActivity {
     }
 
     /**
+     * this block is for checking the number of pages
+     * ====================================================
+     */
+    private void getNumberOfPages() {
+        TOTAL_LIST_ITEMS = sqlH.getMemberCount(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", increment);
+        int val = TOTAL_LIST_ITEMS % NUM_ITEMS_PAGE;
+        val = val == 0 ? 0 : 1;
+        pageCount = TOTAL_LIST_ITEMS / NUM_ITEMS_PAGE + val;
+
+    }
+
+    /**
      * Refer the XML views with java object
      */
     private void viewReference() {
@@ -159,14 +227,21 @@ public class MemberSearchPage extends BaseActivity {
         btn_searMem = (Button) findViewById(R.id.btn_memberSearch);
         edt_memberId = (EditText) findViewById(R.id.edt_memberSearch);
 
+        btn_next = (Button) findViewById(R.id.next);
+        btn_prev = (Button) findViewById(R.id.prev);
+
+        tv_title = (TextView) findViewById(R.id.tv_page_title);
+
+
     }
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     private void addIconHomeButton() {
         btnHome.setText("");
         Drawable imageHome = getResources().getDrawable(R.drawable.home_b);
-        btnHome.setCompoundDrawablesRelativeWithIntrinsicBounds(imageHome, null, null, null);
-        setPaddingButton(mContext, imageHome, btnHome);
+        btnHome.setCompoundDrawablesRelativeWithIntrinsicBounds(null, imageHome, null, null);
+//        setPaddingButton(mContext, imageHome, btnHome);
+        btnHome.setPadding(-1, 5, -1, 5);
     }
 
     /**
@@ -205,8 +280,8 @@ public class MemberSearchPage extends BaseActivity {
                     idLayR3Code = idVillage.substring(8, 10);
                     idLayR4Code = idVillage.substring(10);
 
-
-                    LoadListView loading = new LoadListView(countryCode, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", strVillage);
+                    getNumberOfPages();
+                    LoadListView loading = new LoadListView(countryCode, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", strVillage, increment);
                     loading.execute();
 
 
@@ -241,9 +316,10 @@ public class MemberSearchPage extends BaseActivity {
         private String temVillageCode;
         private String memId;
         private String temVillageName;
+        private int temNumber;
 
 
-        private LoadListView(final String temCCode, final String temDistCode, final String temUpazilaCode, final String temUnitCode, final String temVillageCode, final String memId, final String temVillageName) {
+        private LoadListView(final String temCCode, final String temDistCode, final String temUpazilaCode, final String temUnitCode, final String temVillageCode, final String memId, final String temVillageName, int temNumber) {
 
             this.temCCode = temCCode;
             this.temDistCode = temDistCode;
@@ -252,12 +328,13 @@ public class MemberSearchPage extends BaseActivity {
             this.temVillageCode = temVillageCode;
             this.memId = memId;
             this.temVillageName = temVillageName;
+            this.temNumber = temNumber;
 
         }
 
         @Override
         protected String doInBackground(Void... params) {
-            loadAssignedListData(temCCode, temDistCode, temUpazilaCode, temUnitCode, temVillageCode, memId, temVillageName);
+            loadAssignedListData(temCCode, temDistCode, temUpazilaCode, temUnitCode, temVillageCode, memId, temVillageName, temNumber);
             return "successes";
         }
 
@@ -276,7 +353,7 @@ public class MemberSearchPage extends BaseActivity {
             super.onPostExecute(result);
             hideProgressBar();
 
-
+            tv_title.setText("Page " + (temNumber + 1) + " of " + pageCount);
             if (mAdapter != null) {
                 mAdapter.notifyDataSetChanged();
                 listOfMember.setAdapter(mAdapter);
@@ -321,24 +398,23 @@ public class MemberSearchPage extends BaseActivity {
      * @param memId  15 digit member id
      */
 
-    private void loadAssignedListData(final String cCode, final String dCode, final String upCode, final String uCode, final String vCode, final String memId, final String vName) {
+    private void loadAssignedListData(final String cCode, final String dCode, final String upCode, final String uCode, final String vCode, final String memId, final String vName, int number) {
 
-        List<AssignDataModel> memberList = sqlH.getMemberList(cCode, dCode, upCode, uCode, vCode, memId);
 
-        ArrayList<AssignDataModel> assignedArray = new ArrayList<AssignDataModel>();
-        if (memberList.size() != 0) {
+        int start = number * NUM_ITEMS_PAGE;
+        List<AssignDataModel> memberList = sqlH.getMemberList(cCode, dCode, upCode, uCode, vCode, memId, start);
 
-            assignedArray.clear();
-            for (AssignDataModel data : memberList) {
-                // add contacts data in arrayList
-                assignedArray.add(data);
-            }
+
+        if (memberList != null && memberList.size() != 0) {
 
             //Assign the Adapter in list
-            mAdapter = new MemberSearchAdapter((Activity) MemberSearchPage.this, assignedArray, vCode, vName);
+            mAdapter = new MemberSearchAdapter((Activity) MemberSearchPage.this, memberList, vCode, vName);
         }
     }
 
+    /**
+     * to off the back press button
+     */
     @Override
     public void onBackPressed() {
 //        super.onBackPressed();

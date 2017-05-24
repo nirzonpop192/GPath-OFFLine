@@ -487,10 +487,15 @@ public class LoginActivity extends BaseActivity {
                             } else
                                 showAlert("Check your internet connectivity!!");
                         } else {
-                            // // TODO: 5/18/2017  the user name get from db
-                            HashMap<String, String> user = db.getUserDetails();
 
-                            showAlert("This device should be operated offline by " + user.get("name"));
+                            if (db.isValidAdminLocalLogin(user_name, password)) {
+                                gotoHomePage();
+                            } else {
+                                HashMap<String, String> user = db.getUserDetails();
+                                showAlert("This device should be operated offline by " + user.get("name"));
+                            }
+
+
                         }
 
                     }

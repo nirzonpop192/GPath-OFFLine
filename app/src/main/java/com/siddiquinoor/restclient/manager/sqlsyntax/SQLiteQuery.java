@@ -47,6 +47,7 @@ import com.siddiquinoor.restclient.activity.sub_activity.gps_sub.MapActivity;
 public class SQLiteQuery {
 
     private static final String YES = "Y";
+    private static final String TAG = SQLiteQuery.class.getSimpleName();
 
     public static String getUpzillaJoinQuery(String countryCode, String layR1Code) {
         return " JOIN " + SELECTED_VILLAGE_TABLE +
@@ -516,7 +517,7 @@ public class SQLiteQuery {
      * @return sql String
      */
 
-    public static String getMemberListView_searchBy_ID_sql(final String cCode, final String dstCode, final String upCode, final String unCode, final String vCode, final String memberSearchId) {
+    public static String getMemberListView_searchBy_ID_sql(final String cCode, final String dstCode, final String upCode, final String unCode, final String vCode, final String memberSearchId, int number) {
         String getMemName;
         /**
          * 0004= Liberia's Country Code
@@ -609,6 +610,7 @@ public class SQLiteQuery {
 
 
                 + " ORDER BY " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + " DESC "
+                + " LIMIT 20 OFFSET " + number
                 ;
 
 
@@ -624,7 +626,7 @@ public class SQLiteQuery {
      * @return sql String
      */
 
-    public static String getMemberListView_searchBy_Name_sql(final String cCode, final String dstCode, final String upCode, final String unCode, final String vCode, final String memberSearchName) {
+    public static String getMemberListView_searchBy_Name_sql(final String cCode, final String dstCode, final String upCode, final String unCode, final String vCode, final String memberSearchName, int number) {
         String getMemName;
         /**
          * 0004= Liberia's Country Code
@@ -704,7 +706,60 @@ public class SQLiteQuery {
 
                 + " ORDER BY " + SQLiteHandler.REGISTRATION_MEMBER_TABLE + "." + HHID_COL
                 + " DESC "
+                + " LIMIT 20 OFFSET " + number
                 ;
+
+
+    }
+
+
+    public static String getMemberCount_sql(final String cCode, final String dstCode, final String upCode, final String unCode, final String vCode, final String memberSearchName, int number) {
+
+
+        return "SELECT COUNT("
+                + REGISTRATION_MEMBER_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " || '' || " + REGISTRATION_MEMBER_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " || '' || " + REGISTRATION_MEMBER_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " || '' || " + REGISTRATION_MEMBER_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " || '' || " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL
+                + " || '' || " + REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID + ") AS cont "
+
+
+//
+                + " FROM " + REG_N_HH_TABLE
+                + " JOIN " + REGISTRATION_MEMBER_TABLE
+                + " ON " + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + LAY_R4_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_HHID + " = " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + " "
+                + " LEFT JOIN " + RELATION_TABLE
+                + " ON " + RELATION_TABLE + "." + RELATION_CODE + " = " + REGISTRATION_MEMBER_TABLE + "." + RELATION_COL
+                + " left JOIN " + VILLAGE_TABLE + " ON "
+
+                + REG_N_HH_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + VILLAGE_TABLE + "." + ADM_COUNTRY_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + LAY_R1_LIST_CODE + " = " + VILLAGE_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UPZILLA_CODE_COL + " = " + VILLAGE_TABLE + "." + LAY_R2_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL + " = " + VILLAGE_TABLE + "." + LAY_R3_LIST_CODE_COL
+                + " AND " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_VILLAGE_CODE_COL + " = " + VILLAGE_TABLE + "." + LAY_R4_LIST_CODE_COL
+
+                + " LEFT JOIN " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE
+                + " ON " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + ADM_COUNTRY_CODE_COL
+
+                + " AND " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE
+                + " AND  " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL
+                + " AND  " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL
+                + " AND  " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_VILLAGE_CODE_COL
+
+                + " AND " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + SQLiteHandler.REGN_ADDRESS_LOOKUP_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGN_ADDRESS_LOOKUP_CODE_COL
+
+
+                + " WHERE " + REGISTRATION_MEMBER_TABLE + "." + ADM_COUNTRY_CODE_COL + " =  '" + cCode + "'"
+                + " AND " + REGISTRATION_MEMBER_TABLE + "." + LAY_R1_LIST_CODE_COL + " =  '" + dstCode + "'"
+                + " AND " + REGISTRATION_MEMBER_TABLE + "." + LAY_R2_LIST_CODE_COL + " =  '" + upCode + "' "
+                + " AND " + REGISTRATION_MEMBER_TABLE + "." + LAY_R3_LIST_CODE_COL + " =  '" + unCode + "' "
+                + " AND " + REGISTRATION_MEMBER_TABLE + "." + LAY_R3_LIST_CODE_COL + " =  '" + vCode + "' ";
 
 
     }
@@ -1179,7 +1234,7 @@ public class SQLiteQuery {
 
                 "  ORDER BY " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + " DESC ";
 
-        Log.d("CU2", cu2_sql);
+        Log.d(TAG, cu2_sql);
         return cu2_sql;
         //  " , "+ REGISTRATION_MEMBER_TABLE+"."+HH_MEM_ID+ "  ORDER BY "+ REGISTRATION_MEMBER_TABLE+"."+HHID_COL+" DESC, RegMembers.RegisterID DESC";
 
@@ -5112,7 +5167,7 @@ public class SQLiteQuery {
     public static String getServiceDetailsForMember_sql(String cCode, String donorCode, String awardCord,
                                                         String districCode, String upCode, String unCode,
                                                         String vCode, String hhId, String mmId, String opCode,
-                                                        String opMCode, String prgCode, String srvCode){
+                                                        String opMCode, String prgCode, String srvCode) {
         return " SELECT " + SERVICE_TABLE_SERVICE_SL_COL
                 + " , " + SERVICE_TABLE_SERVICE_DT_COL
 
@@ -5134,7 +5189,7 @@ public class SQLiteQuery {
     }
 
     public static String updateSrvMaxDate_sql(String cCode, String donorCode, String awardCode, String distCode, String upCode, String unCode, String vCode
-            , String hhId, String memId, String progCode, String srvCode, String srvMaxDate){
+            , String hhId, String memId, String progCode, String srvCode, String srvMaxDate) {
         return SQLiteHandler.ADM_COUNTRY_CODE_COL + " = '" + cCode + "'"
                 + " AND  " + SQLiteHandler.LAY_R1_LIST_CODE_COL + " = '" + distCode + "'"
                 + " AND  " + SQLiteHandler.LAY_R2_LIST_CODE_COL + " = '" + upCode + "'"

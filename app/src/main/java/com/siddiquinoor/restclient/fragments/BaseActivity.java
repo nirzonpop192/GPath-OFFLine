@@ -252,6 +252,7 @@ public abstract class BaseActivity extends Activity {
         Date date = new Date();
         return dateFormat.format(date).toString();
     }
+
     protected boolean isTheDateValidFormat(String testingDate) {
 
 
@@ -460,6 +461,7 @@ public abstract class BaseActivity extends Activity {
      * @param context invoking class name
      * @param image   Drawable image
      * @param btn     button view
+     * @deprecated
      */
     protected void setPaddingButton(Context context, Drawable image, Button btn) {
         int leftPadd, rightPadd, topPadd, bottomPadd;

@@ -18,6 +18,7 @@ import com.siddiquinoor.restclient.data_model.adapters.AssignDataModel;
 import com.siddiquinoor.restclient.utils.KEY;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Faisal
@@ -31,11 +32,11 @@ public class MemberSearchAdapter extends BaseAdapter {
     private Activity activity;
 
     private LayoutInflater inflater;
-    private ArrayList<AssignDataModel> memberData = new ArrayList<AssignDataModel>();
+    private List<AssignDataModel> memberData = new ArrayList<AssignDataModel>();
 
     private String vCode,vName;
 
-    public MemberSearchAdapter(Activity activity, ArrayList<AssignDataModel> memberData, String vCode, String vName) {
+    public MemberSearchAdapter(Activity activity, List<AssignDataModel> memberData, String vCode, String vName) {
         this.activity = activity;
         this.memberData = memberData;
         this.vCode = vCode;

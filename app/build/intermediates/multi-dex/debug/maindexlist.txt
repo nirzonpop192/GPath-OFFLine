@@ -39,6 +39,7 @@ com/google/android/gms/iid/MessengerCompat$1.class
 com/google/android/gms/ads/internal/overlay/zzj.class
 com/google/android/gms/gcm/GoogleCloudMessaging.class
 android/support/v4/media/MediaDescriptionCompat$Builder.class
+com/siddiquinoor/restclient/activity/MemberSearchPage$5.class
 com/google/android/gms/ads/search/DynamicHeightSearchAdRequest.class
 com/siddiquinoor/restclient/data_model/TaPartOrgN.class
 android/support/v4/app/FragmentManager$OnBackStackChangedListener.class
@@ -1375,6 +1376,7 @@ android/support/v4/app/ActivityCompatHoneycomb.class
 com/google/android/gms/appindexing/AppIndexApi.class
 org/osmdroid/bonuspack/clustering/GridMarkerClusterer.class
 com/google/android/gms/internal/zzgu.class
+com/siddiquinoor/restclient/activity/MemberSearchPage$4.class
 android/support/v4/media/MediaBrowserCompat$MediaBrowserServiceCallbackImpl.class
 com/google/android/gms/wearable/internal/GetConfigResponse.class
 com/google/android/gms/R.class

@@ -537,7 +537,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
 
                 if (start_date != null && end_date != null) {
-                    if (!getValidDateRange(serviceDate, start_date, end_date,false)) {
+                    if (!getValidDateRange(serviceDate, start_date, end_date, false)) {
                         erroDialog.showErrorDialog(mContext, "Service date is not within the valid range. Save attempt denied");
 
                     } else if (adapter.isArrayListNull()) {
@@ -747,12 +747,12 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
 
                                     /**
-                                     * none fodd flag
+                                     * none food flag
                                      */
                                     saveNoneFoodProgram(srvMemData, sqlServerSyntax, EntryBy, EntryDate);
 
 
-                                }// end of the else
+                                }                                                                   // end of the else
 
 
                             }// end of for
@@ -1166,7 +1166,6 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                 if (idGroupCat.length() > 2)
                     loadGroup(idCountry, idDonor, idAward, progCode, idGroupCat, strSrvDate, srvCenterCode);
 
-                //  Log.d(TAG, "Group Category ,idGroupCat:" + idGroupCat + " strGroupCat : " + strGroupCat);
 
             }
 
@@ -1233,8 +1232,6 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                     idSrvCenter = fdpWithSrvCenterCode.substring(3);
                     loadServiceMonth(cCode, idSrvCenter, idFdpCode);
 
-                    //  Log.d("MOR22", " fdpWithSrvCenterCode " + fdpWithSrvCenterCode + "\n idSrvCenter:" + idSrvCenter);
-
                 }
 
 
@@ -1293,9 +1290,6 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                      *                    awardId = idServiceMonth.substring(6, 8);
                      * */
                     idOpMonthCode = idServiceMonth.substring(8);
-               /*     Log.d("In Service", " In the service month the fdpCode : " + fdpCode +
-                            "\n private global veriable : idFdpCode :" + idFdpCode);*/
-
 
                     loadAward(cCode, SrvCenterCode, fdpCode, idServiceMonth);
 
@@ -1418,7 +1412,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
 
 
                 if (date.length() > 0 && start_date != null && end_date != null) {
-                    if (!getValidDateRange(date, start_date, end_date,false)) {
+                    if (!getValidDateRange(date, start_date, end_date, false)) {
                         validDate = false;
                         erroDialog.showErrorDialog(mContext, "Service date is not within the valid range. Save attempt denied");
 
@@ -1496,19 +1490,24 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
         }
     }
 
+
     /**
      * LOAD :: Criteria program name and service name
-     *
-     * @param cCode         Country Code
-     * @param donorCode     Donor Code
-     * @param awardCode     award Code
-     * @param srvCenterCode Service Center Code
-     * @param fdpCode       food distribution point
-     * @param srvMonthCode  service month Code
+     * @param cCode             Country Code
+     * @param donorCode         Donor Code
+     * @param awardCode         award Code
+     * @param srvCenterCode     Service Center Code
+     * @param fdpCode           food distribution point
+     * @param srvMonthCode      service month Code
+     * @param foodFlagTypeQuery sqlite query An "and condition" will  dynamically added  to load criteria on spinner .Assume program MCHN has
+     *                          four service PW,LM,CA2,CU2. CA2 & CU2 have Food type service but PW and LM
+     *                          have Cash type service .if user select food type then pw and lm will not appeared.
+     *                          criteria Code (programCode + service Code)
      */
     private void loadServiceRecodeCriteria(final String cCode, final String donorCode, final String awardCode, final String srvCenterCode, final String fdpCode, final String srvMonthCode, final String foodFlagTypeQuery) {
 
-        SpinnerLoader.loadServiceRecodeCriteriaLoader(mContext, sqlH, spCriteria, cCode, donorCode, awardCode, foodFlagTypeQuery, idCriteria, strCriteria);
+        String criteria = SQLiteQuery.loadServiceRecodeCriteria(cCode, donorCode, awardCode, foodFlagTypeQuery);
+        SpinnerLoader.loadCriteriaLoader(mContext, sqlH, spCriteria, idCriteria, strCriteria, criteria);
 
         spCriteria.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                                                  @Override
@@ -1614,8 +1613,8 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
             adapter.notifyDataSetChanged();
             mListView.setAdapter(adapter);
             *//**
-             * Notify the use no data available
-             *//*
+         * Notify the use no data available
+         *//*
             if (adapter.getCount() == 0) {
                 erroDialog.showInfromDialog(mContext, "No Data Found", "No Data found");
             }
@@ -1943,14 +1942,12 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
              * Set CheckBox "TRUE" or "FALSE" if mChecked == true
              */
             cbId_holder.setChecked((mChecked.get(position)));
-//            Log.d(TAG, " position " + position + " the check box  is svaved " + cbId_holder.isChecked());
-
 
             /**
              * necessary setups
              */
             personToBeServiced.setServiceCenterCode(srvCenterCode);
-            // // TODO: jekono ekta komate hobe
+
             personToBeServiced.setServiceDTCode(srvDate);
             personToBeServiced.setTemServiceDate(srvDate);
             personToBeServiced.setTemServiceCenterName(strServiceCenter);
@@ -1999,7 +1996,7 @@ public class ServiceActivity extends BaseActivity implements View.OnClickListene
                                     tv_MemberDetails_HHID.setText(personToBeServiced.getHHID());
                                     tv_MemberDetails_MemID.setText(personToBeServiced.getMemberId());
                                     tv_MemberDetails_MemName.setText(personToBeServiced.getHh_mm_name());
-                                    // // TODO: 1/23/2017  get the wd if exite in data base
+
                                     edt_MemberDetails_working_days.setText(personToBeServiced.getWorkingDay());
 
                                     if (!edt_MemberDetails_working_days.getText().toString().equals("0"))

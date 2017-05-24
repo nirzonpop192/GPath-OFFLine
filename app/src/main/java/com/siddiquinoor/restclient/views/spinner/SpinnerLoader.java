@@ -177,44 +177,7 @@ public class SpinnerLoader {
 
     }
 
-    /**
-     * @param context           refer to the activity which will invoke this method.
-     * @param sqlH              database reference
-     * @param spCriteria        spinner view
-     * @param cCode             country code
-     * @param donorCode         donor code
-     * @param awardCode         award code
-     * @param foodFlagTypeQuery sqlite query An "and condition" will  dynamically added  to load criteria on spinner .Assume program MCHN has
-     *                          four service PW,LM,CA2,CU2. CA2 & CU2 have Food type service but PW and LM
-     *                          have Cash type service .if user select food type then pw and lm will not appeared
-     * @param criteriaCode      criteria Code (programCode + service Code)
-     * @param strCriteria       criteria Name (programShortName + serviceShortName )
-     *                          <p>
-     *                          This methods load the Criteria Code (Program Code+ Service Code ) and Name (Program Name + service Name ) to the Spinner From data base
-     *                          following to the Country Code , Donor Code , Award Code , foodFlagTypeQuery .</p>
-     */
-    public static void loadServiceRecodeCriteriaLoader(Context context, SQLiteHandler sqlH, Spinner spCriteria, String cCode, String donorCode, String awardCode, String foodFlagTypeQuery, String criteriaCode, String strCriteria) {
 
-        int position = 0;
-        String criteria = SQLiteQuery.loadServiceRecodeCriteria(cCode, donorCode, awardCode, foodFlagTypeQuery);
-
-        List<SpinnerHelper> listCriteria = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, null, false);
-        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listCriteria);
-        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
-        spCriteria.setAdapter(dataAdapter);
-
-
-        if (criteriaCode != null) {
-            for (int i = 0; i < spCriteria.getCount(); i++) {
-                String award = spCriteria.getItemAtPosition(i).toString();
-                if (award.equals(strCriteria)) {
-                    position = i;
-                }
-            }
-            spCriteria.setSelection(position);
-        }
-
-    }
 
     public static void loadServiceCenterLoader(Context context, SQLiteHandler sqlH, Spinner spServiceCenter, String idSrvCenter, String strServiceCenter) {
         int position = 0;
@@ -576,6 +539,45 @@ public class SpinnerLoader {
             for (int i = 0; i < spCriteria.getCount(); i++) {
                 String criteriaN = spCriteria.getItemAtPosition(i).toString();
                 if (criteriaN.equals(strCriteria)) {
+                    position = i;
+                }
+            }
+            spCriteria.setSelection(position);
+        }
+
+    }
+
+    /**
+     * @param context           refer to the activity which will invoke this method.
+     * @param sqlH              database reference
+     * @param spCriteria        spinner view
+     * @param cCode             country code
+     * @param donorCode         donor code
+     * @param awardCode         award code
+     * @param foodFlagTypeQuery sqlite query An "and condition" will  dynamically added  to load criteria on spinner .Assume program MCHN has
+     *                          four service PW,LM,CA2,CU2. CA2 & CU2 have Food type service but PW and LM
+     *                          have Cash type service .if user select food type then pw and lm will not appeared
+     * @param criteriaCode      criteria Code (programCode + service Code)
+     * @param strCriteria       criteria Name (programShortName + serviceShortName )
+     *                          <p>
+     *                          This methods load the Criteria Code (Program Code+ Service Code ) and Name (Program Name + service Name ) to the Spinner From data base
+     *                          following to the Country Code , Donor Code , Award Code , foodFlagTypeQuery .</p>
+     */
+    public static void loadServiceRecodeCriteriaLoader(Context context, SQLiteHandler sqlH, Spinner spCriteria, String cCode, String donorCode, String awardCode, String foodFlagTypeQuery, String criteriaCode, String strCriteria) {
+
+        int position = 0;
+        String criteria = SQLiteQuery.loadServiceRecodeCriteria(cCode, donorCode, awardCode, foodFlagTypeQuery);
+
+        List<SpinnerHelper> listCriteria = sqlH.getListAndID(SQLiteHandler.CUSTOM_QUERY, criteria, null, false);
+        ArrayAdapter<SpinnerHelper> dataAdapter = new ArrayAdapter<SpinnerHelper>(context, R.layout.spinner_layout, listCriteria);
+        dataAdapter.setDropDownViewResource(R.layout.spinner_layout);
+        spCriteria.setAdapter(dataAdapter);
+
+
+        if (criteriaCode != null) {
+            for (int i = 0; i < spCriteria.getCount(); i++) {
+                String award = spCriteria.getItemAtPosition(i).toString();
+                if (award.equals(strCriteria)) {
                     position = i;
                 }
             }

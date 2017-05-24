@@ -29,8 +29,6 @@ import android.widget.Toast;
 
 import com.siddiquinoor.restclient.R;
 import com.siddiquinoor.restclient.controller.AppController;
-import com.siddiquinoor.restclient.data_model.AGR_DataModel;
-import com.siddiquinoor.restclient.data_model.CTDataModel;
 import com.siddiquinoor.restclient.fragments.BaseActivity;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
 import com.siddiquinoor.restclient.manager.SyncDatabase;
@@ -187,7 +185,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         restorDb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                restorDataBase();
+                restoreDataBase();
 
 
             }
@@ -241,7 +239,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         });
     }
 
-    private void restorDataBase() {
+    private void restoreDataBase() {
         String dbBy = getStaffID();
         String dbByName = getUserName();
         String backupDate = null;

@@ -107,7 +107,7 @@
     <RelativeLayout
         android:id="@+id/table_title"
         android:layout_width="fill_parent"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
         android:layout_below="@+id/ll_details"
         android:background="#627C9F">
 
@@ -119,10 +119,23 @@
             android:layout_alignParentRight="true"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
-            android:padding="10dp"
+            android:padding="5dp"
             android:text="Go"
             android:textColor="@color/white"
 
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_page_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+
+            android:text="page"
+            android:textColor="@color/white"
             android:textSize="13sp" />
         <!--</LinearLayout>-->
 
@@ -132,13 +145,36 @@
         android:id="@+id/lv_mem_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/footer"
+        android:layout_above="@+id/listViewController"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/table_title"
         android:fadeScrollbars="false"
         android:scrollbarThumbVertical="@drawable/scrollbar_vertical_thumb"
         android:scrollbarTrackVertical="@drawable/scrollbar_vertical_track" /> <!--vertical layout-->
+
+    <LinearLayout
+        android:id="@+id/listViewController"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/footer"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/prev"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Prev" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Next" />
+    </LinearLayout>
+
     <include
         android:id="@+id/footer"
         layout="@layout/footer" />
