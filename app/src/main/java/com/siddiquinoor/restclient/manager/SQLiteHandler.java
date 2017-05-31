@@ -11363,10 +11363,10 @@ public class SQLiteHandler extends SQLiteOpenHelper {
      * Storing Member Data into database for Malawi
      */
 
-    public void addMemberDataForMalawi(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String str_hhID, String str_hhMemID, String str_MemName, String str_gender, String str_relation, String str_entry_by, String str_entry_date, String lmp_date, String child_dob, String str_elderly, String str_disabled, String str_age, String regDate, int pID) {
+    public void addMemberDataForMalawi(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String str_hhID, String str_hhMemID, String str_MemName, String str_gender, String str_relation, String str_entry_by, String str_entry_date, String lmp_date, String child_dob, String str_elderly, String str_disabled, String str_age, String regDate, int pID, String memAgeFlag) {
         addMemberData(str_c_code, str_district, str_upazilla, str_union, str_village, str_hhID, str_hhMemID, str_MemName, str_gender, str_relation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age
                 , regDate, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null,memAgeFlag);
 
         SQLServerSyntaxGenerator malawiMember = new SQLServerSyntaxGenerator();
         malawiMember.setAdmCountryCode(str_c_code);
@@ -11383,6 +11383,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         malawiMember.setEntryDate(str_entry_date);
         malawiMember.setMmMemAge(str_age);
         malawiMember.setRegNDate(regDate);
+        malawiMember.setMemTypeFlag(memAgeFlag);
 
         insertIntoUploadTable(malawiMember.insertIntoRegNMemberForMalawi());
 
@@ -11391,6 +11392,52 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
     }
+
+//    public long addMemberDataForLiberia(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String str_hhID, String str_hhMemID,
+//                                        String regNDate,
+//                                        String memOtherID, String memName_First,
+//                                        String memName_Middle, String memName_Last, String birthYear,
+//                                        String maritalStatus, String contactNo,
+//                                        String Photo,
+//                                        String type_ID, String id_NO,
+//                                        String v_BSCMemName1_First, String v_BSCMemName1_Mid, String v_BSCMemName1_Last,
+//                                        String v_BSCMem1_TitlePosition, String v_BSCMemName2_First, String v_BSCMemName2_Mid,
+//                                        String v_BSCMemName2_Last, String v_BSCMem2_TitlePos, String proxy_Desig, String proxy_Name_First,
+//                                        String proxy_Name_Mid, String proxy_Name_Last, String proxy_BirthYear,
+//                                        String Proxy_Photo,
+//                                        String proxy_Type_ID, String proxy_ID_NO, String p_BSCMemName1_First, String p_BSCMemName1_Middle,
+//                                        String p_BSCMemName1_Last, String p_BSCMem1_TitlePosition, String p_BSCMemName2_First, String p_BSCMemName2_Middle,
+//                                        String p_BSCMemName2_Last, String p_BSCMem2_TitlePosition,
+//                                        String str_entry_by, String str_entry_date) {
+//        //    addMemberData(str_c_code, str_district,  str_upazilla,  str_union,  str_village,  str_hhID,  str_hhMemID,  str_MemName,  str_gender,  str_relation,  str_entry_by,  str_entry_date,  lmp_date,  child_dob,  str_elderly,  str_disabled,  str_age
+//
+//        String str_gender = null, str_relation = null, lmp_date = null, child_dob = null, str_elderly = null, str_disabled = null;
+//        String str_age = null;
+//        String grp_code = null;
+//
+//        long idRow = addMemberData(str_c_code, str_district, str_upazilla, str_union, str_village,
+//                str_hhID, str_hhMemID, memName_First, str_gender, str_relation, str_entry_by, str_entry_date,
+//                lmp_date, child_dob, str_elderly, str_disabled, str_age, regNDate, birthYear, maritalStatus
+//                , contactNo, memOtherID, memName_First, memName_Middle, memName_Last,
+//                Photo//.toString()
+//                ,
+//                type_ID, id_NO, v_BSCMemName1_First, v_BSCMemName1_Mid, v_BSCMemName1_Last, v_BSCMem1_TitlePosition,
+//                v_BSCMemName2_First, v_BSCMemName2_Mid, v_BSCMemName2_Last, v_BSCMem2_TitlePos,
+//                proxy_Desig, proxy_Name_First, proxy_Name_Mid, proxy_Name_Last, proxy_BirthYear,
+//                Proxy_Photo//.toString()
+//                ,
+//                proxy_Type_ID, proxy_ID_NO,
+//                p_BSCMemName1_First, p_BSCMemName1_Middle, p_BSCMemName1_Last, p_BSCMem1_TitlePosition,
+//                p_BSCMemName2_First, p_BSCMemName2_Middle, p_BSCMemName2_Last, p_BSCMem2_TitlePosition, grp_code);
+//
+//
+////        Log.d(TAG, " add member Liberia id: " + idRow);
+//
+//
+//        return idRow;
+//
+//
+//    }
 
     public long addMemberDataForLiberia(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String str_hhID, String str_hhMemID,
                                         String regNDate,
@@ -11407,7 +11454,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                                         String proxy_Type_ID, String proxy_ID_NO, String p_BSCMemName1_First, String p_BSCMemName1_Middle,
                                         String p_BSCMemName1_Last, String p_BSCMem1_TitlePosition, String p_BSCMemName2_First, String p_BSCMemName2_Middle,
                                         String p_BSCMemName2_Last, String p_BSCMem2_TitlePosition,
-                                        String str_entry_by, String str_entry_date) {
+                                        String str_entry_by, String str_entry_date, String memTypeFlag) {
         //    addMemberData(str_c_code, str_district,  str_upazilla,  str_union,  str_village,  str_hhID,  str_hhMemID,  str_MemName,  str_gender,  str_relation,  str_entry_by,  str_entry_date,  lmp_date,  child_dob,  str_elderly,  str_disabled,  str_age
 
         String str_gender = null, str_relation = null, lmp_date = null, child_dob = null, str_elderly = null, str_disabled = null;
@@ -11427,7 +11474,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 ,
                 proxy_Type_ID, proxy_ID_NO,
                 p_BSCMemName1_First, p_BSCMemName1_Middle, p_BSCMemName1_Last, p_BSCMem1_TitlePosition,
-                p_BSCMemName2_First, p_BSCMemName2_Middle, p_BSCMemName2_Last, p_BSCMem2_TitlePosition, grp_code);
+                p_BSCMemName2_First, p_BSCMemName2_Middle, p_BSCMemName2_Last, p_BSCMem2_TitlePosition, grp_code,memTypeFlag);
 
 
 //        Log.d(TAG, " add member Liberia id: " + idRow);
@@ -11438,7 +11485,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
-    public long addMemberData(String c_code, String disCode, String upCode, String unCode, String vCode,
+  /*  public long addMemberData(String c_code, String disCode, String upCode, String unCode, String vCode,
                               String str_hhID, String str_hhMemID, String str_MemName, String str_gender, String str_relation,
                               String str_entry_by, String str_entry_date, String lmp_date,
                               String child_dob, String elderly, String disabled,
@@ -11520,9 +11567,93 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();             // Closing database connection
 
         return id;
+    }*/
+
+
+    public long addMemberData(String c_code, String disCode, String upCode, String unCode, String vCode,
+                              String str_hhID, String str_hhMemID, String str_MemName, String str_gender, String str_relation,
+                              String str_entry_by, String str_entry_date, String lmp_date,
+                              String child_dob, String elderly, String disabled,
+                              String str_age, String regNDate, String birthYear,
+                              String maritalStatus, String contactNo, String memOtherID, String memName_First,
+                              String memName_Middle, String memName_Last,
+                              String Photo,
+                              String type_ID,
+                              String id_NO, String v_BSCMemName1_First, String v_BSCMemName1_Mid, String v_BSCMemName1_Last,
+                              String v_BSCMem1_TitlePosition, String v_BSCMemName2_First, String v_BSCMemName2_Mid,
+                              String v_BSCMemName2_Last, String v_BSCMem2_TitlePos, String proxy_Desig, String proxy_Name_First,
+                              String proxy_Name_Mid, String proxy_Name_Last, String proxy_BirthYear,
+                              String Proxy_Photo,
+                              String proxy_Type_ID, String proxy_ID_NO, String p_BSCMemName1_First, String p_BSCMemName1_Middle,
+                              String p_BSCMemName1_Last, String p_BSCMem1_TitlePosition, String p_BSCMemName2_First, String p_BSCMemName2_Middle,
+                              String p_BSCMemName2_Last, String p_BSCMem2_TitlePosition, String grpCode, String memTypeFlag) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+
+        values.put(ADM_COUNTRY_CODE_COL, c_code);                                                   // country name
+        values.put(LAY_R1_LIST_CODE_COL, disCode);                                                           // district name
+        values.put(LAY_R2_LIST_CODE_COL, upCode); // upazilla name
+        values.put(LAY_R3_LIST_CODE_COL, unCode); // Unit name
+        values.put(LAY_R4_LIST_CODE_COL, vCode); // Village name
+        values.put(HHID_COL, str_hhID); // Registered ID
+        values.put(HH_MEM_ID, str_hhMemID); // Member ID
+        values.put(MEM_NAME_COL, str_MemName); // Member name
+        values.put(SEX_COL, str_gender); // sex
+        values.put(RELATION_COL, str_relation); // relation
+        values.put(ENTRY_BY, str_entry_by); // entry by
+        values.put(ENTRY_DATE, str_entry_date); // entry Date
+        values.put(LMP_DATE, lmp_date);
+        values.put(CHILD_DOB, child_dob);
+        values.put(ELDERLY, elderly);
+        values.put(DISABLE, disabled);
+        values.put(MEM_AGE, str_age);           // member age for malawi
+        values.put(REG_DATE_COL, regNDate);
+        values.put(BIRTH_YEAR_COL, birthYear);
+        values.put(MARITAL_STATUS_COL, maritalStatus);
+        values.put(CONTACT_NO_COL, contactNo);
+        values.put(MEMBER_OTHER_ID_COL, memOtherID);
+        values.put(MEM_NAME_FIRST_COL, memName_First);
+        values.put(MEM_NAME_MIDDLE_COL, memName_Middle);
+        values.put(MEM_NAME_LAST_COL, memName_Last);
+        values.put(PHOTO_COL, Photo);
+        values.put(TYPE_ID_COL, type_ID);
+        values.put(ID_NO_COL, id_NO);
+        values.put(V_BSC_MEM_1_NAME_FIRST_COL, v_BSCMemName1_First);
+        values.put(V_BSC_MEM_1_NAME_MIDDLE_COL, v_BSCMemName1_Mid);
+        values.put(V_BSC_MEM_1_NAME_LAST_COL, v_BSCMemName1_Last);
+        values.put(V_BSC_MEM_1_TITLE_COL, v_BSCMem1_TitlePosition);
+        values.put(V_BSC_MEM_2_NAME_FIRST_COL, v_BSCMemName2_First);
+        values.put(V_BSC_MEM_2_NAME_MIDDLE_COL, v_BSCMemName2_Mid);
+        values.put(V_BSC_MEM_2_NAME_LAST_COL, v_BSCMemName2_Last);
+        values.put(V_BSC_MEM_2_TITLE_COL, v_BSCMem2_TitlePos);
+        values.put(PROXY_DESIGNATION_COL, proxy_Desig);
+        values.put(PROXY_NAME_FIRST_COL, proxy_Name_First);
+        values.put(PROXY_NAME_MIDDLE_COL, proxy_Name_Mid);
+        values.put(PROXY_NAME_LAST_COL, proxy_Name_Last);
+        values.put(PROXY_BIRTH_YEAR_COL, proxy_BirthYear);
+        values.put(PROXY_PHOTO_COL, Proxy_Photo);
+        values.put(PROXY_TYPE_ID_COL, proxy_Type_ID);
+        values.put(PROXY_ID_NO_COL, proxy_ID_NO);
+        values.put(PROXY_BSC_MEM_1_NAME_FIRST_COL, p_BSCMemName1_First);
+        values.put(PROXY_BSC_MEM_1_NAME_MIDDLE_COL, p_BSCMemName1_Middle);
+        values.put(PROXY_BSC_MEM_1_NAME_LAST_COL, p_BSCMemName1_Last);
+        values.put(PROXY_BSC_MEM_1_TITLE_COL, p_BSCMem1_TitlePosition);
+        values.put(PROXY_BSC_MEM_2_NAME_FIRST_COL, p_BSCMemName2_First);
+        values.put(PROXY_BSC_MEM_2_NAME_MIDDLE_COL, p_BSCMemName2_Middle);
+        values.put(PROXY_BSC_MEM_2_NAME_LAST_COL, p_BSCMemName2_Last);
+        values.put(PROXY_BSC_MEM_2_TITLE_COL, p_BSCMem2_TitlePosition);
+        values.put(MEM_TYPE_FLAG, memTypeFlag);
+//        values.put(GROUP_CODE_COL, grpCode);
+
+
+        long id = db.insert(REGISTRATION_MEMBER_TABLE, null, values);
+
+
+        db.close();             // Closing database connection
+
+        return id;
     }
-
-
     public void addLUP_TAParticipantCat(String cCode, String taGroup, String partCatCode, String partCatTitle) {
 
         SQLiteDatabase db = this.getWritableDatabase();

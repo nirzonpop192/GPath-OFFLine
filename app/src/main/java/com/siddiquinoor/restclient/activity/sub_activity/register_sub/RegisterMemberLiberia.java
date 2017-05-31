@@ -385,7 +385,6 @@ public class RegisterMemberLiberia extends BaseActivity implements View.OnClickL
         codeProxyBscMem2Title = "0";
         codeDesignatedProxy = "0";
     }
-
     private void saveMember() {
         str_hhMemID = edtHHMemID.getText().toString();
         str_MemNameFrist = edtMemNameFirst.getText().toString();
@@ -520,7 +519,7 @@ public class RegisterMemberLiberia extends BaseActivity implements View.OnClickL
             regLiberiaMember.setMmMemName_Middle(str_MemNameMiddle);
             regLiberiaMember.setMmMemName_Last(str_MemNameLast);
             if(memImageEncoded!=null)
-                 regLiberiaMember.setMmPhoto(memImageEncoded.toString());
+                regLiberiaMember.setMmPhoto(memImageEncoded.toString());
 
             regLiberiaMember.setMmType_ID(codeIDType);
             regLiberiaMember.setMmID_NO(str_MemTypedIDNo);
@@ -576,7 +575,12 @@ public class RegisterMemberLiberia extends BaseActivity implements View.OnClickL
                 /**
                  * Insert procedure
                  * */
-                long id = sqlH.addMemberDataForLiberia(idCountry, idDistrictCode, idUpazillaCode, idUnionCode, idVillageCode, str_hhID, str_hhMemID, str_regDate, str_Mem_lib_otherId, str_MemNameFrist, str_MemNameMiddle, str_MemNameLast, str_MemBirthYear, codeMartial, str_MemContact, memImageEncoded, codeIDType, str_MemTypedIDNo,
+                String value = sqlH.getMemberAgeTypeFlag(idCountry,idDistrictCode,idUpazillaCode,idUnionCode,idVillageCode,str_hhID,str_hhMemID);
+                sqlH.updateMemTypeFlagInMemTable(idCountry,idDistrictCode,idUpazillaCode,idUnionCode,idVillageCode,str_hhID,str_hhMemID,value);
+
+
+                long id = sqlH.addMemberDataForLiberia(idCountry, idDistrictCode, idUpazillaCode, idUnionCode, idVillageCode, str_hhID, str_hhMemID,
+                        str_regDate, str_Mem_lib_otherId, str_MemNameFrist, str_MemNameMiddle, str_MemNameLast, str_MemBirthYear, codeMartial, str_MemContact, memImageEncoded, codeIDType, str_MemTypedIDNo,
                         str_V_bsc_Mem_1_NameFirst, str_V_bsc_Mem_1_NameMiddle, str_V_bsc_Mem_1_NameLast, codeBscMem1Title
                         , str_V_bsc_Mem_2_NameFirst, str_V_bsc_Mem_2_NameMiddle, str_V_bsc_Mem_2_NameLast, codeBscMem2Title,
                         codeDesignatedProxy, str_ProxyNameFirst, str_ProxyNameMiddle, str_ProxyNameLast, str_ProxyBirthYear
@@ -585,11 +589,255 @@ public class RegisterMemberLiberia extends BaseActivity implements View.OnClickL
                         str_ProxyTypedIDNo,
                         str_Proxy_bsc_Mem_1_NameFirst, str_Proxy_bsc_Mem_1_NameMiddle, str_Proxy_bsc_Mem_1_NameLast, codeBscMem1Title,
                         str_Proxy_bsc_Mem_2_NameFirst, str_Proxy_bsc_Mem_2_NameMiddle, str_Proxy_bsc_Mem_2_NameLast, codeBscMem2Title,
-                        str_entry_by, str_entry_date);
+                        str_entry_by, str_entry_date,value);
 
                 // for web upload
                 sqlH.insertIntoUploadTable(regLiberiaMember.insertIntoRegNMemberForLiberia());
                 Toast.makeText(mContext, "member id :" + id, Toast.LENGTH_SHORT).show();
+
+                // todo: enable Assigne Button here
+
+                //   llAssignController.setVisibility(View.VISIBLE);
+
+         /*
+                Toast.makeText(getApplicationContext(), "Member added Successfully...", Toast.LENGTH_LONG).show();
+                setIsMemberSaved(true);*/
+                //  this.finish();
+
+                      /*  if(!redirect.isEmpty()){
+                            goToNextPage(idCountry, idDistrictCode, idUpazillaCode, idUnionCode, idVillageCode, str_hhID, redirect);
+                        }else{
+                            Intent dIntent = new Intent(RegisterMember.this, RegisterMember.class);
+
+                            dIntent.putExtra("redirect", "");
+                            dIntent.putExtra("str_hhID", str_hhID);
+                            dIntent.putExtra("str_hhName", str_hhName);
+                            dIntent.putExtra("idCountry", idCountry);
+
+                            dIntent.putExtra("str_district", str_district);
+                            dIntent.putExtra("str_upazilla", str_upazilla);
+                            dIntent.putExtra("str_union", str_union);
+                            dIntent.putExtra("str_village", str_village);
+
+                            dIntent.putExtra("idDistrictCode", idDistrictCode);
+                            dIntent.putExtra("idUpazillaCode", idUpazillaCode);
+                            dIntent.putExtra("idUnionCode", idUnionCode);
+                            dIntent.putExtra("idVillageCode", idVillageCode);
+
+
+                            dIntent.putExtra("str_entry_by", str_entry_by);
+                            dIntent.putExtra("str_entry_date", str_entry_date);
+
+                            startActivity(dIntent);
+                        }*/
+            }
+        }
+    }
+
+   /* private void saveMember() {
+        str_hhMemID = edtHHMemID.getText().toString();
+        str_MemNameFrist = edtMemNameFirst.getText().toString();
+        String str_Mem_lib_otherId = edtMem_lib_otherId.getText().toString();
+        String str_MemNameMiddle = edtMemNameMiddle.getText().toString();
+        String str_MemNameLast = edtMemNameLast.getText().toString();
+        String str_MemBirthYear = edtMemBirthYear.getText().toString();
+        String str_MemContact = edtMemContact.getText().toString();
+        String str_MemTypedIDNo = edtMemTypedIDNo.getText().toString();
+        String str_V_bsc_Mem_1_NameFirst = edtV_bsc_Mem_1_NameFirst.getText().toString();
+        String str_V_bsc_Mem_1_NameMiddle = edtV_bsc_Mem_1_NameMiddle.getText().toString();
+        String str_V_bsc_Mem_1_NameLast = edtV_bsc_Mem_1_NameLast.getText().toString();
+        String str_V_bsc_Mem_2_NameFirst = edtV_bsc_Mem_2_NameFirst.getText().toString();
+        String str_V_bsc_Mem_2_NameMiddle = edtV_bsc_Mem_2_NameMiddle.getText().toString();
+        String str_V_bsc_Mem_2_NameLast = edtV_bsc_Mem_2_NameLast.getText().toString();
+        String str_ProxyNameFirst = edtProxyNameFirst.getText().toString();
+        String str_ProxyNameMiddle = edtProxyNameMiddle.getText().toString();
+        String str_ProxyNameLast = edtProxyNameLast.getText().toString();
+        String str_ProxyBirthYear = edtProxyBirthYear.getText().toString();
+        String str_ProxyTypedIDNo = edtProxyTypedIDNo.getText().toString();
+        String str_Proxy_bsc_Mem_1_NameFirst = edtProxy_bsc_Mem_1_NameFirst.getText().toString();
+        String str_Proxy_bsc_Mem_1_NameMiddle = edtProxy_bsc_Mem_1_NameMiddle.getText().toString();
+        String str_Proxy_bsc_Mem_1_NameLast = edtProxy_bsc_Mem_1_NameLast.getText().toString();
+        String str_Proxy_bsc_Mem_2_NameFirst = edtProxy_bsc_Mem_2_NameFirst.getText().toString();
+        String str_Proxy_bsc_Mem_2_NameMiddle = edtProxy_bsc_Mem_2_NameMiddle.getText().toString();
+        String str_Proxy_bsc_Mem_2_NameLast = edtProxy_bsc_Mem_2_NameLast.getText().toString();
+
+        boolean invalid = false;
+        try {
+            str_entry_by=getStaffID();
+            str_entry_date=getDateTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        // TODO :: Need to check valid date range collect from online
+
+        if (str_hhMemID.equals("")) {
+            invalid = true;
+            Toast.makeText(getApplicationContext(), "Enter any ID", Toast.LENGTH_SHORT).show();
+        }
+
+        else if (str_Mem_lib_otherId.equals("")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Other ID");
+
+        }
+        else if (str_MemNameFrist.equals("")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Name. Enter Person Name");
+
+        } else if (str_V_bsc_Mem_1_NameFirst.equals("")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Verified by: BSC Member 1  First Name. Enter Person Name");
+
+        } else if (str_V_bsc_Mem_1_NameMiddle.equals("")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Verified by: BSC Member 1  Middle. Name. Enter Person Name");
+
+        } else if (str_V_bsc_Mem_1_NameLast.equals("")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Verified by: BSC Member 1  Last Name. Enter Person Name");
+
+        } else if (str_V_bsc_Mem_2_NameFirst.equals("")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Verified by: BSC Member 2  First Name. Enter Person Name");
+
+        } else if (str_V_bsc_Mem_2_NameMiddle.equals("")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Verified by: BSC Member 2  Middle. Name. Enter Person Name");
+
+        } else if (str_V_bsc_Mem_2_NameLast.equals("")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Verified by: BSC Member 2  Last Name. Enter Person Name");
+
+        }// else if( codeDesignatedProxy.equals("Y") ){
+        // if the the Proxy designated yes Then proxy Name must be entered
+        else if (str_ProxyNameFirst.equals("") && codeDesignatedProxy.equals("Y")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Proxy's  First Name. Enter Person Name");
+
+        } else if (str_ProxyNameMiddle.equals("") && codeDesignatedProxy.equals("Y")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Proxy's  Middle. Name. Enter Person Name");
+
+        } else if (str_ProxyNameLast.equals("") && codeDesignatedProxy.equals("Y")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing Proxy's  Last Name. Enter Person Name");
+
+        }
+        else if (str_MemBirthYear.equals("") || str_MemBirthYear.length()!=4) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Invalid year");
+
+        }
+        // }
+
+      /*  else if (Integer.valueOf(str_age) > 99) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Age exceeds allowable range.");
+            //Toast.makeText(getApplicationContext(), "Please select a Age", Toast.LENGTH_SHORT).show();
+        } else if (str_relation.equals("Select Relation")) {
+            invalid = true;
+            dialog.showErrorDialog(mContext, "Missing relation. Please select a Relation");
+            // Toast.makeText(getApplicationContext(), "Missing relation. Please select a Relation", Toast.LENGTH_SHORT).show();
+        }*/
+
+
+//        else if (invalid == false) {
+//
+//
+//            // Create object to Upload web end
+//            SQLServerSyntaxGenerator regLiberiaMember = new SQLServerSyntaxGenerator();
+//
+//
+//            regLiberiaMember.setAdmCountryCode(idCountry);
+//            regLiberiaMember.setLayR1ListCode(idDistrictCode);
+//            regLiberiaMember.setLayR2ListCode(idUpazillaCode);
+//            regLiberiaMember.setLayR3ListCode(idUnionCode);
+//            regLiberiaMember.setLayR4ListCode(idVillageCode);
+//            regLiberiaMember.setHHID(str_hhID);
+//            regLiberiaMember.setMemID(str_hhMemID);
+//            regLiberiaMember.setMmMemName(str_MemNameFrist);
+//            regLiberiaMember.setEntryBy(str_entry_by);
+//            regLiberiaMember.setEntryDate(str_entry_date);
+//            regLiberiaMember.setRegNDate(str_regDate);
+//            regLiberiaMember.setMmBirthYear(str_MemBirthYear);
+//            regLiberiaMember.setMmMaritalStatus(codeMartial);
+//            regLiberiaMember.setMmContactNo(str_MemContact);
+//            regLiberiaMember.setMmMemOtherID(str_Mem_lib_otherId);
+//            regLiberiaMember.setMmMemName_First(str_MemNameFrist);
+//            regLiberiaMember.setMmMemName_Middle(str_MemNameMiddle);
+//            regLiberiaMember.setMmMemName_Last(str_MemNameLast);
+//            if(memImageEncoded!=null)
+//                 regLiberiaMember.setMmPhoto(memImageEncoded.toString());
+//
+//            regLiberiaMember.setMmType_ID(codeIDType);
+//            regLiberiaMember.setMmID_NO(str_MemTypedIDNo);
+//            regLiberiaMember.setMmV_BSCMemName1_First(str_V_bsc_Mem_1_NameFirst);
+//            regLiberiaMember.setMmV_BSCMemName1_Middle(str_V_bsc_Mem_1_NameMiddle);
+//            regLiberiaMember.setMmV_BSCMemName1_Last(str_V_bsc_Mem_1_NameLast);
+//            regLiberiaMember.setMmV_BSCMem1_TitlePosition(codeBscMem1Title);
+//            regLiberiaMember.setMmV_BSCMemName2_First(str_V_bsc_Mem_2_NameFirst);
+//            regLiberiaMember.setMmV_BSCMemName2_Middle(str_V_bsc_Mem_2_NameMiddle);
+//            regLiberiaMember.setMmV_BSCMemName2_Last(str_V_bsc_Mem_2_NameLast);
+//            regLiberiaMember.setMmV_BSCMem2_TitlePosition(codeBscMem2Title);
+//            regLiberiaMember.setMmProxy_Designation(codeDesignatedProxy);
+//            regLiberiaMember.setMmProxy_Name_First(str_ProxyNameFirst);
+//            regLiberiaMember.setMmProxy_Name_Middle(str_ProxyNameMiddle);
+//            regLiberiaMember.setMmProxy_Name_Last(str_ProxyNameLast);
+//            regLiberiaMember.setMmProxy_BirthYear(str_ProxyBirthYear);
+//            if(ProxyImageEncoded!=null)
+//                regLiberiaMember.setMmProxy_Photo(ProxyImageEncoded.toString());
+//
+//            regLiberiaMember.setMmProxy_Type_ID(codeIDTypeForProxy);
+//            regLiberiaMember.setMmProxy_ID_NO(str_ProxyTypedIDNo);
+//            regLiberiaMember.setMmP_BSCMemName1_First(str_Proxy_bsc_Mem_1_NameFirst);
+//            regLiberiaMember.setMmP_BSCMemName1_Middle(str_Proxy_bsc_Mem_1_NameMiddle);
+//            regLiberiaMember.setMmP_BSCMemName1_Last(str_Proxy_bsc_Mem_1_NameLast);
+//            regLiberiaMember.setMmP_BSCMem1_TitlePosition(codeBscMem1Title);
+//            regLiberiaMember.setMmP_BSCMemName2_First(str_Proxy_bsc_Mem_2_NameFirst);
+//            regLiberiaMember.setMmP_BSCMemName2_Middle(str_Proxy_bsc_Mem_2_NameMiddle);
+//            regLiberiaMember.setMmP_BSCMemName2_Last(str_Proxy_bsc_Mem_2_NameLast);
+//            regLiberiaMember.setMmP_BSCMem2_TitlePosition(codeBscMem2Title);
+//
+//            if (is_edit) {
+//
+//
+//                // Update Member data
+//                sqlH.editLiberiaMemberData(idCountry, idDistrictCode, idUpazillaCode, idUnionCode, idVillageCode, str_hhID, str_hhMemID, str_regDate, str_Mem_lib_otherId,
+//                        str_MemNameFrist, str_MemNameMiddle, str_MemNameLast, str_MemBirthYear, codeMartial, str_MemContact,
+//                        memImageEncoded, codeIDType, str_MemTypedIDNo,
+//                        str_V_bsc_Mem_1_NameFirst, str_V_bsc_Mem_1_NameMiddle, str_V_bsc_Mem_1_NameLast, codeBscMem1Title
+//                        , str_V_bsc_Mem_2_NameFirst, str_V_bsc_Mem_2_NameMiddle, str_V_bsc_Mem_2_NameLast, codeBscMem2Title,
+//                        codeDesignatedProxy, str_ProxyNameFirst, str_ProxyNameMiddle, str_ProxyNameLast, str_ProxyBirthYear
+//                        , ProxyImageEncoded
+//                        , codeIDTypeForProxy,
+//                        str_ProxyTypedIDNo,
+//                        str_Proxy_bsc_Mem_1_NameFirst, str_Proxy_bsc_Mem_1_NameMiddle, str_Proxy_bsc_Mem_1_NameLast, codeBscMem1Title,
+//                        str_Proxy_bsc_Mem_2_NameFirst, str_Proxy_bsc_Mem_2_NameMiddle, str_Proxy_bsc_Mem_2_NameLast, codeBscMem2Title,
+//                        str_entry_by, str_entry_date);
+//                Toast.makeText(mContext, "The member has been uploaded  ", Toast.LENGTH_SHORT).show();
+//                sqlH.insertIntoUploadTable(regLiberiaMember.updateLiberiaMember());
+//                Log.d(TAG,"Liberia Member Upload Syntax : "+regLiberiaMember.updateLiberiaMember());
+//                // goToNextPage(idCountry, idDistrictCode, idUpazillaCode, idUnionCode, idVillageCode, str_hhID, redirect);
+//                // setIsMemberSaved(true);
+//            } else {
+//                /**
+//                 * Insert procedure
+//                 * */
+//                long id = sqlH.addMemberDataForLiberia(idCountry, idDistrictCode, idUpazillaCode, idUnionCode, idVillageCode, str_hhID, str_hhMemID, str_regDate, str_Mem_lib_otherId, str_MemNameFrist, str_MemNameMiddle, str_MemNameLast, str_MemBirthYear, codeMartial, str_MemContact, memImageEncoded, codeIDType, str_MemTypedIDNo,
+//                        str_V_bsc_Mem_1_NameFirst, str_V_bsc_Mem_1_NameMiddle, str_V_bsc_Mem_1_NameLast, codeBscMem1Title
+//                        , str_V_bsc_Mem_2_NameFirst, str_V_bsc_Mem_2_NameMiddle, str_V_bsc_Mem_2_NameLast, codeBscMem2Title,
+//                        codeDesignatedProxy, str_ProxyNameFirst, str_ProxyNameMiddle, str_ProxyNameLast, str_ProxyBirthYear
+//                        , ProxyImageEncoded
+//                        , codeIDTypeForProxy,
+//                        str_ProxyTypedIDNo,
+//                        str_Proxy_bsc_Mem_1_NameFirst, str_Proxy_bsc_Mem_1_NameMiddle, str_Proxy_bsc_Mem_1_NameLast, codeBscMem1Title,
+//                        str_Proxy_bsc_Mem_2_NameFirst, str_Proxy_bsc_Mem_2_NameMiddle, str_Proxy_bsc_Mem_2_NameLast, codeBscMem2Title,
+//                        str_entry_by, str_entry_date);
+//
+//                // for web upload
+//                sqlH.insertIntoUploadTable(regLiberiaMember.insertIntoRegNMemberForLiberia());
+//                Toast.makeText(mContext, "member id :" + id, Toast.LENGTH_SHORT).show();
 
                 // todo: enable Assigne Button here
 
@@ -626,9 +874,9 @@ public class RegisterMemberLiberia extends BaseActivity implements View.OnClickL
 
                             startActivity(dIntent);
                         }*/
-            }
-        }
-    }
+//            }
+//        }
+//    }*/
 
     private void getDataFromIntent() {
         Intent cIntent = getIntent();

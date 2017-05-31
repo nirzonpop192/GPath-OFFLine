@@ -441,6 +441,91 @@ public class RegisterMember extends BaseActivity {
         String lmp_date = "";// lmpDate.getText().toString();
         String child_dob = "";// childDOB.getText().toString();
 
+        //  boolean invalid = false;
+
+
+        // TODO :: Need to check valid date range collect from online
+
+        if (str_hhMemID.equals("")) {
+
+            Toast.makeText(getApplicationContext(), "Enter any ID", Toast.LENGTH_SHORT).show();
+        } else if (str_MemName.equals("")) {
+
+            dialog.showErrorDialog(mContext, "Missing Name. Enter Person Name");
+
+        } else if (str_age.equals("")) {
+
+            dialog.showErrorDialog(mContext, "Missing Age. Please select a Age");
+
+        } else if (Integer.valueOf(str_age) > 99) {
+
+            dialog.showErrorDialog(mContext, "Age exceeds allowable range.");
+
+        } else if (str_relation.equals("Select Relation")) {
+
+            dialog.showErrorDialog(mContext, "Missing relation. Please select a Relation");
+
+        } else {
+            String temHH;
+            if (str_hhID.length() > 5) {
+                temHH = str_hhID.substring(8);
+            } else {
+                temHH = str_hhID;
+            }
+            if (is_edit) {
+                // Update Member data
+                sqlH.editMalawiMemberData(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,Integer.parseInt(str_hhMemID), str_MemName, str_gender, idRelation, lmp_date, child_dob, str_elderly, str_disabled, str_age, pID);
+                Toast.makeText(mContext, "The member has been uploaded  ", Toast.LENGTH_SHORT).show();
+
+                String memAgeFlg = sqlH.getMemberAgeTypeFlag(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,str_hhMemID);
+                sqlH.updateMemTypeFlagInMemTable(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,str_hhMemID,memAgeFlg);
+                Log.e("shuvoTest",memAgeFlg);
+
+                setIsMemberSaved(true);
+            } else {
+                /**
+                 * Insert procedure
+                 * */
+                String temId;
+                if (tvHHID.getText().toString().length() > 5)
+                    temId = tvHHID.getText().toString().substring(8);
+                else
+                    temId = tvHHID.getText().toString();
+
+                ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temId);
+                String memAgeFlag = sqlH.getMemberAgeTypeFlag(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temId,str_hhMemID);
+                sqlH.updateMemTypeFlagInMemTable(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temId,str_hhMemID,memAgeFlag);
+
+
+                sqlH.addMemberDataForMalawi(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temId, str_hhMemID, str_MemName, str_gender, idRelation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age,data.getRegDate(), pID,memAgeFlag);
+
+                //String value = sqlH.getMemberAgeTypeFlag("0002","02","01","01","01","00658","01");
+
+                Log.e("shuvoTest",memAgeFlag);
+
+                Toast.makeText(getApplicationContext(), "save successfully", Toast.LENGTH_LONG).show();
+                setIsMemberSaved(true);
+
+            }
+        }
+        /**
+         * When the member is saved than the Assign controller will appears */
+        /**
+         * todo: enable asssigne Button
+         *
+         */
+        btngotToAssigne.setEnabled(true);
+
+    }
+/*    private void saveMemberData() {
+        str_hhMemID = tvMemID.getText().toString();
+        str_MemName = txtMemName.getText().toString();
+        str_age = txtAge.getText().toString();
+
+
+        String lmp_date = "";// lmpDate.getText().toString();
+        String child_dob = "";// childDOB.getText().toString();
+
       //  boolean invalid = false;
 
 
@@ -483,9 +568,9 @@ public class RegisterMember extends BaseActivity {
                 // goToNextPage(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, str_hhID, redirect);
                 setIsMemberSaved(true);
             } else {
-                /**
+                *//**
                  * Insert procedure
-                 * */
+                 * *//*
                 String temId;
                 if (tvHHID.getText().toString().length() > 5)
                     temId = tvHHID.getText().toString().substring(8);
@@ -505,15 +590,15 @@ public class RegisterMember extends BaseActivity {
 
             }
         }
-        /**
-         * When the member is saved than the Assign controller will appears */
-        /**
+        *//**
+         * When the member is saved than the Assign controller will appears *//*
+        *//**
          * todo: enable asssigne Button
          *
-         */
+         *//*
         btngotToAssigne.setEnabled(true);
 
-    }
+    }*/
 
 //    private void goToNextPage(String c_code, String districtCode, String upazillaCode, String unionCode, String villageCode, String hhID, String redirect) {
 //

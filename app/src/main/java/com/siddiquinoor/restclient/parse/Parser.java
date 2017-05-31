@@ -113,6 +113,7 @@ public class Parser extends Parse {
     public static final String START_DATE = "StartDate";
     public static final String END_DATE = "EndDate";
     public static final String GRP_CODE = "GrpCode";
+    public static final String MEM_TYPE_FLAG = "MemTypeFlag";
     public static final String GRP_NAME = "GrpName";
     public static final String DESCRIPTION = "Description";
     public static final String SUB_GRP_CODE = "SubGrpCode";
@@ -913,9 +914,15 @@ public class Parser extends Parse {
                 JSONArray members = jObj.getJSONArray(MEMBERS_JSON_A);
 
 
-                String AdmCountryCode, DistrictName, UpazillaName, UnitName, VillageName, hhID, HHMemID, MemName, MemSex, HHRelation, EntryBy, EntryDate, lmp_date, child_dob, elderly, disabled, MemAge, RegNDate, BirthYear, MaritalStatus, ContactNo, MemOtherID, MemName_First, MemName_Middle, MemName_Last, Photo, Type_ID;
+                String AdmCountryCode, DistrictName, UpazillaName, UnitName, VillageName, hhID, HHMemID, MemName,
+                        MemSex, HHRelation, EntryBy, EntryDate, lmp_date, child_dob, elderly, disabled, MemAge, RegNDate,
+                        BirthYear, MaritalStatus, ContactNo, MemOtherID, MemName_First, MemName_Middle, MemName_Last, Photo, Type_ID;
 
-                String TypeID_NO, V_BSCMemName1_First, V_BSCMemName1_Middle, V_BSCMemName1_Last, V_BSCMem1_TitlePosition, V_BSCMemName2_First, V_BSCMemName2_Middle, V_BSCMemName2_Last, V_BSCMem2_TitlePosition, Proxy_Designation, Proxy_Name_First, Proxy_Name_Middle, Proxy_Name_Last, Proxy_BirthYear, Proxy_Photo, Proxy_Type_ID, Proxy_ID_NO, P_BSCMemName1_First, P_BSCMemName1_Middle, P_BSCMemName1_Last, P_BSCMem1_TitlePosition, P_BSCMemName2_First, P_BSCMemName2_Middle, P_BSCMemName2_Last, P_BSCMem2_TitlePosition, GrpCode;
+                String TypeID_NO, V_BSCMemName1_First, V_BSCMemName1_Middle, V_BSCMemName1_Last, V_BSCMem1_TitlePosition,
+                        V_BSCMemName2_First, V_BSCMemName2_Middle, V_BSCMemName2_Last, V_BSCMem2_TitlePosition, Proxy_Designation,
+                        Proxy_Name_First, Proxy_Name_Middle, Proxy_Name_Last, Proxy_BirthYear, Proxy_Photo, Proxy_Type_ID,
+                        Proxy_ID_NO, P_BSCMemName1_First, P_BSCMemName1_Middle, P_BSCMemName1_Last, P_BSCMem1_TitlePosition,
+                        P_BSCMemName2_First, P_BSCMemName2_Middle, P_BSCMemName2_Last, P_BSCMem2_TitlePosition, GrpCode, memTypeFlag;
 
 
                 // Adding data into Registration Table
@@ -980,10 +987,18 @@ public class Parser extends Parse {
                     P_BSCMemName2_Last = member.getString(P_BSC_MEM_NAME_2_LAST);
                     P_BSCMem2_TitlePosition = member.getString(P_BSC_MEM_2_TITLE_POSITION);
                     GrpCode = member.getString(GRP_CODE);
+                    memTypeFlag = member.getString(MEM_TYPE_FLAG);
 
 
-                    sqlH.addMemberData(AdmCountryCode, DistrictName, UpazillaName, UnitName, VillageName, hhID, HHMemID, MemName, MemSex, HHRelation, EntryBy, EntryDate, lmp_date, child_dob, elderly, disabled, MemAge, RegNDate, BirthYear, MaritalStatus, ContactNo, MemOtherID, MemName_First, MemName_Middle, MemName_Last, Photo,
-                            Type_ID, TypeID_NO, V_BSCMemName1_First, V_BSCMemName1_Middle, V_BSCMemName1_Last, V_BSCMem1_TitlePosition, V_BSCMemName2_First, V_BSCMemName2_Middle, V_BSCMemName2_Last, V_BSCMem2_TitlePosition, Proxy_Designation, Proxy_Name_First, Proxy_Name_Middle, Proxy_Name_Last, Proxy_BirthYear, Proxy_Photo, Proxy_Type_ID, Proxy_ID_NO, P_BSCMemName1_First, P_BSCMemName1_Middle, P_BSCMemName1_Last, P_BSCMem1_TitlePosition, P_BSCMemName2_First, P_BSCMemName2_Middle, P_BSCMemName2_Last, P_BSCMem2_TitlePosition, GrpCode);
+                    sqlH.addMemberData(AdmCountryCode, DistrictName, UpazillaName, UnitName, VillageName, hhID, HHMemID,
+                            MemName, MemSex, HHRelation, EntryBy, EntryDate, lmp_date, child_dob, elderly, disabled, MemAge,
+                            RegNDate, BirthYear, MaritalStatus, ContactNo, MemOtherID, MemName_First, MemName_Middle,
+                            MemName_Last, Photo, Type_ID, TypeID_NO, V_BSCMemName1_First, V_BSCMemName1_Middle,
+                            V_BSCMemName1_Last, V_BSCMem1_TitlePosition, V_BSCMemName2_First, V_BSCMemName2_Middle,
+                            V_BSCMemName2_Last, V_BSCMem2_TitlePosition, Proxy_Designation, Proxy_Name_First,
+                            Proxy_Name_Middle, Proxy_Name_Last, Proxy_BirthYear, Proxy_Photo, Proxy_Type_ID, Proxy_ID_NO,
+                            P_BSCMemName1_First, P_BSCMemName1_Middle, P_BSCMemName1_Last, P_BSCMem1_TitlePosition,
+                            P_BSCMemName2_First, P_BSCMemName2_Middle, P_BSCMemName2_Last, P_BSCMem2_TitlePosition, GrpCode, memTypeFlag);
 
 
                 }
@@ -995,6 +1010,8 @@ public class Parser extends Parse {
             e.printStackTrace();
         }
     }
+
+
 
 
     public static void GpsLocationContentParser(String jsonString, SQLiteHandler sqlH) {
@@ -2163,8 +2180,6 @@ public class Parser extends Parse {
         }
 
     }
-
-
 
 
     public static void RegN_CTParser(JSONArray jsonArrayData, SQLiteHandler sqlH) {

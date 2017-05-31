@@ -31,6 +31,16 @@ public class SQLServerSyntaxGenerator {
     private String OpCode;
     private String OpMonthCode;
     private String GRDCode;
+    private String MemTypeFlag;
+
+    public String getMemTypeFlag() {
+        return MemTypeFlag;
+    }
+
+    public void setMemTypeFlag(String memTypeFlag) {
+        memTypeFlag = checkStringNull(memTypeFlag);
+        MemTypeFlag = memTypeFlag;
+    }
 
     public String getGRDCode() {
         return GRDCode;
@@ -2552,8 +2562,46 @@ public class SQLServerSyntaxGenerator {
 
     }
 
+//    public String insertIntoRegNMemberForMalawi() {
+//        return "INSERT INTO [dbo].[RegNHHMem]" +
+//                "           ([AdmCountryCode]" +
+//                "           ,[LayR1ListCode]" +
+//                "           ,[LayR2ListCode]" +
+//                "           ,[LayR3ListCode]" +
+//                "           ,[LayR4ListCode]" +
+//                "           ,[HHID]" +
+//                "           ,[HHMemID]" +
+//                "           ,[MemName]" +
+//                "           ,[MemSex]" +
+//                "           ,[HHRelation]" +
+//                "           ,[MemAge]" +
+//                "           ,[EntryBy]" +
+//                "           ,[EntryDate]" +
+//                "           ,[RegNDate]" +
+//                "            )" +
+//                "     VALUES " +
+//                "           ( " + getAdmCountryCode() +
+//                "           , " + getLayR1ListCode() +
+//                "           , " + getLayR2ListCode() +
+//                "           , " + getLayR3ListCode() +
+//                "           , " + getLayR4ListCode() +
+//                "           , " + getHHID() +
+//                "           , " + getMemID() +
+//                "           , " + getMmMemName() +
+//                "           , " + getMmMemSex() +
+//                "           , " + getMmHHRelation() +
+//                "           , " + getMmMemAge() +
+//                "           , " + getEntryBy() +
+//                "           , " + getEntryDate() +
+//                "           , " + getRegNDate() +
+//
+//                " )";
+//
+//    }
+
     public String insertIntoRegNMemberForMalawi() {
-        return "INSERT INTO [dbo].[RegNHHMem]" +
+
+        String method = "INSERT INTO [dbo].[RegNHHMem]" +
                 "           ([AdmCountryCode]" +
                 "           ,[LayR1ListCode]" +
                 "           ,[LayR2ListCode]" +
@@ -2568,6 +2616,7 @@ public class SQLServerSyntaxGenerator {
                 "           ,[EntryBy]" +
                 "           ,[EntryDate]" +
                 "           ,[RegNDate]" +
+                "           ,[MemTypeFlag]" +
                 "            )" +
                 "     VALUES " +
                 "           ( " + getAdmCountryCode() +
@@ -2584,8 +2633,13 @@ public class SQLServerSyntaxGenerator {
                 "           , " + getEntryBy() +
                 "           , " + getEntryDate() +
                 "           , " + getRegNDate() +
+                "           , " + getMemTypeFlag() +
 
                 " )";
+
+//        Log.e("ShuvoSynctex",method);
+
+        return method;
 
     }
 
