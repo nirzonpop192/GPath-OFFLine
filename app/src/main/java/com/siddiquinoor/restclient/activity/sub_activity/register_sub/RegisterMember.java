@@ -2,7 +2,6 @@ package com.siddiquinoor.restclient.activity.sub_activity.register_sub;
 
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -29,7 +28,6 @@ import com.siddiquinoor.restclient.fragments.BaseActivity;
 import com.siddiquinoor.restclient.manager.SQLiteHandler;
 import com.siddiquinoor.restclient.activity.sub_activity.summary_sub.ViewRecordDetail;
 import com.siddiquinoor.restclient.utils.KEY;
-import com.siddiquinoor.restclient.manager.sqlsyntax.SQLServerSyntaxGenerator;
 import com.siddiquinoor.restclient.views.adapters.ListDataModel;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
 import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
@@ -66,8 +64,8 @@ public class RegisterMember extends BaseActivity {
     private String str_union;
     private String str_village;
 
-    private String str_districtCode;
-    private String str_upazillaCode;
+    private String layR1ListCode;
+    private String layR2ListCode;
     private String str_unionCode;
     private String str_villageCode;
 
@@ -183,12 +181,12 @@ public class RegisterMember extends BaseActivity {
                 iReg.putExtra(KEY.UPAZILLA, str_upazilla);
                 iReg.putExtra(KEY.UNIT, str_union);
                 iReg.putExtra(KEY.VILLAGE_NAME, str_village);
-                iReg.putExtra(KEY.DISTRICT_CODE, str_districtCode);
-                iReg.putExtra(KEY.UPAZILLA_CODE, str_upazillaCode);
+                iReg.putExtra(KEY.DISTRICT_CODE, layR1ListCode);
+                iReg.putExtra(KEY.UPAZILLA_CODE, layR2ListCode);
                 iReg.putExtra(KEY.UNIT_CODE, str_unionCode);
                 iReg.putExtra(KEY.VILLAGE_CODE, str_villageCode);
                 Log.d("REFAT--->", str_district + "\n" + str_upazilla + "\n" + str_union + "\n" + str_village
-                        + "\n" + str_districtCode + "\n" + str_upazillaCode + "\n" + str_unionCode
+                        + "\n" + layR1ListCode + "\n" + layR2ListCode + "\n" + str_unionCode
                         + "\n" + str_villageCode);
 
 
@@ -245,8 +243,8 @@ public class RegisterMember extends BaseActivity {
         str_upazilla = cIntent.getStringExtra("str_upazilla");
         str_union = cIntent.getStringExtra("str_union");
         str_village = cIntent.getStringExtra("str_village");
-        str_districtCode = cIntent.getStringExtra("str_districtCode");
-        str_upazillaCode = cIntent.getStringExtra("str_upazillaCode");
+        layR1ListCode = cIntent.getStringExtra("layR1ListCode");
+        layR2ListCode = cIntent.getStringExtra("layR2ListCode");
         str_unionCode = cIntent.getStringExtra("str_unionCode");
         str_villageCode = cIntent.getStringExtra("str_villageCode");
 
@@ -262,9 +260,9 @@ public class RegisterMember extends BaseActivity {
 
         if (!is_edit) {
             if (str_hhID.length() > 5) {
-                setMemID(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, str_hhID.substring(8));
+                setMemID(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, str_hhID.substring(8));
             } else {
-                setMemID(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, str_hhID);
+                setMemID(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, str_hhID);
             }
 
 
@@ -333,7 +331,7 @@ public class RegisterMember extends BaseActivity {
             temHH = str_hhID;
         }
 
-        ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temHH);
+        ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temHH);
 
         Intent dIntent = new Intent(RegisterMember.this, ViewRecordDetail.class);
 
@@ -408,14 +406,13 @@ public class RegisterMember extends BaseActivity {
         idRelation = "";
         str_relation = "";
 
-        setMemID(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, tvHHID.getText().toString().substring(8));
+        setMemID(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, tvHHID.getText().toString().substring(8));
 
 
         loadGender();
         loadRelation();
         //  btnSaveMember.setText("Save");
     }
-
 
 
     private void goToAssigneNewMehod() {
@@ -473,14 +470,16 @@ public class RegisterMember extends BaseActivity {
                 temHH = str_hhID;
             }
             if (is_edit) {
+
+
+                String memAgeTypeFlag = sqlH.getMemberAgeTypeFlag(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temHH, str_hhMemID);
+
+//                Log.e("shuvoTest",memAgeFlg);
+
+                sqlH.editMalawiMemberData(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temHH, str_hhMemID, str_MemName, str_gender, idRelation, lmp_date, child_dob, str_elderly, str_disabled, str_age, pID, memAgeTypeFlag);
+
                 // Update Member data
-                sqlH.editMalawiMemberData(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,Integer.parseInt(str_hhMemID), str_MemName, str_gender, idRelation, lmp_date, child_dob, str_elderly, str_disabled, str_age, pID);
                 Toast.makeText(mContext, "The member has been uploaded  ", Toast.LENGTH_SHORT).show();
-
-                String memAgeFlg = sqlH.getMemberAgeTypeFlag(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,str_hhMemID);
-                sqlH.updateMemTypeFlagInMemTable(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,str_hhMemID,memAgeFlg);
-                Log.e("shuvoTest",memAgeFlg);
-
                 setIsMemberSaved(true);
             } else {
                 /**
@@ -492,16 +491,13 @@ public class RegisterMember extends BaseActivity {
                 else
                     temId = tvHHID.getText().toString();
 
-                ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temId);
-                String memAgeFlag = sqlH.getMemberAgeTypeFlag(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temId,str_hhMemID);
-                sqlH.updateMemTypeFlagInMemTable(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temId,str_hhMemID,memAgeFlag);
+                ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temId);
+                String memAgeFlag = sqlH.getMemberAgeTypeFlag(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temId, str_hhMemID);
+
+                sqlH.addMemberDataForMalawi(str_c_code, layR1ListCode, layR2ListCode, str_unionCode, str_villageCode, temId, str_hhMemID, str_MemName, str_gender, idRelation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age, data.getRegDate(), pID, memAgeFlag);
 
 
-                sqlH.addMemberDataForMalawi(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temId, str_hhMemID, str_MemName, str_gender, idRelation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age,data.getRegDate(), pID,memAgeFlag);
-
-                //String value = sqlH.getMemberAgeTypeFlag("0002","02","01","01","01","00658","01");
-
-                Log.e("shuvoTest",memAgeFlag);
+//                Log.e("shuvoTest",memAgeFlag);
 
                 Toast.makeText(getApplicationContext(), "save successfully", Toast.LENGTH_LONG).show();
                 setIsMemberSaved(true);
@@ -517,154 +513,6 @@ public class RegisterMember extends BaseActivity {
         btngotToAssigne.setEnabled(true);
 
     }
-/*    private void saveMemberData() {
-        str_hhMemID = tvMemID.getText().toString();
-        str_MemName = txtMemName.getText().toString();
-        str_age = txtAge.getText().toString();
-
-
-        String lmp_date = "";// lmpDate.getText().toString();
-        String child_dob = "";// childDOB.getText().toString();
-
-      //  boolean invalid = false;
-
-
-        // TODO :: Need to check valid date range collect from online
-
-        if (str_hhMemID.equals("")) {
-
-            Toast.makeText(getApplicationContext(), "Enter any ID", Toast.LENGTH_SHORT).show();
-        } else if (str_MemName.equals("")) {
-
-            dialog.showErrorDialog(mContext, "Missing Name. Enter Person Name");
-
-        } else if (str_age.equals("")) {
-
-            dialog.showErrorDialog(mContext, "Missing Age. Please select a Age");
-
-        } else if (Integer.valueOf(str_age) > 99) {
-
-            dialog.showErrorDialog(mContext, "Age exceeds allowable range.");
-
-        } else if (str_relation.equals("Select Relation")) {
-
-            dialog.showErrorDialog(mContext, "Missing relation. Please select a Relation");
-
-        } else {
-            String temHH;
-            if (str_hhID.length() > 5) {
-                temHH = str_hhID.substring(8);
-            } else {
-                temHH = str_hhID;
-            }
-            if (is_edit) {
-                // Update Member data
-                sqlH.editMalawiMemberData(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,Integer.parseInt(str_hhMemID), str_MemName, str_gender, idRelation, lmp_date, child_dob, str_elderly, str_disabled, str_age, pID);
-                Toast.makeText(mContext, "The member has been uploaded  ", Toast.LENGTH_SHORT).show();
-
-                String value = sqlH.getMemberAgeTypeFlag(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,str_hhMemID);
-                sqlH.updateMemTypeFlagInMemTable(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temHH,str_hhMemID,value);
-                Log.e("shuvoTest",value);
-                // goToNextPage(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, str_hhID, redirect);
-                setIsMemberSaved(true);
-            } else {
-                *//**
-                 * Insert procedure
-                 * *//*
-                String temId;
-                if (tvHHID.getText().toString().length() > 5)
-                    temId = tvHHID.getText().toString().substring(8);
-                else
-                    temId = tvHHID.getText().toString();
-
-                ListDataModel data = sqlH.getSingleRegisteredData(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temId);
-                sqlH.addMemberDataForMalawi(str_c_code, str_districtCode, str_upazillaCode, str_unionCode, str_villageCode, temId, str_hhMemID, str_MemName, str_gender, idRelation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age,data.getRegDate(), pID);
-
-                //String value = sqlH.getMemberAgeTypeFlag("0002","02","01","01","01","00658","01");
-                String value = sqlH.getMemberAgeTypeFlag(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temId,str_hhMemID);
-                sqlH.updateMemTypeFlagInMemTable(str_c_code,str_districtCode,str_upazillaCode,str_unionCode,str_villageCode,temId,str_hhMemID,value);
-                Log.e("shuvoTest",value);
-
-                Toast.makeText(getApplicationContext(), "save successfully", Toast.LENGTH_LONG).show();
-                setIsMemberSaved(true);
-
-            }
-        }
-        *//**
-         * When the member is saved than the Assign controller will appears *//*
-        *//**
-         * todo: enable asssigne Button
-         *
-         *//*
-        btngotToAssigne.setEnabled(true);
-
-    }*/
-
-//    private void goToNextPage(String c_code, String districtCode, String upazillaCode, String unionCode, String villageCode, String hhID, String redirect) {
-//
-//        ContentValues results = new ContentValues();
-//        Intent dIntent = new Intent(this, ViewRecordDetail.class);
-//
-//        dIntent.putExtra("regID", hhID);
-//
-//        // getting House hold data
-//        results = sqlH.getHouseHoldData(c_code, districtCode, upazillaCode, unionCode, villageCode, hhID);
-//
-//        country_name = results.getAsString("country_name");
-//
-//        str_district = results.getAsString("str_district");
-//        str_upazilla = results.getAsString("str_upazilla");
-//        str_union = results.getAsString("str_union");
-//        str_village = results.getAsString("str_village");
-//
-//        str_c_code = results.getAsString("str_c_code");
-//        str_districtCode = results.getAsString("str_districtCode");
-//        str_upazillaCode = results.getAsString("str_upazillaCode");
-//        str_unionCode = results.getAsString("str_unionCode");
-//        str_villageCode = results.getAsString("str_villageCode");
-//
-//        str_reg_date = results.getAsString("str_reg_date");
-//        //str_hhName = results.getAsString("str_hhName");
-//        str_gender = results.getAsString("str_gender");
-//        String str_hhsize = results.getAsString("str_hhsize");
-//        String str_latitude = results.getAsString("str_latitude");
-//        String str_longitude = results.getAsString("str_longitude");
-//        str_agland = results.getAsString("str_agland");
-//        String str_vstatus = results.getAsString("str_vstatus");
-//        String str_mstatus = results.getAsString("str_mstatus");
-//        str_entry_by = cIntent.getStringExtra("str_entry_by");
-//        str_entry_date = cIntent.getStringExtra("str_entry_date");
-//
-//        dIntent.putExtra("country_code", str_c_code);
-//
-//
-//        dIntent.putExtra("country_name", country_name);
-//        dIntent.putExtra("district", str_district);
-//        dIntent.putExtra("upazilla", str_upazilla);
-//        dIntent.putExtra("unit", str_union);
-//        dIntent.putExtra("village", str_village);
-//
-//        dIntent.putExtra("districtCode", str_districtCode);
-//        dIntent.putExtra("upazillaCode", str_upazillaCode);
-//        dIntent.putExtra("unitCode", str_unionCode);
-//        dIntent.putExtra("villageCode", str_villageCode);
-//
-//
-//        //dIntent.putExtra("regID", str_village);
-//        dIntent.putExtra("regDate", str_reg_date);
-//        dIntent.putExtra("personName", str_hhName);
-//        dIntent.putExtra("sex", str_gender);
-//        dIntent.putExtra("hhSize", str_hhsize);
-//        dIntent.putExtra("latitude", str_latitude);
-//        dIntent.putExtra("longitude", str_longitude);
-//        dIntent.putExtra("agLand", str_agland);
-//        dIntent.putExtra("vstatus", str_vstatus);
-//        dIntent.putExtra("mstatus", str_mstatus);
-//        dIntent.putExtra("entryBy", str_entry_by);
-//        dIntent.putExtra("entryDate", str_entry_date);
-//
-//        startActivity(dIntent);
-//    }
 
     private void setMemID(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String hhID) {
         String next_id = sqlH.getMemberID(str_c_code, str_district, str_upazilla, str_union, str_village, hhID);
@@ -754,45 +602,44 @@ public class RegisterMember extends BaseActivity {
     }
 
 
-    public void updateDateLMB() {
-        /*lmpDate.setText(format.format( calendar.getTime()));*/
-    }
+//    public void updateDateLMB() {
+//        /*lmpDate.setText(format.format( calendar.getTime()));*/
+//    }
 
-    public void setDateLMB() {
-        new DatePickerDialog(RegisterMember.this, dpLMB, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
-    }
+//    public void setDateLMB() {
+//        new DatePickerDialog(RegisterMember.this, dpLMB, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
+//    }
 
-    DatePickerDialog.OnDateSetListener dpLMB = new DatePickerDialog.OnDateSetListener() {
+//    DatePickerDialog.OnDateSetListener dpLMB = new DatePickerDialog.OnDateSetListener() {
+//
+//        @Override
+//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//            calendar.set(Calendar.YEAR, year);
+//            calendar.set(Calendar.MONTH, monthOfYear);
+//            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//            updateDateLMB();
+//        }
+//    };
 
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            calendar.set(Calendar.YEAR, year);
-            calendar.set(Calendar.MONTH, monthOfYear);
-            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateDateLMB();
-        }
-    };
 
-
-    public void updateChildDOBDate() {
+/*    public void updateChildDOBDate() {
         //childDOB.setText(format.format( calendarChildDOB.getTime()));
-    }
+    }*/
 
-    public void setDateChildDOB() {
-        new DatePickerDialog(RegisterMember.this, dpChildDOB, calendarChildDOB.get(Calendar.YEAR), calendarChildDOB.get(Calendar.MONTH), calendarChildDOB.get(Calendar.DAY_OF_MONTH)).show();
-    }
+//    public void setDateChildDOB() {
+//        new DatePickerDialog(RegisterMember.this, dpChildDOB, calendarChildDOB.get(Calendar.YEAR), calendarChildDOB.get(Calendar.MONTH), calendarChildDOB.get(Calendar.DAY_OF_MONTH)).show();
+//    }
 
-    DatePickerDialog.OnDateSetListener dpChildDOB = new DatePickerDialog.OnDateSetListener() {
-
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-            calendarChildDOB.set(Calendar.YEAR, year);
-            calendarChildDOB.set(Calendar.MONTH, monthOfYear);
-            calendarChildDOB.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-            updateChildDOBDate();
-        }
-    };
-
+//    DatePickerDialog.OnDateSetListener dpChildDOB = new DatePickerDialog.OnDateSetListener() {
+//
+//        @Override
+//        public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+//            calendarChildDOB.set(Calendar.YEAR, year);
+//            calendarChildDOB.set(Calendar.MONTH, monthOfYear);
+//            calendarChildDOB.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+//            updateChildDOBDate();
+//        }
+//    };
 
 
     private void viewReference() {

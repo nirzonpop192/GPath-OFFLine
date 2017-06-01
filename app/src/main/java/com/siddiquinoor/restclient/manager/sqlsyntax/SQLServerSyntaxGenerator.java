@@ -1,12 +1,14 @@
 package com.siddiquinoor.restclient.manager.sqlsyntax;
 
+import android.util.Log;
+
 import com.siddiquinoor.restclient.data_model.LayRCodes;
 
 /**
  * Created by USER on 1/12/2016.
  */
 public class SQLServerSyntaxGenerator {
-    // private static final String TAG =SQLServerSyntax.class.getSimpleName() ;
+    private static final String TAG = SQLServerSyntaxGenerator.class.getSimpleName();
 
     /**
      * Global Variable for All table
@@ -2601,7 +2603,7 @@ public class SQLServerSyntaxGenerator {
 
     public String insertIntoRegNMemberForMalawi() {
 
-        String method = "INSERT INTO [dbo].[RegNHHMem]" +
+        return "INSERT INTO [dbo].[RegNHHMem]" +
                 "           ([AdmCountryCode]" +
                 "           ,[LayR1ListCode]" +
                 "           ,[LayR2ListCode]" +
@@ -2639,9 +2641,32 @@ public class SQLServerSyntaxGenerator {
 
 //        Log.e("ShuvoSynctex",method);
 
-        return method;
+//        return method;
 
     }
+
+    public String updateRegNMemberForMalawi() {
+        String up = "UPDATE [dbo].[RegNHHMem] " +
+                "    SET " +
+                "    ,[MemName] = " + getMmMemName() +
+                "            ,[MemSex] = " + getMmMemSex() +
+                "            ,[HHRelation] = " + getMmHHRelation() +
+                "            ,[MemAge] = " + getMmMemAge() +
+                "            ,[MemTypeFlag] = " + getMemTypeFlag() +
+                "    WHERE " +
+
+                "            [AdmCountryCode] = " + getAdmCountryCode() +
+                "           AND [LayR1ListCode] = " + getLayR1ListCode() +
+                "           AND [LayR2ListCode] = " + getLayR2ListCode() +
+                "           AND [LayR3ListCode] = " + getLayR3ListCode() +
+                "           AND [LayR4ListCode] = " + getLayR4ListCode() +
+                "           AND [HHID] = " + getHHID() +
+                "           AND [HHMemID] = " + getMemID();
+        Log.d(TAG, up);
+
+        return up;
+    }
+
 
     /**
      * CARD PRINT TABLE REQUEST

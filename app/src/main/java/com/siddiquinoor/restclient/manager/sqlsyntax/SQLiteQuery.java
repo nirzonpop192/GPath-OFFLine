@@ -5202,4 +5202,28 @@ public class SQLiteQuery {
                 + " AND  " + SQLiteHandler.PROG_CODE_COL + " = '" + progCode + "'"
                 + " AND  " + SQLiteHandler.SRV_CODE_COL + " = '" + srvCode + "'";
     }
+
+    public static String getLocationSpecificLatLong_sql(String cCode, String groupCode, String subGroupCode, String locationCode){
+        return " SELECT ( CASE WHEN " + LATITUDE_COL + "='ISNULL' Then "
+                + LATITUDE_COL + "='' ElSE " + LATITUDE_COL + " END ) AS '" + LATITUDE_COL + "' ," +
+                "(CASE WHEN " + LONGITUDE_COL + "='ISNULL'Then " + LONGITUDE_COL + " = '' ElSE " + LONGITUDE_COL + " END ) AS '" + LONGITUDE_COL + "'  " +
+                " FROM " + GPS_LOCATION_TABLE +
+                " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
+                + " AND " + GROUP_CODE_COL + " ='" + groupCode + "' "
+                + " AND " + SUB_GROUP_CODE_COL + " ='" + subGroupCode + "' "
+                + " AND " + LOCATION_CODE_COL + " ='" + locationCode + "'";
+    }
+
+
+   public static String editMalawiMemberData_sql(String cCode, String layR1Code, String layR2Code, String layR3Code,
+                                             String layR4Code, String hhID,
+                                             String memId){
+       return ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
+               " and " + LAY_R1_LIST_CODE_COL + " = '" + layR1Code + "'" +
+               " and " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "'" +
+               " and " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "'" +
+               " and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code + "'" +
+               " and " + HHID_COL + " = '" + hhID + "'" +
+               " and " + HH_MEM_ID + " = '" + memId + "'";
+   }
 }//end of class

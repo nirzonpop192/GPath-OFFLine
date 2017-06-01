@@ -121,7 +121,7 @@
                         android:textColor="@color/gray"
                         android:textColorHint="@color/gray" />
 
-                    <TextView
+                    <EditText
                         android:id="@+id/mem_id"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"

@@ -39,6 +39,7 @@ import com.siddiquinoor.restclient.utils.KEY;
 import com.siddiquinoor.restclient.utils.UtilClass;
 import com.siddiquinoor.restclient.data_model.adapters.DistributionSaveDataModel;
 import com.siddiquinoor.restclient.views.helper.SpinnerHelper;
+import com.siddiquinoor.restclient.views.notifications.ADNotificationManager;
 import com.siddiquinoor.restclient.views.notifications.AlertDialogManager;
 import com.siddiquinoor.restclient.views.notifications.CustomToast;
 import com.siddiquinoor.restclient.views.spinner.SpinnerLoader;
@@ -115,13 +116,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         sqlH = new SQLiteHandler(this); //  it should be other wise it will show null point Exception
 
 
-        // SqLite database handler
-        db = new SQLiteHandler(getApplicationContext());
+        db = new SQLiteHandler(getApplicationContext());                                            // SqLite database handler
 
-        // connection manager
-        cd = new ConnectionDetector(getApplicationContext());
-        // find View by ID for all Views
-        viewReference();
+
+        cd = new ConnectionDetector(getApplicationContext());                                        // connection manager
+
+        viewReference();                                                                            // find View by ID for all Views
 
 
         SharedPreferences settings;
@@ -193,7 +193,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         Button btnExportDataBase = (Button) findViewById(R.id.btnEXTDB);
 
-        // extrDb.setVisibility(View.GONE);
+
         btnExportDataBase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,14 +205,31 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 String currentDBPath = "/data/data/" + getPackageName() + "/databases/"
                         + SQLiteHandler.EXTERNAL_DATABASE_NAME;
-                String backupdbName = null;
 
 
-                backupdbName = FileUtils.EXPORT_GOF_FILE;
-                FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, currentDBPath, backupdbName, "Export Successful! ");
-//                db.clearUploadSyntaxTable();
-                logoutUser();
+                // // TODO: 6/1/2017 some thing file exporting naming conversation
+                String subNpubId = sqlH.getSubscriberNPublisherID(UtilClass.getMacAddress(mContext));
 
+                if (!subNpubId.equals("") && subNpubId.length() != 0){
+                    String endDate = "";
+                    try {
+                        endDate = getDateTime(true);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    SharedPreferences settings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+                    String startDate = settings.getString(UtilClass.IMPORT_DATE_TIME_KEY, "");
+
+//                String backupdbName = FileUtils.EXPORT_GOF_FILE;                                  // don't delete the code  eta o lagte pare
+                    String backupdbName = subNpubId + "_" + startDate + "_" + endDate + ".gof";
+                    FileUtils.dataBaseCopyFromPackageToInternalRoot(mContext, currentDBPath, backupdbName, "Export Successful! ");
+
+//                db.clearUploadSyntaxTable();                                                      // ei method tha na delete kora valo kokhon er projon pore buja jaitese na
+                    logoutUser();
+
+                }
+             ADNotificationManager dialog= new ADNotificationManager();
+                dialog.showInvalidDialog(mContext,"Invalid to Export","This device is not registered to export !");
 
             }
         });
@@ -466,7 +483,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 tvGeoData.setMovementMethod(new ScrollingMovementMethod());
             }
         });
-       //
+        //
         tvLastSync = (TextView) findViewById(R.id.tv_last_sync);
         tvSyncRequired = (TextView) findViewById(R.id.tv_sync_required);
         btnNewReg = (Button) findViewById(R.id.btnNewReg);
@@ -770,7 +787,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 }
 
 
-
                 publishProgress(++progressIncremental);
                 if (!jObj.isNull(Parser.REG_N_AGR_JSON_A)) {
                     Parser.RegN_AGRParser(jObj.getJSONArray(Parser.REG_N_AGR_JSON_A), db);
@@ -820,7 +836,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                     }
                 }*/
-
 
 
                 publishProgress(++progressIncremental);

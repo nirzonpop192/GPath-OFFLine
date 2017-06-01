@@ -202,6 +202,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public static final String LUP_COMMUNITY_LOAN_SOURCE_TABLE = "LUP_CommnityLoanSource";
     public static final String LUP_COMMUNITY_FUND_SOURCE_TABLE = "LUP_CommnityFundSource";
     public static final String LUP_COMMUNITY_IRRIGATION_SYSTEM_TABLE = "LUP_CommunityIrrigationSystem";
+    public static final String ADM_MACHINE_REGISTRY_TABLE = "AdmMachineRegistry";
+    public static final String ADM_MACHINE_PUBLISHER_TABLE = "AdmMachinePublisher";
 
     public static final String REG_N_MEM_PROG_GRP_TABLE = "RegNMemProgGrp";
     public static final String COMMUNITY_GROUP_CATEGORY_TABLE = "CommunityGroupCategory";
@@ -622,6 +624,18 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * ADDED BY POP COLUMN FOR SERVICE TABLE
      */
+
+    public static final String PUBLISHER_ID_COL = "PublisherID";
+    public static final String PUBLISHER_NAME_COL = "PublisherName";
+    public static final String SUBSCRIBER_M_CODE_COL = "SubscriberMCode";
+    public static final String DEVICE_TYPE_ID_COL = "DeviceTypeID";
+    public static final String M_CODE_COL = "MCode";
+    public static final String M_LABLE_COL = "MLabel";
+    public static final String M_ID_COL = "MID";
+    public static final String DEVICE_ROLE_ID_COL = "DeviceRoleID";
+    public static final String OFF_MODE_COL = "OFFMode";
+    public static final String ON_MODE_COL = "ONMode";
+    public static final String OPERATION_MODE_COL = "OperationMode";
 
     public static final String ADM_DONOR_CODE_COL = "AdmDonorCode";
     public static final String AWARD_CODE_COL = "AdmAwardCode";
@@ -1094,8 +1108,48 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
+    public String getSubscriberNPublisherID(String macID) {
+        String fileName = "";
+        String sourceID = "";
+        String distinationID = "";
+        String opCode = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = " SELECT " + M_CODE_COL + " AS SubscriberID "
+                +" , "+DEVICE_ROLE_ID_COL
+                + " FROM " + ADM_MACHINE_REGISTRY_TABLE
+                + " WHERE " + M_ID_COL + " = '" + macID + "' ";
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if (cursor != null && cursor.moveToFirst()) {
+            sourceID = cursor.getString(cursor.getColumnIndex("SubscriberID"));
+            opCode = cursor.getString(cursor.getColumnIndex(DEVICE_ROLE_ID_COL));
+        }
+        if (cursor != null)
+            cursor.close();
+
+        String sql_1 = " SELECT " + M_CODE_COL + " AS PublisherID "
+                + " FROM " + ADM_MACHINE_PUBLISHER_TABLE
+                + " WHERE " + SUBSCRIBER_M_CODE_COL + " = '" + sourceID + "' ";
+        Cursor cursor_2 = db.rawQuery(sql_1, null);
+
+        if (cursor_2 != null && cursor_2.moveToFirst()) {
+            distinationID = cursor_2.getString(cursor_2.getColumnIndex("PublisherID"));
+        }
+        if (cursor_2 != null)
+            cursor_2.close();
+
+
+
+
+        fileName = sourceID + "_" + distinationID+"_"+opCode;
+        if (sourceID.length() == 0 || distinationID.length() == 0 || opCode.length()==0)
+            fileName = "";
+        db.close();
+        return fileName;
+    }
+
     /**
-     * ei method orginal data base theke data niye exported data base Upload syntex gulo insert korabe
+     * ei method orginal data base theke data niye exported data base Upload syntax gulo insert korabe
      *
      * @param context the invoking activity or MainActivity
      */
@@ -1405,7 +1459,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.execSQL(Schema.sqlCreateTemporary_OpMonthTable());
         db.execSQL(Schema.sqlCreateSelectedVillage_Table());
         db.execSQL(Schema.sqlCreateSelectedCountry());
-        db.execSQL(Schema.sqlCreateOperationModeTable()); // jdevice information
+        db.execSQL(Schema.sqlCreateOperationModeTable());                                           // device information
+
+        db.execSQL(Schema.sqlCreateAdmMachineRegistry_Table());                                     //  FOR IMPORT EXPORT device information
+        db.execSQL(Schema.sqlCreateAdmMachinePublisher_Table());                                    //  FOR IMPORT EXPORT device information
+
 
         Log.d(TAG, "  Create All Table ");
 
@@ -1542,6 +1600,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             db.execSQL(DROP_TABLE_IF_EXISTS + LUP_TA_PATICIPANT_CAT_TABLE);
             db.execSQL(DROP_TABLE_IF_EXISTS + LUP_COMMUNITY_FUND_SOURCE_TABLE);
             db.execSQL(DROP_TABLE_IF_EXISTS + LUP_COMMUNITY_IRRIGATION_SYSTEM_TABLE);
+            db.execSQL(DROP_TABLE_IF_EXISTS + ADM_MACHINE_REGISTRY_TABLE);
+            db.execSQL(DROP_TABLE_IF_EXISTS + ADM_MACHINE_PUBLISHER_TABLE);
 
 
 //            Log.d(TAG, "All table Dropped.");
@@ -1732,6 +1792,8 @@ public class SQLiteHandler extends SQLiteOpenHelper {
             db.delete(TA_TOPIC_CHILD_TABLE, null, null);
             db.delete(TA_TOPIC_MASTER_TABLE, null, null);
             db.delete(LUP_TA_PATICIPANT_CAT_TABLE, null, null);
+            db.delete(ADM_MACHINE_REGISTRY_TABLE, null, null);
+            db.delete(ADM_MACHINE_PUBLISHER_TABLE, null, null);
 
 
 //            Log.d(TAG, "All User data Deleted.");
@@ -5131,9 +5193,9 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     /**
      * date :2015-11-07
      * modified: 2015-11-07
-     *
-     * @status
-     * @description : get Serial no from MemberCardRequestTable
+     * <p>
+     * <p>
+     * get Serial no from MemberCardRequestTable
      */
     public String getCardRequestDate(String cCode, String donorCode, String awardCode, String disCode, String upCode, String unCode, String vCode, String hhID,
                                      String memID, String rptGroup, String reportCode, String requestSl) {
@@ -6801,27 +6863,27 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         db.close();
         int radioButtonCheckValue = 0;
         if (C11.equals("Y")) {
-            return radioButtonCheckValue = 1;
+            radioButtonCheckValue = 1;
         } else {
             if (C21.equals("Y")) {
-                return radioButtonCheckValue = 2;
+                radioButtonCheckValue = 2;
             } else {
                 if (C31.equals("Y")) {
-                    return radioButtonCheckValue = 3;
+                    radioButtonCheckValue = 3;
                 } else if (C32.equals("Y")) {
-                    return radioButtonCheckValue = 4;
+                    radioButtonCheckValue = 4;
                 } else if (C33.equals("Y")) {
-                    return radioButtonCheckValue = 5;
+                    radioButtonCheckValue = 5;
                 } else if (C34.equals("Y")) {
-                    return radioButtonCheckValue = 6;
+                    radioButtonCheckValue = 6;
                 } else if (C35.equals("Y")) {
-                    return radioButtonCheckValue = 7;
+                    radioButtonCheckValue = 7;
                 } else if (C36.equals("Y")) {
-                    return radioButtonCheckValue = 8;
+                    radioButtonCheckValue = 8;
                 } else if (C37.equals("Y")) {
-                    return radioButtonCheckValue = 9;
+                    radioButtonCheckValue = 9;
                 } else if (C38.equals("Y")) {
-                    return radioButtonCheckValue = 10;
+                    radioButtonCheckValue = 10;
                 }
             }
         }
@@ -7339,52 +7401,32 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
-    /**
-     * @param cCode
-     * @param groupCode
-     * @param subGroupCode
-     * @param locationCode
-     * @return GPSLocationLatLong
-     */
 
     public GPSLocationLatLong getLocationSpecificLatLong(String cCode, String groupCode, String subGroupCode, String locationCode) {
         String selectQuery;
 
 
-        selectQuery = " SELECT ( CASE WHEN " + LATITUDE_COL + "='ISNULL' Then "
-                + LATITUDE_COL + "='' ElSE " + LATITUDE_COL + " END ) AS '" + LATITUDE_COL + "' ," +
-                "(CASE WHEN " + LONGITUDE_COL + "='ISNULL'Then " + LONGITUDE_COL + " = '' ElSE " + LONGITUDE_COL + " END ) AS '" + LONGITUDE_COL + "'  " +
-                " FROM " + GPS_LOCATION_TABLE +
-                " WHERE " + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' "
-                + " AND " + GROUP_CODE_COL + " ='" + groupCode + "' "
-                + " AND " + SUB_GROUP_CODE_COL + " ='" + subGroupCode + "' "
-                + " AND " + LOCATION_CODE_COL + " ='" + locationCode + "'";
+        selectQuery = SQLiteQuery.getLocationSpecificLatLong_sql(cCode, groupCode, subGroupCode, locationCode);
 
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
-        GPSLocationLatLong latLong;
+
+        GPSLocationLatLong latLong = new GPSLocationLatLong();
+        latLong.setLatitude("");                                                                    // initial to handel null Exception
+        latLong.setLongitude("");
 
         if (cursor.moveToFirst()) {
 
-            latLong = new GPSLocationLatLong();
             latLong.setLatitude(cursor.getString(cursor.getColumnIndex(LATITUDE_COL)));
             latLong.setLongitude(cursor.getString(cursor.getColumnIndex(LONGITUDE_COL)));
 
-
 //            Log.d(TAG, " Location " + cursor.getColumnName(0) + " :" + cursor.getString(0));
-
-
-        } else {
-//            Log.d(TAG, "Location lat long cursor is null");
-            latLong = new GPSLocationLatLong();
-            latLong.setLatitude("");
-            latLong.setLongitude("");
+            cursor.close();
 
         }
 
 
-        cursor.close();
         db.close();
         return latLong;
     }
@@ -10162,7 +10204,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
 
-    public long addRegNPWFromOnLine(String c_code, String dname, String upname, String uname, String vname, String hhid, String memid, String program, String service, String regNdate, String grdCode,                                    //  String entryBy,
+    public void addRegNPWFromOnLine(String c_code, String dname, String upname, String uname, String vname, String hhid, String memid, String program, String service, String regNdate, String grdCode,                                    //  String entryBy,
                                     //  String entryDate,
                                     String lmpDate, String pwGrdDate) {
 
@@ -10172,13 +10214,13 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(ADM_COUNTRY_CODE_COL, c_code); // country name
 
-        values.put(LAY_R_LIST_CODE_COL, dname); // district name
-        values.put(LAY_R2_LIST_CODE_COL, upname); // upazilla name
-        values.put(LAY_R3_LIST_CODE_COL, uname); // Unit name
-        values.put(LAY_R4_LIST_CODE_COL, vname); // village  name
+        values.put(LAY_R1_LIST_CODE_COL, dname);                                                    // district code
+        values.put(LAY_R2_LIST_CODE_COL, upname);                                                   // upazilla code
+        values.put(LAY_R3_LIST_CODE_COL, uname);                                                    // Unit code
+        values.put(LAY_R4_LIST_CODE_COL, vname);                                                    // village  code
 
-        values.put(HHID_COL, hhid); // Registration id
-        values.put(MEM_ID_COL, memid); // member id
+        values.put(HHID_COL, hhid);                                                                 // House hold id
+        values.put(MEM_ID_COL, memid);                                                              // member id
         values.put(REG_N_DAT_COL, regNdate); //
         values.put(LMP_DATE_COL, lmpDate);
         values.put(ADM_PROG_CODE_COL, program); //
@@ -10190,33 +10232,31 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         values.put(ENTRY_DATE, "00");
 
 
-        // Inserting Row
-        long id = db.insert(REG_N_PW_TABLE, null, values);
-        db.close(); // Closing database connection
-        // updateRegNLMFStatus(assingPerson, 0);
-//        Log.d(TAG, "New REG_N_PW_TABLE  data added from online into RegNPw Table: " + id);
-        return id;
+        db.insert(REG_N_PW_TABLE, null, values);                                                    // Inserting Row
+        db.close();                                                                                 // Closing database connection
+
+
     }
 
 
     /**
      * this function insert member the into RegNAssProgSrv table
      *
-     * @param assingPerson data
+     * @param data data
      * @return row id of inserted value
      * @since 2015-11-23
      */
 
-    public long addMemberDataInto_RegNAsgProgSrv(AssignDataModel assingPerson) {
+    public long addMemberDataInto_RegNAsgProgSrv(AssignDataModel data) {
 
-        return InsertInto_RegNAsgProgSrv(assingPerson.getCountryCode(), assingPerson.getDistrictCode()
-                , assingPerson.getUpazillaCode(), assingPerson.getUnitCode()
-                , assingPerson.getVillageCode(), assingPerson.getDonor_code()
-                , assingPerson.getAward_code(), assingPerson.getHh_id()
-                , assingPerson.getMemId(), assingPerson.getProgram_code()
-                , assingPerson.getService_code(), assingPerson.getRegNDate()
-                , assingPerson.getGrdCode(), assingPerson.getGrdDate()
-                , assingPerson.getEntryBy(), assingPerson.getEntryDate(), "", "", "0");
+        return InsertInto_RegNAsgProgSrv(data.getCountryCode(), data.getDistrictCode()
+                , data.getUpazillaCode(), data.getUnitCode()
+                , data.getVillageCode(), data.getDonor_code()
+                , data.getAward_code(), data.getHh_id()
+                , data.getMemId(), data.getProgram_code()
+                , data.getService_code(), data.getRegNDate()
+                , data.getGrdCode(), data.getGrdDate()
+                , data.getEntryBy(), data.getEntryDate(), "", "", "0");
 
 
     }
@@ -11228,43 +11268,47 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
     }
 
-    public void editMalawiMemberData(String counryCode, String layR1Code, String layR2Code, String layR3Code,
+    public void editMalawiMemberData(String cCode, String layR1Code, String layR2Code, String layR3Code,
                                      String layR4Code, String hhID,
-                                     int mID, String str_MemName, String str_gender, String str_relation, String str_lmp_date, String str_child_dob, String str_elderly, String str_disabled, String str_age, int pID) {
+                                     String memID, String memName, String str_gender, String str_relation, String str_lmp_date, String str_child_dob, String str_elderly, String str_disabled, String str_age, int pID, String memAgeTypeFlag) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        // String where = "HHMemID='" + mID + "'";
 
-        String where = ADM_COUNTRY_CODE_COL + " = '" + counryCode +
-                "' and " + LAY_R1_LIST_CODE_COL + " = '" + layR1Code +
-                "' and " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code +
-                "' and " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code +
-                "' and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code +
-                "' and " + HHID_COL + " = '" + hhID +
-                "' and " + HH_MEM_ID + " = '0" + mID + "'";
 
-        //String[] whereArgs = new String[] {String.valueOf(mID)};
+        String where = SQLiteQuery.editMalawiMemberData_sql(cCode, layR1Code, layR2Code, layR3Code, layR4Code, hhID, memID);
 
-        values.put(MEM_NAME_COL, str_MemName); // Member name
-        values.put(SEX_COL, str_gender); // sex
-        values.put(RELATION_COL, str_relation); // relation
 
-        values.put(LMP_DATE, str_lmp_date);
-        values.put(CHILD_DOB, str_child_dob);
-        values.put(ELDERLY, str_elderly);
-        values.put(DISABLE, str_disabled);
-        values.put(MEM_AGE, str_age); // age
+        values.put(MEM_NAME_COL, memName);                                                          // Member name
+        values.put(SEX_COL, str_gender);                                                            // sex
+        values.put(RELATION_COL, str_relation);                                                     // relation
 
-        // updating Row into local database
-        db.update(REGISTRATION_MEMBER_TABLE, values, where, null);
+        values.put(MEM_AGE, str_age);                                                               // age
 
-        //  if (pID != 0)
-//            updateRegistrationStatus("" + pID, 0);    // Setting Update status to false to avail the Synchronization
+        values.put(MEM_TYPE_FLAG, memAgeTypeFlag);                                                  // member age type flag := AM /AF/CM/ CF
+        db.update(REGISTRATION_MEMBER_TABLE, values, where, null);                                  // updating Row into local database
 
-        db.close(); // Closing database connection
 
-//        Log.d(TAG, "Updated Member data: " + mID);
+        db.close();                                                                                 // Closing database connection
+
+
+        SQLServerSyntaxGenerator malawiMember = new SQLServerSyntaxGenerator();
+        malawiMember.setAdmCountryCode(cCode);
+        malawiMember.setLayR1ListCode(layR1Code);
+        malawiMember.setLayR2ListCode(layR2Code);
+        malawiMember.setLayR3ListCode(layR3Code);
+        malawiMember.setLayR4ListCode(layR4Code);
+        malawiMember.setHHID(hhID);
+        malawiMember.setMemID(memID);
+        malawiMember.setMmMemName(memName);
+        malawiMember.setMmMemSex(str_gender);
+        malawiMember.setMmHHRelation(str_relation);
+        malawiMember.setMmMemAge(str_age);
+        malawiMember.setMemTypeFlag(memAgeTypeFlag);
+
+
+        insertIntoUploadTable(malawiMember.updateRegNMemberForMalawi());
+
 
     }
 
@@ -11366,7 +11410,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     public void addMemberDataForMalawi(String str_c_code, String str_district, String str_upazilla, String str_union, String str_village, String str_hhID, String str_hhMemID, String str_MemName, String str_gender, String str_relation, String str_entry_by, String str_entry_date, String lmp_date, String child_dob, String str_elderly, String str_disabled, String str_age, String regDate, int pID, String memAgeFlag) {
         addMemberData(str_c_code, str_district, str_upazilla, str_union, str_village, str_hhID, str_hhMemID, str_MemName, str_gender, str_relation, str_entry_by, str_entry_date, lmp_date, child_dob, str_elderly, str_disabled, str_age
                 , regDate, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-                null, null, null, null, null, null, null, null, null, null, null, null, null, null,memAgeFlag);
+                null, null, null, null, null, null, null, null, null, null, null, null, null, null, memAgeFlag);
 
         SQLServerSyntaxGenerator malawiMember = new SQLServerSyntaxGenerator();
         malawiMember.setAdmCountryCode(str_c_code);
@@ -11386,9 +11430,6 @@ public class SQLiteHandler extends SQLiteOpenHelper {
         malawiMember.setMemTypeFlag(memAgeFlag);
 
         insertIntoUploadTable(malawiMember.insertIntoRegNMemberForMalawi());
-
-//        if (pID != 0)
-//            updateRegistrationStatus("" + pID, 0);    // Setting Update status to false to avail the Synchronization
 
 
     }
@@ -11474,7 +11515,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 ,
                 proxy_Type_ID, proxy_ID_NO,
                 p_BSCMemName1_First, p_BSCMemName1_Middle, p_BSCMemName1_Last, p_BSCMem1_TitlePosition,
-                p_BSCMemName2_First, p_BSCMemName2_Middle, p_BSCMemName2_Last, p_BSCMem2_TitlePosition, grp_code,memTypeFlag);
+                p_BSCMemName2_First, p_BSCMemName2_Middle, p_BSCMemName2_Last, p_BSCMem2_TitlePosition, grp_code, memTypeFlag);
 
 
 //        Log.d(TAG, " add member Liberia id: " + idRow);
@@ -11654,6 +11695,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
         return id;
     }
+
     public void addLUP_TAParticipantCat(String cCode, String taGroup, String partCatCode, String partCatTitle) {
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -11737,7 +11779,7 @@ public class SQLiteHandler extends SQLiteOpenHelper {
 
 
     public void updateMemTypeFlagInMemTable(String counryCode, String layR1Code, String layR2Code, String layR3Code,
-                                            String layR4Code, String hhID, String hhMemID, String memTypeFlag) {
+                                            String layR4Code, String hhID, String hhMemID, String memAgeTypeFlag) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         String where = ADM_COUNTRY_CODE_COL + " = '" + counryCode +
@@ -11747,11 +11789,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
                 "' and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code +
                 "' and " + HHID_COL + " = '" + hhID +
                 "' and " + HH_MEM_ID + " = '" + hhMemID + "'";
-        values.put(MEM_TYPE_FLAG, memTypeFlag); // district name
 
+        values.put(MEM_TYPE_FLAG, memAgeTypeFlag);
         db.update(REGISTRATION_MEMBER_TABLE, values, where, null);
-//        updateRegistrationStatus("" + pID, 0);    // Setting Update status to false
-        db.close(); // Closing database connection
+
+        db.close();                                                                                 // Closing database connection
     }
 
     public void updateRegistrationRecord(int pID, String dname, String upname, String uname,

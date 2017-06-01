@@ -1076,7 +1076,7 @@ public class Schema {
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4), "
                 + ADM_DONOR_CODE_COL + " VARCHAR(2), "
                 + AWARD_CODE_COL + " VARCHAR(2), "
-                + FDP_MASTER_LAY_R1_LIST_CODE_COL + " VARCHAR(2), "
+                + LAY_R1_LIST_CODE_COL + " VARCHAR(2), "
                 + LAY_R2_LIST_CODE_COL + " VARCHAR(2), "
                 + LAY_R3_LIST_CODE_COL + " VARCHAR(2), "
                 + LAY_R4_LIST_CODE_COL + " VARCHAR(2), "
@@ -1087,10 +1087,10 @@ public class Schema {
                 + OPERATION_CODE_COL + " VARCHAR(1), "
                 + OP_MONTH_CODE_COL + " VARCHAR(2), "
 
-                + SQLiteHandler.VOUCHER_ITEM_SPEC_COL + " VARCHAR(15), "
-                + SQLiteHandler.VOUCHER_UNIT_COL + " VARCHAR(25), "
-                + SQLiteHandler.VOUCHER_REFERENCE_NUMBER_COL + " VARCHAR(18), "
-                + SQLiteHandler.VOUCHER_ITEM_COST_COL + " VARCHAR(5), "
+                + VOUCHER_ITEM_SPEC_COL + " VARCHAR(15), "
+                + VOUCHER_UNIT_COL + " VARCHAR(25), "
+                + VOUCHER_REFERENCE_NUMBER_COL + " VARCHAR(18), "
+                + VOUCHER_ITEM_COST_COL + " VARCHAR(5), "
                 + DIST_FLAG_COL + " VARCHAR(100), "
                 + ENTRY_BY + " VARCHAR(5), "
                 + ENTRY_DATE + " VARCHAR(20), "
@@ -1256,11 +1256,11 @@ public class Schema {
 
 
                 + GROUP_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.SUB_GROUP_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.ATTRIBUTE_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.ATTRIBUTE_TITLE_COL + " VARCHAR(4) "
+                + " , " + SUB_GROUP_CODE_COL + " VARCHAR(4) "
+                + " , " + ATTRIBUTE_CODE_COL + " VARCHAR(4) "
+                + " , " + ATTRIBUTE_TITLE_COL + " VARCHAR(4) "
                 + " , " + DATA_TYPE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.GPS_SUB_GROUP_ATTRIBUTES_TABLE_LOOK_UP_CODE_COL + " VARCHAR(4) "
+                + " , " + GPS_SUB_GROUP_ATTRIBUTES_TABLE_LOOK_UP_CODE_COL + " VARCHAR(4) "
                 + " )";
 
 
@@ -1465,8 +1465,8 @@ public class Schema {
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(4) "
                 + " , " + AWARD_CODE_COL + " VARCHAR(4) "
                 + " , " + ADM_PROG_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.LOAN_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.LOAN_SOURCE_COL + " VARCHAR(100) "
+                + " , " + LOAN_CODE_COL + " VARCHAR(4) "
+                + " , " + LOAN_SOURCE_COL + " VARCHAR(100) "
 
 
                 + " )";
@@ -1477,15 +1477,15 @@ public class Schema {
 
     public static String sqlCreateLUP_CommunityLeadPosition_Table() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.LUP_COMMUNITY_LEAD_POSITION_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + LUP_COMMUNITY_LEAD_POSITION_TABLE + " ("
 
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(4) "
                 + " , " + AWARD_CODE_COL + " VARCHAR(4) "
                 + " , " + ADM_PROG_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.LEAD_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.LEAD_POSITION_COL + " VARCHAR(100) "
+                + " , " + LEAD_CODE_COL + " VARCHAR(4) "
+                + " , " + LEAD_POSITION_COL + " VARCHAR(100) "
 
 
                 + " )";
@@ -1494,7 +1494,7 @@ public class Schema {
     public static String sqlCreateRegNmemProgGrp_Table() {
 
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.REG_N_MEM_PROG_GRP_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + REG_N_MEM_PROG_GRP_TABLE + " ("
 
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
@@ -1510,7 +1510,7 @@ public class Schema {
                 + " , " + SRV_CODE_COL + " VARCHAR(2) "
                 + " , " + GROUP_CODE_COL + " VARCHAR(5) "
                 + " , " + GROUP_NAME_COL + " VARCHAR(100) "
-                + " , " + SQLiteHandler.ACTIVE_COL + " VARCHAR(5) "
+                + " , " + ACTIVE_COL + " VARCHAR(5) "
                 + " , " + ENTRY_BY + " VARCHAR(4) "
                 + " , " + ENTRY_DATE + " VARCHAR(20) "
                 + " , " + REG_N_MEM_PROG_GRP_TABLE_GRP_LAY_R1_LIST_CODE_COL + " VARCHAR(2) "
@@ -1524,15 +1524,15 @@ public class Schema {
     public static String sqlCreateCommunityGroupCategoryes_Table() {
 
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.COMMUNITY_GROUP_CATEGORY_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + COMMUNITY_GROUP_CATEGORY_TABLE + " ("
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(2) "
                 + " , " + AWARD_CODE_COL + " VARCHAR(2) "
                 + " , " + ADM_PROG_CODE_COL + " VARCHAR(3) "
                 + " , " + GROUP_CAT_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.GROUP_CAT_NAME_COL + " VARCHAR(100) "
-                + " , " + SQLiteHandler.GROUP_CAT_SHORT_NAME_COL + " VARCHAR(5) "
+                + " , " + GROUP_CAT_NAME_COL + " VARCHAR(100) "
+                + " , " + GROUP_CAT_SHORT_NAME_COL + " VARCHAR(5) "
 
 
                 + " )";
@@ -1540,50 +1540,50 @@ public class Schema {
 
 
     public static String sqlCreate_Gps_Location_Content_Table() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.GPS_LOCATION_CONTENT_TABLE + " ("
+        return CREATE_TABLE_IF_NOT_EXISTS + GPS_LOCATION_CONTENT_TABLE + " ("
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
                 + " , " + GROUP_CODE_COL + " VARCHAR(5)"
-                + " , " + SQLiteHandler.SUB_GROUP_CODE_COL + " VARCHAR(5)"
-                + " , " + SQLiteHandler.LOCATION_CODE_COL + " VARCHAR(5)"
-                + " , " + SQLiteHandler.CONTENT_CODE_COL + " VARCHAR(5)"
-                + " , " + SQLiteHandler.IMAGE_FILE_COL + " BLOB "
-                + " , " + SQLiteHandler.REMARKES_COL + " VARCHAR(10)"
+                + " , " + SUB_GROUP_CODE_COL + " VARCHAR(5)"
+                + " , " + LOCATION_CODE_COL + " VARCHAR(5)"
+                + " , " + CONTENT_CODE_COL + " VARCHAR(5)"
+                + " , " + IMAGE_FILE_COL + " BLOB "
+                + " , " + REMARKES_COL + " VARCHAR(10)"
                 + " , " + ENTRY_BY + " VARCHAR(4) "
                 + " , " + ENTRY_DATE + " VARCHAR(20) "
                 + " ) ";
     }
 
     public static String createTableLastSyncTime() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.LAST_SYNC_TYRACE_TABLE
+        return CREATE_TABLE_IF_NOT_EXISTS + LAST_SYNC_TYRACE_TABLE
                 + " ( "
-                + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
-                + SQLiteHandler.USER_ID + " TEXT , "
-                + SQLiteHandler.USER_LOGIN_NAME + " TEXT ,"
-                + SQLiteHandler.LAST_SYNC_TIME_COL + " TEXT "
+                + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+                + USER_ID + " TEXT , "
+                + USER_LOGIN_NAME + " TEXT ,"
+                + LAST_SYNC_TIME_COL + " TEXT "
                 + " ) ";
     }
 
 
     public static String sqlCreateDistNPlanBasic() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.DIST_N_PLAN_BASIC_TABLE + "("
+        return CREATE_TABLE_IF_NOT_EXISTS + DIST_N_PLAN_BASIC_TABLE + "("
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(10), "
                 + ADM_DONOR_CODE_COL + " VARCHAR(10), "
                 + AWARD_CODE_COL + " VARCHAR(10), "
                 + PROG_CODE_COL + " VARCHAR(10), "
                 + OPERATION_CODE_COL + " VARCHAR(10), "
-                + SQLiteHandler.SRV_OP_MONTH_CODE_COL + " VARCHAR(10), "
-                + SQLiteHandler.DIST_OP_MONTH_CODE_COL + " VARCHAR(10), "
+                + SRV_OP_MONTH_CODE_COL + " VARCHAR(10), "
+                + DIST_OP_MONTH_CODE_COL + " VARCHAR(10), "
                 + FDP_CODE_COL + " VARCHAR(10), "
                 + DIST_FLAG_COL + " VARCHAR(10), "
-                + SQLiteHandler.ORG_CODE_COL + " VARCHAR(10), "
-                + SQLiteHandler.DISTRIBUTOR_COL + " VARCHAR(10), "
-                + SQLiteHandler.DISTRIBUTION_DATE_COL + " VARCHAR(50)  , "
-                + SQLiteHandler.DELIVERY_DATE_COL + " VARCHAR(50)  , "
-                + SQLiteHandler.STATUS + " VARCHAR(50)  , "
-                + SQLiteHandler.PREPARED_BY_COL + " VARCHAR(20) , "
-                + SQLiteHandler.VERIFIED_BY_COL + " VARCHAR(20) , "
-                + SQLiteHandler.APPROVED_BY_COL + " VARCHAR(20)  "
+                + ORG_CODE_COL + " VARCHAR(10), "
+                + DISTRIBUTOR_COL + " VARCHAR(10), "
+                + DISTRIBUTION_DATE_COL + " VARCHAR(50)  , "
+                + DELIVERY_DATE_COL + " VARCHAR(50)  , "
+                + STATUS + " VARCHAR(50)  , "
+                + PREPARED_BY_COL + " VARCHAR(20) , "
+                + VERIFIED_BY_COL + " VARCHAR(20) , "
+                + APPROVED_BY_COL + " VARCHAR(20)  "
 
 
                 + " ) ";
@@ -1592,7 +1592,7 @@ public class Schema {
     }
 
     public static String createTableLUP_RegNAddLookup() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE
+        return CREATE_TABLE_IF_NOT_EXISTS + LUP_REGN_ADDRESS_LOOKUP_TABLE
                 + " ( "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
                 + " , " + REGN_ADDRESS_LOOKUP_CODE_COL + " VARCHAR(3)"
@@ -1606,30 +1606,30 @@ public class Schema {
 
 
     public static String createTableProgOrgNRole() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.PROGRAM_ORGANIZATION_ROLE_TABLE
+        return CREATE_TABLE_IF_NOT_EXISTS + PROGRAM_ORGANIZATION_ROLE_TABLE
                 + " ( "
                 + ADM_COUNTRY_CODE_COL + " varchar (4) "
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(4) "
                 + " , " + AWARD_CODE_COL + " VARCHAR(4) "
-                + " , " + SQLiteHandler.STAFF_ORG_CODE_COL + " VARCHAR(3) "
-                + " , " + SQLiteHandler.PRIME_Y_N_COL + " VARCHAR (1) "
-                + " , " + SQLiteHandler.SUB_Y_N_COL + " VARCHAR (1) "
-                + " , " + SQLiteHandler.TECH_Y_N_COL + " VARCHAR (1) "
-                + " , " + SQLiteHandler.LONG_Y_N_COL + " VARCHAR (1) "
-                + " , " + SQLiteHandler.OTH_Y_N_COL + " VARCHAR (1) "
-                + " , " + SQLiteHandler.IMP_Y_N_COL + " VARCHAR (1) "
+                + " , " + STAFF_ORG_CODE_COL + " VARCHAR(3) "
+                + " , " + PRIME_Y_N_COL + " VARCHAR (1) "
+                + " , " + SUB_Y_N_COL + " VARCHAR (1) "
+                + " , " + TECH_Y_N_COL + " VARCHAR (1) "
+                + " , " + LONG_Y_N_COL + " VARCHAR (1) "
+                + " , " + OTH_Y_N_COL + " VARCHAR (1) "
+                + " , " + IMP_Y_N_COL + " VARCHAR (1) "
 
-                // + "  ,  " + PRIMARY_KEY + " (" + SQLiteHandler.ADM_COUNTRY_CODE_COL + "," + SQLiteHandler.ADM_DONOR_CODE_COL + "," + SQLiteHandler.AWARD_CODE_COL + "," + SQLiteHandler.ORG_CODE_COL + ")   "
+                // + "  ,  " + PRIMARY_KEY + " (" +  ADM_COUNTRY_CODE_COL + "," +  ADM_DONOR_CODE_COL + "," +  AWARD_CODE_COL + "," +  ORG_CODE_COL + ")   "
 
                 + " ) ";
     }
 
     public static String createTableProgOrgN() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.PROGRAM_ORGANIZATION_NAME_TABLE + " ( "
-                + SQLiteHandler.PROGRAM_ORGANIZATION_NAME_TABLE_ORG_CODE_COL + " VARCHAR(3), "
-                + SQLiteHandler.ORGANIZATION_NAME + " VARCHAR(100) "
-                + " , " + SQLiteHandler.ORGANIZATION_SHORT_NAME + " VARCHAR (25) "
-                //+ " , " + PRIMARY_KEY + "(" + SQLiteHandler.ORG_CODE_COL + ") "
+        return CREATE_TABLE_IF_NOT_EXISTS + PROGRAM_ORGANIZATION_NAME_TABLE + " ( "
+                + PROGRAM_ORGANIZATION_NAME_TABLE_ORG_CODE_COL + " VARCHAR(3), "
+                + ORGANIZATION_NAME + " VARCHAR(100) "
+                + " , " + ORGANIZATION_SHORT_NAME + " VARCHAR (25) "
+                //+ " , " + PRIMARY_KEY + "(" +  ORG_CODE_COL + ") "
                 + " ) ";
     }
 
@@ -1637,99 +1637,99 @@ public class Schema {
      * SQLite tools from mustafiz
      */
     public static String createTableDTATable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "  " + SQLiteHandler.DT_A_TABLE + "  (   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "  " + DT_A_TABLE + "  (   " +
                 "   " + DT_BASIC_COL + "  TEXT NOT NULL,   " +
                 "   " + DTQ_CODE_COL + "  TEXT NOT NULL,   " +
                 "   " + DTA_CODE_COL + "  TEXT NOT NULL,   " +
-                "   " + SQLiteHandler.DTA_LABEL_COL + "  TEXT,   " +
+                "   " + DTA_LABEL_COL + "  TEXT,   " +
                 "   " + DTA_VALUE_COL + "  TEXT,   " +
-                "   " + SQLiteHandler.DT_SEQ_COL + "  INTEGER,   " +
-                "   " + SQLiteHandler.DTA_SHORT_COL + "  TEXT,   " +
-                "   " + SQLiteHandler.DT_SCORE_CODE_COL + "  TEXT,   " +
-                "   " + SQLiteHandler.DTSKIP_DTQ_CODE_COL + "    TEXT,   " +
-                "   " + SQLiteHandler.DTA_COMPARE_CODE_COL + "    TEXT,   " +
-                "   " + SQLiteHandler.SHOW_HIDE_COL + "    TEXT,   " +
-                "   " + SQLiteHandler.MAX_VALUE_COL + "    TEXT,   " +
-                "   " + SQLiteHandler.MIN_VALUE_COL + "    TEXT,   " +
+                "   " + DT_SEQ_COL + "  INTEGER,   " +
+                "   " + DTA_SHORT_COL + "  TEXT,   " +
+                "   " + DT_SCORE_CODE_COL + "  TEXT,   " +
+                "   " + DTSKIP_DTQ_CODE_COL + "    TEXT,   " +
+                "   " + DTA_COMPARE_CODE_COL + "    TEXT,   " +
+                "   " + SHOW_HIDE_COL + "    TEXT,   " +
+                "   " + MAX_VALUE_COL + "    TEXT,   " +
+                "   " + MIN_VALUE_COL + "    TEXT,   " +
                 "   " + DATA_TYPE_COL + "    TEXT,   " +
-                "   " + SQLiteHandler.MARK_ON_GRID_COL + "    TEXT,   " +
+                "   " + MARK_ON_GRID_COL + "    TEXT,   " +
                 "   " + ENTRY_BY + "    TEXT,   " +
                 "   " + ENTRY_DATE + "    TEXT" +
                 //  ",   " +
-                //  "  " + PRIMARY_KEY + "(" + SQLiteHandler.DT_BASIC_COL + "," + SQLiteHandler.DTQ_CODE_COL + "," + SQLiteHandler.DTA_CODE_COL + ")   " +
+                //  "  " + PRIMARY_KEY + "(" +  DT_BASIC_COL + "," +  DTQ_CODE_COL + "," +  DTA_CODE_COL + ")   " +
                 ")";
     }
 
     public static String createTableDTBasic() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DT_BASIC_TABLE + "  (   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_BASIC_TABLE + "  (   " +
                 "   " + DT_BASIC_COL + "   TEXT NOT NULL,   " +
-                "   " + SQLiteHandler.DT_TITLE_COL + "   TEXT,   " +
-                "   " + SQLiteHandler.DT_SUB_TITLE_COL + "   TEXT,   " +
-                "   " + SQLiteHandler.DT_DESCRIPTION_COL + "   TEXT,   " +
-                "   " + SQLiteHandler.DT_AUTO_SCROLL_COL + "   TEXT,   " +
-                "   " + SQLiteHandler.DTAUTO_SCROLL_TEXT + "   TEXT,   " +
-                "   " + SQLiteHandler.DT_ACTIVE_COL + "   TEXT,   " +
-                "   " + SQLiteHandler.DT_CATEGORY_COL + "   TEXT,   " +
-                "   " + SQLiteHandler.DT_GEO_LIST_LEVEL_COL + "   TEXT,   " +
-                "   " + SQLiteHandler.DT_OP_MODE_COL + "   TEXT,   " +
-                "   " + SQLiteHandler.DT_SHORT_NAME_COL + "   TEXT" +
-                // ",   " + "   " + SQLiteHandler.ENTRY_BY + "    TEXT,   " +
-                //"  " + SQLiteHandler.ENTRY_DATE + "    TEXT" +
+                "   " + DT_TITLE_COL + "   TEXT,   " +
+                "   " + DT_SUB_TITLE_COL + "   TEXT,   " +
+                "   " + DT_DESCRIPTION_COL + "   TEXT,   " +
+                "   " + DT_AUTO_SCROLL_COL + "   TEXT,   " +
+                "   " + DTAUTO_SCROLL_TEXT + "   TEXT,   " +
+                "   " + DT_ACTIVE_COL + "   TEXT,   " +
+                "   " + DT_CATEGORY_COL + "   TEXT,   " +
+                "   " + DT_GEO_LIST_LEVEL_COL + "   TEXT,   " +
+                "   " + DT_OP_MODE_COL + "   TEXT,   " +
+                "   " + DT_SHORT_NAME_COL + "   TEXT" +
+                // ",   " + "   " +  ENTRY_BY + "    TEXT,   " +
+                //"  " +  ENTRY_DATE + "    TEXT" +
                 //  ",   " +
-                // "  " + PRIMARY_KEY + "(" + SQLiteHandler.DT_BASIC_COL + ")   " +
+                // "  " + PRIMARY_KEY + "(" +  DT_BASIC_COL + ")   " +
                 ")";
     }
 
     public static String createTableDTCategory() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DT_CATEGORY_TABLE + " " + "   (    " +
-                "    " + SQLiteHandler.DT_CATEGORY_COL + "    TEXT NOT NULL,    " +
-                "    " + SQLiteHandler.DT_CATEGORY_TABLE_CATEGORY_NAME_COL + "    TEXT,    " +
-                "    " + SQLiteHandler.FREQUENCY_COL + "    TEXT,    " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_CATEGORY_TABLE + " " + "   (    " +
+                "    " + DT_CATEGORY_COL + "    TEXT NOT NULL,    " +
+                "    " + DT_CATEGORY_TABLE_CATEGORY_NAME_COL + "    TEXT,    " +
+                "    " + FREQUENCY_COL + "    TEXT,    " +
                 "   " + ENTRY_BY + "    TEXT,    " +
                 "   " + ENTRY_DATE + "    TEXT" +
                 //   ",    " +
-                //   "  " + PRIMARY_KEY + "(" + SQLiteHandler.DT_CATEGORY_COL + ")    " +
+                //   "  " + PRIMARY_KEY + "(" +  DT_CATEGORY_COL + ")    " +
                 ")";
     }
 
     public static String createTableDTCountryProgram() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DT_COUNTRY_PROGRAM_TABLE + "   (  " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_COUNTRY_PROGRAM_TABLE + "   (  " +
                 "    " + ADM_COUNTRY_CODE_COL + "    TEXT NOT NULL,  " +
                 "    " + ADM_DONOR_CODE_COL + "    TEXT NOT NULL,  " +
                 "    " + AWARD_CODE_COL + "    TEXT NOT NULL,  " +
                 "    " + ADM_PROG_CODE_COL + "    TEXT NOT NULL,  " +
                 "    " + PROG_ACTIVITY_CODE_COL + "    TEXT NOT NULL,  " +
-                "    " + SQLiteHandler.PROG_ACTIVITY_TITLE_COL + "    TEXT,  " +
+                "    " + PROG_ACTIVITY_TITLE_COL + "    TEXT,  " +
                 "    " + DT_BASIC_COL + "    TEXT NOT NULL,  " +
-                "    " + SQLiteHandler.REF_IDENTIFIER_COL + "    TEXT,  " +
-                "    " + SQLiteHandler.STATUS + "    TEXT,  " +
-                "    " + SQLiteHandler.RPT_FREQUENCY_COL + "    TEXT,  " +
+                "    " + REF_IDENTIFIER_COL + "    TEXT,  " +
+                "    " + STATUS + "    TEXT,  " +
+                "    " + RPT_FREQUENCY_COL + "    TEXT,  " +
                 "   " + ENTRY_BY + "    TEXT,  " +
                 "   " + ENTRY_DATE + "    TEXT" +
-                //  " ,  " +                "  " + PRIMARY_KEY + "(" + SQLiteHandler.ADM_COUNTRY_CODE_COL + ","
-                // + SQLiteHandler.ADM_DONOR_CODE_COL + " ," + SQLiteHandler.AWARD_CODE_COL + " ," + SQLiteHandler.ADM_PROG_CODE_COL + " ," + SQLiteHandler.PROG_ACTIVITY_CODE_COL + ")  " +
+                //  " ,  " +                "  " + PRIMARY_KEY + "(" +  ADM_COUNTRY_CODE_COL + ","
+                // +  ADM_DONOR_CODE_COL + " ," +  AWARD_CODE_COL + " ," +  ADM_PROG_CODE_COL + " ," +  PROG_ACTIVITY_CODE_COL + ")  " +
                 ")";
     }
 
     public static String createTableDTGeoListLevel() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DTGEO_LIST_LEVEL_TABLE + " " + "    (   " +
-                "      " + SQLiteHandler.GEO_LEVEL_COL + "      TEXT NOT NULL,   " +
-                "      " + SQLiteHandler.GEO_LEVEL_NAME_COL + "      TEXT,   " +
-                "      " + SQLiteHandler.LIST_UDF_NAME_COL + "      TEXT,   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DTGEO_LIST_LEVEL_TABLE + " " + "    (   " +
+                "      " + GEO_LEVEL_COL + "      TEXT NOT NULL,   " +
+                "      " + GEO_LEVEL_NAME_COL + "      TEXT,   " +
+                "      " + LIST_UDF_NAME_COL + "      TEXT,   " +
                 "     " + ENTRY_BY + "      TEXT,   " +
                 "     " + ENTRY_DATE + "      TEXT,   " +
-                "   " + PRIMARY_KEY + "( " + SQLiteHandler.GEO_LEVEL_COL + ")   " +
+                "   " + PRIMARY_KEY + "( " + GEO_LEVEL_COL + ")   " +
                 ")";
     }
 
     public static String createTableDTQResMode() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DTQRES_MODE_TABLE + "   (   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DTQRES_MODE_TABLE + "   (   " +
                 "      " + QRES_MODE_COL + "      TEXT NOT NULL,   " +
-                "      " + SQLiteHandler.QRES_LUP_TEXT_COL + "      TEXT,   " +
+                "      " + QRES_LUP_TEXT_COL + "      TEXT,   " +
                 "      " + DATA_TYPE_COL + "      TEXT,   " +
-                "      " + SQLiteHandler.LOOK_UP_UDF_NAME_COL + "      TEXT,   " +
-                "      " + SQLiteHandler.RESPONSE_VALUE_CONTROL_COL + "      TEXT" +
-                // ",   " + "   " + PRIMARY_KEY + "(" + SQLiteHandler.QRES_MODE_COL + ")   " +
+                "      " + LOOK_UP_UDF_NAME_COL + "      TEXT,   " +
+                "      " + RESPONSE_VALUE_CONTROL_COL + "      TEXT" +
+                // ",   " + "   " + PRIMARY_KEY + "(" +  QRES_MODE_COL + ")   " +
                 ")";
     }
 
@@ -1743,12 +1743,12 @@ public class Schema {
                 "      " + ALLOW_NULL_COL + "      TEXT,   " +
                 "      " + LUP_TABLE_NAME + "      TEXT" +
                 //",   " +
-                //    "   " + PRIMARY_KEY + "(" + SQLiteHandler.DT_BASIC_COL + " ," + SQLiteHandler.DTQ_CODE_COL + " )   " +
+                //    "   " + PRIMARY_KEY + "(" +  DT_BASIC_COL + " ," +  DTQ_CODE_COL + " )   " +
                 ")";
     }
 
     public static String createTableDTResponseTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DT_RESPONSE_TABLE + "    (   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_RESPONSE_TABLE + "    (   " +
                 "      " + DT_BASIC_COL + "      TEXT NOT NULL,   " +
                 "      " + ADM_COUNTRY_CODE_COL + "      TEXT NOT NULL,   " +
                 "      " + ADM_DONOR_CODE_COL + "      TEXT NOT NULL,   " +
@@ -1765,8 +1765,8 @@ public class Schema {
                 "     " + OP_MONTH_CODE_COL + "       TEXT,   " +
                 "     " + DATA_TYPE_COL + "       TEXT,   " +
                 "     " + U_FILE_COL + "       BLOB   " +
-                //  "  , " + PRIMARY_KEY + "(" + SQLiteHandler.DT_BASIC_COL + "," + SQLiteHandler.ADM_COUNTRY_CODE_COL + ", " + SQLiteHandler.ADM_DONOR_CODE_COL + " ," + SQLiteHandler.AWARD_CODE_COL + " ," + SQLiteHandler.ADM_PROG_CODE_COL
-                //+ "," + SQLiteHandler.DT_ENU_ID_COL + "," + SQLiteHandler.DTQ_CODE_COL + "," + SQLiteHandler.DTA_CODE_COL + " ," + SQLiteHandler.DT_R_SEQ_COL + ")   " +
+                //  "  , " + PRIMARY_KEY + "(" +  DT_BASIC_COL + "," +  ADM_COUNTRY_CODE_COL + ", " +  ADM_DONOR_CODE_COL + " ," +  AWARD_CODE_COL + " ," +  ADM_PROG_CODE_COL
+                //+ "," +  DT_ENU_ID_COL + "," +  DTQ_CODE_COL + "," +  DTA_CODE_COL + " ," +  DT_R_SEQ_COL + ")   " +
                 ")";
     }
 
@@ -1790,41 +1790,41 @@ public class Schema {
                 "     " + DTQ_TEXT_COL + "       TEXT,   " +
                 "     " + DT_SURVEY_NUM + "       INTEGER NOT NULL   " +
                 "     , " + U_FILE_COL + "       BLOB   " +
-                //  "  , " + PRIMARY_KEY + "(" + SQLiteHandler.DT_BASIC_COL + "," + SQLiteHandler.ADM_COUNTRY_CODE_COL + ", " + SQLiteHandler.ADM_DONOR_CODE_COL + " ," + SQLiteHandler.AWARD_CODE_COL + " ," + SQLiteHandler.ADM_PROG_CODE_COL
-                //+ "," + SQLiteHandler.DT_ENU_ID_COL + "," + SQLiteHandler.DTQ_CODE_COL + "," + SQLiteHandler.DTA_CODE_COL + " ," + SQLiteHandler.DT_R_SEQ_COL + ")   " +
+                //  "  , " + PRIMARY_KEY + "(" +  DT_BASIC_COL + "," +  ADM_COUNTRY_CODE_COL + ", " +  ADM_DONOR_CODE_COL + " ," +  AWARD_CODE_COL + " ," +  ADM_PROG_CODE_COL
+                //+ "," +  DT_ENU_ID_COL + "," +  DTQ_CODE_COL + "," +  DTA_CODE_COL + " ," +  DT_R_SEQ_COL + ")   " +
                 ")";
     }
 
     public static String createDTEnuTable() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DT_ENU_TABLE + "    (   " +
-                "      " + SQLiteHandler.DT_STF_CODE_COL + "      TEXT NOT NULL ,   " +
-                "      " + SQLiteHandler.DT_ADM_COUNTRY_CODE_COL + "      TEXT ,   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_ENU_TABLE + "    (   " +
+                "      " + DT_STF_CODE_COL + "      TEXT NOT NULL ,   " +
+                "      " + DT_ADM_COUNTRY_CODE_COL + "      TEXT ,   " +
                 "      " + DT_BASIC_COL + "      TEXT ,   " +
-                "      " + SQLiteHandler.DT_BTN_SAVE_COL + "      TEXT ,   " +
-                "      " + SQLiteHandler.DT_ENTRY_BY_COL + "      TEXT ,   " +
-                "     " + SQLiteHandler.DT_USA_ENTRY_DATE_COL + "       TEXT   " +
-                //  "  , " + PRIMARY_KEY + "(" + SQLiteHandler.DT_BASIC_COL + "," + SQLiteHandler.ADM_COUNTRY_CODE_COL + ", " + SQLiteHandler.ADM_DONOR_CODE_COL + " ," + SQLiteHandler.AWARD_CODE_COL + " ," + SQLiteHandler.ADM_PROG_CODE_COL
-                //+ "," + SQLiteHandler.DT_ENU_ID_COL + "," + SQLiteHandler.DTQ_CODE_COL + "," + SQLiteHandler.DTA_CODE_COL + " ," + SQLiteHandler.DT_R_SEQ_COL + ")   " +
+                "      " + DT_BTN_SAVE_COL + "      TEXT ,   " +
+                "      " + DT_ENTRY_BY_COL + "      TEXT ,   " +
+                "     " + DT_USA_ENTRY_DATE_COL + "       TEXT   " +
+                //  "  , " + PRIMARY_KEY + "(" +  DT_BASIC_COL + "," +  ADM_COUNTRY_CODE_COL + ", " +  ADM_DONOR_CODE_COL + " ," +  AWARD_CODE_COL + " ," +  ADM_PROG_CODE_COL
+                //+ "," +  DT_ENU_ID_COL + "," +  DTQ_CODE_COL + "," +  DTA_CODE_COL + " ," +  DT_R_SEQ_COL + ")   " +
                 ")";
     }
 
     public static String createTableDTTableDefinition() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DT_TABLE_DEFINITION_TABLE + "    (   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_TABLE_DEFINITION_TABLE + "    (   " +
                 "      " + TABLE_NAME_COL + "      TEXT NOT NULL,   " +
-                "      " + SQLiteHandler.FIELD_NAME_COL + "      TEXT NOT NULL,   " +
-                "      " + SQLiteHandler.FIELD_DEFINITION_COL + "      TEXT,   " +
-                "      " + SQLiteHandler.FIELD_SHORT_NAME_COL + "      TEXT,   " +
-                "      " + SQLiteHandler.VALUE_UDF_COL + "      TEXT,   " +
-                "      " + SQLiteHandler.LUPTABLE_NAME_COL + "      TEXT,   " +
-                "      " + SQLiteHandler.ADMIN_ONLY_COL + "      TEXT,   " +
+                "      " + FIELD_NAME_COL + "      TEXT NOT NULL,   " +
+                "      " + FIELD_DEFINITION_COL + "      TEXT,   " +
+                "      " + FIELD_SHORT_NAME_COL + "      TEXT,   " +
+                "      " + VALUE_UDF_COL + "      TEXT,   " +
+                "      " + LUPTABLE_NAME_COL + "      TEXT,   " +
+                "      " + ADMIN_ONLY_COL + "      TEXT,   " +
                 "      " + ENTRY_BY + "      TEXT,   " +
                 "      " + ENTRY_DATE + "      TEXT" +
-                //  " ,   " +                "   " + PRIMARY_KEY + "(" + SQLiteHandler.TABLE_NAME_COL + "," + SQLiteHandler.FIELD_NAME_COL + ")   " +
+                " ,   " + "   " + PRIMARY_KEY + "(" + TABLE_NAME_COL + "," + FIELD_NAME_COL + ")   " +
                 ")";
     }
 
     public static String createTaleDTTableListCategory() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DTTABLE_LIST_CATEGORY_TABLE + "    (   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DTTABLE_LIST_CATEGORY_TABLE + "    (   " +
                 "      " + TABLE_NAME_COL + "      TEXT NOT NULL,   " +
                 "      " + TABLE_GROUP_CODE_COL + "      TEXT,   " +
                 "      " + USE_ADMIN_ONLY_COL + "      TEXT,   " +
@@ -1838,18 +1838,17 @@ public class Schema {
                 "      " + USE_GIS_COL + "      TEXT" +
                 "      " + TD_SP_NAME_COL + "      TEXT" +
                 "      " + T_CONTENTS_COL + "      TEXT" +
-                //",   " +
-                //  "   " + PRIMARY_KEY + "(" + SQLiteHandler.TABLE_NAME_COL + ")   " +
+                ",   " + "   " + PRIMARY_KEY + "(" + TABLE_NAME_COL + ")   " +
                 ")";
     }
 
     public static String createTaleDT_LUP_Table() {
-        return CREATE_TABLE_IF_NOT_EXISTS + "   " + SQLiteHandler.DT_LUP_TABLE + "    (   " +
+        return CREATE_TABLE_IF_NOT_EXISTS + "   " + DT_LUP_TABLE + "    (   " +
                 "      " + ADM_COUNTRY_CODE_COL + "      TEXT NOT NULL,   " +
                 "      " + TABLE_NAME_COL + "      TEXT NOT NULL,   " +
-                "      " + SQLiteHandler.LIST_CODE_COL + "      TEXT NOT NULL,   " +
-                "      " + SQLiteHandler.LIST_NAME_COL + "      TEXT" +
-                // ",   " +                "   " + PRIMARY_KEY + " (" + SQLiteHandler.ADM_COUNTRY_CODE_COL + "," + SQLiteHandler.TABLE_NAME_COL + "," + SQLiteHandler.LIST_CODE_COL + ")   " +
+                "      " + LIST_CODE_COL + "      TEXT NOT NULL,   " +
+                "      " + LIST_NAME_COL + "      TEXT" +
+                " , " + "   " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + "," + TABLE_NAME_COL + "," + LIST_CODE_COL + ")   " +
                 ")";
     }
 
@@ -1860,23 +1859,23 @@ public class Schema {
      */
 
     public static String sqlCreateTemporary_CountryProgram() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.TEMPORARY_COUNTRY_PROGRAM_TABLE + " ( "
+        return CREATE_TABLE_IF_NOT_EXISTS + TEMPORARY_COUNTRY_PROGRAM_TABLE + " ( "
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(5)"
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(5)"
                 + " , " + AWARD_CODE_COL + " VARCHAR(5)"
                 + " , " + ADM_PROG_CODE_COL + " VARCHAR(5)"
                 + " , " + PROGRAM_NAME_COL + " VARCHAR(100) "
                 + " , " + PROGRAM_SHORT_NAME_COL + " VARCHAR(5) "
-                + " , " + SQLiteHandler.IS_SELECTED_FLAG_COL + " VARCHAR(1) DEFAULT '0' "
+                + " , " + IS_SELECTED_FLAG_COL + " VARCHAR(1) DEFAULT '0' "
 
-                // + " , " + PRIMARY_KEY + " (" + SQLiteHandler.ADM_COUNTRY_CODE_COL + ", " + SQLiteHandler.ADM_DONOR_CODE_COL + ", " + SQLiteHandler.AWARD_CODE_COL + ", " + SQLiteHandler.ADM_PROG_CODE_COL + " )"
+                + " , " + PRIMARY_KEY + " (" + ADM_COUNTRY_CODE_COL + ", " + ADM_DONOR_CODE_COL + ", " + AWARD_CODE_COL + ", " + ADM_PROG_CODE_COL + " )"
                 + " )";
     }
 
 
     public static String sqlCreateTemporary_OpMonthTable() {
 
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.TEMPORARY_OP_MONTH_TABLE + " ( "
+        return CREATE_TABLE_IF_NOT_EXISTS + TEMPORARY_OP_MONTH_TABLE + " ( "
 
                 + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
                 + " , " + ADM_DONOR_CODE_COL + " VARCHAR(2) "
@@ -1894,9 +1893,9 @@ public class Schema {
 
 
     public static String sqlCreateSelectedCountry() {
-        return CREATE_TABLE_IF_NOT_EXISTS + SQLiteHandler.SELECTED_COUNTRY_TABLE +
-                "(" + SQLiteHandler.ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
-                + SQLiteHandler.COUNTRY_CODE + " VARCHAR(5), " + SQLiteHandler.COUNTRY_COUNTRY_NAME + " VARCHAR(50))";
+        return CREATE_TABLE_IF_NOT_EXISTS + SELECTED_COUNTRY_TABLE +
+                "(" + ID_COL + " INTEGER " + PRIMARY_KEY + " AUTOINCREMENT, "
+                + COUNTRY_CODE + " VARCHAR(5), " + COUNTRY_COUNTRY_NAME + " VARCHAR(50))";
     }
 
     public static String sqlCreateOperationModeTable() {
@@ -2145,6 +2144,52 @@ public class Schema {
 
 
     }
+
+
+    public static String sqlCreateAdmMachineRegistry_Table() {
+
+        return CREATE_TABLE_IF_NOT_EXISTS + ADM_MACHINE_REGISTRY_TABLE + " ("
+
+
+                + ADM_COUNTRY_CODE_COL + " VARCHAR(4) "
+                + " , " + DEVICE_TYPE_ID_COL + " VARCHAR(4) "
+                + " , " + M_CODE_COL + " VARCHAR(50) "
+                + " , " + M_LABLE_COL + " VARCHAR(50) "
+                + " , " + M_ID_COL + " VARCHAR(50) "
+                + " , " + DEVICE_ROLE_ID_COL + " VARCHAR(50) "
+                + " , " + OFF_MODE_COL + " VARCHAR(50) "
+                + " , " + ON_MODE_COL + " VARCHAR(50) "
+                + " , " + STATUS + " VARCHAR(50) "
+                + " , " + OPERATION_MODE_COL + " VARCHAR(50) "
+                + " , " + ENTRY_BY + " VARCHAR(4) "
+                + " , " + ENTRY_DATE + " VARCHAR(50) "
+
+                + " , " + PRIMARY_KEY + " (" + M_CODE_COL + " , " + DEVICE_ROLE_ID_COL + " ) "
+                + " )";
+
+
+    }
+
+
+
+    public static String sqlCreateAdmMachinePublisher_Table() {
+
+        return CREATE_TABLE_IF_NOT_EXISTS + ADM_MACHINE_PUBLISHER_TABLE + " ("
+
+
+                + PUBLISHER_ID_COL + " VARCHAR(50) "
+                + " , " + PUBLISHER_NAME_COL + " VARCHAR(50) "
+                + " , " + M_CODE_COL + " VARCHAR(50) "
+                + " , " + SUBSCRIBER_M_CODE_COL + " VARCHAR(50) "
+                + " , " + ENTRY_BY + " VARCHAR(50) "
+                + " , " + ENTRY_DATE + " VARCHAR(50) "
+
+                + " , " + PRIMARY_KEY + " (" + PUBLISHER_ID_COL + " ) "
+                + " )";
+
+
+    }
+
 
 
 }

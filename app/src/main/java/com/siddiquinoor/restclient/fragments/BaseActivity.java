@@ -245,6 +245,12 @@ public abstract class BaseActivity extends Activity {
         return dateFormat.format(date).toString();
     }
 
+    protected String getDateTime(boolean isForExport) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(
+                "yyyy-MM-dd-HHmm", Locale.getDefault());
+        Date date = new Date();
+        return dateFormat.format(date).toString();
+    }
 
     protected String getDate() throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat(

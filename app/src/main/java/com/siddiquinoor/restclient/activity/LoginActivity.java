@@ -298,10 +298,20 @@ public class LoginActivity extends BaseActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        String startDate = "";
+        try {
+            startDate = getDateTime(true);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         /**
          * if database is imported than save a flag for not to sync with online
          */
-        editor.putBoolean(UtilClass.SYNC_MODE_KEY, false);
+        if (flag) {
+            editor.putBoolean(UtilClass.SYNC_MODE_KEY, false);
+            editor.putString(UtilClass.IMPORT_DATE_TIME_KEY, startDate);
+        } else
+            editor.putBoolean(UtilClass.SYNC_MODE_KEY, true);
         editor.commit();
         return flag;
     }
@@ -349,7 +359,7 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void setListener() {
-// todo: move the code ANNotification class
+
         btnExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -472,15 +482,12 @@ public class LoginActivity extends BaseActivity {
                                     }
 
                                 } else {
-                                    pDialog = new ProgressDialog(mContext);
-                                    pDialog.setCancelable(false);
-                                    pDialog.setMessage("Loading..");
-                                    pDialog.show();
-                                    /**
-                                     * for selecting operation Mood
-                                     *
-                                     */
-                                    getOperationModeAlert(user_name, password);
+//                                    pDialog = new ProgressDialog(mContext);
+//                                    pDialog.setCancelable(false);
+//                                    pDialog.setMessage("Loading..");
+//                                    pDialog.show();
+
+                                    getOperationModeAlert(user_name, password);                     // for selecting operation Mood
                                 }
 
 
@@ -2179,9 +2186,7 @@ public class LoginActivity extends BaseActivity {
                 Log.d("DIM", " After RegN Member Prog Group in txt stape: 4");
 
 
-                // DOING STRING OPERATION TO AVOID ALLOCATE CACHE MEMORY
-
-                String errorResult = response.substring(9, 14);
+                String errorResult = response.substring(9, 14);                                     // DOING STRING OPERATION TO AVOID ALLOCATE CACHE MEMORY
 
 
                 boolean error = !errorResult.equals("false");
@@ -2555,17 +2560,10 @@ public class LoginActivity extends BaseActivity {
 
                 String errorResult = response.substring(9, 14);
 
-/**
- * If Json String  get False than it return false
- */
-                boolean error = !errorResult.equals("false");
 
-                if (!error) {
+                boolean error = !errorResult.equals("false");                                       //If Json String  get False than it return false
 
-
-                    /**
-                     * IF GET NO ERROR  THAN GOTO THE MAIN ACTIVITY
-                     */
+                if (!error) {                                                                       // IF GET NO ERROR  THAN GOTO THE MAIN ACTIVITY
 
                     setLogin(true);                                                                     // login success
                     /**
