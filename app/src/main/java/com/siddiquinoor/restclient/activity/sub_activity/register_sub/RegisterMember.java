@@ -243,8 +243,8 @@ public class RegisterMember extends BaseActivity {
         str_upazilla = cIntent.getStringExtra("str_upazilla");
         str_union = cIntent.getStringExtra("str_union");
         str_village = cIntent.getStringExtra("str_village");
-        layR1ListCode = cIntent.getStringExtra("layR1ListCode");
-        layR2ListCode = cIntent.getStringExtra("layR2ListCode");
+        layR1ListCode = cIntent.getStringExtra("str_districtCode");
+        layR2ListCode = cIntent.getStringExtra("str_upazillaCode");
         str_unionCode = cIntent.getStringExtra("str_unionCode");
         str_villageCode = cIntent.getStringExtra("str_villageCode");
 

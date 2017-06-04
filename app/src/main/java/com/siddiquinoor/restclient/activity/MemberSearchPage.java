@@ -19,6 +19,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -92,6 +93,7 @@ public class MemberSearchPage extends BaseActivity {
      * Using this increment value we can move the listview items
      */
     private int increment = 0;
+    private LinearLayout loutListContoller;
 
 
     @Override
@@ -169,6 +171,8 @@ public class MemberSearchPage extends BaseActivity {
             // search with member id
             // anonymous object
             new LoadListView(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, idMember, strVillage, increment).execute();
+            loutListContoller.setVisibility(View.GONE);
+            tv_title.setVisibility(View.GONE);
         }
     }
 
@@ -227,6 +231,7 @@ public class MemberSearchPage extends BaseActivity {
         btn_searMem = (Button) findViewById(R.id.btn_memberSearch);
         edt_memberId = (EditText) findViewById(R.id.edt_memberSearch);
 
+        loutListContoller = (LinearLayout) findViewById(R.id.listViewController);
         btn_next = (Button) findViewById(R.id.next);
         btn_prev = (Button) findViewById(R.id.prev);
 

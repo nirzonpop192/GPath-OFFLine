@@ -207,7 +207,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         + SQLiteHandler.EXTERNAL_DATABASE_NAME;
 
 
-                // // TODO: 6/1/2017 some thing file exporting naming conversation
+              // file exporting naming conversation
                 String subNpubId = sqlH.getSubscriberNPublisherID(UtilClass.getMacAddress(mContext));
 
                 if (!subNpubId.equals("") && subNpubId.length() != 0){
@@ -229,7 +229,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
                 }
              ADNotificationManager dialog= new ADNotificationManager();
-                dialog.showInvalidDialog(mContext,"Invalid to Export","This device is not registered to export !");
+                dialog.showInvalidDialog(mContext,"Invalid Attempt ","This device is not registered to export !");
 
             }
         });

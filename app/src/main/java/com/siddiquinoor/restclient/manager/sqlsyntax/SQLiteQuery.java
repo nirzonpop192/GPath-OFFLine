@@ -532,6 +532,12 @@ public class SQLiteQuery {
 
         }
 
+        String limit = "";
+        if (memberSearchId.length() > 0 && !memberSearchId.equals(""))
+            limit = "";
+        else
+            limit = " LIMIT 20 OFFSET " + number;
+
         return "SELECT " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL
                 + ", " + REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID
                 + ", " + REGISTRATION_MEMBER_TABLE + "." + LAY_R1_LIST_CODE_COL
@@ -577,12 +583,12 @@ public class SQLiteQuery {
                 + " LEFT JOIN " + LUP_REGN_ADDRESS_LOOKUP_TABLE
                 + " ON " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + ADM_COUNTRY_CODE_COL + " = " + REGISTRATION_MEMBER_TABLE + "." + ADM_COUNTRY_CODE_COL
 
-                + " AND " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE
-                + " AND  " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL
-                + " AND  " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL
-                + " AND  " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_VILLAGE_CODE_COL
+                + " AND " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.LAY_R1_LIST_CODE
+                + " AND  " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R2_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_UPZILLA_CODE_COL
+                + " AND  " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R3_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + REGISTRATION_TABLE_UNION_CODE_COL
+                + " AND  " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + LAY_R4_LIST_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGISTRATION_TABLE_VILLAGE_CODE_COL
 
-                + " AND " + SQLiteHandler.LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + SQLiteHandler.REGN_ADDRESS_LOOKUP_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGN_ADDRESS_LOOKUP_CODE_COL
+                + " AND " + LUP_REGN_ADDRESS_LOOKUP_TABLE + "." + REGN_ADDRESS_LOOKUP_CODE_COL + " = " + REG_N_HH_TABLE + "." + SQLiteHandler.REGN_ADDRESS_LOOKUP_CODE_COL
 
 
                 + " WHERE " + REGISTRATION_MEMBER_TABLE + "." + ADM_COUNTRY_CODE_COL + " =  '" + cCode + "'"
@@ -598,7 +604,7 @@ public class SQLiteQuery {
                 + REGISTRATION_MEMBER_TABLE + "." + LAY_R3_LIST_CODE_COL + " || ''  || "
                 + REGISTRATION_MEMBER_TABLE + "." + LAY_R4_LIST_CODE_COL + " || ''  || "
                 + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + " || '' || "
-                + REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID + " LIKE '%" + memberSearchId + "%' "
+                + REGISTRATION_MEMBER_TABLE + "." + HH_MEM_ID + " LIKE '%" + memberSearchId + "' "
 
                 // group by
                 + " GROUP BY " + REGISTRATION_MEMBER_TABLE + "." + LAY_R1_LIST_CODE_COL + " , "
@@ -610,7 +616,7 @@ public class SQLiteQuery {
 
 
                 + " ORDER BY " + REGISTRATION_MEMBER_TABLE + "." + HHID_COL + " DESC "
-                + " LIMIT 20 OFFSET " + number
+                + limit
                 ;
 
 
@@ -5203,7 +5209,7 @@ public class SQLiteQuery {
                 + " AND  " + SQLiteHandler.SRV_CODE_COL + " = '" + srvCode + "'";
     }
 
-    public static String getLocationSpecificLatLong_sql(String cCode, String groupCode, String subGroupCode, String locationCode){
+    public static String getLocationSpecificLatLong_sql(String cCode, String groupCode, String subGroupCode, String locationCode) {
         return " SELECT ( CASE WHEN " + LATITUDE_COL + "='ISNULL' Then "
                 + LATITUDE_COL + "='' ElSE " + LATITUDE_COL + " END ) AS '" + LATITUDE_COL + "' ," +
                 "(CASE WHEN " + LONGITUDE_COL + "='ISNULL'Then " + LONGITUDE_COL + " = '' ElSE " + LONGITUDE_COL + " END ) AS '" + LONGITUDE_COL + "'  " +
@@ -5215,15 +5221,15 @@ public class SQLiteQuery {
     }
 
 
-   public static String editMalawiMemberData_sql(String cCode, String layR1Code, String layR2Code, String layR3Code,
-                                             String layR4Code, String hhID,
-                                             String memId){
-       return ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
-               " and " + LAY_R1_LIST_CODE_COL + " = '" + layR1Code + "'" +
-               " and " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "'" +
-               " and " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "'" +
-               " and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code + "'" +
-               " and " + HHID_COL + " = '" + hhID + "'" +
-               " and " + HH_MEM_ID + " = '" + memId + "'";
-   }
+    public static String editMalawiMemberData_sql(String cCode, String layR1Code, String layR2Code, String layR3Code,
+                                                  String layR4Code, String hhID,
+                                                  String memId) {
+        return ADM_COUNTRY_CODE_COL + " = '" + cCode + "'" +
+                " and " + LAY_R1_LIST_CODE_COL + " = '" + layR1Code + "'" +
+                " and " + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "'" +
+                " and " + LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "'" +
+                " and " + LAY_R4_LIST_CODE_COL + " = '" + layR4Code + "'" +
+                " and " + HHID_COL + " = '" + hhID + "'" +
+                " and " + HH_MEM_ID + " = '" + memId + "'";
+    }
 }//end of class

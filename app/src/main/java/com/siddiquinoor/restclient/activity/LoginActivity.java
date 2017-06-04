@@ -413,6 +413,8 @@ public class LoginActivity extends BaseActivity {
 
                             try {
                                 dialog.dismiss();
+                                editor.putBoolean(UtilClass.SYNC_MODE_KEY, true);
+                                editor.commit();
                                 db.deleteUsersWithSelected_LayR4_FDP_Srv_Country();
 
                             } catch (Exception e) {
@@ -622,6 +624,13 @@ public class LoginActivity extends BaseActivity {
         mdialog.show();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
+        if(!syncMode)
+            btnClean.setEnabled(false);
+    }
 
     private void gotoHomePage() {
         setLogin(true);        // login success
