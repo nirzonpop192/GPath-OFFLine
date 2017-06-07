@@ -193,7 +193,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         Button btnExportDataBase = (Button) findViewById(R.id.btnEXTDB);
 
-
+//        SharedPreferences settings_ = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
+        if (!syncMode) {
+            btnExportDataBase.setVisibility(View.GONE);
+        }
         btnExportDataBase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -207,10 +211,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         + SQLiteHandler.EXTERNAL_DATABASE_NAME;
 
 
-              // file exporting naming conversation
+                // file exporting naming conversation
                 String subNpubId = sqlH.getSubscriberNPublisherID(UtilClass.getMacAddress(mContext));
 
-                if (!subNpubId.equals("") && subNpubId.length() != 0){
+                if (!subNpubId.equals("") && subNpubId.length() != 0) {
                     String endDate = "";
                     try {
                         endDate = getDateTime(true);
@@ -227,9 +231,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 //                db.clearUploadSyntaxTable();                                                      // ei method tha na delete kora valo kokhon er projon pore buja jaitese na
                     logoutUser();
 
+                } else {
+                    ADNotificationManager dialog = new ADNotificationManager();
+                    dialog.showInvalidDialog(mContext, "Invalid Attempt ", "This device is not registered to export !");
+
                 }
-             ADNotificationManager dialog= new ADNotificationManager();
-                dialog.showInvalidDialog(mContext,"Invalid Attempt ","This device is not registered to export !");
 
             }
         });

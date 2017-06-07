@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request.Method;
@@ -153,6 +154,8 @@ public class LoginActivity extends BaseActivity {
      */
     private String temValue;
 
+    private TextView tvDeviceId;
+
 
     private Button btnImportDb;
 
@@ -213,6 +216,11 @@ public class LoginActivity extends BaseActivity {
                 importDbAsycnTask.execute();
             }
         });
+
+
+        String macAddress = UtilClass.getMacAddress(mContext);                                      // get mac address
+        tvDeviceId = (TextView) findViewById(R.id.tv_deviceId);
+        tvDeviceId.setText(macAddress);
 
     }
 
@@ -628,7 +636,7 @@ public class LoginActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
-        if(!syncMode)
+        if (!syncMode)
             btnClean.setEnabled(false);
     }
 

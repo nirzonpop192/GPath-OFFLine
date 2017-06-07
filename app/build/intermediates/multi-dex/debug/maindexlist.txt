@@ -183,6 +183,7 @@ com/google/firebase/iid/FirebaseInstanceIdService.class
 com/siddiquinoor/restclient/activity/sub_activity/register_sub/RegisterMember$7.class
 com/google/android/gms/plus/internal/model/people/PersonEntity$UrlsEntity.class
 com/google/android/gms/internal/zzgn.class
+com/siddiquinoor/restclient/activity/sub_activity/training/TABeneficiaryCardListActivity$6.class
 com/google/android/gms/ads/internal/client/zzb.class
 com/siddiquinoor/restclient/activity/sub_activity/training/IdTypeSelection.class
 com/google/android/gms/common/zze.class
@@ -753,6 +754,7 @@ android/support/v4/view/ViewCompat$LollipopViewCompatImpl.class
 com/google/android/gms/wallet/FullWallet.class
 com/google/android/gms/wallet/MaskedWallet$Builder.class
 com/siddiquinoor/restclient/activity/sub_activity/summary_sub/SummaryServiceOrDistributionItemize$1.class
+com/siddiquinoor/restclient/activity/sub_activity/training/TABeneficiaryCardListActivity$8.class
 com/google/android/gms/internal/zzcs.class
 com/google/android/gms/internal/zzgp.class
 android/support/v4/app/FragmentManagerImpl$2.class
@@ -1142,6 +1144,7 @@ android/support/v7/app/AppCompatDelegateImplV23.class
 com/google/android/gms/maps/MapView.class
 org/joda/time/Period.class
 android/support/v4/media/session/MediaSessionCompat$1.class
+com/siddiquinoor/restclient/activity/sub_activity/training/TABeneficiaryCardListActivity$7.class
 com/siddiquinoor/restclient/manager/sqlsyntax/SQLiteQuery.class
 com/siddiquinoor/restclient/activity/sub_activity/commu_group_sub/CommunityGroupNDetailsRecodes$1.class
 com/google/android/gms/ads/internal/reward/mediation/client/zzb.class

@@ -135,13 +135,42 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/ll_deviceID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_versionName"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="@string/device_id"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_deviceId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/xxxxxx_xxxxxxxx"
+                android:textColor="#fff"
+                android:textSize="18dp" />
+        </LinearLayout>
+
         <TextView
             android:id="@+id/tv_versionName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/logInControl_ll"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="51dp"
+            android:layout_marginTop="35dp"
             android:gravity="center_horizontal"
             android:text="@string/log_in_version_lable"
             android:textColor="#fff"
@@ -155,32 +184,32 @@
             style="@style/button_action_normal"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_versionName"
+            android:layout_below="@+id/ll_deviceID"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:drawableLeft="@drawable/database_import_32"
             android:drawableStart="@drawable/database_import_32"
             android:gravity="left|center_vertical"
             android:paddingBottom="5dp"
-            android:paddingLeft="300dp"
+            android:paddingLeft="250dp"
             android:paddingTop="10dp"
             android:text="  Import Database" />
 
-      <!--  <Button
-            android:id="@+id/btnImport2"
-            style="@style/btn_main_page"
-            android:layout_width="match_parent"
+        <!--  <Button
+              android:id="@+id/btnImport2"
+              style="@style/btn_main_page"
+              android:layout_width="match_parent"
 
-            android:layout_below="@+id/btnImport"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginEnd="4dp"
-            android:layout_marginRight="4dp"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
-            android:paddingLeft="15dp"
-            android:paddingStart="15dp"
+              android:layout_below="@+id/btnImport"
+              android:layout_gravity="center_horizontal"
+              android:layout_marginEnd="4dp"
+              android:layout_marginRight="4dp"
+              android:layout_marginTop="10dp"
+              android:gravity="center_vertical"
+              android:paddingLeft="15dp"
+              android:paddingStart="15dp"
 
-            android:textColor="#fff" />-->
+              android:textColor="#fff" />-->
 
     </RelativeLayout>
 </ScrollView>

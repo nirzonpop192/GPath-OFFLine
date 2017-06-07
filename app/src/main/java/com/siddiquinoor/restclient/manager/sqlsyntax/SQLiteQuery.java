@@ -4914,7 +4914,7 @@ public class SQLiteQuery {
                 + " AND " + EVENT_NAME_COL + " LIKE '%" + eventTitleSearch + "%' ";
     }
 
-    public static String getEligibleTrainingAcitMemList_sql(String cCode, String searchID_orName) {
+    public static String getEligibleTrainingAcitMemList_sql(String cCode, String layR1Code, String layR2Code, String layR3Code, String layR4Code, String searchID_orName, int number) {
         String getMemName;
 
         // 0004= Liberia's Country Code
@@ -4941,8 +4941,14 @@ public class SQLiteQuery {
                     + " regAss." + LAY_R3_LIST_CODE_COL + " || \"\" || "
                     + " regAss." + LAY_R4_LIST_CODE_COL + " || \"\" || "
                     + " regAss." + HHID_COL + " || \"\" || "
-                    + " regAss." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " LIKE '%" + searchID_orName + "%' ";
+                    + " regAss." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " LIKE '" + searchID_orName + "%' ";
         }
+
+        String limit = "";
+        if (searchID_orName.length() > 0 && !searchID_orName.equals(""))
+            limit = "";
+        else
+            limit = " LIMIT 50 OFFSET " + number;
 
         String Mor = "SELECT " + " regMem." + HHID_COL
                 + " , " + " regMem." + HH_MEM_ID
@@ -4990,12 +4996,12 @@ public class SQLiteQuery {
                 " AND " + " regAss." + REG_N_ASSIGN_PROG_SRV_HH_MEM_ID + " = " + " regMem." + HH_MEM_ID +
 
 
-                " INNER JOIN " + SELECTED_VILLAGE_TABLE + " AS sv " +
+/*                " INNER JOIN " + SELECTED_VILLAGE_TABLE + " AS sv " +
                 " ON regHH." + ADM_COUNTRY_CODE_COL + " = " + " sv.CountryCode " +
                 " AND regHH." + LAY_R1_LIST_CODE + " = " + " sv.DistrictCode " +
                 " AND regHH." + LAY_R2_LIST_CODE_COL + " = " + " sv.UpazillaCode " +
                 " AND regHH." + LAY_R3_LIST_CODE_COL + " = " + " sv.UnitCode " +
-                " AND regHH." + LAY_R4_LIST_CODE_COL + " = " + " sv.VillageCode " +
+                " AND regHH." + LAY_R4_LIST_CODE_COL + " = " + " sv.VillageCode " +*/
 
 
                 " INNER JOIN " + VILLAGE_TABLE + " AS vill " +
@@ -5005,20 +5011,26 @@ public class SQLiteQuery {
                 " AND regHH." + LAY_R3_LIST_CODE_COL + " = " + " vill." + LAY_R3_LIST_CODE_COL +
                 " AND regHH." + LAY_R4_LIST_CODE_COL + " = " + " vill." + LAY_R4_LIST_CODE_COL +
 
-
+/*
                 " AND " + " sv.CountryCode " + " = " + " vill." + ADM_COUNTRY_CODE_COL +
                 " AND " + " sv.DistrictCode " + " = " + " vill." + MEM_CARD_PRINT_LAY_R1_LIST_CODE_COL +
                 " AND " + " sv.UpazillaCode " + " = " + " vill." + LAY_R2_LIST_CODE_COL +
                 " AND " + " sv.UnitCode " + " = " + " vill." + LAY_R3_LIST_CODE_COL +
-                " AND " + " sv.VillageCode " + " = " + " vill." + LAY_R4_LIST_CODE_COL +
+                " AND " + " sv.VillageCode " + " = " + " vill." + LAY_R4_LIST_CODE_COL +*/
 
 
-                " WHERE " + " regMem." + ADM_COUNTRY_CODE_COL + " =  '" + cCode + "' "
+                " WHERE " + " regMem." + ADM_COUNTRY_CODE_COL + " =  '" + cCode + "' " +
+
+                " AND regHH." + LAY_R1_LIST_CODE + " = '" + layR1Code + "' " +
+                " AND regHH." + LAY_R2_LIST_CODE_COL + " = '" + layR2Code + "' " +
+                " AND regHH." + LAY_R3_LIST_CODE_COL + " = '" + layR3Code + "' " +
+                " AND regHH." + LAY_R4_LIST_CODE_COL + " = '" + layR4Code + "' "
                 + searchID_orName +
                 " GROUP BY  newId , memName " +
 
 
-                " ORDER BY " + " regMem." + HHID_COL + " DESC ";
+                " ORDER BY " + " regMem." + HHID_COL + " DESC "
+                + limit;
 
         Log.e("ShuvoMor", Mor);
 

@@ -6152,11 +6152,11 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<TrainigActivBeneficiaryDataModel> getEligibleTrainingAcitMemList(String cCode, String mmSearchId) {
+    public ArrayList<TrainigActivBeneficiaryDataModel> getEligibleTrainingAcitMemList(String cCode,String layR1Code,String layR2Code,String layR3Code,String layR4Code, String mmSearchId, int start) {
 
         ArrayList<TrainigActivBeneficiaryDataModel> list = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String sql = SQLiteQuery.getEligibleTrainingAcitMemList_sql(cCode, mmSearchId);
+        String sql = SQLiteQuery.getEligibleTrainingAcitMemList_sql(cCode, layR1Code, layR2Code, layR3Code, layR4Code, mmSearchId,start);
 
 
         Cursor cursor = db.rawQuery(sql, null);

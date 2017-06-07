@@ -167,6 +167,8 @@ public class MemberSearchPage extends BaseActivity {
 
             // anonymous object
             new LoadListView(idCountry, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", strVillage, increment).execute();
+            loutListContoller.setVisibility(View.VISIBLE);
+            tv_title.setVisibility(View.VISIBLE);
         } else {
             // search with member id
             // anonymous object
@@ -288,7 +290,10 @@ public class MemberSearchPage extends BaseActivity {
                     getNumberOfPages();
                     LoadListView loading = new LoadListView(countryCode, idLayR1Code, idLayR2Code, idLayR3Code, idLayR4Code, "", strVillage, increment);
                     loading.execute();
-
+                    if (loutListContoller.getVisibility() == View.GONE) {
+                        loutListContoller.setVisibility(View.VISIBLE);
+                        tv_title.setVisibility(View.VISIBLE);
+                    }
 
                 } else {
                     mAdapter = new MemberSearchAdapter();
