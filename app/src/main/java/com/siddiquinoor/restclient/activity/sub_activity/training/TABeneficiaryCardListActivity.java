@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.siddiquinoor.restclient.R;
 import com.siddiquinoor.restclient.activity.TrainingActivity;
+import com.siddiquinoor.restclient.data_model.adapters.AssignDataModel;
 import com.siddiquinoor.restclient.data_model.adapters.TrainigActivBeneficiaryDataModel;
 import com.siddiquinoor.restclient.data_model.adapters.TrainingNActivityIndexDataModel;
 import com.siddiquinoor.restclient.fragments.BaseActivity;
@@ -305,37 +306,13 @@ public class TABeneficiaryCardListActivity extends BaseActivity {
         }
     }
 
+    private void loadEligibleTrainingAcitMemList(final String cCode, String layR1Code, String layR2Code, String layR3Code, String layR4Code, final String memberString, int number) {
 
-    private void loadEligibleTrainingAcitMemList(final String cCode, String layR1Code, String layR2Code, String layR3Code, String layR4Code, final String memberString, int start) {
+        int start = number * NUM_ITEMS_PAGE;
+        List<TrainigActivBeneficiaryDataModel> memberList = sqlH.getMemberList(cCode, layR1Code, layR2Code, layR3Code, layR4Code, memberString, start,true);
 
-        ArrayList<TrainigActivBeneficiaryDataModel> dataArray = new ArrayList<>();
-
-
-        List<TrainigActivBeneficiaryDataModel> assDatalist = sqlH.getEligibleTrainingAcitMemList(cCode, layR1Code, layR2Code, layR3Code, layR4Code, memberString, start);
-
-        if (assDatalist.size() != 0) {
-//            dataArray.clear();
-//            for (TrainigActivBeneficiaryDataModel data : assDatalist) {
-//                // add contacts data in arrayList
-//
-//                dataArray.add(data);
-//            }
-
-
-            adapter = new TrainingNActivityBeneficiaryAdapter((Activity) TABeneficiaryCardListActivity.this,
-                    assDatalist);
-
-            //  use below code to debug
-
-//            if (adapter.getCount() > 0) {
-//                if (adapter.getCount() != 0) {
-//                    adapter.notifyDataSetChanged();
-//                    listView.setAdapter(adapter);
-//                } else {
-//                    new ADNotificationManager().showInfromDialog(mContext, "NO Data", "No data Found");
-//                }
-//            }
-
+        if (memberList.size() != 0) {
+            adapter = new TrainingNActivityBeneficiaryAdapter((Activity) TABeneficiaryCardListActivity.this,memberList);
         }
     }
 

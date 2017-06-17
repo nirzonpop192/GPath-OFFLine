@@ -6256,6 +6256,47 @@ public class SQLiteHandler extends SQLiteOpenHelper {
     }
 
 
+    public ArrayList<TrainigActivBeneficiaryDataModel> getMemberList(final String cCode, final String disCode, final String upCode, final String unCode, final String vCode, final String memberIdOrName, int number, boolean traing) {
+
+
+        ArrayList<TrainigActivBeneficiaryDataModel> listAsignPeople = new ArrayList<TrainigActivBeneficiaryDataModel>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "";
+        if (isAlpha(memberIdOrName)) {
+            sql = SQLiteQuery.getMemberListView_searchBy_Name_sql(cCode, disCode, upCode, unCode, vCode, memberIdOrName, number);
+
+        } else {
+            sql = SQLiteQuery.getMemberListView_searchBy_ID_sql(cCode, disCode, upCode, unCode, vCode, memberIdOrName, number);
+        }
+
+
+        Cursor cursor = db.rawQuery(sql, null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                TrainigActivBeneficiaryDataModel assignPerson = new TrainigActivBeneficiaryDataModel();
+
+                assignPerson.setcCode(cursor.getString(cursor.getColumnIndex(ADM_COUNTRY_CODE_COL)));
+                assignPerson.setLayR4Name(cursor.getString(cursor.getColumnIndex("layR4Name")));
+                assignPerson.setAddressName(cursor.getString(cursor.getColumnIndex("address")));
+                assignPerson.setNewId(cursor.getString(cursor.getColumnIndex("newId")));
+                assignPerson.setHh_name(cursor.getString(cursor.getColumnIndex(REGISTRATION_TABLE_HH_HEAD_NAME)));/** house hold name */
+                assignPerson.setHh_mm_name(cursor.getString(cursor.getColumnIndex("memName")));
+                assignPerson.setMember_age(cursor.getString(cursor.getColumnIndex(MEM_AGE)));
+                assignPerson.setMember_sex(cursor.getString(cursor.getColumnIndex(SEX_COL)));
+
+                listAsignPeople.add(assignPerson);
+
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return listAsignPeople;
+
+
+    }
     public int getMemberCount(final String cCode, final String disCode, final String upCode, final String unCode, final String vCode, final String memberIdOrName, int number) {
 
         int count = 0;

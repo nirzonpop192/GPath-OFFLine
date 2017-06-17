@@ -4,6 +4,10 @@
         "source": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color-v23\\abc_color_highlight_material.xml"
     },
     {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color-v23\\abc_color_highlight_material.xml"
+    },
+    {
         "merged": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_color_highlight_material.xml",
         "source": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\color-v23\\abc_color_highlight_material.xml"
     }

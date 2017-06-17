@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.siddiquinoor.restclient.R;
 
+import com.siddiquinoor.restclient.data_model.adapters.AssignDataModel;
 import com.siddiquinoor.restclient.data_model.adapters.TrainigActivBeneficiaryDataModel;
 
 import java.util.ArrayList;
@@ -43,8 +44,7 @@ public class TrainingNActivityBeneficiaryAdapter extends BaseAdapter {
     ViewHolder holder = null;
 
 
-    public TrainingNActivityBeneficiaryAdapter(Activity activity, List<TrainigActivBeneficiaryDataModel> assignData
-    ) {
+    public TrainingNActivityBeneficiaryAdapter(Activity activity, List<TrainigActivBeneficiaryDataModel> assignData) {
         this.activity = activity;
         this.dataList = assignData;
 
