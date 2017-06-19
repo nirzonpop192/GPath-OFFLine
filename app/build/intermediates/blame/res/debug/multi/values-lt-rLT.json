@@ -1,5 +1,29 @@
 [
     {
+        "outputFile": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lt-rLT\\values-lt-rLT.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 66,
+                    "endOffset": 117
+                },
+                "from": {
+                    "file": "C:\\Users\\pop\\.android\\build-cache\\bea8688ebcaf474b6497a3521fa434e375ccee8d\\output\\res\\values-lt-rLT\\values-lt-rLT.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 66,
+                        "endOffset": 117
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-lt-rLT\\values-lt-rLT.xml",
         "map": [
             {

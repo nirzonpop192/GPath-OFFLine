@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_light.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\color\\common_google_signin_btn_text_light.xml"
+    },
+    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\abc_secondary_text_material_dark.xml"
     },
@@ -8,12 +12,8 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\abc_secondary_text_material_light.xml"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\abc_primary_text_material_dark.xml"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\switch_thumb_material_dark.xml"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\abc_primary_text_material_light.xml"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_secondary_text_holo_dark.xml",
@@ -22,6 +22,54 @@
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_plus_signin_btn_text_light.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\color\\common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_plus_signin_btn_text_light.xml",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\color\\common_plus_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\switch_thumb_material_dark.xml"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
@@ -36,8 +84,12 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_primary_text_holo_light.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\334c728e353f31a380688924b25b1f1e4d2a7adf\\output\\res\\color\\wallet_primary_text_holo_light.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_secondary_text_holo_dark.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\334c728e353f31a380688924b25b1f1e4d2a7adf\\output\\res\\color\\wallet_secondary_text_holo_dark.xml"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_plus_signin_btn_text_dark.xml",
@@ -48,15 +100,23 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\color\\common_google_signin_btn_text_dark.xml"
     },
     {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\wallet_primary_text_holo_light.xml",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\9175651c4d5ada26db90f9cd3550976dad763e57\\output\\res\\color\\wallet_primary_text_holo_light.xml"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_plus_signin_btn_text_light.xml",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\color\\common_plus_signin_btn_text_light.xml"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_plus_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\color\\common_plus_signin_btn_text_dark.xml"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\color\\common_google_signin_btn_text_dark.xml",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\color\\common_google_signin_btn_text_dark.xml"
     }
 ]

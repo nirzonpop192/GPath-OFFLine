@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
+        "source": "D:\\Project\\OFline\\GPath-OffLine\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+    },
+    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\ic_launcher.png",
         "source": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     }

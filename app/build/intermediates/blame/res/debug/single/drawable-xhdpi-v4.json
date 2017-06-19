@@ -1,43 +1,23 @@
 [
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
-    },
-    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\places_ic_clear.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\919ae368e0222c8f6eb169224fc833b6d2e10c89\\output\\res\\drawable-xhdpi-v4\\places_ic_clear.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_disabled.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_disabled.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\powered_by_google_light.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\007a47f5d4653188a973953cd795ba343fec7203\\output\\res\\drawable-xhdpi-v4\\powered_by_google_light.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png"
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_disabled.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_disabled.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
@@ -56,6 +36,18 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_focused.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_pressed.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_pressed.9.png"
+    },
+    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
@@ -64,12 +56,8 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_pressed.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_pressed.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
@@ -80,12 +68,8 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_disabled.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_ic_googleplayservices.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_ic_googleplayservices.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_on.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\503ce9ca5dc1157dcff716ff4c5db8438f56b406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_on.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\powered_by_google_light.png",
@@ -96,16 +80,8 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_focused.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_normal.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_normal.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\table_box_border.xml",
-        "source": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\src\\main\\res\\drawable-xhdpi\\table_box_border.xml"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png",
@@ -116,24 +92,8 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_focused.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_0.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\503ce9ca5dc1157dcff716ff4c5db8438f56b406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_0.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_focused.9.png",
@@ -144,8 +104,16 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_pressed.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\powered_by_google_dark.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\919ae368e0222c8f6eb169224fc833b6d2e10c89\\output\\res\\drawable-xhdpi-v4\\powered_by_google_dark.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
@@ -160,32 +128,448 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_pressed.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_pressed.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_focused.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_focused.9.png"
     },
     {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_pressed.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_pressed.9.png"
+    },
+    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_on.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\d6e862e9d2cb684b146f6e49fdc13d81a56a9406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_on.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_pressed.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_1.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\503ce9ca5dc1157dcff716ff4c5db8438f56b406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_1.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_pressed.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\places_ic_search.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\007a47f5d4653188a973953cd795ba343fec7203\\output\\res\\drawable-xhdpi-v4\\places_ic_search.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_go_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_disabled.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_full_open_on_phone.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_normal.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_focused.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_focused.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_2.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\503ce9ca5dc1157dcff716ff4c5db8438f56b406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_2.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_clear_mtrl_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_clear_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_full_open_on_phone.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\ad1cb572e6b92b6ab49772164a8bc47dc12c4d3f\\output\\res\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_ic_googleplayservices.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_focused.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_small_off_client.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\ad1cb572e6b92b6ab49772164a8bc47dc12c4d3f\\output\\res\\drawable-xhdpi-v4\\ic_plusone_small_off_client.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_pressed.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_clear_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_clear_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_disabled.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_track_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_36dp.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_rating_star_on_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_1.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\d6e862e9d2cb684b146f6e49fdc13d81a56a9406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_1.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_disabled.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_2.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\d6e862e9d2cb684b146f6e49fdc13d81a56a9406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_2.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_normal.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_normal.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_ic_googleplayservices.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_ic_googleplayservices.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_on.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\503ce9ca5dc1157dcff716ff4c5db8438f56b406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_on.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_focused.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_focused.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_normal.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\table_box_border.xml",
+        "source": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\src\\main\\res\\drawable-xhdpi\\table_box_border.xml"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\powered_by_google_dark.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\007a47f5d4653188a973953cd795ba343fec7203\\output\\res\\drawable-xhdpi-v4\\powered_by_google_dark.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_0.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\d6e862e9d2cb684b146f6e49fdc13d81a56a9406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_0.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_0.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\503ce9ca5dc1157dcff716ff4c5db8438f56b406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_0.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_disabled.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\286a5fdd0b0f865d4384e4bdfef2881e35c05276\\output\\res\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_focused.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_focused.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\powered_by_google_dark.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\919ae368e0222c8f6eb169224fc833b6d2e10c89\\output\\res\\drawable-xhdpi-v4\\powered_by_google_dark.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ab_share_pack_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_pressed.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_disabled.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_disabled.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_pressed.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_pressed.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_small_off_client.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\286a5fdd0b0f865d4384e4bdfef2881e35c05276\\output\\res\\drawable-xhdpi-v4\\ic_plusone_small_off_client.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_medium_off_client.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\286a5fdd0b0f865d4384e4bdfef2881e35c05276\\output\\res\\drawable-xhdpi-v4\\ic_plusone_medium_off_client.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_1.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\503ce9ca5dc1157dcff716ff4c5db8438f56b406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_1.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_half_black_16dp.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_pressed.9.png",
@@ -196,36 +580,28 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_disabled.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_full_open_on_phone.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_divider_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_medium_off_client.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\ad1cb572e6b92b6ab49772164a8bc47dc12c4d3f\\output\\res\\drawable-xhdpi-v4\\ic_plusone_medium_off_client.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\places_ic_search.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\919ae368e0222c8f6eb169224fc833b6d2e10c89\\output\\res\\drawable-xhdpi-v4\\places_ic_search.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_disabled.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_disabled.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\places_ic_search.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\919ae368e0222c8f6eb169224fc833b6d2e10c89\\output\\res\\drawable-xhdpi-v4\\places_ic_search.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_moreoverflow_mtrl_alpha.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_normal.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_normal.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
@@ -236,24 +612,32 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_commit_search_api_mtrl_alpha.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_disabled.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_disabled.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\cast_ic_notification_2.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\503ce9ca5dc1157dcff716ff4c5db8438f56b406\\output\\res\\drawable-xhdpi-v4\\cast_ic_notification_2.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_tall_off_client.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\286a5fdd0b0f865d4384e4bdfef2881e35c05276\\output\\res\\drawable-xhdpi-v4\\ic_plusone_tall_off_client.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_clear_mtrl_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_clear_mtrl_alpha.png"
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_disabled.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_disabled.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_btn_rating_star_off_mtrl_alpha.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_015.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_focused.9.png",
@@ -268,24 +652,24 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_off_mtrl_alpha.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_focused.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_focused.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\ad1cb572e6b92b6ab49772164a8bc47dc12c4d3f\\output\\res\\drawable-xhdpi-v4\\ic_plusone_standard_off_client.png"
-    },
-    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_normal.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_light_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\a1f72f489f18a7467319a69fc0c6ef22df78243d\\output\\res\\drawable-xhdpi-v4\\abc_list_selector_disabled_holo_light.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_tall_off_client.png",
@@ -296,10 +680,6 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_pressed.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_plusone_small_off_client.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\ad1cb572e6b92b6ab49772164a8bc47dc12c4d3f\\output\\res\\drawable-xhdpi-v4\\ic_plusone_small_off_client.png"
-    },
-    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
@@ -308,24 +688,28 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_disabled.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_pressed.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_pressed.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_search_api_mtrl_alpha.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_search_api_mtrl_alpha.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_light_normal.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\table_box_border.xml",
+        "source": "D:\\Project\\OFline\\GPath-OffLine\\app\\src\\main\\res\\drawable-xhdpi\\table_box_border.xml"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_normal.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_icon_dark_normal.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_focused.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_focused.9.png"
+    },
+    {
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\places_ic_clear.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\007a47f5d4653188a973953cd795ba343fec7203\\output\\res\\drawable-xhdpi-v4\\places_ic_clear.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_spinner_mtrl_am_alpha.9.png",
@@ -344,24 +728,16 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_disabled.9.png"
+        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png",
+        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png",
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_pressed.9.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_16dp.png"
-    },
-    {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_focused.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_focused.9.png"
     },
     {
         "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_disabled.9.png",
@@ -372,7 +748,7 @@
         "source": "C:\\Users\\TD06\\.android\\build-cache\\f9629496173992699a47a009d141c8fa05834e7a\\output\\res\\drawable-xhdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png"
     },
     {
-        "merged": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png",
-        "source": "C:\\Users\\TD06\\.android\\build-cache\\307ca9c8502c45bde49418fcb8d20e1a364cf0f8\\output\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png"
+        "merged": "D:\\Project\\OFline\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal.9.png",
+        "source": "C:\\Users\\pop\\.android\\build-cache\\e9f966ab6fe92c8181f4795f53f88af6ce17e309\\output\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal.9.png"
     }
 ]

@@ -227,7 +227,14 @@ public class LoginActivity extends BaseActivity {
         String root = Environment.getExternalStorageDirectory().toString();
 
         String folderPath = root + "/GpathOffline/";
+
+
         File folder = new File(folderPath);
+
+
+        if (!folder.exists())
+            folder.mkdirs();
+
         File[] files = folder.listFiles(new FilenameFilter() {
             @Override
             public boolean accept(File dir, String name) {
