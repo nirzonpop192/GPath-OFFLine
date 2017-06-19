@@ -136,7 +136,7 @@ public class SQLiteQuery {
     public static String loadTaSummaryOrganization_sql(final String cCode, final String eventCode) {
         return " select  " + TA_PART_ORG_N_TABLE + "." + PART_ORG_N_CODE_COL + " AS code "
                 + " , " + TA_PART_ORG_N_TABLE + "." + PART_ORG_N_NAME_COL + " AS title " +
-                "    , " + "   (Select   count( distinct " + TA_PARTICIPANTS_LIST_TABLE + "." + PART_ORG_N_CODE_COL + ")  " +
+                "    , " + "   (Select   count( " + TA_PARTICIPANTS_LIST_TABLE + "." + PART_ORG_N_CODE_COL + ")  " +
                 " from " + TA_PARTICIPANTS_LIST_TABLE
                 + " where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "' " +
                 "    and  " + TA_PARTICIPANTS_LIST_TABLE + "." + EVENT_CODE_COL + " = '" + eventCode + "'  " +
@@ -156,7 +156,7 @@ public class SQLiteQuery {
     public static String loadTaSummaryCategory_sql(final String cCode, final String eventCode) {
         return " select " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " AS code "
                 + " , " + TA_CATEGORY_TABLE + "." + TA_CAT_NAME_COL + " AS title " +
-                "    , " + "   (Select count( distinct " + TA_PARTICIPANTS_LIST_TABLE + "." + PART_CAT_CODE_COL + " )  from " + TA_PARTICIPANTS_LIST_TABLE + " where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "' " +
+                "    , " + "   (Select count( " + TA_PARTICIPANTS_LIST_TABLE + "." + PART_CAT_CODE_COL + " )  from " + TA_PARTICIPANTS_LIST_TABLE + " where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "' " +
                 "    and  " + TA_PARTICIPANTS_LIST_TABLE + "." + EVENT_CODE_COL + " = '" + eventCode + "'  " +
                 "   and " + TA_PARTICIPANTS_LIST_TABLE + "." + PART_CAT_CODE_COL + " = " + TA_CATEGORY_TABLE + "." + TA_CAT_CODE_COL + " )  AS count " +
                 "    from " + TA_PARTICIPANTS_LIST_TABLE + " " +
@@ -171,7 +171,7 @@ public class SQLiteQuery {
     public static String loadTaSummaryPosition_sql(final String cCode, final String eventCode) {
         return " select " + TA_POS_PARTICIPANTS_TABLE + "." + POS_CODE_COL + " AS code "
                 + " , " + TA_POS_PARTICIPANTS_TABLE + "." + POS_TITLE_COL + " AS title " +
-                "    , " + "   (Select count( distinct " + TA_PARTICIPANTS_LIST_TABLE + "." + POS_CODE_COL + " )  from " + TA_PARTICIPANTS_LIST_TABLE + " where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "' " +
+                "    , " + "   (Select count( " + TA_PARTICIPANTS_LIST_TABLE + "." + POS_CODE_COL + " )  from " + TA_PARTICIPANTS_LIST_TABLE + " where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + "='" + cCode + "' " +
                 "    and  " + TA_PARTICIPANTS_LIST_TABLE + "." + EVENT_CODE_COL + " = '" + eventCode + "'  " +
                 "   and " + TA_PARTICIPANTS_LIST_TABLE + "." + POS_CODE_COL + " = " + TA_POS_PARTICIPANTS_TABLE + "." + POS_CODE_COL + " )  AS count " +
                 "    from " + TA_PARTICIPANTS_LIST_TABLE + " " +
@@ -184,7 +184,7 @@ public class SQLiteQuery {
     }
 
 
-    public static String loadTaSummarySession_sql(final String cCode, final String eventCode) {
+    public static String loadTaSummarySession_am_sql(final String cCode, final String eventCode) {
 //        SELECT AMSession
 //        ,case when AMSession='1' then 'AM' else 'PM' end as title
 //                , COUNT  (AMSession) FROM TAParticipantsList where
@@ -194,11 +194,24 @@ public class SQLiteQuery {
 
         return " select " + AM_SESSION_COL + " AS code "
                 + " ,  CASE WHEN " + AM_SESSION_COL + " = '1' THEN 'AM' ELSE 'PM' END  AS title " +
-                "    , " + "  count(*) AS count " +
+                "    , " + "  count("+AM_SESSION_COL+") AS count " +
                 "    from " + TA_PARTICIPANTS_LIST_TABLE + " " +
                 "    where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
                 "    and  " + TA_PARTICIPANTS_LIST_TABLE + "." + EVENT_CODE_COL + " = '" + eventCode + "' " +
-                //     " and " + SEX_COL + " =  case when "+SEX_COL+" = 'M' then 'M' else 'F' end " +
+
+                "    group by  title ";
+    }
+
+    public static String loadTaSummarySession_pm_sql(final String cCode, final String eventCode) {
+
+
+        return " select " + PM_SESSION_COL + " AS code "
+                + " ,  CASE WHEN " + PM_SESSION_COL + " = '1' THEN 'PM' ELSE 'AM' END  AS title " +
+                "    , " + "  count("+PM_SESSION_COL+") AS count " +
+                "    from " + TA_PARTICIPANTS_LIST_TABLE + " " +
+                "    where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
+                "    and  " + TA_PARTICIPANTS_LIST_TABLE + "." + EVENT_CODE_COL + " = '" + eventCode + "' " +
+
                 "    group by  title ";
     }
 
@@ -208,7 +221,7 @@ public class SQLiteQuery {
 
         return " select " + TA_PARTICIPANTS_LIST_TABLE_SEX_COL + " AS code "
                 + " ,  CASE WHEN " + TA_PARTICIPANTS_LIST_TABLE_SEX_COL + " = 'F' THEN 'Female' ELSE 'Male' END  AS title " +
-                "    , " + "  count( distinct " + TA_PARTICIPANTS_LIST_TABLE_SEX_COL + " ) AS count " +
+                "    , " + "  count(  " + TA_PARTICIPANTS_LIST_TABLE_SEX_COL + " ) AS count " +
                 "    from " + TA_PARTICIPANTS_LIST_TABLE + " " +
                 "    where " + TA_PARTICIPANTS_LIST_TABLE + "." + ADM_COUNTRY_CODE_COL + " = '" + cCode + "' " +
                 "    and  " + TA_PARTICIPANTS_LIST_TABLE + "." + EVENT_CODE_COL + " = '" + eventCode + "' " +

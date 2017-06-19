@@ -30,7 +30,7 @@ public class TaSummaryPage extends BaseActivity {
     private TrainingNActivityIndexDataModel mTAMasterData;
     private ListView lvOrganazetion, lvCategory, lvPosition, lvSex, lvSession;
     private TA_SummaryAdapter adapterOrganization, adapterCategory, adapterPosition, adapterSex, adapterSession;
-    Button btnHome,btnTrainActivity;
+    Button btnHome, btnTrainActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -181,9 +181,20 @@ public class TaSummaryPage extends BaseActivity {
 
     private void loadTaSummarySession(final String cCode, final String eventCode) {
 
-        List<TaSummary> assDatalist = sqlH.getTaSummary(SQLiteQuery.loadTaSummarySession_sql(cCode, eventCode));
+        List<TaSummary> assDatalist_am = sqlH.getTaSummary(SQLiteQuery.loadTaSummarySession_am_sql(cCode, eventCode));
+        adapterSession = new TA_SummaryAdapter((Activity) mContext, assDatalist_am);
 
-        adapterSession = new TA_SummaryAdapter((Activity) mContext, assDatalist);
+        if (adapterSession.getCount() > 0) {
+            if (adapterSession.getCount() != 0) {
+                adapterSession.notifyDataSetChanged();
+                lvSession.setAdapter(adapterSession);
+            } else {
+                new ADNotificationManager().showInfromDialog(mContext, "NO Data", "No data Found");
+            }
+        }
+
+        List<TaSummary> assDatalist_pm = sqlH.getTaSummary(SQLiteQuery.loadTaSummarySession_pm_sql(cCode, eventCode));
+        adapterSession = new TA_SummaryAdapter((Activity) mContext, assDatalist_pm);
 
         if (adapterSession.getCount() > 0) {
             if (adapterSession.getCount() != 0) {
