@@ -1,29 +1,5 @@
 [
     {
-        "outputFile": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rUS\\values-en-rUS.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 66,
-                    "endOffset": 117
-                },
-                "from": {
-                    "file": "D:\\WorkSpace\\AndroidStudioProject\\May-2017\\GPath-OffLine\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\values-en-rUS\\values-en-rUS.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 66,
-                        "endOffset": 117
-                    }
-                }
-            }
-        ]
-    },
-    {
         "outputFile": "F:\\AndridWorkSpace\\GPath-OffLine\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rUS\\values-en-rUS.xml",
         "map": [
             {
@@ -36,30 +12,6 @@
                 },
                 "from": {
                     "file": "C:\\Users\\TD06\\.android\\build-cache\\bc925efb1290e87f0cca6f7ffa4cd4bf14c737be\\output\\res\\values-en-rUS\\values-en-rUS.xml",
-                    "position": {
-                        "startLine": 2,
-                        "startColumn": 4,
-                        "startOffset": 55,
-                        "endColumn": 66,
-                        "endOffset": 117
-                    }
-                }
-            }
-        ]
-    },
-    {
-        "outputFile": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\res\\merged\\debug\\values-en-rUS\\values-en-rUS.xml",
-        "map": [
-            {
-                "to": {
-                    "startLine": 2,
-                    "startColumn": 4,
-                    "startOffset": 55,
-                    "endColumn": 66,
-                    "endOffset": 117
-                },
-                "from": {
-                    "file": "D:\\android Project\\G-path new\\Shuvo_gpath\\GPath-OffLine\\app\\build\\intermediates\\exploded-aar\\net.danlew\\android.joda\\2.9.9\\res\\values-en-rUS\\values-en-rUS.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

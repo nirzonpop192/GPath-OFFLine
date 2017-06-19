@@ -195,12 +195,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
 //        SharedPreferences settings_ = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         boolean syncMode = settings.getBoolean(UtilClass.SYNC_MODE_KEY, true);
-        if (!syncMode) {
+        if (syncMode) {
             btnExportDataBase.setVisibility(View.GONE);
-        }
+        }else
+            btnExportDataBase.setVisibility(View.VISIBLE);
+
         btnExportDataBase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String root = Environment.getExternalStorageDirectory().toString();
+
+                File sd = new File(root + "/GpathOffline/");                                             // get the internal root directories root/GpathOffline path
+
+                deleteRecursive(sd);
+
+                // Check this link also how to delete folder from internal storage in android?.
+
 
                 SQLiteHandler sqLiteHandler = new SQLiteHandler(MainActivity.this, 1);
 
@@ -260,6 +271,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 importDbAsycnTask.execute();
             }
         });
+    }
+
+
+    void deleteRecursive(File fileOrDirectory) {
+
+        if (fileOrDirectory.isDirectory())
+            for (File child : fileOrDirectory.listFiles())
+                deleteRecursive(child);
+
+        fileOrDirectory.delete();
+
     }
 
     private void restoreDataBase() {
@@ -2149,12 +2171,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         String LogYN = prog_org_n_role_Data.getString("LogYN");
                         String ImpYN = prog_org_n_role_Data.getString("ImpYN");
                         String OthYN = prog_org_n_role_Data.getString("OthYN");
-       /*                 Log.d("InTest", "AdmCountryCode:" + AdmCountryCode
-                                + "AdmDonorCode: " + AdmDonorCode + "AdmAwardCode : " + AdmAwardCode + "OrgNCode:" + OrgNCode
-                                + " PrimeYN: " + PrimeYN + " SubYN:" + SubYN
-                                + " TechYN: " + TechYN
-                                + " LogYN: " + LogYN + "ImpYN:" + ImpYN + " OthYN: " + OthYN
-                        );*/
+
                         db.insertIntoProgOrgNRole(AdmCountryCode, AdmDonorCode, AdmAwardCode, OrgNCode, PrimeYN, SubYN, TechYN, ImpYN, LogYN, OthYN);
                     }
                 }

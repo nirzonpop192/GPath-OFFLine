@@ -55,8 +55,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.text.ParseException;
@@ -219,8 +221,29 @@ public class LoginActivity extends BaseActivity {
 
 
         String macAddress = UtilClass.getMacAddress(mContext);                                      // get mac address
-        tvDeviceId = (TextView) findViewById(R.id.tv_deviceId);
+
         tvDeviceId.setText(macAddress);
+
+        String root = Environment.getExternalStorageDirectory().toString();
+
+        String folderPath = root + "/GpathOffline/";
+        File folder = new File(folderPath);
+        File[] files = folder.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                return name.matches("PCI_.*\\.db");
+            }
+        });
+        for (File file : files) {
+            if (file.exists()) {
+                File newDb_1 = new File(path);
+                btnImportDb.setVisibility(View.VISIBLE);
+                file.renameTo(newDb_1);
+            }
+
+
+        }
+
 
     }
 
@@ -331,6 +354,7 @@ public class LoginActivity extends BaseActivity {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnExit = (Button) findViewById(R.id.btnExit);
         btnClean = (Button) findViewById(R.id.btnClean);
+        tvDeviceId = (TextView) findViewById(R.id.tv_deviceId);
 
     }
 
